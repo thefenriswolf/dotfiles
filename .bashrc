@@ -117,3 +117,4 @@ if ! shopt -oq posix; then
 fi
 alias yta='youtube-dl --extract-audio --audio-format mp3'
 alias ytv='youtube-dl'
+alias ytup='sudo youtube-dl -U'
