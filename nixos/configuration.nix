@@ -21,7 +21,7 @@ boot.kernelModules = ["kvm-amd" "kvm-intel"];
 # boot.loader.efi.efiSysMountPoint = "/boot/efi";
 # Define on which hard drive you want to install Grub.
 boot.loader.grub.device = 
-"/dev/disk/by-id/ata-HGST_HTS545050A7E680_RBE50AM51BU73P-part2"; 
+"/dev/disk/by-id/ata-HGST_HTS545050A7E680_RBE50AM51BU73P"; # Grub doesn't install to a specific partition, i hate you too grub
 # or "nodev" for efi only
 
 networking.hostName = "nixos"; # Define your hostname.
