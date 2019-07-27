@@ -14,12 +14,15 @@ imports =
 boot.loader.grub.enable = true;
 boot.loader.grub.version = 2;
 boot.supportedFilesystems = ["zfs"];
+boot.loader.grub.copyKernels = true;
 boot.kernelModules = ["kvm-amd" "kvm-intel"];
 # boot.loader.grub.efiSupport = true;
 # boot.loader.grub.efiInstallAsRemovable = true;
 # boot.loader.efi.efiSysMountPoint = "/boot/efi";
 # Define on which hard drive you want to install Grub.
-boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+boot.loader.grub.device = 
+"/dev/disk/by-id/ata-HGST_HTS545050A7E680_RBE50AM51BU73P-part2"; 
+# or "nodev" for efi only
 
 networking.hostName = "nixos"; # Define your hostname.
 networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -78,10 +81,13 @@ services.xserver.layout = "de";
 # Enable touchpad support.
 # services.xserver.libinput.enable = true;
 
-# Enable the KDE Desktop Environment.
-services.xserver.displayManager.sddm.enable = true;
-services.xserver.desktopManager.plasma5.enable = true;
-
+# Enable the Desktop Environment.
+services.xserver.displayManager.lightdm.enable = true;
+services.xserver.desktopManager.xfce.enable = true;
+# Install nvidia drivers
+services.xserver.videoDrivers = [ "nvidiaLegacy390" ];
+# ofc you have to enable nonfree software
+nixpkgs.config.allowUnfree = true;
 # Define a user account. Don't forget to set a password with ‘passwd’.
 users.users.stefan = {
 isNormalUser = true;
