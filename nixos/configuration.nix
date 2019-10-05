@@ -14,6 +14,7 @@ imports =
 boot.loader.grub.enable = true;
 boot.loader.grub.version = 2;
 boot.supportedFilesystems = ["zfs"];
+boot.extraModulePackages = [ config.boot.kernelPackages.wireguard ];
 boot.loader.grub.copyKernels = true;
 boot.kernelModules = ["kvm-amd" "kvm-intel"];
 # boot.loader.grub.efiSupport = true;
@@ -44,7 +45,36 @@ time.timeZone = "Europe/Vienna";
 # List packages installed in system profile. To search, run:
 # $ nix search wget
 environment.systemPackages = with pkgs; [
-wget nano
+
+# basic cli tools
+wget
+vim
+htop
+nano
+sshfsFuse
+
+# Android
+jmtpfs
+gphoto2
+libmtp
+mtpfs
+
+# web
+firefox
+
+# dev
+git
+vscode
+dotnet-sdk
+python
+
+# vpn
+pkgs.wireguard
+pkgs.wireguard-tools
+
+# windows drive support
+exfat 
+ntfs3g
 ];
 
 # Some programs need SUID wrappers, can be configured further or are
@@ -57,8 +87,24 @@ wget nano
 # Enable the OpenSSH daemon.
 services.openssh.enable = true;
 
+ # zfs config
+  services.zfs.autoScrub.enable = true;
+  services.zfs.autoScrub.interval = "weekly";
+  services.zfs.autoScrub.pools = ["rpool"];
+  services.zfs.autoSnapshot.enable = true;
+  services.zfs.autoSnapshot.daily = 1;
+  services.zfs.autoSnapshot.weekly = 1;
+  services.zfs.autoSnapshot.monthly = 1;
+
 # Enable libvirtd
 virtualisation.libvirtd.enable = true;
+
+# enable containers
+  boot.enableContainers = true;
+# enable lxc and lxd
+  virtualisation.lxc.enable = true;
+  virtualisation.lxd.enable = true;
+  virtualisation.lxd.zfsSupport = true;
 
 # Open ports in the firewall.
 # networking.firewall.allowedTCPPorts = [ ... ];
@@ -76,22 +122,26 @@ hardware.pulseaudio.enable = true;
 # Enable the X11 windowing system.
 services.xserver.enable = true;
 services.xserver.layout = "de";
+services.xserver.xkbVariant = "nodeadkeys";
 # services.xserver.xkbOptions = "eurosign:e";
 
 # Enable touchpad support.
 # services.xserver.libinput.enable = true;
 
 # Enable the Desktop Environment.
-services.xserver.displayManager.lightdm.enable = true;
-services.xserver.desktopManager.xfce.enable = true;
+services.xserver.displayManager.ssdm.enable = true;
+services.xserver.desktopManager.plasma5.enable = true;
+
 # Install nvidia drivers
 services.xserver.videoDrivers = [ "nvidiaLegacy390" ];
+
 # ofc you have to enable nonfree software
 nixpkgs.config.allowUnfree = true;
+
 # Define a user account. Don't forget to set a password with ‘passwd’.
 users.users.stefan = {
 isNormalUser = true;
-extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+extraGroups = [ "wheel" "zfs" "lxd" "docker" "networkmanager" ];
 };
 
 # This value determines the NixOS release with which your system is to be
