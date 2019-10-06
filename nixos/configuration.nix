@@ -50,7 +50,9 @@ environment.systemPackages = with pkgs; [
 wget
 vim
 htop
+iotop
 nano
+rsync
 sshfsFuse
 
 # Android
@@ -141,7 +143,15 @@ nixpkgs.config.allowUnfree = true;
 # Define a user account. Don't forget to set a password with ‘passwd’.
 users.users.stefan = {
 isNormalUser = true;
-extraGroups = [ "wheel" "zfs" "lxd" "docker" "networkmanager" ];
+extraGroups = [
+  "wheel"
+  "audio"
+  "video"
+  "zfs"
+  "lxd"
+  "docker"
+  "networkmanager"
+  "systemd-journal" ];
 };
 
 # This value determines the NixOS release with which your system is to be
