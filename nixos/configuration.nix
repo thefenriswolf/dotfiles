@@ -16,17 +16,18 @@ boot.loader.grub.version = 2;
 boot.supportedFilesystems = ["zfs"];
 boot.extraModulePackages = [ config.boot.kernelPackages.wireguard ];
 boot.loader.grub.copyKernels = true;
-boot.kernelModules = ["kvm-amd" "kvm-intel"];
+# boot.kernelModules = ["kvm-amd" "kvm-intel"];
 # boot.loader.grub.efiSupport = true;
 # boot.loader.grub.efiInstallAsRemovable = true;
 # boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
 # Define on which hard drive you want to install Grub.
-boot.loader.grub.device = 
-"/dev/disk/by-id/ata-HGST_HTS545050A7E680_RBE50AM51BU73P"; # Grub doesn't install to a specific partition, i hate you too grub
+boot.loader.grub.device = "/dev/disk/by-id/ata-ST2000DL003-9VT166_5YD6TX81"; # Grub doesn't install to a specific partition, i hate you too grub
 # or "nodev" for efi only
 
 networking.hostName = "nixos"; # Define your hostname.
-networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+# networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+networking.networkmanager.enable = true;
 networking.hostId = "994d9128";
 # Configure network proxy if necessary
 # networking.proxy.default = "http://user:password@proxy:port/";
@@ -53,7 +54,10 @@ htop
 iotop
 nano
 rsync
-sshfsFuse
+bpftool
+cmus
+parted
+
 
 # Android
 jmtpfs
@@ -61,14 +65,21 @@ gphoto2
 libmtp
 mtpfs
 
-# web
+# desktop
+mpv
 firefox
+simple-scan
 
 # dev
 git
-vscode
-dotnet-sdk
 python
+clang
+
+# containers
+podman
+buildah
+conmon
+runc
 
 # vpn
 pkgs.wireguard
@@ -86,36 +97,40 @@ ntfs3g
 
 # List services that you want to enable:
 
+ services.flatpak.enable = true;
+ xdg.portal.enable = true;
+
+
 # Enable the OpenSSH daemon.
-services.openssh.enable = true;
+ services.openssh.enable = true;
 
  # zfs config
   services.zfs.autoScrub.enable = true;
   services.zfs.autoScrub.interval = "weekly";
   services.zfs.autoScrub.pools = ["rpool"];
   services.zfs.autoSnapshot.enable = true;
-  services.zfs.autoSnapshot.daily = 1;
-  services.zfs.autoSnapshot.weekly = 1;
-  services.zfs.autoSnapshot.monthly = 1;
+  services.zfs.autoSnapshot.daily = 6;
+  services.zfs.autoSnapshot.weekly = 7;
+  services.zfs.autoSnapshot.monthly = 3;
 
 # Enable libvirtd
-virtualisation.libvirtd.enable = true;
+# virtualisation.libvirtd.enable = true;
 
 # enable containers
   boot.enableContainers = true;
 # enable lxc and lxd
-  virtualisation.lxc.enable = true;
-  virtualisation.lxd.enable = true;
-  virtualisation.lxd.zfsSupport = true;
+#  virtualisation.lxc.enable = true;
+#  virtualisation.lxd.enable = true;
+#  virtualisation.lxd.zfsSupport = true;
 
 # Open ports in the firewall.
 # networking.firewall.allowedTCPPorts = [ ... ];
 # networking.firewall.allowedUDPPorts = [ ... ];
-# Or disable the firewall altogether.
-# networking.firewall.enable = false;
+# Or disable the firewall altogether. 
+ networking.firewall.enable = true;
 
 # Enable CUPS to print documents.
-# services.printing.enable = true;
+ services.printing.enable = true;
 
 # Enable sound.
 sound.enable = true;
@@ -131,7 +146,7 @@ services.xserver.xkbVariant = "nodeadkeys";
 # services.xserver.libinput.enable = true;
 
 # Enable the Desktop Environment.
-services.xserver.displayManager.ssdm.enable = true;
+services.xserver.displayManager.lightdm.enable = true;
 services.xserver.desktopManager.plasma5.enable = true;
 
 # Install nvidia drivers
@@ -148,8 +163,8 @@ extraGroups = [
   "audio"
   "video"
   "zfs"
-  "lxd"
-  "docker"
+ # "lxd"
+ # "docker"
   "networkmanager"
   "systemd-journal" ];
 };
