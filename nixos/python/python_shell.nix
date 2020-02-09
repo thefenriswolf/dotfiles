@@ -3,13 +3,14 @@ mkShell {
   buildInputs = [
 	(python3.withPackages (ps: with ps; [
 	pydicom
+	python38Packages.matplotlib
 	numpy
-	pillow
+	python38Packages.pillow
 	pandas
 	python38Packages.opencv4
 	]))
     nano
-    vim
+    emacs
     git
   ];
 }

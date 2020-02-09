@@ -1,8 +1,5 @@
 with import <nixpkgs> {};
-stdenv.mkDerivation rec {
-  version = "0.1.0";
-  name = "buildroot";
-  env = buildEnv { name = name; paths = buildInputs; };
+mkShell {
   buildInputs = [
     curl
     git
