@@ -1,0 +1,24 @@
+name: tetris-thefenriswolf
+base: core18
+version: '0.1.4'
+summary: A terminal interface for tetris
+description: |
+  A terminal interface for tetris written in Haskell
+grade: stable
+confinement: strict
+
+parts:
+    tetris:
+        plugin: dump
+        source: https://github.com/samtay/tetris/releases/download/0.1.4/tetris-Linux-x86_64
+        source-type: local
+        override-pull: |
+          mkdir -p bin
+          curl -L https://github.com/samtay/tetris/releases/download/0.1.4/tetris-Linux-x86_64 -o bin/tetris
+          chmod +x bin/tetris
+apps:
+    tetris:
+        command: bin/tetris
+architectures:
+  - build-on: [amd64]
+  - run-on: [amd64]
