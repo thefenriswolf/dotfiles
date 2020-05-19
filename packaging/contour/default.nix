@@ -9,12 +9,14 @@
 
 mkDerivation rec {
   pname = "contour";
-  version = "alpha-20200418"; # TODO: replace with actual version on first release
+  version =
+    "alpha-20200418"; # TODO: replace with actual version on first release
 
   src = fetchFromGitHub {
     owner = "christianparpart";
     repo = "contour";
-    rev = "857a3fdcfab316c9f521709faad877c06ea0330a"; # TODO: replace with actual version on first release
+    rev =
+      "857a3fdcfab316c9f521709faad877c06ea0330a"; # TODO: replace with actual version on first release
     sha256 = "04d9v4qwv35nf97bibw1xqjr7cr8fnp4p0n0qg6lhdsrxpmqrm57";
     fetchSubmodules = true;
   };
@@ -24,6 +26,7 @@ mkDerivation rec {
 
   buildInputs = [
     freetype
+    fontconfig
     glfw
     qtbase
     pcre-cpp
@@ -35,9 +38,12 @@ mkDerivation rec {
     libGL
   ];
 
-  preConfigure = ''
-    sed -i 's/-DLIBTERMINAL_EXECUTION_PAR="OFF"/-DLIBTERMINAL_EXECUTION_PAR="ON"/g' autogen.sh
-  '';
+  cmakeFlags = [
+    "-DCONTOUR_BLUR_PLATFORM_KWIN=ON"
+    "-DLIBTERMINAL_EXECUTION_PAR=ON"
+    #"-DCMAKE_C_COMPILER=clang"
+    #"-DCMAKE_CXX_COMPILER=clang++"
+  ];
 
   configureScript = ''
     ./autogen.sh
@@ -48,7 +54,11 @@ mkDerivation rec {
     homepage = "https://github.com/christianparpart/contour";
     license = licenses.asl20;
     maintainers = with maintainers; [ thefenriswolf ];
-    platforms =
-      [ "x86_64-linux" "x86_64-darwin" "x86_64-freebsd" "x86_64-openbsd" ]; # TODO: check if contour build on those platforms
+    platforms = [
+      "x86_64-linux"
+      "x86_64-darwin"
+      "x86_64-freebsd"
+      "x86_64-openbsd"
+    ]; # TODO: check if contour builds on those platforms
   };
 }
