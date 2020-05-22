@@ -15,8 +15,7 @@ mkDerivation rec {
   src = fetchFromGitHub {
     owner = "christianparpart";
     repo = "contour";
-    rev =
-      "857a3fdcfab316c9f521709faad877c06ea0330a"; # TODO: replace with actual version on first release
+    rev = "857a3fdcfab316c9f521709faad877c06ea0330a"; # TODO: replace with actual version on first release
     sha256 = "04d9v4qwv35nf97bibw1xqjr7cr8fnp4p0n0qg6lhdsrxpmqrm57";
     fetchSubmodules = true;
   };
@@ -54,11 +53,10 @@ mkDerivation rec {
     homepage = "https://github.com/christianparpart/contour";
     license = licenses.asl20;
     maintainers = with maintainers; [ thefenriswolf ];
-    platforms = [
+    platforms = [ # TODO: check if contour builds on those platforms
       "x86_64-linux"
       "x86_64-darwin"
       "x86_64-freebsd"
-      "x86_64-openbsd"
-    ]; # TODO: check if contour builds on those platforms
+    ];
   };
 }
