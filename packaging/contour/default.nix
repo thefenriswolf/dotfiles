@@ -1,62 +1,75 @@
-# TODO: add to pkgs/top-level/all-packages.nix above "copyq" ->
+# after cool-retro-term
 # contour = libsForQt5.callPackage ../applications/misc/contour { };
-# TODO: remove all comments before submitting to nixpkgs tree
 
-{ stdenv, mkDerivation, lib, fetchFromGitHub, pkgconfig, cmake, ninja
-, extra-cmake-modules, libsForQt5, wrapQtAppsHook, qt5, qtbase, kwindowsystem
-, freetype, fontconfig, harfbuzz, pcre-cpp, libGL, glfw, glew, glm, boost, tbb
-}:
+#{ stdenv, fetchFromGitHub, mkDerivation, qt5, qtbase, cmake, extra-cmake-modules
+#, libGL, fontconfig, freetype, harfbuzz, tbb, pcre-cpp, pkgconfig, boost
+#, kwindowsystem, fmt, catch2 }:
 
-mkDerivation rec {
+with import <nixpkgs> { };
+
+stdenv.mkDerivation rec {
+  version = "19122020";
   pname = "contour";
-  version =
-    "alpha-20200418"; # TODO: replace with actual version on first release
 
   src = fetchFromGitHub {
     owner = "christianparpart";
     repo = "contour";
-    rev = "857a3fdcfab316c9f521709faad877c06ea0330a"; # TODO: replace with actual version on first release
-    sha256 = "04d9v4qwv35nf97bibw1xqjr7cr8fnp4p0n0qg6lhdsrxpmqrm57";
     fetchSubmodules = true;
+    rev = "v0.1.1";
+    sha256 = "1lnhjs58b9iqjq5l4vx9xzlsvn5dmsv73q3935f32njrpqrpxfrz";
   };
 
-  nativeBuildInputs =
-    [ pkgconfig cmake extra-cmake-modules ninja wrapQtAppsHook ];
-
   buildInputs = [
-    freetype
-    fontconfig
-    glfw
-    qtbase
-    pcre-cpp
-    tbb
-    boost
-    glm
-    glew
+    qt5.qtbase
     libsForQt5.kwindowsystem
+    harfbuzz
+    freetype
+    tbb
+    pcre-cpp
+    boost
+    fontconfig
     libGL
+    fmt
+    catch2
+    libyamlcpp
   ];
 
-  cmakeFlags = [
-    "-DCONTOUR_BLUR_PLATFORM_KWIN=ON"
-    "-DLIBTERMINAL_EXECUTION_PAR=ON"
-    #"-DCMAKE_C_COMPILER=clang"
-    #"-DCMAKE_CXX_COMPILER=clang++"
-  ];
+  nativeBuildInputs = [ cmake extra-cmake-modules ninja pkgconfig ];
 
-  configureScript = ''
-    ./autogen.sh
-  '';
+  dontWrapQtApps = true;
 
-  meta = with stdenv.lib; {
+  #  cmakeFlags = [
+  #    "-DCONTOUR_BLUR_PLATFORM_KWIN=ON"
+  #    "-DCONTOUR_COVERAGE=OFF"
+  #    "-DCONTOUR_PERF_STATS=OFF"
+  #    "-DLIBTERMINAL_EXECUTION_PAR=ON"
+  #    "-DLIBTERMINAL_LOG_TRACE=ON"
+  #    "-DLIBTERMINAL_LOG_RAW=ON"
+  #    "-DOpenGL_GL_PREFERENCE=LEGACY"
+  #    "-DYAML_CPP_BUILD_TOOLS=OFF"
+  #    "-DYAML_CPP_BUILD_CONTRIB=OFF"
+  #    "-DBUILD_SHARED_LIBS=ON"
+  #    "-DYAML_CPP_BUILD_TESTS=OFF"
+  #    "-DCMAKE_BUILD_TYPE=Debug"
+  #  ];
+
+  # installFlags = [ "INSTALL_ROOT=$(out)" ];
+
+  #  hardeningEnable = [ "pie" "fortify" ];
+
+  enableParallelBuilding = true;
+
+  meta = with lib; {
     description = "Modern C++ Terminal Emulator";
+    longDescription = ''
+      contour is a modern terminal emulator, for everyday use. 
+      It is fully seperating emulation from graphical representation for clear seperation of concerns
+      but also for special features to come before version 1.0 is released
+      (headless terminal server with GUI & TUI frontends).
+    '';
     homepage = "https://github.com/christianparpart/contour";
     license = licenses.asl20;
+    platforms = with platforms; unix;
     maintainers = with maintainers; [ thefenriswolf ];
-    platforms = [ # TODO: check if contour builds on those platforms
-      "x86_64-linux"
-      "x86_64-darwin"
-      "x86_64-freebsd"
-    ];
   };
 }
