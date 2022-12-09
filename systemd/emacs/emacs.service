@@ -1,3 +1,5 @@
+#place in /etc/systemd/user/
+
 [Unit]
 Description=Emacs text editor
 Documentation=info:emacs man:emacs(1) https://gnu.org/software/emacs/
