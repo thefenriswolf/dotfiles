@@ -157,7 +157,7 @@
        ;;nim               ; python + lisp at the speed of c
        (nix +tree-sitter)               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-       (org +brain +gnuplot +hugo +pandoc +pretty)               ; organize your plain life in plain text
+       (org +journal +noter +gnuplot +hugo +pandoc +pretty)               ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional

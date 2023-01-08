@@ -88,7 +88,7 @@
 ;; org config all the things
 ;;
 ;; default dir
-(setq org-directory "~/org/")
+(setq org-directory "~/org")
 
 ;; auto export source code blocks
 (use-package! org-auto-tangle
@@ -99,7 +99,7 @@
 )
 
 ;; babel do somethig please
-(after! org
+(after! (org ob-ditaa)
 (setq org-ditaa-jar-path "/usr/share/ditaa/ditaa.jar")
 (org-babel-do-load-languages
  'org-babel-load-languages
