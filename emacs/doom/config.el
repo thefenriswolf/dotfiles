@@ -77,7 +77,6 @@
 
 
 ;; latex/auctex config
-(setq reftex-default-bibliography "/home/stefan/Documents/medtec/all.bib")
 (add-hook! TeX-mode
   (setq TeX-engine 'luatex)
   (setq TeX-parse-self t) ; Enable parse on load.
@@ -96,9 +95,12 @@
   :defer t
   :hook (org-mode . org-auto-tangle-mode)
   :config
-  (setq org-auto-tangle-default t))
+  (setq org-auto-tangle-default t)
+)
 
 ;; babel do somethig please
+(after! org
+(setq org-ditaa-jar-path "/usr/share/ditaa/ditaa.jar")
 (org-babel-do-load-languages
  'org-babel-load-languages
  '(
@@ -113,3 +115,4 @@
    (plantuml . t)
    )
  )
+)
