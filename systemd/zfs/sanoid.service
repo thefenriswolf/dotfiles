@@ -6,4 +6,4 @@ Description=sanoid automatic zfs snapshots
 
 [Service]
 Type=oneshot
-ExecStart=/home/stefan/.nix-profile/bin/sanoid --cron --configdir /home/stefan/.config/
+ExecStart=$HOME/.nix-profile/bin/sanoid --cron --configdir /home/stefan/.config/

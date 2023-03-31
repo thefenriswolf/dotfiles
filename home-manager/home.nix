@@ -29,12 +29,12 @@
     EDITOR = "nano";
     VISUAL = "nano";
     GIT_EDITOR = "nano";
-    HOME_MANAGER_CONFIG = ~/.config/home-manager/home.nix;
+    HOME_MANAGER_CONFIG = $HOME/.config/home-manager/home.nix;
   };
 
   home.shellAliases = {
     sl = "ls -lisah";
-    doom = "/home/stefan/.emacs.d/bin/doom";
+    doom = "$HOME/.emacs.d/bin/doom";
   };
 
   programs.btop.enable = true;
@@ -54,7 +54,7 @@
     oh-my-zsh.theme = "robbyrussell";
     shellAliases = {
       sl = "ls -lisah";
-      doom = "/home/stefan/.emacs.d/bin/doom";
+      doom = "$HOME/.emacs.d/bin/doom";
       emacs = "emacs -nw";
       ".." = "cd ..";
     };
