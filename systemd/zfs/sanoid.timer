@@ -10,3 +10,4 @@ AccuracySec=10sec
 
 [Install]
 WantedBy = default.target
+
