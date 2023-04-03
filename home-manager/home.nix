@@ -4,7 +4,7 @@
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "stefan";
-  home.homeDirectory = "/home/stefan";
+  home.homeDirectory = "/home/ro";
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -29,7 +29,7 @@
     EDITOR = "nano";
     VISUAL = "nano";
     GIT_EDITOR = "nano";
-    HOME_MANAGER_CONFIG = $HOME/.config/home-manager/home.nix;
+    HOME_MANAGER_CONFIG = /home/ro/.config/home-manager/home.nix;
   };
 
   home.shellAliases = {
@@ -82,7 +82,6 @@
     pkgs.diff-pdf
     pkgs.nixfmt
     pkgs.lorri
-    pkgs.direnv
     pkgs.yt-dlp
   ];
 
