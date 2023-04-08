@@ -4,7 +4,7 @@
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "stefan";
-  home.homeDirectory = "/home/ro";
+  home.homeDirectory = "/home/stefan";
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -29,12 +29,12 @@
     EDITOR = "nano";
     VISUAL = "nano";
     GIT_EDITOR = "nano";
-    HOME_MANAGER_CONFIG = /home/ro/.config/home-manager/home.nix;
+    HOME_MANAGER_CONFIG = ~/.config/home-manager/home.nix;
   };
 
   home.shellAliases = {
     sl = "ls -lisah";
-    doom = "$HOME/.emacs.d/bin/doom";
+    doom = "/home/stefan/.emacs.d/bin/doom";
   };
 
   programs.btop.enable = true;
@@ -54,7 +54,7 @@
     oh-my-zsh.theme = "robbyrussell";
     shellAliases = {
       sl = "ls -lisah";
-      doom = "$HOME/.emacs.d/bin/doom";
+      doom = "/home/stefan/.emacs.d/bin/doom";
       emacs = "emacs -nw";
       ".." = "cd ..";
     };
@@ -78,10 +78,13 @@
 
     # snap
     pkgs.sanoid
+    pkgs.httm
+    
     pkgs.pandoc
     pkgs.diff-pdf
     pkgs.nixfmt
     pkgs.lorri
+    pkgs.direnv
     pkgs.yt-dlp
   ];
 
