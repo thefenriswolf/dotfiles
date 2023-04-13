@@ -32,11 +32,12 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-pine)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -82,7 +83,7 @@
   (setq TeX-parse-self t) ; Enable parse on load.
   (setq TeX-auto-save t) ; Enable parse on save
   (setq LaTeX-biblatex-use-Biber t)
-)
+  )
 
 
 ;; org config all the things
@@ -96,23 +97,25 @@
   :hook (org-mode . org-auto-tangle-mode)
   :config
   (setq org-auto-tangle-default t)
-)
+  )
 
 ;; babel do somethig please
-(after! org
-(setq org-ditaa-jar-path "/usr/share/ditaa/ditaa.jar")
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '(
-   (ledger . t)
-   (emacs-lisp . t)
-   (shell . t)
-   (ditaa . t)
-   (python . t)
-   (latex . t)
-   (org . t)
-   (gnuplot . t)
-   (plantuml . t)
+(after! (org ob-ditaa ob-plantuml)
+  (setq org-ditaa-jar-path "/usr/share/ditaa/ditaa.jar")
+  (setq org-plantuml-jar-path "/usr/share/plantuml/plantuml.jar")
+
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '(
+     (ledger . t)
+     (emacs-lisp . t)
+     (shell . t)
+     (ditaa . t)
+     (python . t)
+     (latex . t)
+     (org . t)
+     (gnuplot . t)
+     (plantuml . t)
+     )
    )
  )
-)

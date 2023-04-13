@@ -83,12 +83,12 @@
        syntax              ; tasing you for every semicolon you forget
        ; make sure enchant and hunspell/aspell/nuspell are installed before
        ; in case of it highliting everything; delete .emacs.d/.local/etc/spell-fu
-       (spell +enchant) ; tasing you for misspelling mispelling
+       (spell +enchant +everywhere +flyspell) ; tasing you for misspelling mispelling
        ;;grammar           ; tasing grammar mistake every you make
 
        :tools
        ;;ansible
-       ;;biblio            ; Writes a PhD for you (citation needed)
+       biblio            ; Writes a PhD for you (citation needed)
        ;;debugger          ; FIXME stepping through code, to help you add bugs
        ;;direnv
        ;;docker
@@ -96,7 +96,7 @@
        ;;ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
-       lookup              ; navigate your code and its documentation
+       (lookup +offline +dictionary) ; navigate your code and its documentation
 
        ;; run M-x lsp-install-server
        lsp               ; M-x vscode

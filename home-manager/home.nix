@@ -4,7 +4,7 @@
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "stefan";
-  home.homeDirectory = "/home/stefan";
+  home.homeDirectory = "/home/ro";
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -29,36 +29,27 @@
     EDITOR = "nano";
     VISUAL = "nano";
     GIT_EDITOR = "nano";
-    HOME_MANAGER_CONFIG = ~/.config/home-manager/home.nix;
+    HOME_MANAGER_CONFIG = /home/ro/.config/home-manager/home.nix;
   };
 
   home.shellAliases = {
     sl = "ls -lisah";
-    doom = "/home/stefan/.emacs.d/bin/doom";
+    doom = "$HOME/.emacs.d/bin/doom";
   };
 
   programs.btop.enable = true;
 
   programs.emacs = { enable = true; };
-
-  programs.zsh = {
+  services.emacs = {
     enable = true;
-    enableSyntaxHighlighting = true;
-    enableAutosuggestions = true;
-    enableVteIntegration = true;
-    history.size = 10000;
-    history.ignoreSpace = true;
-    history.ignoreDups = true;
-    history.extended = true;
-    oh-my-zsh.enable = true;
-    oh-my-zsh.theme = "robbyrussell";
-    shellAliases = {
-      sl = "ls -lisah";
-      doom = "/home/stefan/.emacs.d/bin/doom";
-      emacs = "emacs -nw";
-      ".." = "cd ..";
-    };
+    client.enable = true;
   };
+
+  # mail
+  programs.mbsync.enable = true;
+  programs.mu.enable = true;
+  programs.msmtp.enable = true;
+  #accounts.email = {accounts = ""};
 
   home.packages = [
     # doom emacs helper packages
@@ -67,6 +58,9 @@
     pkgs.xclip
     pkgs.wl-clipboard
     pkgs.maim
+    pkgs.fd
+
+    pkgs.wordnet
     pkgs.xdotool
     pkgs.shfmt
     pkgs.shellcheck
@@ -76,15 +70,15 @@
     pkgs.rustup
     pkgs.racket
 
-    # snap
     pkgs.sanoid
+    pkgs.go
     pkgs.httm
-    
+    pkgs.clang
+    pkgs.clang-tools
     pkgs.pandoc
     pkgs.diff-pdf
     pkgs.nixfmt
     pkgs.lorri
-    pkgs.direnv
     pkgs.yt-dlp
   ];
 
