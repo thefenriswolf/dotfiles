@@ -21,8 +21,8 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
-;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
+(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
+      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -36,11 +36,54 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
 (setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
+;; (setq org-directory "~/org/")
+
+;; Dont Waste time on shutdown
+(setq confirm-kill-emacs nil)
+
+(display-time-mode t)
+
+;; latex/auctex config
+(add-hook! TeX-mode
+  (setq TeX-engine 'luatex)
+  (setq TeX-parse-self t) ; Enable parse on load.
+  (setq TeX-auto-save t) ; Enable parse on save
+  (setq LaTeX-biblatex-use-Biber t)
+  )
+  
+;; auto export source code blocks
+(use-package! org-auto-tangle
+  :defer t
+  :hook (org-mode . org-auto-tangle-mode)
+  :config
+  (setq org-auto-tangle-default t)
+  )
+
+;; babel do somethig please
+(after! (org ob-ditaa ob-plantuml)
+  (setq org-ditaa-jar-path "/usr/share/ditaa/ditaa.jar")
+  (setq org-plantuml-jar-path "/usr/share/plantuml/plantuml.jar")
+
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '(
+     (ledger . t)
+     (emacs-lisp . t)
+     (shell . t)
+     (ditaa . t)
+     (python . t)
+     (latex . t)
+     (org . t)
+     (gnuplot . t)
+     (plantuml . t)
+     )
+   )
+  )
+
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
@@ -72,50 +115,3 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-
-;; dont waste time on shutdown
-(setq confirm-kill-emacs nil)
-
-
-;; latex/auctex config
-(add-hook! TeX-mode
-  (setq TeX-engine 'luatex)
-  (setq TeX-parse-self t) ; Enable parse on load.
-  (setq TeX-auto-save t) ; Enable parse on save
-  (setq LaTeX-biblatex-use-Biber t)
-  )
-
-
-;; org config all the things
-;;
-;; default dir
-(setq org-directory "~/org/")
-
-;; auto export source code blocks
-(use-package! org-auto-tangle
-  :defer t
-  :hook (org-mode . org-auto-tangle-mode)
-  :config
-  (setq org-auto-tangle-default t)
-  )
-
-;; babel do somethig please
-(after! (org ob-ditaa ob-plantuml)
-  (setq org-ditaa-jar-path "/usr/share/ditaa/ditaa.jar")
-  (setq org-plantuml-jar-path "/usr/share/plantuml/plantuml.jar")
-
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '(
-     (ledger . t)
-     (emacs-lisp . t)
-     (shell . t)
-     (ditaa . t)
-     (python . t)
-     (latex . t)
-     (org . t)
-     (gnuplot . t)
-     (plantuml . t)
-     )
-   )
- )

@@ -5,19 +5,14 @@
 ;; on the command line, then restart Emacs for the changes to take effect -- or
 ;; use 'M-x doom/reload'.
 
-;; auto tangle (export source code blocks)
-;; requires: #+auto_tangle: yes
-(package! org-auto-tangle)
-
-;; short term fix
-;(package! transient :pin "c2bdf7e12c530eb85476d3aef317eb2941ab9440")
-;(package! with-editor :pin "391e76a256aeec6b9e4cbd733088f30c677d965b")
-
-;; because it got removed from org-contrib, ledger support for org-babel
-;;(package! ob-ledger :recipe (:local-repo "lisp/ob-ledger"))+
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
+
+
+;; auto tangle (export source code blocks)
+;; requires: #+auto_tangle: yes
+(package! org-auto-tangle)
 
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:

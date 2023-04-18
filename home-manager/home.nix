@@ -18,7 +18,9 @@
 
   # home manager settings
   programs.home-manager.enable = true;
-  news.display = "show";
+  news.display = "silent";
+
+  imports = [ ./nvim.nix ];
 
   # nix settings
   nixpkgs.config = { allowUnfree = true; };
@@ -35,58 +37,67 @@
   home.shellAliases = {
     sl = "ls -lisah";
     doom = "$HOME/.emacs.d/bin/doom";
+    nv = "nvim";
   };
 
   programs.btop.enable = true;
 
+  # emacs
   programs.emacs = { enable = true; };
-  services.emacs = {
-    enable = true;
-    client.enable = true;
-  };
-
-  # mail
-  programs.mbsync.enable = true;
-  programs.mu.enable = true;
-  programs.msmtp.enable = true;
-  #accounts.email = {accounts = ""};
+  #  services.emacs = {
+  #    enable = true;
+  #    client.enable = true;
+  #  };
 
   home.packages = [
     # doom emacs helper packages
     pkgs.ripgrep
-    pkgs.nodejs
     pkgs.xclip
     pkgs.wl-clipboard
     pkgs.maim
+    pkgs.gnuplot
     pkgs.fd
-
     pkgs.wordnet
     pkgs.xdotool
     pkgs.shfmt
     pkgs.shellcheck
+
+    # programming 
+
     pkgs.rust-analyzer
-
-    # programming
     pkgs.rustup
-    pkgs.racket
 
-    pkgs.sanoid
     pkgs.go
-    pkgs.httm
+    pkgs.gotools
+    pkgs.tinygo
+
     pkgs.clang
     pkgs.clang-tools
+
+    pkgs.python3Full
+    pkgs.python310Packages.numpy
+    pkgs.black
+    pkgs.isort
+
+    pkgs.deno
+    pkgs.nodejs
+
+    # zfs
+    pkgs.sanoid
+    pkgs.httm
+
+    # cli tools
     pkgs.pandoc
     pkgs.diff-pdf
     pkgs.nixfmt
     pkgs.lorri
     pkgs.yt-dlp
+
   ];
 
   programs.git = {
     enable = true;
-    # userName = "Stefan Rohrbacher";
     userEmail = "stefan.rohrbacher97@gmail.com";
     userName = "thefenriswolf";
   };
-
 }

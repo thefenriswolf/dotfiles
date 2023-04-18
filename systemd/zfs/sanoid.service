@@ -1,9 +1,0 @@
-#/home/stefan/.nix-profile/bin/sanoid
-# deploy at "/etc/systemd/system/*.service"
-
-[Unit]
-Description=sanoid automatic zfs snapshots
-
-[Service]
-Type=oneshot
-ExecStart=$HOME/.nix-profile/bin/sanoid --cron --configdir /home/stefan/.config/

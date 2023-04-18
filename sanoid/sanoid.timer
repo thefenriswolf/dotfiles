@@ -1,4 +1,4 @@
-# deploy at "/etc/systemd/system/*.timer"
+# deploy at "/etc/systemd/system/"
 
 [Unit]
 Description=runs sanoid every 2 min
@@ -10,4 +10,3 @@ AccuracySec=10sec
 
 [Install]
 WantedBy = default.target
-
