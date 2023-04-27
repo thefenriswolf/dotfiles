@@ -1,18 +1,53 @@
+#+title: Stefan's DOOM EMACS CONFIG
+#+author: Stefan Rohrbacher
+#+startup: showeverything
+#+property: header-args :tangle config.el
+#+auto_tangle: t
+
+* USERDATA
+#+begin_src emacs-lisp
 (setq user-full-name "Stefan Rohrbacher"
       user-mail-address "stefan.rohrbacher97@gmail.com")
+#+end_src
 
+* FONT
+If you or Emacs can't find your font, use 'M-x describe-font' to look them
+up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
+refresh your font settings. If Emacs still can't find your font, it likely
+wasn't installed correctly. Font issues are rarely Doom issues!
+Doom exposes five (optional) variables for controlling fonts in Doom:
+ - `doom-font' -- the primary font to use
+ - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
+ - `doom-big-font' -- used for `doom-big-font-mode'; use this for
+   presentations or streaming.
+ - `doom-unicode-font' -- for unicode glyphs
+ - `doom-serif-font' -- for the `fixed-pitch-serif' face
+
+See 'C-h v doom-font' for documentation and more examples of what they
+accept. For example:
+
+#+begin_src emacs-lisp
 (setq! doom-font (font-spec :family "Fira Code Mono" :size 12 :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family "Fira Code Sans" :size 13)
       doom-big-font (font-spec :family "Fira Code Mono" :size 24))
+#+end_src
 
+* THEME
+#+begin_src emacs-lisp
 ;;(setq doom-theme 'doom-challenger-deep)
 (setq! doom-theme 'doom-ephemeral)
 ;;(setq doom-theme 'doom-one-light)
+#+end_src
 
+* GENERAL KEYBINDINGS
+#+begin_src emacs-lisp
 (map! :leader
       :desc "format whole buffer" "l l" #'+format/buffer
       :desc "open eshell terminal" "ö ö" #'eshell)
+#+end_src
 
+* MODELINE
+#+begin_src emacs-lisp
 ;; modeline config
 (setq! doom-modeline-persp-name t
       doom-modeline-persp-icon t
@@ -21,26 +56,68 @@
       doom-modeline-modal-icon t)
 
 (setq! display-time t)
+#+end_src
 
+* BEACON
+Flash cursor after large movement.
+#+begin_src emacs-lisp
 (beacon-mode t)
+#+end_src
 
+* CLIPPY
+Get help from Clippy. Only works in GUI mode.
+| COMMAND                  | DESCRIPTION                   | KEYBINDING |
+|--------------------------+-------------------------------+------------|
+| clippy-describe-function | describe function under point | SPC c h f  |
+| clippy-describe-variable | describe variable under point | SPC c h v  |
+
+#+begin_src emacs-lisp
 (map! :leader
       (:prefix ("c h" . "Info from Clippy")
        :desc "Clippy describe function under point" "f" #'clippy-describe-function
        :desc "Clippy describe variable under point" "v" #'clippy-describe-variable))
+#+end_src
 
+* SOLAIRE MODE
+Make active buffer stand out more.
+#+begin_src emacs-lisp
 (solaire-global-mode +1)
+#+end_src
 
+* LINE SETTINGS
+| DESCRIPTION        | SETTING  |
+|--------------------+----------|
+| off                | nil      |
+| on                 | t        |
+| relative to cursor | relative |
+#+begin_src emacs-lisp
 (setq! display-line-numbers-type 'relative)
+#+end_src
 
+* WINDOW SETTINGS
+** MAXIMIZE EMACS ON STARTUP
+#+begin_src emacs-lisp
 (add-hook! 'window-setup-hook #'toggle-frame-maximized)
+#+end_src
 
+** SCROLL MARGIN
+#+begin_src emacs-lisp
 (setq scroll-margin 4)
+#+end_src
 
+** MOUSE SUPPORT
+#+begin_src emacs-lisp
 (xterm-mouse-mode 1)
+#+end_src
 
+* SPLASH screen
+** CUSTOM SPLASH SCREEN
+#+begin_src emacs-lisp
 (setq initial-buffer-choice "~/.doom.d/splash.org")
+#+end_src
 
+** MODIFIED DOOM SPLASH SCREEN
+#+begin_src emacs-lisp
 (defun my-custom-ascii-doom-banner ()
   (let* ((banner '(" ▓█████▄  ▒█████   ▒█████   ███▄ ▄███▓"
                    " ▒██▀ ██▌▒██▒  ██▒▒██▒  ██▒▓██▒▀█▀ ██▒"
@@ -106,41 +183,74 @@
 ;;               :when t
 ;;               :face (:inherit (doom-dashboard-menu-title))
 ;;               :action doom/find-file-in-other-project))
+#+end_src
 
+* PROCEJILE
+#+begin_src emacs-lisp
 (setq! projectile-project-search-path '("~/playground/" "~/Documents/"))
+#+end_src
 
+* DIRED
+#+begin_src emacs-lisp
 (map! :leader
       :prefix ("d" . "dired")
       :desc "open dired" "d" #'dired
       :desc "open current directory" "c" #'dired-jump)
+#+end_src
 
+* AUTOSAVE and BACKUPS
+** AUTOSAVE
+#+begin_src emacs-lisp
 (setq! auto-save-default t)
+#+end_src
 
+** BACKUP
+#+begin_src emacs-lisp
 (setq! make-backup-files nil)
+#+end_src
 
+* EMACS SHUTDOWN TASKS
+#+begin_src emacs-lisp
 (setq confirm-kill-emacs nil)
+#+end_src
 
+* LaTeX
+#+begin_src emacs-lisp
 (add-hook! TeX-mode
   (setq TeX-engine 'luatex)
   (setq TeX-parse-self t) ; Enable parse on load.
   (setq TeX-auto-save t) ; Enable parse on save
   (setq LaTeX-biblatex-use-Biber t)
   )
+#+end_src
 
+* ORG MODE
+** GLOBAL VARIABLES
+#+begin_src emacs-lisp
 (setq! org-directory "~/playground/org/")
+#+end_src
 
+** KEYBINDINGS
+#+begin_src emacs-lisp
 (map! :after org
       :leader
       :desc "export to PDF" "e p" #'org-latex-export-to-pdf
       :desc "export to LaTeX" "e l" #'org-latex-export-to-latex)
+#+end_src
 
+** AUTO TANGLE
+Automatically export source code blocks.
+#+begin_src emacs-lisp
 (use-package! org-auto-tangle
   :defer t
   :hook (org-mode . org-auto-tangle-mode)
   :config
   (setq! org-auto-tangle-default t)
   )
+#+end_src
 
+** GRAPHS
+#+begin_src emacs-lisp
 ;; org mode hooks
 (after! (org ob-ditaa ob-plantuml)
   ;; where to find ditaa
@@ -166,3 +276,34 @@
      )
    )
   )
+#+end_src
+
+* GENERAL INFO
+Whenever you reconfigure a package, make sure to wrap your config in an
+`after!' block, otherwise Doom's defaults may override your settings. E.g.
+  (after! PACKAGE
+    (setq x y))
+The exceptions to this rule:
+   - Setting file/directory variables (like `org-directory')
+   - Setting variables which explicitly tell you to set them before their
+     package is loaded (see 'C-h v VARIABLE' to look up their documentation).
+   - Setting doom variables (which start with 'doom-' or '+').
+
+ Here are some additional functions/macros that will help you configure Doom.
+
+ - `load!' for loading external *.el files relative to this one
+ - `use-package!' for configuring packages
+ - `after!' for running code after a package has loaded
+ - `add-load-path!' for adding directories to the `load-path', relative to
+   this file. Emacs searches the `load-path' when you load packages with
+   `require' or `use-package'.
+ - `map!' for binding new keys
+
+ To get information about any of these functions/macros, move the cursor over
+ the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
+ This will open documentation for it, including demos of how they are used.
+ Alternatively, use `C-h o' to look up a symbol (functions, variables, faces,
+ etc).
+
+ You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
+ they are implemented.

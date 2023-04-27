@@ -44,7 +44,7 @@
 
   # emacs
   programs.emacs = { enable = true; };
-  #  services.emacs = {
+#  services.emacs.package = pkgs.emacs-gtk;
   #    enable = true;
   #    client.enable = true;
   #  };
@@ -71,11 +71,15 @@
     pkgs.gotools
     pkgs.tinygo
 
+    pkgs.zig
+    pkgs.zls
+
     pkgs.clang
     pkgs.clang-tools
 
     pkgs.python3Full
     pkgs.python310Packages.numpy
+    pkgs.python310Packages.scikit-learn
     pkgs.black
     pkgs.isort
 

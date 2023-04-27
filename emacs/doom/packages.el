@@ -13,6 +13,13 @@
 ;; auto tangle (export source code blocks)
 ;; requires: #+auto_tangle: yes
 (package! org-auto-tangle)
+(package! beacon)
+(package! toc-org)
+(package! org-make-toc)
+(package! clippy)
+
+;;(package! process)
+;;          :recipe (:host github :repo "haji-ali/procress")
 
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
