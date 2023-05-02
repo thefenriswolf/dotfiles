@@ -44,7 +44,7 @@
 
   # emacs
   programs.emacs = { enable = true; };
-#  services.emacs.package = pkgs.emacs-gtk;
+  #  services.emacs.package = pkgs.emacs-gtk;
   #    enable = true;
   #    client.enable = true;
   #  };
@@ -64,26 +64,33 @@
 
     # programming 
 
+    # rustlang
     pkgs.rust-analyzer
     pkgs.rustup
 
+    # golang
     pkgs.go
     pkgs.gotools
-    pkgs.tinygo
+    pkgs.go-tools
 
-    pkgs.zig
-    pkgs.zls
+    # latex
+    pkgs.texlab
 
+    # c/cpp
     pkgs.clang
     pkgs.clang-tools
 
+    # python
     pkgs.python3Full
     pkgs.python310Packages.numpy
     pkgs.python310Packages.scikit-learn
+    pkgs.python310Packages.pydicom
+    pkgs.python310Packages.opencv4
+    pkgs.python310Packages.matplotlib
     pkgs.black
     pkgs.isort
+    pkgs.python310Packages.python-lsp-server
 
-    pkgs.deno
     pkgs.nodejs
 
     # zfs
