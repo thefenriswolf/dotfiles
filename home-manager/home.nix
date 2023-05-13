@@ -14,19 +14,18 @@
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "22.11";
+  home.stateVersion = "23.05";
 
   # home manager settings
   programs.home-manager.enable = true;
   news.display = "silent";
 
-  imports = [ ./nvim.nix ];
+  imports = [ ./nvim.nix ./git.nix ./emacs.nix ];
 
   # nix settings
   nixpkgs.config = { allowUnfree = true; };
 
   # user config starts here
-
   home.sessionVariables = {
     EDITOR = "nano";
     VISUAL = "nano";
@@ -34,20 +33,7 @@
     HOME_MANAGER_CONFIG = /home/ro/.config/home-manager/home.nix;
   };
 
-  home.shellAliases = {
-    sl = "ls -lisah";
-    doom = "$HOME/.emacs.d/bin/doom";
-    nv = "nvim";
-  };
-
   programs.btop.enable = true;
-
-  # emacs
-  programs.emacs = { enable = true; };
-  #  services.emacs.package = pkgs.emacs-gtk;
-  #    enable = true;
-  #    client.enable = true;
-  #  };
 
   home.packages = [
     # doom emacs helper packages
@@ -75,6 +61,8 @@
 
     # latex
     pkgs.texlab
+    pkgs.gnumake
+    pkgs.texlive.combined.scheme-full
 
     # c/cpp
     pkgs.clang
@@ -90,7 +78,9 @@
     pkgs.black
     pkgs.isort
     pkgs.python310Packages.python-lsp-server
+    pkgs.python310Packages.pyflakes
 
+    # webassembly/js
     pkgs.nodejs
 
     # zfs
@@ -103,12 +93,5 @@
     pkgs.nixfmt
     pkgs.lorri
     pkgs.yt-dlp
-
   ];
-
-  programs.git = {
-    enable = true;
-    userEmail = "stefan.rohrbacher97@gmail.com";
-    userName = "thefenriswolf";
-  };
 }
