@@ -142,7 +142,7 @@ NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
        (eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
-       (lsp +peek)               ; M-x vscode
+       (lsp +peek)         ; M-x vscode
        magit               ; a git porcelain for Emacs
        make                ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -206,20 +206,6 @@ NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
        ;;nim               ; python + lisp at the speed of c
        nix                 ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-#+end_src
-
-** ORG-MODE
-#+begin_src emacs-lisp
-      (org                ; organize your plain life in plain text
-	 +dragndrop
-	 +gnuplot
-	 +hugo
-	 +pandoc
-	 +pretty
-	 +present)
-#+end_src
-
-#+begin_src emacs-lisp
        ;;php               ; perl's insecure younger brother
        plantuml            ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
@@ -241,6 +227,17 @@ NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
        ;;web               ; the tubes
        yaml                ; JSON, but readable
        ;;zig               ; C, but simpler
+#+end_src
+
+** ORG-MODE
+#+begin_src emacs-lisp
+      (org                ; organize your plain life in plain text
+	 +dragndrop
+	 +gnuplot
+	 +hugo
+	 +pandoc
+	 +pretty
+	 +present)
 #+end_src
 
 * EMAIL

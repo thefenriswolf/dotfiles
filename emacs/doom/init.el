@@ -80,7 +80,7 @@
        (eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
-       (lsp +peek)               ; M-x vscode
+       (lsp +peek)         ; M-x vscode
        magit               ; a git porcelain for Emacs
        make                ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -138,15 +138,6 @@
        ;;nim               ; python + lisp at the speed of c
        nix                 ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-
-      (org                ; organize your plain life in plain text
-	 +dragndrop
-	 +gnuplot
-	 +hugo
-	 +pandoc
-	 +pretty
-	 +present)
-
        ;;php               ; perl's insecure younger brother
        plantuml            ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
@@ -168,6 +159,14 @@
        ;;web               ; the tubes
        yaml                ; JSON, but readable
        ;;zig               ; C, but simpler
+
+      (org                ; organize your plain life in plain text
+	 +dragndrop
+	 +gnuplot
+	 +hugo
+	 +pandoc
+	 +pretty
+	 +present)
 
        :email
        ;;(mu4e +org +gmail)

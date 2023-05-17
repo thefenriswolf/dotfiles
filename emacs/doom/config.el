@@ -23,7 +23,7 @@
 
 (beacon-mode t)
 (after! (beacon)
-  (setq! beacon-size 70)
+  (setq! beacon-size 50)
   (setq! beacon-blink-when-point-moves-vertically t)
   (setq! beacon-blink-when-focused t)
   (setq! beacon-blink-when-buffer-changes t)
