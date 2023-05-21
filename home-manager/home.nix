@@ -39,8 +39,6 @@
     # doom emacs helper packages
     pkgs.ripgrep
     pkgs.xclip
-    pkgs.wl-clipboard
-    pkgs.maim
     pkgs.gnuplot
     pkgs.fd
     pkgs.wordnet
@@ -79,6 +77,7 @@
     pkgs.isort
     pkgs.python310Packages.python-lsp-server
     pkgs.python310Packages.pyflakes
+    pkgs.python310Packages.pygments
 
     # webassembly/js
     pkgs.nodejs
