@@ -94,6 +94,12 @@ add ~#+auto_tangle: nil~ to disable or ~#+auto_tangle: t~ to enable this behavio
 (package! org-auto-tangle)
 #+end_src
 
+* DIRED EXTENSIONS
+- peep-dired: preview files in dired
+#+begin_src emacs-lisp
+(package! peep-dired)
+#+end_src
+
 * ORG TOC
 Generates a GitHub compatible TOC in org files.
 Run: ~org-make-toc-insert~ to initialize the TOC and ~org-make-toc~ to refresh.
@@ -108,8 +114,8 @@ Adds a beacon to the cursor which flashes when focus or cursor position change.
 (package! beacon)
 #+end_src
 
-* CHEZMOI
-Dotfile manager
+* TLDR
+alternative to man-pages
 #+begin_src emacs-lisp
-;;(package! chezmoi)
+(package! tldr)
 #+end_src

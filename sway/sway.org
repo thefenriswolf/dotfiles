@@ -55,6 +55,7 @@
 - sway
 - alacritty: terminal
 - swaybg: background manager
+- swayimg: image viewer
 - swaylock: lockscreen
 - waybar: menu bar
 - brightnessctl: screen brightness management
@@ -65,6 +66,7 @@
 - wl-clipboard: clipboard manager
 - grim: screenshots
   - slurp: selection helper for grim
+  - grimshot: make grim useful
 
 * Variables
 ** xwayland support
@@ -81,12 +83,13 @@ font pango: Fira Code Mono 12
 #+begin_src config
 gaps inner 1
 gaps outer 2
+smart_gaps on
 #+end_src
 
 ** Titlebar
 Hide title bar.
 #+begin_src config
-default_border pixel 2
+default_border none
 #+end_src
 
 ** Modifier Key
@@ -128,7 +131,7 @@ set $ws rofi -show window
 * Autostarts
 ** blueman bluetooth manager
 #+begin_src config
-exec blueman-tray
+exec blueman-applet
 #+end_src
 
 ** dunst notification daemon
@@ -183,6 +186,11 @@ input type:touchpad {
 bindsym $mod+Return exec $term
 #+end_src
 
+** notifications
+#+begin_src config
+bindsym $mod+Backspace exec dunstctl close-all
+#+end_src
+
 ** launcher
 #+begin_src config
 bindsym $mod+d exec $menu
@@ -216,15 +224,16 @@ bindsym XF86MonBrightnessDown exec brightnessctl --device=amdgpu_bl0 set 5%-
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 #+end_src
 
 ** screenshot
 =Super+Shift+s= takes a screenshot and saves it in the Pictures folder.
 =Super+Alt+s= takes a screenshot and puts it in the clipboard.
 #+begin_src config
-bindsym $mod+Shift+s exec grim $(xdg-user-dir)/Pictures/$(date +%F-%H-%M-%S)-Screenshot.png
+bindsym $mod+Shift+s exec grimshot --notify save screen
 
-bindsym $mod+Alt+s exec grim - | wl-copy
+bindsym $mod+Alt+s exec grimshot --notify save area
 #+end_src
 
 ** window modifiers
@@ -361,6 +370,7 @@ bindsym $mod+minus scratchpad show
 #+end_src
 
 * Status Bar
+** waybar
 Nothing to be configured here. See =~/.config/waybar/config=
 #+begin_src config
 bar {
@@ -368,6 +378,19 @@ bar {
 }
 #+end_src
 
+** swaybar
+#+begin_src config
+#bar {
+#     position top
+#     status_command $(xdg-user-dir)/.config/sway/status.sh
+#
+#colors {
+#        statusline #ffffff
+#        background #323232
+#        inactive_workspace #32323200 #32323200 #5c5c5c
+#    }
+#}
+#+end_src
 * Includes
 #+begin_src config
 include /etc/sway/config.d/*

@@ -4,8 +4,9 @@ font pango: Fira Code Mono 12
 
 gaps inner 1
 gaps outer 2
+smart_gaps on
 
-default_border pixel 2
+default_border none
 
 set $mod Mod4
 
@@ -22,7 +23,7 @@ set $menu rofi -show drun
 
 set $ws rofi -show window
 
-exec blueman-tray
+exec blueman-applet
 
 exec dunst -lto 10 -nto 20 -cto 100 -show_age_theshold 11 -startup_notification -idle_threshold 60
 
@@ -54,6 +55,8 @@ input type:touchpad {
 
 bindsym $mod+Return exec $term
 
+bindsym $mod+Backspace exec dunstctl close-all
+
 bindsym $mod+d exec $menu
 
 bindsym $mod+Shift+d exec $ws
@@ -68,10 +71,11 @@ bindsym XF86MonBrightnessDown exec brightnessctl --device=amdgpu_bl0 set 5%-
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-bindsym $mod+Shift+s exec grim $(xdg-user-dir)/Pictures/$(date +%F-%H-%M-%S)-Screenshot.png
+bindsym $mod+Shift+s exec grimshot --notify save screen
 
-bindsym $mod+Alt+s exec grim - | wl-copy
+bindsym $mod+Alt+s exec grimshot --notify save area
 
 bindsym $mod+Shift+q kill
 
@@ -166,6 +170,17 @@ bindsym $mod+minus scratchpad show
 bar {
     swaybar_command waybar
 }
+
+#bar {
+#     position top
+#     status_command $(xdg-user-dir)/.config/sway/status.sh
+#
+#colors {
+#        statusline #ffffff
+#        background #323232
+#        inactive_workspace #32323200 #32323200 #5c5c5c
+#    }
+#}
 
 include /etc/sway/config.d/*
 include /etc/sway/config-vars.d/*

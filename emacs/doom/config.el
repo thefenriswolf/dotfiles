@@ -9,6 +9,7 @@
 (setq! doom-theme 'doom-ephemeral)
 ;;(setq! doom-theme 'doom-one-light)
 ;;(setq! doom-theme 'doom-nord)
+;;(setq! doom-theme 'moe-theme)
 
 (map! :leader
       :desc "format whole buffer" "l l" #'+format/buffer
@@ -91,7 +92,16 @@
 (map! :leader
       :prefix ("d" . "dired")
       :desc "open dired" "d" #'dired
-      :desc "open current directory" "c" #'dired-jump)
+      :desc "open current directory" "c" #'dired-jump
+      :desc "toggle peep-dired" "p" #'peep-dired
+      :desc "peep next file" "j"  #'peep-dired-next-file
+      :desc "peep previous file" "k" #'peep-dired-prev-file
+)
+
+(setq! peep-dired-cleanup-on-disable t)
+(setq peep-dired-cleanup-eagerly t)
+(setq peep-dired-enable-on-directories t)
+(setq peep-dired-ignored-extensions '("mkv" "iso" "mp4" "docx" "pdf"))
 
 (setq! auto-save-default t)
 
@@ -104,7 +114,7 @@
   (setq TeX-parse-self t) ; Enable parse on load.
   (setq TeX-auto-save t) ; Enable parse on save
   (setq LaTeX-biblatex-use-Biber t)
-  )
+)
 
 (setq! org-directory "~/playground/org/")
 
@@ -118,7 +128,7 @@
   :hook (org-mode . org-auto-tangle-mode)
   :config
   (setq! org-auto-tangle-default t)
-  )
+)
 
 ;; org mode hooks
 (after! (org ob-ditaa ob-plantuml)
@@ -144,4 +154,4 @@
      (r . t)
      )
    )
-  )
+)
