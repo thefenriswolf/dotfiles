@@ -1,9 +1,17 @@
-{ config, lib, pkgs, ... }:
-{
-  # emacs: currently disabled, reenable when emacs 29 is in nixpkgs
-     programs.emacs = { enable = true; };
-  #   services.emacs.package = pkgs.emacs-snapshot;
-  #    enable = true;
-  #    client.enable = true;
-  #  };
+{ config, lib, pkgs, ... }: {
+  programs.emacs = { enable = true; };
+  programs.ripgrep.enable = true;
+  editorconfig.enable = true;
+
+  home.packages = [
+    pkgs.xclip
+    pkgs.gnuplot
+    pkgs.fd
+    pkgs.wordnet
+    pkgs.xdotool
+    pkgs.nodejs
+    pkgs.shfmt
+    pkgs.shellcheck
+    pkgs.tldr
+  ];
 }

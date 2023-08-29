@@ -1,5 +1,3 @@
-{ config, lib, pkgs, ... }:
-
-{
-  programs.texlive.enable = true;
+{ config, lib, pkgs, ... }: {
+  home.packages = [ pkgs.texlab pkgs.texlive.combined.scheme-full ];
 }
