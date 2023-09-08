@@ -4,11 +4,7 @@
 #+property: header-args :tangle config.el
 #+auto_tangle: t
 
-* DUDE, WHERE IS MY STUFF?
-:PROPERTIES:
-:TOC:      :include all :ignore this
-:END:
-:CONTENTS:
+* DUDE, WHERE IS MY STUFF? :TOC:
 - [[#userdata][USERDATA]]
 - [[#font][FONT]]
 - [[#theme][THEME]]
@@ -30,18 +26,20 @@
   - [[#modified-doom-splash-screen][MODIFIED DOOM SPLASH SCREEN]]
 - [[#procejile][PROCEJILE]]
 - [[#dired][DIRED]]
+  - [[#keybindings][Keybindings]]
+  - [[#peep-dired][peep-dired]]
 - [[#autosave-and-backups][AUTOSAVE and BACKUPS]]
   - [[#autosave][AUTOSAVE]]
   - [[#backup][BACKUP]]
 - [[#emacs-shutdown-tasks][EMACS SHUTDOWN TASKS]]
 - [[#latex][LaTeX]]
+- [[#languagetool][LanguageTool]]
 - [[#org-mode][ORG MODE]]
   - [[#global-variables][GLOBAL VARIABLES]]
-  - [[#keybindings][KEYBINDINGS]]
+  - [[#keybindings-1][KEYBINDINGS]]
   - [[#auto-tangle][AUTO TANGLE]]
   - [[#graphs][GRAPHS]]
 - [[#general-info][GENERAL INFO]]
-:END:
 
 * USERDATA
 #+begin_src emacs-lisp
@@ -66,9 +64,12 @@ See 'C-h v doom-font' for documentation and more examples of what they
 accept. For example:
 
 #+begin_src emacs-lisp
-(setq! doom-font (font-spec :family "Fira Code Mono" :size 12 :weight 'semi-light)
-      doom-variable-pitch-font (font-spec :family "Fira Code Sans" :size 13)
-      doom-big-font (font-spec :family "Fira Code Mono" :size 24))
+(setq! doom-font (font-spec :family "terminal-font" :size 12)
+      doom-variable-pitch-font (font-spec :family "terminal-font" :size 13)
+      doom-big-font (font-spec :family "terminal-font" :size 24))
+
+;;(setq! doom-font (font-spec :family "JetBrainsMono" :size 12)
+;;      doom-variable-pitch-font (font-spec :family "JetBrainsMono" :size 13))
 #+end_src
 
 * THEME
@@ -215,7 +216,7 @@ Make active buffer stand out more.
                "\n"))
      'face 'doom-dashboard-banner)))
 
-(setq +doom-dashboard-ascii-banner-fn 'my-custom-ascii-doom-banner)
+;;(setq +doom-dashboard-ascii-banner-fn 'my-custom-ascii-doom-banner)
 #+end_src
 
 * PROCEJILE
@@ -239,9 +240,9 @@ Make active buffer stand out more.
 ** peep-dired
 #+begin_src emacs-lisp
 (setq! peep-dired-cleanup-on-disable t)
-(setq peep-dired-cleanup-eagerly t)
-(setq peep-dired-enable-on-directories t)
-(setq peep-dired-ignored-extensions '("mkv" "iso" "mp4" "docx" "pdf"))
+(setq! peep-dired-cleanup-eagerly t)
+(setq! peep-dired-enable-on-directories t)
+(setq! peep-dired-ignored-extensions '("mkv" "iso" "mp4" "docx" "pdf"))
 #+end_src
 
 * AUTOSAVE and BACKUPS
@@ -268,6 +269,11 @@ Make active buffer stand out more.
   (setq TeX-auto-save t) ; Enable parse on save
   (setq LaTeX-biblatex-use-Biber t)
 )
+#+end_src
+
+* LanguageTool
+#+begin_src emacs-lisp
+(setq! langtool-language-tool-jar "/home/stefan/LanguageTool-6.2-stable/languagetool-commandline.jar")
 #+end_src
 
 * ORG MODE
@@ -298,7 +304,7 @@ Automatically export source code blocks.
 ** GRAPHS
 #+begin_src emacs-lisp
 ;; org mode hooks
-(after! (org ob-ditaa ob-plantuml)
+(after! (org ob-ditaa ob-plantuml toc-org)
   ;; where to find ditaa
   (setq! org-ditaa-jar-path "/usr/share/ditaa/ditaa.jar")
   ;; where to find pantuml

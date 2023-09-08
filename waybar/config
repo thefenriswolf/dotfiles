@@ -1,168 +1,157 @@
 [
-  {
-    "name": "topbar",
-    "layer": "top",
-    "position": "top",
+   {
+    "height": 35,
+    "spacing": 2,
 
-    "modules-center": [
-        "custom/left-arrow-dark",
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark",
-        "clock#1",
-        "custom/right-arrow-dark",
-        "custom/right-arrow-light",
-        "custom/right-arrow-dark"
-    ],
-    "modules-left": [
-//        "custom/left-arrow-dark",
-//        "clock#1",
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark",
-        "clock#2",
-        "custom/right-arrow-dark",
-        "custom/right-arrow-light",
-        "clock#3",
-        "custom/right-arrow-dark"
-    ],
-    "modules-right": [
-        "custom/left-arrow-dark",
-        "network",
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark",
-        "pulseaudio",
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark",
-//        "bluetooth",
-//        "custom/left-arrow-light",
-//        "custom/left-arrow-dark",
-        "memory",
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark",
-        "cpu",
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark",
-        "battery",
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark",
-        "custom/zfsdisk",
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark",
-        "tray"
-    ],
+    //"modules-left": ["sway/mode", "sway/scratchpad", "custom/media"],
 
-    "custom/left-arrow-dark": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/left-arrow-light": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/right-arrow-dark": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/right-arrow-light": {
-        "format": "",
-        "tooltip": false
-    },
+    "modules-center": ["sway/window"],
 
-    "sway/workspaces": {
-        "disable-scroll": true,
-        "format": "{name}"
-    },
+    "modules-right": ["idle_inhibitor", "temperature", "cpu", "memory", "network", "bluetooth", "pulseaudio", "backlight", "battery", "tray", "clock"],
 
-    "clock#2": {
-        "interval": 320,
-        "format": "{:%a}",
-        "tooltip": false
-    },
-    "clock#1": {
-        "format": "{:%H:%M}",
-        "tooltip": false
-    },
-    "clock#3": {
-        "interval": 320,
-        "format": "{:%d.%m.%Y}",
-        "tooltip": false
-    },
+    // Modules configuration
+    // "sway/workspaces": {
+    //     "disable-scroll": true,
+    //     "all-outputs": true,
+    //     "warp-on-scroll": false,
+    //     "format": "{name}: {icon}",
+    //     "format-icons": {
+    //         "1": "",
+    //         "2": "",
+    //         "3": "",
+    //         "4": "",
+    //         "5": "",
+    //         "urgent": "",
+    //         "focused": "",
+    //         "default": ""
+    //     }
+    // },
 
-    "pulseaudio": {
-        "format": "{icon} {volume:2}%",
-        "format-bluetooth": "{icon}  {volume}%",
-        "format-muted": "MUTE",
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
         "format-icons": {
-            "headphones": "",
-            "default": [
-                "",
-                ""
-            ]
-        },
-        "scroll-step": 5,
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+            "locked": "",
+            "unlocked": ""
+        }
     },
-    "memory": {
-        "interval": 5,
-        "format": "Mem {}%"
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
     },
-    "cpu": {
-        "interval": 5,
-        "format": "CPU {usage:2}%"
-    },
-    "battery": {
-        "interval": 30,
-        "states": {
-            "good": 90,
-            "warning": 30,
-            "critical": 20
-        },
-        "format": "{icon} {capacity}%",
-        //"format": "{capacity}%",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
     },
     "bluetooth": {
-	      "format": "BT {status}",
-	      "on-click": "blueman-applet",
-        "tooltip": false
+        "format": "󰂯",
+        "format-disabled": "󰂲",
+        "on-click": "swaymsg exec foot bluetuith",
+        "on-click-right": "rfkill toggle bluetooth",
+        "tooltip-format": "{}"
     },
-    "network": {
-        "interface": "wlp4s0",
-        "format": "{ifname}",
-        "on-click": "nmcli n on",
-        "on-click-right": "nmcli n off",
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "format-disconnected": "", //An empty format will hide the module.
-        "tooltip-format": "{ifname} via {gwaddr} up: {bandwidthUpBits} down: {bandwidthDownBits}",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-        "tooltip-format-ethernet": "{ifname} ",
-        "tooltip-format-disconnected": "Disconnected",
-        "max-length": 50
-    },
-    "disk": {
-        "interval": 120,
-        "format": "Disk: {free} available",
-        "path": "/"
-    },
-    "custom/zfsdisk": {
-        "interval": 120,
-        "format": "/ {} free",
-        "tooltip-format": "/boot {} free",
-        "return-type": "json",
-        "exec": "$(xdg-user-dir)/.config/waybar/zfsdisk.sh",
-        "tooltip": true
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
     },
     "tray": {
-        "icon-size": 20
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "Europe/Vienna",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%d-%m-%Y}",
+        "on-click": "swaymsg exec foot calcurse"
+    },
+    "cpu": {
+        "format": " {usage}%",
+        //"tooltip": true,
+        "interval": 10,
+        "on-click": "swaymsg exec foot /home/ro/.nix-profile/bin/btop"
+    },
+    "memory": {
+        "format": " {}%",
+        "on-click": "swaymsg exec foot /home/ro/.nix-profile/bin/btop"
+    },
+    "temperature": {
+        "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "{icon} {temperatureC}°C",
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "network": {
+         "interface": "wlp4s0*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": " {ifname}",
+        "tooltip-format": " {ifname} via {gwaddr}",
+        "format-linked": " {ifname} (No IP)",
+        "format-disconnected": "Disconnected ⚠ {ifname}",
+        "format-alt": " {ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": " {icon} {volume}% {format_source}",
+        "format-bluetooth-muted": "  {icon} {format_source}",
+        "format-muted": "  {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+//            "headphone": "",
+//            "hands-free": "",
+//            "headset": "",
+//            "phone": "",
+//            "portable": "",
+//            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "/usr/bin/pavucontrol"
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     }
-  },
+},
+
   {
     "name": "sidebar",
     "layer": "bottom",

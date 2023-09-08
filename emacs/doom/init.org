@@ -3,11 +3,7 @@
 #+startup: showeverything
 #+property: header-args :tangle init.el
 #+auto_tangle: t
-* INFO
-:PROPERTIES:
-:TOC: :include all :ignore this
-:END:
-:CONTENTS:
+* INFO :TOC:
 - [[#keyboard-layout][KEYBOARD LAYOUT]]
 - [[#completion-and-search][COMPLETION AND SEARCH]]
 - [[#ui-tools][UI TOOLS]]
@@ -22,20 +18,6 @@
 - [[#email][EMAIL]]
 - [[#esoteric-plugins][ESOTERIC PLUGINS]]
 - [[#general-config][GENERAL CONFIG]]
-:END:
-
-This file controls what Doom modules are enabled and what order they load
-in. Remember to run 'doom sync' after modifying it!
-
-NOTE Press 'SPC h d h' (or 'C-h d h' for non-vim users) to access Doom's
-     documentation. There you'll find a link to Doom's Module Index where all
-     of our modules are listed, including what flags they support.
-
-NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
-     'C-c c k' for non-vim users) to view its documentation. This works on
-     flags as well (those symbols that start with a plus).
-     Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
-     directory (for easy access to its source code).
 
 * KEYBOARD LAYOUT
 #+begin_src emacs-lisp
@@ -125,8 +107,8 @@ NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
 #+begin_src emacs-lisp
        :checkers
        syntax              ; tasing you for every semicolon you forget
-       (spell +enchant +flyspell +everywhere) ; tasing you for misspelling mispelling
-       ;;grammar           ; tasing grammar mistake every you make
+       (spell +enchant) ; tasing you for misspelling mispelling
+       grammar           ; tasing grammar mistake every you make
 #+end_src
 
 * TOOLS
@@ -188,7 +170,7 @@ NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
        ;;fsharp            ; ML stands for Microsoft's Language
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
        ;;gdscript          ; the language you waited for
-       (go +lsp +tree-sitter)           ; the hipster dialect
+       ;; (go +lsp +tree-sitter)           ; the hipster dialect
        ;;(graphql +lsp)    ; Give queries a REST
        ;;(haskell +lsp)    ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
@@ -201,8 +183,8 @@ NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
        (latex +fold +lsp)  ; writing papers in Emacs has never been so fun
        ;;lean              ; for folks with too much to prove
        ;;ledger            ; be audit you can be
-       lua                 ; one-based indices? one-based indices
-       markdown            ; writing docs for people to ignore
+       ;;lua                 ; one-based indices? one-based indices
+       ;;markdown            ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
        nix                 ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
@@ -226,7 +208,7 @@ NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
        ;;terra             ; Earth and Moon in alignment for performance.
        ;;web               ; the tubes
        yaml                ; JSON, but readable
-       ;;zig               ; C, but simpler
+       (zig +lsp +tree-sitter)               ; C, but simpler
 #+end_src
 
 ** ORG-MODE

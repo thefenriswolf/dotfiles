@@ -1,5 +1,4 @@
 { config, lib, pkgs, ... }: {
-  programs.emacs = { enable = true; };
   programs.ripgrep.enable = true;
   editorconfig.enable = true;
 
@@ -7,6 +6,7 @@
     pkgs.xclip
     pkgs.gnuplot
     pkgs.fd
+    pkgs.emacs29-nox
     pkgs.wordnet
     pkgs.xdotool
     pkgs.nodejs

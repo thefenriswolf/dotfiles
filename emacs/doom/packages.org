@@ -3,16 +3,16 @@
 #+startup: showeverything
 #+property: header-args :tangle packages.el
 #+auto_tangle: t
-* INTRO
+* INTRO :TOC:
+  - [[#additional-info][ADDITIONAL INFO]]
+- [[#header][Header]]
+- [[#auto-tangle][Auto tangle]]
+- [[#dired-extensions][DIRED EXTENSIONS]]
+- [[#org-toc-disabled][ORG TOC (disabled)]]
+- [[#toc-org][TOC ORG]]
+- [[#beacon][BEACON]]
+- [[#tldr][TLDR]]
 
-To install a package with Doom you must declare them here and run ~doom sync~
-on the command line, then restart Emacs for the changes to take effect -- or
-use ~M-x doom/reload~.
-
-To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
-#+begin_src emacs-lisp :tangle no
-(package! some-package)
-#+end_src
 ** ADDITIONAL INFO
 #+begin_src emacs-lisp :tangle no
 (package! process)
@@ -100,12 +100,18 @@ add ~#+auto_tangle: nil~ to disable or ~#+auto_tangle: t~ to enable this behavio
 (package! peep-dired)
 #+end_src
 
-* ORG TOC
+* ORG TOC (disabled)
 Generates a GitHub compatible TOC in org files.
 Run: ~org-make-toc-insert~ to initialize the TOC and ~org-make-toc~ to refresh.
 TOC must be the first thing after a heading, there can be no text before it!
 #+begin_src emacs-lisp
-(package! org-make-toc)
+;;(package! org-make-toc)
+#+end_src
+
+* TOC ORG
+Append ~:TOC:~ to a heading and a table of contents will be inserted/updated after the heading on every save.
+#+begin_src emacs-lisp
+(package! toc-org)
 #+end_src
 
 * BEACON

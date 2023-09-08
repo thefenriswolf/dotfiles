@@ -4,52 +4,45 @@
 #+auto_tangle: t
 #+property: header-args :tangle config
 
-* Stefan's Sway WM config
-:PROPERTIES:
-:TOC:      :include all :ignore (this)
-:END:
-:CONTENTS:
+* Stefan's swaywm config :TOC:
 - [[#required-programs][Required Programs]]
 - [[#variables][Variables]]
   - [[#xwayland-support][xwayland support]]
+  - [[#floating-windows][floating windows]]
   - [[#font][Font]]
   - [[#gaps][Gaps]]
   - [[#titlebar][Titlebar]]
   - [[#modifier-key][Modifier Key]]
   - [[#movement][Movement]]
   - [[#terminal][Terminal]]
+  - [[#lockscreen][lockscreen]]
   - [[#launcher][Launcher]]
+  - [[#window-switcher][window switcher]]
 - [[#autostarts][Autostarts]]
+  - [[#polkit][polkit]]
   - [[#blueman-bluetooth-manager][blueman bluetooth manager]]
   - [[#dunst-notification-daemon][dunst notification daemon]]
+- [[#theme][Theme]]
 - [[#output][Output]]
 - [[#idle][Idle]]
+- [[#lockscreen-1][Lockscreen]]
 - [[#input][Input]]
 - [[#keybindings][Keybindings]]
-  - [[#terminal][Terminal]]
-  - [[#launcher][launcher]]
+  - [[#terminal-1][Terminal]]
+  - [[#notifications][notifications]]
+  - [[#launcher-1][launcher]]
+  - [[#window-switcher-1][window switcher]]
   - [[#sway-modifiers][sway modifiers]]
-    - [[#config-reload][config reload]]
-    - [[#exit-sway][exit sway]]
   - [[#brightness][brightness]]
   - [[#volume][volume]]
   - [[#screenshot][screenshot]]
   - [[#window-modifiers][window modifiers]]
-    - [[#kill-window][kill window]]
-    - [[#floating-windows][floating windows]]
-    - [[#focus][focus]]
-    - [[#fullscreen][fullscreen]]
-    - [[#movement][movement]]
   - [[#workspace-modifiers][workspace modifiers]]
-    - [[#focus][focus]]
-    - [[#movement][movement]]
-    - [[#split][split]]
-    - [[#layout][layout]]
-    - [[#resizing][resizing]]
 - [[#scratchpad][Scratchpad]]
 - [[#status-bar][Status Bar]]
+  - [[#waybar][waybar]]
+  - [[#swaybar][swaybar]]
 - [[#includes][Includes]]
-:END:
 
 * Required Programs
 - sway
@@ -74,6 +67,10 @@
 xwayland enable
 #+end_src
 
+** floating windows
+#+begin_src config
+for_window [app_id="foot"] floating enable
+#+end_src
 ** Font
 #+begin_src config
 font pango: Fira Code Mono 12
@@ -90,6 +87,7 @@ smart_gaps on
 Hide title bar.
 #+begin_src config
 default_border none
+default_floating_border none
 #+end_src
 
 ** Modifier Key
@@ -129,6 +127,11 @@ set $ws rofi -show window
 #+end_src
 
 * Autostarts
+** polkit
+#+begin_src config
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+#+end_src
+
 ** blueman bluetooth manager
 #+begin_src config
 exec blueman-applet
@@ -138,16 +141,21 @@ exec blueman-applet
 #+begin_src config
 exec dunst -lto 10 -nto 20 -cto 100 -show_age_theshold 11 -startup_notification -idle_threshold 60
 #+end_src
-
+* Theme
+#+begin_src config
+exec kvantummanager --set "Matcha-Dark"
+#+end_src
 * Output
 #+begin_src config
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/ubuntu2_by_arman1992.jpg fill
 
-output XWAYLAND0 resolution 1920x1080 position 0,0
+output * bg /usr/share/backgrounds/manjaro-sway/manjaro-sway-small-wallpaper-3840x2160.png fill
 
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+output eDP-1 resolution 1920x1080 position 0,0
 #+end_src
+
+You can get the names of your outputs by running: ~swaymsg -t get_outputs~
+
 
 * Idle
 This will lock your screen after 300 seconds of inactivity, then turn off your displays after another 300 seconds, and turn your screens back on when resumed. It will also lock your screen before your computer goes to sleep.
@@ -231,9 +239,9 @@ bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 =Super+Shift+s= takes a screenshot and saves it in the Pictures folder.
 =Super+Alt+s= takes a screenshot and puts it in the clipboard.
 #+begin_src config
-bindsym $mod+Shift+s exec grimshot --notify save screen
-
-bindsym $mod+Alt+s exec grimshot --notify save area
+#bindsym $mod+Shift+s exec grimshot --notify save screen
+#bindsym $mod+Alt+s exec grimshot --notify save area
+bindsym $mod+Shift+s exec grim -t png
 #+end_src
 
 ** window modifiers
@@ -393,6 +401,6 @@ bar {
 #+end_src
 * Includes
 #+begin_src config
-include /etc/sway/config.d/*
-include /etc/sway/config-vars.d/*
+#include /etc/sway/config.d/*
+#include /etc/sway/config-vars.d/*
 #+end_src
