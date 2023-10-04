@@ -1,9 +1,12 @@
 (setq user-full-name "Stefan Rohrbacher"
       user-mail-address "stefan.rohrbacher97@gmail.com")
 
-(setq! doom-font (font-spec :family "Fira Code Mono" :size 12 :weight 'semi-light)
-      doom-variable-pitch-font (font-spec :family "Fira Code Sans" :size 13)
-      doom-big-font (font-spec :family "Fira Code Mono" :size 24))
+(setq! doom-font (font-spec :family "terminal-font" :size 12)
+      doom-variable-pitch-font (font-spec :family "terminal-font" :size 13)
+      doom-big-font (font-spec :family "terminal-font" :size 24))
+
+;;(setq! doom-font (font-spec :family "JetBrainsMono" :size 12)
+;;      doom-variable-pitch-font (font-spec :family "JetBrainsMono" :size 13))
 
 ;;(setq! doom-theme 'doom-challenger-deep)
 (setq! doom-theme 'doom-ephemeral)
@@ -85,7 +88,7 @@
                "\n"))
      'face 'doom-dashboard-banner)))
 
-(setq +doom-dashboard-ascii-banner-fn 'my-custom-ascii-doom-banner)
+;;(setq +doom-dashboard-ascii-banner-fn 'my-custom-ascii-doom-banner)
 
 (setq! projectile-project-search-path '("~/playground/" "~/Documents/"))
 
@@ -99,9 +102,9 @@
 )
 
 (setq! peep-dired-cleanup-on-disable t)
-(setq peep-dired-cleanup-eagerly t)
-(setq peep-dired-enable-on-directories t)
-(setq peep-dired-ignored-extensions '("mkv" "iso" "mp4" "docx" "pdf"))
+(setq! peep-dired-cleanup-eagerly t)
+(setq! peep-dired-enable-on-directories t)
+(setq! peep-dired-ignored-extensions '("mkv" "iso" "mp4" "docx" "pdf"))
 
 (setq! auto-save-default t)
 
@@ -115,6 +118,8 @@
   (setq TeX-auto-save t) ; Enable parse on save
   (setq LaTeX-biblatex-use-Biber t)
 )
+
+(setq! langtool-language-tool-jar "/home/stefan/LanguageTool-6.2-stable/languagetool-commandline.jar")
 
 (setq! org-directory "~/playground/org/")
 
@@ -131,7 +136,7 @@
 )
 
 ;; org mode hooks
-(after! (org ob-ditaa ob-plantuml)
+(after! (org ob-ditaa ob-plantuml toc-org)
   ;; where to find ditaa
   (setq! org-ditaa-jar-path "/usr/share/ditaa/ditaa.jar")
   ;; where to find pantuml

@@ -5,7 +5,9 @@
 
 (package! peep-dired)
 
-(package! org-make-toc)
+;;(package! org-make-toc)
+
+(package! toc-org)
 
 (package! beacon)
 

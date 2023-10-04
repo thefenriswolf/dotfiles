@@ -1,46 +1,17 @@
-#+title: Stefan's DOOM EMACS INIT
-#+author: Stefan Rohrbacher
-#+startup: showeverything
-#+property: header-args :tangle init.el
-#+auto_tangle: t
-* INFO :TOC:
-- [[#keyboard-layout][KEYBOARD LAYOUT]]
-- [[#completion-and-search][COMPLETION AND SEARCH]]
-- [[#ui-tools][UI TOOLS]]
-- [[#editor][EDITOR]]
-- [[#file-manipulation][FILE MANIPULATION]]
-- [[#terminal][TERMINAL]]
-- [[#check-and-spell][CHECK AND SPELL]]
-- [[#tools][TOOLS]]
-- [[#osx-support][OSX SUPPORT]]
-- [[#programming-languages][PROGRAMMING LANGUAGES]]
-  - [[#org-mode][ORG-MODE]]
-- [[#email][EMAIL]]
-- [[#esoteric-plugins][ESOTERIC PLUGINS]]
-- [[#general-config][GENERAL CONFIG]]
-
-* KEYBOARD LAYOUT
-#+begin_src emacs-lisp
 ;;; init.el -*- lexical-binding: t; -*-
 (doom! :input
        ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
        ;;chinese
        ;;japanese
        ;;layout            ; auie,ctsrnm is the superior home row
-#+end_src
 
-* COMPLETION AND SEARCH
-#+begin_src emacs-lisp
        :completion
        company             ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
        vertico             ; the search engine of the future
-#+end_src
 
-* UI TOOLS
-#+begin_src emacs-lisp
        :ui
        ;;deft              ; notational velocity for Emacs
        doom                ; what makes DOOM look the way it does
@@ -65,10 +36,7 @@
        ;;window-select     ; visually switch windows
        ;;workspaces        ; tab emulation, persistence & separate workspaces
        zen                 ; distraction-free coding or writing
-#+end_src
 
-* EDITOR
-#+begin_src emacs-lisp
        :editor
        (evil +everywhere)  ; come to the dark side, we have cookies
        file-templates      ; auto-snippets for empty files
@@ -82,37 +50,25 @@
        ;;rotate-text       ; cycle region at point between text candidates
        snippets            ; my elves. They type so I don't have to
        word-wrap           ; soft wrapping with language-aware indent
-#+end_src
 
-* FILE MANIPULATION
-#+begin_src emacs-lisp
        :emacs
        dired               ; making dired pretty [functional]
        electric            ; smarter, keyword-based electric-indent
        ;;ibuffer           ; interactive buffer management
        undo                ; persistent, smarter undo for your inevitable mistakes
        vc                  ; version-control and Emacs, sitting in a tree
-#+end_src
 
-* TERMINAL
-#+begin_src emacs-lisp
        :term
        eshell              ; the elisp shell that works everywhere
        ;;shell             ; simple shell REPL for Emacs
        ;;term              ; basic terminal emulator for Emacs
        ;;vterm             ; the best terminal emulation in Emacs
-#+end_src
 
-* CHECK AND SPELL
-#+begin_src emacs-lisp
        :checkers
        syntax              ; tasing you for every semicolon you forget
        (spell +enchant) ; tasing you for misspelling mispelling
        grammar           ; tasing grammar mistake every you make
-#+end_src
 
-* TOOLS
-#+begin_src emacs-lisp
        :tools
        ;;ansible
        biblio              ; Writes a PhD for you (citation needed)
@@ -136,17 +92,11 @@
        ;;tmux              ; an API for interacting with tmux
        tree-sitter         ; syntax and parsing, sitting in a tree...
        ;;upload            ; map local to remote projects via ssh/ftp
-#+end_src
 
-* OSX SUPPORT
-#+begin_src emacs-lisp
        :os
        (:if IS-MAC macos)  ; improve compatibility with macOS
        tty                 ; improve the terminal Emacs experience
-#+end_src
 
-* PROGRAMMING LANGUAGES
-#+begin_src emacs-lisp
        :lang
        ;;agda              ; types of types of types of types...
        ;;beancount         ; mind the GAAP
@@ -191,7 +141,7 @@
        ;;php               ; perl's insecure younger brother
        plantuml            ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
-       (python +tree-sitter +lsp); beautiful is better than ugly
+       (python +tree-sitter +lsp +pyright); beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
        ;;raku              ; the artist formerly known as perl6
@@ -209,10 +159,7 @@
        ;;web               ; the tubes
        yaml                ; JSON, but readable
        (zig +lsp +tree-sitter)               ; C, but simpler
-#+end_src
 
-** ORG-MODE
-#+begin_src emacs-lisp
       (org                ; organize your plain life in plain text
 	 +dragndrop
 	 +gnuplot
@@ -220,18 +167,12 @@
 	 +pandoc
 	 +pretty
 	 +present)
-#+end_src
 
-* EMAIL
-#+begin_src emacs-lisp
        :email
        ;;(mu4e +org +gmail)
        ;;notmuch
        ;;(wanderlust +gmail)
-#+end_src
 
-* ESOTERIC PLUGINS
-#+begin_src emacs-lisp
        :app
        ;;calendar
        ;;emms
@@ -239,11 +180,7 @@
        ;;irc               ; how neckbeards socialize
        ;;(rss +org)        ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
-#+end_src
 
-* GENERAL CONFIG
-#+begin_src emacs-lisp
        :config
        ;;literate
        (default +bindings +smartparens))
-#+end_src
