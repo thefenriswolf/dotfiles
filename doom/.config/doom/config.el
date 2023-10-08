@@ -9,50 +9,27 @@
 ;;      doom-variable-pitch-font (font-spec :family "JetBrainsMono" :size 13))
 
 ;;(setq! doom-theme 'doom-challenger-deep)
-(setq! doom-theme 'doom-ephemeral)
-;;(setq! doom-theme 'doom-one-light)
+;;(setq! doom-theme 'doom-ephemeral)
+(setq! doom-theme 'doom-one)
 ;;(setq! doom-theme 'doom-nord)
 ;;(setq! doom-theme 'moe-theme)
 
-(map! :leader
-      :desc "format whole buffer" "l l" #'+format/buffer
-      :desc "open eshell terminal" "ö ö" #'eshell)
-
-(setq! doom-modeline-persp-name t
-      doom-modeline-persp-icon t
-      doom-modeline-time t
-      doom-modeline-modal t
-      doom-modeline-modal-icon t)
-(setq! display-time t)
-
 (beacon-mode t)
-(after! (beacon)
-  (setq! beacon-size 50)
-  (setq! beacon-blink-when-point-moves-vertically t)
-  (setq! beacon-blink-when-focused t)
-  (setq! beacon-blink-when-buffer-changes t)
-  (setq! beacon-blink-when-window-changes t)
-  (setq! beacon-blink-when-window-scrolls t)
-)
+;;(after! (beacon)
+  ;;(setq! beacon-size 50)
+  ;;(setq! beacon-blink-when-point-moves-vertically t)
+  ;;(setq! beacon-blink-when-focused t)
+  ;;(setq! beacon-blink-when-buffer-changes t)
+  ;;(setq! beacon-blink-when-window-changes t)
+  ;;(setq! beacon-blink-when-window-scrolls t)
+;;)
 
-(setq! eshell-prefer-lisp-functions t)
-
-(when (version< "29.0.50" emacs-version)
-  (pixel-scroll-precision-mode t)
-  (set-frame-parameter (selected-frame) 'alpha-background 90)
-  (add-to-list 'default-frame-alist '(alpha-background . 90))
-)
-
-;;(map! :leader
-;;      (:prefix ("c h" . "Info from Clippy")
-;;       :desc "Clippy describe function under point" "f" #'clippy-describe-function
-;;       :desc "Clippy describe variable under point" "v" #'clippy-describe-variable))
-
-(solaire-global-mode +1)
+(map! :leader
+      (:prefix ("c h" . "Info from Clippy")
+       :desc "Clippy describe function under point" "f" #'clippy-describe-function
+       :desc "Clippy describe variable under point" "v" #'clippy-describe-variable))
 
 (setq! display-line-numbers-type 'relative)
-
-(add-hook! 'window-setup-hook #'toggle-frame-maximized)
 
 (setq scroll-margin 4)
 

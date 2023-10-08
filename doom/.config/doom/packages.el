@@ -5,6 +5,8 @@
 
 (package! peep-dired)
 
+(package! clippy)
+
 ;;(package! org-make-toc)
 
 (package! toc-org)

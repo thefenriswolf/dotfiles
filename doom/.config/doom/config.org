@@ -2,22 +2,22 @@
 #+author: Stefan Rohrbacher
 #+startup: showeverything
 #+property: header-args :tangle config.el
-#+auto_tangle: t
+#+auto_tangle: nil
 
 * DUDE, WHERE IS MY STUFF? :TOC:
 - [[#userdata][USERDATA]]
 - [[#font][FONT]]
 - [[#theme][THEME]]
-- [[#general-keybindings][GENERAL KEYBINDINGS]]
-- [[#modeline][MODELINE]]
+- [[#general-keybindings-disabled][GENERAL KEYBINDINGS (disabled)]]
+- [[#modeline-disabled][MODELINE (disabled)]]
 - [[#beacon][BEACON]]
-- [[#eshell][ESHELL]]
-- [[#gui-settings][GUI SETTINGS]]
+- [[#eshell-disabled][ESHELL (disabled)]]
+- [[#gui-settings-disabled][GUI SETTINGS (disabled)]]
 - [[#clippy][CLIPPY]]
-- [[#solaire-mode][SOLAIRE MODE]]
+- [[#solaire-mode-disabled][SOLAIRE MODE (disabled)]]
 - [[#line-settings][LINE SETTINGS]]
 - [[#window-settings][WINDOW SETTINGS]]
-  - [[#maximize-emacs-on-startup][MAXIMIZE EMACS ON STARTUP]]
+  - [[#maximize-emacs-on-startup-disabled][MAXIMIZE EMACS ON STARTUP (disabled)]]
   - [[#scroll-margin][SCROLL MARGIN]]
   - [[#mouse-support][MOUSE SUPPORT]]
 - [[#splash-screen][SPLASH screen]]
@@ -75,22 +75,22 @@ accept. For example:
 * THEME
 #+begin_src emacs-lisp
 ;;(setq! doom-theme 'doom-challenger-deep)
-(setq! doom-theme 'doom-ephemeral)
-;;(setq! doom-theme 'doom-one-light)
+;;(setq! doom-theme 'doom-ephemeral)
+(setq! doom-theme 'doom-one)
 ;;(setq! doom-theme 'doom-nord)
 ;;(setq! doom-theme 'moe-theme)
 #+end_src
 
-* GENERAL KEYBINDINGS
-#+begin_src emacs-lisp
+* GENERAL KEYBINDINGS (disabled)
+#+begin_src emacs-lisp :tangle no
 (map! :leader
       :desc "format whole buffer" "l l" #'+format/buffer
       :desc "open eshell terminal" "ö ö" #'eshell)
 #+end_src
 
-* MODELINE
+* MODELINE (disabled)
 Modeline config
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle no
 (setq! doom-modeline-persp-name t
       doom-modeline-persp-icon t
       doom-modeline-time t
@@ -103,27 +103,27 @@ Modeline config
 Flash cursor after large movement.
 #+begin_src emacs-lisp
 (beacon-mode t)
-(after! (beacon)
-  (setq! beacon-size 50)
-  (setq! beacon-blink-when-point-moves-vertically t)
-  (setq! beacon-blink-when-focused t)
-  (setq! beacon-blink-when-buffer-changes t)
-  (setq! beacon-blink-when-window-changes t)
-  (setq! beacon-blink-when-window-scrolls t)
-)
+;;(after! (beacon)
+  ;;(setq! beacon-size 50)
+  ;;(setq! beacon-blink-when-point-moves-vertically t)
+  ;;(setq! beacon-blink-when-focused t)
+  ;;(setq! beacon-blink-when-buffer-changes t)
+  ;;(setq! beacon-blink-when-window-changes t)
+  ;;(setq! beacon-blink-when-window-scrolls t)
+;;)
 #+end_src
 
-* ESHELL
+* ESHELL (disabled)
 Eshell should use elisp functions as much as possible for plattform independence.
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle no
 (setq! eshell-prefer-lisp-functions t)
 #+end_src
 
-* GUI SETTINGS
+* GUI SETTINGS (disabled)
 Make use of features in Emacs > 29.
 1. pixel perfect scrolling
 2. transparent backgrounds
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle no
 (when (version< "29.0.50" emacs-version)
   (pixel-scroll-precision-mode t)
   (set-frame-parameter (selected-frame) 'alpha-background 90)
@@ -139,15 +139,15 @@ Get help from Clippy. Only works in GUI mode.
 | clippy-describe-variable | describe variable under point | SPC c h v  |
 
 #+begin_src emacs-lisp
-;;(map! :leader
-;;      (:prefix ("c h" . "Info from Clippy")
-;;       :desc "Clippy describe function under point" "f" #'clippy-describe-function
-;;       :desc "Clippy describe variable under point" "v" #'clippy-describe-variable))
+(map! :leader
+      (:prefix ("c h" . "Info from Clippy")
+       :desc "Clippy describe function under point" "f" #'clippy-describe-function
+       :desc "Clippy describe variable under point" "v" #'clippy-describe-variable))
 #+end_src
 
-* SOLAIRE MODE
+* SOLAIRE MODE (disabled)
 Make active buffer stand out more.
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle no
 (solaire-global-mode +1)
 #+end_src
 
@@ -162,8 +162,8 @@ Make active buffer stand out more.
 #+end_src
 
 * WINDOW SETTINGS
-** MAXIMIZE EMACS ON STARTUP
-#+begin_src emacs-lisp
+** MAXIMIZE EMACS ON STARTUP (disabled)
+#+begin_src emacs-lisp :tangle no
 (add-hook! 'window-setup-hook #'toggle-frame-maximized)
 #+end_src
 

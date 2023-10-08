@@ -2,12 +2,13 @@
 #+author: Stefan Rohrbacher
 #+startup: showeverything
 #+property: header-args :tangle packages.el
-#+auto_tangle: t
+#+auto_tangle: nil
 * INTRO :TOC:
   - [[#additional-info][ADDITIONAL INFO]]
 - [[#header][Header]]
 - [[#auto-tangle][Auto tangle]]
 - [[#dired-extensions][DIRED EXTENSIONS]]
+- [[#clippy][Clippy]]
 - [[#org-toc-disabled][ORG TOC (disabled)]]
 - [[#toc-org][TOC ORG]]
 - [[#beacon][BEACON]]
@@ -98,6 +99,11 @@ add ~#+auto_tangle: nil~ to disable or ~#+auto_tangle: t~ to enable this behavio
 - peep-dired: preview files in dired
 #+begin_src emacs-lisp
 (package! peep-dired)
+#+end_src
+
+* Clippy
+#+begin_src emacs-lisp
+(package! clippy)
 #+end_src
 
 * ORG TOC (disabled)
