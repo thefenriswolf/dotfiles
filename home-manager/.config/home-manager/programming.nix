@@ -5,12 +5,15 @@
     pkgs.zig
     pkgs.zls
 
+    # scheme
+    pkgs.chicken
+
     # nix
     pkgs.nixfmt
     pkgs.lorri
 
     # rustlang
-    #pkgs.rustup
+    pkgs.rustup
 
     # golang
     # pkgs.go
@@ -25,7 +28,7 @@
     # python
     pkgs.python3Full
     pkgs.python311Packages.numpy
-    #pkgs.python311Packages.scikit-learn
+    pkgs.python311Packages.scikit-image
     pkgs.python311Packages.pydicom
     pkgs.python311Packages.opencv4
     pkgs.python311Packages.matplotlib

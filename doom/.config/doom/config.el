@@ -24,11 +24,6 @@
   ;;(setq! beacon-blink-when-window-scrolls t)
 ;;)
 
-(map! :leader
-      (:prefix ("c h" . "Info from Clippy")
-       :desc "Clippy describe function under point" "f" #'clippy-describe-function
-       :desc "Clippy describe variable under point" "v" #'clippy-describe-variable))
-
 (setq! display-line-numbers-type 'relative)
 
 (setq scroll-margin 4)
@@ -78,11 +73,6 @@
       :desc "peep previous file" "k" #'peep-dired-prev-file
 )
 
-(setq! peep-dired-cleanup-on-disable t)
-(setq! peep-dired-cleanup-eagerly t)
-(setq! peep-dired-enable-on-directories t)
-(setq! peep-dired-ignored-extensions '("mkv" "iso" "mp4" "docx" "pdf"))
-
 (setq! auto-save-default t)
 
 (setq! make-backup-files nil)
@@ -90,20 +80,20 @@
 (setq confirm-kill-emacs nil)
 
 (add-hook! TeX-mode
-  (setq TeX-engine 'luatex)
-  (setq TeX-parse-self t) ; Enable parse on load.
-  (setq TeX-auto-save t) ; Enable parse on save
-  (setq LaTeX-biblatex-use-Biber t)
+  (setq! TeX-parse-self t) ; Enable parse on load.
+  (setq! TeX-auto-save t) ; Enable parse on save
+  (setq! LaTeX-biblatex-use-Biber t)
+  (setq! +latex-viewers '(zathura))
 )
 
-(setq! langtool-language-tool-jar "/home/stefan/LanguageTool-6.2-stable/languagetool-commandline.jar")
-
-(setq! org-directory "~/playground/org/")
+(setq! langtool-language-tool-jar "/usr/share/java/languagetool/languagetool-commandline.jar")
 
 (map! :after org
       :leader
       :desc "export to PDF" "e p" #'org-latex-export-to-pdf
-      :desc "export to LaTeX" "e l" #'org-latex-export-to-latex)
+      :desc "export to LaTeX" "e l" #'org-latex-export-to-latex
+      :desc "insert citation" "e c" #'citar-insert-citation
+)
 
 (use-package! org-auto-tangle
   :defer t

@@ -2,13 +2,13 @@
 #+author: Stefan Rohrbacher
 #+startup: showeverything
 #+property: header-args :tangle packages.el
-#+auto_tangle: nil
+#+auto_tangle: t
 * INTRO :TOC:
   - [[#additional-info][ADDITIONAL INFO]]
 - [[#header][Header]]
 - [[#auto-tangle][Auto tangle]]
 - [[#dired-extensions][DIRED EXTENSIONS]]
-- [[#clippy][Clippy]]
+- [[#bpftrace][BPFTRACE]]
 - [[#org-toc-disabled][ORG TOC (disabled)]]
 - [[#toc-org][TOC ORG]]
 - [[#beacon][BEACON]]
@@ -91,19 +91,19 @@ release. The `unpin!' macro allows you to unpin single packages...
 * Auto tangle
 org babel auto tangle automatically tangles source code blocks on file save.
 add ~#+auto_tangle: nil~ to disable or ~#+auto_tangle: t~ to enable this behavior.
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle no
 (package! org-auto-tangle)
 #+end_src
 
 * DIRED EXTENSIONS
 - peep-dired: preview files in dired
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle no
 (package! peep-dired)
 #+end_src
 
-* Clippy
+* BPFTRACE
 #+begin_src emacs-lisp
-(package! clippy)
+(package! bpftrace-mode)
 #+end_src
 
 * ORG TOC (disabled)
