@@ -88,6 +88,11 @@
 
 (setq! langtool-language-tool-jar "/usr/share/java/languagetool/languagetool-commandline.jar")
 
+(setq! org-directory "~/playground/org/")
+(setq! org-cite-csl-styles-dir "~/Zotero/styles/")
+(setq! citar-bibliography '("~/Zotero/references/library.bib"))
+(setq! bibtex-completion-bibliography '("~/Zotero/references/library.bib"))
+
 (map! :after org
       :leader
       :desc "export to PDF" "e p" #'org-latex-export-to-pdf

@@ -278,8 +278,11 @@ Make active buffer stand out more.
 
 * ORG MODE
 ** GLOBAL VARIABLES
-#+begin_src emacs-lisp :tangle no
+#+begin_src emacs-lisp
 (setq! org-directory "~/playground/org/")
+(setq! org-cite-csl-styles-dir "~/Zotero/styles/")
+(setq! citar-bibliography '("~/Zotero/references/library.bib"))
+(setq! bibtex-completion-bibliography '("~/Zotero/references/library.bib"))
 #+end_src
 
 ** KEYBINDINGS

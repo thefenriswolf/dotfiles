@@ -91,7 +91,7 @@ release. The `unpin!' macro allows you to unpin single packages...
 * Auto tangle
 org babel auto tangle automatically tangles source code blocks on file save.
 add ~#+auto_tangle: nil~ to disable or ~#+auto_tangle: t~ to enable this behavior.
-#+begin_src emacs-lisp :tangle no
+#+begin_src emacs-lisp
 (package! org-auto-tangle)
 #+end_src
 
@@ -110,8 +110,8 @@ add ~#+auto_tangle: nil~ to disable or ~#+auto_tangle: t~ to enable this behavio
 Generates a GitHub compatible TOC in org files.
 Run: ~org-make-toc-insert~ to initialize the TOC and ~org-make-toc~ to refresh.
 TOC must be the first thing after a heading, there can be no text before it!
-#+begin_src emacs-lisp
-;;(package! org-make-toc)
+#+begin_src emacs-lisp :tangle no
+(package! org-make-toc)
 #+end_src
 
 * TOC ORG

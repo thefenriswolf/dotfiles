@@ -1,9 +1,9 @@
 ;;; -*- no-byte-compile: t; -*-
 ;;; $DOOMDIR/packages.el
 
-(package! bpftrace-mode)
+(package! org-auto-tangle)
 
-;;(package! org-make-toc)
+(package! bpftrace-mode)
 
 (package! toc-org)
 
