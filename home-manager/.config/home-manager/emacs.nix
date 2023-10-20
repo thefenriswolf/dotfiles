@@ -6,7 +6,7 @@
     pkgs.xclip
     pkgs.gnuplot
     pkgs.fd
-   #pkgs.emacs29-nox
+    pkgs.emacs29-nox
     pkgs.wordnet
     pkgs.xdotool
     pkgs.nodejs
