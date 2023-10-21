@@ -1,8 +1,11 @@
 ##
-# Dotfiles
-#
-# @file
-# @version 0.1
+# Author: Stefan Rohrbacher
+# Title: GNU Stow managed dotfiles
+# Version: 21.10.2023
+##
+
+# begin
+
 .PHONY: dir install refresh uninstall
 
 all: dir install
@@ -20,14 +23,14 @@ dir:
 
 install:
 	stow -v -t $${HOME} -S hyprland doom alacritty home-manager fontconfig waybar sanoid
-	sudo stow -v -t / -S ly yabsnap
+	sudo stow -v -t / -S ly yabsnap services
 
 uninstall:
 	stow -v -t $${HOME} -D hyprland doom alacritty home-manager fontconfig waybar sanoid
-	sudo stow -v -t / -D ly yabsnap
+	sudo stow -v -t / -D ly yabsnap services
 
 refresh:
 	stow -v -t $${HOME} -R hyprland doom alacritty home-manager fontconfig waybar sanoid
-	sudo stow -v -t / -R ly yabsnap
+	sudo stow -v -t / -R ly yabsnap services
 
 # end
