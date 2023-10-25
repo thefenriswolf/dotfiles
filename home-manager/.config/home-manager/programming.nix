@@ -16,8 +16,8 @@
     pkgs.rustup
 
     # golang
-    # pkgs.go
-    # pkgs.gotools
+    pkgs.go
+    pkgs.gotools
     # pkgs.go-tools
 
     # c/cpp
