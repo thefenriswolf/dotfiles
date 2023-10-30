@@ -5,6 +5,7 @@
   home.packages = [
     pkgs.xclip
     pkgs.gnuplot
+    pkgs.ditaa
     pkgs.fd
     pkgs.emacs29-nox
     pkgs.wordnet

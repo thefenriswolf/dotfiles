@@ -108,18 +108,15 @@
 )
 
 ;; org mode hooks
-(after! (org ob-ditaa ob-plantuml toc-org)
+(after! (org ob-ditaa toc-org)
   ;; where to find ditaa
-  (setq! org-ditaa-jar-path "/usr/share/ditaa/ditaa.jar")
-  ;; where to find pantuml
-  (setq! org-plantuml-jar-path "/usr/share/plantuml/plantuml.jar")
+  (setq! org-ditaa-jar-path "/home/ro/.nix-profile/bin/ditaa")
   ;; enable word count only in org-mode
   (setq! doom-modeline-enable-word-count t)
    ;; babel languages
   (org-babel-do-load-languages
    'org-babel-load-languages
    '(
-     (ledger . t)
      (emacs-lisp . t)
      (shell . t)
      (ditaa . t)
@@ -127,7 +124,6 @@
      (latex . t)
      (org . t)
      (gnuplot . t)
-     (plantuml . t)
      (r . t)
      )
    )
