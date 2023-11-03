@@ -6,6 +6,8 @@
     pkgs.xclip
     pkgs.gnuplot
     pkgs.ditaa
+    pkgs.plantuml
+    pkgs.graphviz
     pkgs.fd
     pkgs.emacs29-nox
     pkgs.wordnet
