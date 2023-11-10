@@ -88,6 +88,18 @@
 
 (setq! langtool-language-tool-jar "/usr/share/java/languagetool/languagetool-commandline.jar")
 
+(setq! empv-audio-dir "~")
+(setq! empv-video-dir "~")
+(setq! empv-max-directory-search-depth 10)
+(map! :leader
+      :desc "kill mpv" "v q" #'empv-exit
+      :desc "search file" "v p" #'empv-play-file
+      :desc "start/stop mpv playback" "v r" #'empv-toggle
+      :desc "toggle video display" "v v" #'empv-toggle-video
+      :desc "skip to next" "v s" #'empv-playlist-next
+      :desc "go to previous" "v b" #'empv-playlist-prev
+)
+
 (setq! org-directory "~/playground/org/")
 (setq! org-cite-csl-styles-dir "~/Zotero/styles/")
 (setq! citar-bibliography '("~/Zotero/references/library.bib"))

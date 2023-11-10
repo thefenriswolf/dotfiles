@@ -13,7 +13,6 @@
 - [[#beacon][BEACON]]
 - [[#eshell-disabled][ESHELL (disabled)]]
 - [[#gui-settings-disabled][GUI SETTINGS (disabled)]]
-- [[#clippy-disabled][CLIPPY (disabled)]]
 - [[#solaire-mode-disabled][SOLAIRE MODE (disabled)]]
 - [[#line-settings][LINE SETTINGS]]
 - [[#window-settings][WINDOW SETTINGS]]
@@ -27,13 +26,13 @@
 - [[#procejile][PROCEJILE]]
 - [[#dired][DIRED]]
   - [[#keybindings][Keybindings]]
-  - [[#peep-dired-disabled][peep-dired (disabled)]]
 - [[#autosave-and-backups][AUTOSAVE and BACKUPS]]
   - [[#autosave][AUTOSAVE]]
   - [[#backup][BACKUP]]
 - [[#emacs-shutdown-tasks][EMACS SHUTDOWN TASKS]]
 - [[#latex][LaTeX]]
 - [[#languagetool][LanguageTool]]
+- [[#mpv][MPV]]
 - [[#org-mode][ORG MODE]]
   - [[#global-variables][GLOBAL VARIABLES]]
   - [[#keybindings-1][KEYBINDINGS]]
@@ -131,20 +130,6 @@ Make use of features in Emacs > 29.
 )
 #+end_src
 
-* CLIPPY (disabled)
-Get help from Clippy. Only works in GUI mode.
-| COMMAND                  | DESCRIPTION                   | KEYBINDING |
-|--------------------------+-------------------------------+------------|
-| clippy-describe-function | describe function under point | SPC c h f  |
-| clippy-describe-variable | describe variable under point | SPC c h v  |
-
-#+begin_src emacs-lisp :tangle no
-(map! :leader
-      (:prefix ("c h" . "Info from Clippy")
-       :desc "Clippy describe function under point" "f" #'clippy-describe-function
-       :desc "Clippy describe variable under point" "v" #'clippy-describe-variable))
-#+end_src
-
 * SOLAIRE MODE (disabled)
 Make active buffer stand out more.
 #+begin_src emacs-lisp :tangle no
@@ -237,14 +222,6 @@ Make active buffer stand out more.
 )
 #+end_src
 
-** peep-dired (disabled)
-#+begin_src emacs-lisp :tangle no
-(setq! peep-dired-cleanup-on-disable t)
-(setq! peep-dired-cleanup-eagerly t)
-(setq! peep-dired-enable-on-directories t)
-(setq! peep-dired-ignored-extensions '("mkv" "iso" "mp4" "docx" "pdf"))
-#+end_src
-
 * AUTOSAVE and BACKUPS
 ** AUTOSAVE
 #+begin_src emacs-lisp
@@ -274,6 +251,21 @@ Make active buffer stand out more.
 * LanguageTool
 #+begin_src emacs-lisp
 (setq! langtool-language-tool-jar "/usr/share/java/languagetool/languagetool-commandline.jar")
+#+end_src
+
+* MPV
+#+begin_src emacs-lisp
+(setq! empv-audio-dir "~")
+(setq! empv-video-dir "~")
+(setq! empv-max-directory-search-depth 10)
+(map! :leader
+      :desc "kill mpv" "v q" #'empv-exit
+      :desc "search file" "v p" #'empv-play-file
+      :desc "start/stop mpv playback" "v r" #'empv-toggle
+      :desc "toggle video display" "v v" #'empv-toggle-video
+      :desc "skip to next" "v s" #'empv-playlist-next
+      :desc "go to previous" "v b" #'empv-playlist-prev
+)
 #+end_src
 
 * ORG MODE
