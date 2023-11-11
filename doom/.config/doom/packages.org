@@ -7,7 +7,7 @@
   - [[#additional-info][ADDITIONAL INFO]]
 - [[#header][Header]]
 - [[#auto-tangle][Auto tangle]]
-- [[#dired-extensions][DIRED EXTENSIONS]]
+- [[#dirvish][Dirvish]]
 - [[#bpftrace][BPFTRACE]]
 - [[#org-toc-disabled][ORG TOC (disabled)]]
 - [[#toc-org][TOC ORG]]
@@ -96,10 +96,9 @@ add ~#+auto_tangle: nil~ to disable or ~#+auto_tangle: t~ to enable this behavio
 (package! org-auto-tangle)
 #+end_src
 
-* DIRED EXTENSIONS
-- peep-dired: preview files in dired
-#+begin_src emacs-lisp :tangle no
-(package! peep-dired)
+* Dirvish
+#+begin_src emacs-lisp
+(package! dirvish)
 #+end_src
 
 * BPFTRACE

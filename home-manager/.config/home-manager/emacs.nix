@@ -9,6 +9,10 @@
     pkgs.plantuml
     pkgs.graphviz
     pkgs.fd
+    pkgs.imagemagick
+    pkgs.ffmpegthumbnailer
+    pkgs.mediainfo
+    pkgs.poppler
     pkgs.emacs29-nox
     pkgs.wordnet
     pkgs.xdotool

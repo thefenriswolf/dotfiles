@@ -37,9 +37,11 @@ monitor=HDMI-A-2,1680x1050@60,0x0,1
 - wlsunset: screen redshift
 - swayidle: screen idle behavior
 - swaybg: wallpaper daemon
+- nm-applet: networkmanager applet
 
 #+begin_src config
 exec-once = waybar
+exec-once = nm-applet &
 exec-once = dunst -lto 10 -nto 20 -cto 100 -show_age_theshold 11 -startup_notification -idle_threshold 60 &
 exec-once = [workspace 1 silent] alacritty
 exec-once = wl-clipboard-history -t

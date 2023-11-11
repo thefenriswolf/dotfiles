@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  programs.neovim.enable = true;
+  programs.neovim.enable = false;
   programs.neovim.plugins = [
     pkgs.vimPlugins.rust-tools-nvim
     pkgs.vimPlugins.nightfox-nvim

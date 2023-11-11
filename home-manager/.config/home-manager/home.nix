@@ -26,6 +26,7 @@
     ./hypr.nix
     ./git.nix
     ./emacs.nix
+    ./zsh.nix
     ./latex.nix
     ./fonts.nix
   ];

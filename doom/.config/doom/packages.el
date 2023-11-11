@@ -3,6 +3,8 @@
 
 (package! org-auto-tangle)
 
+(package! dirvish)
+
 (package! bpftrace-mode)
 
 (package! toc-org)

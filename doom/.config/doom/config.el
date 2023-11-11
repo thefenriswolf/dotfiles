@@ -64,13 +64,16 @@
 
 (setq! projectile-project-search-path '("~/playground/" "~/Documents/"))
 
+(dirvish-override-dired-mode)
+(after! (dirvish)
+(setq! dirvish-peek-mode t)
+)
 (map! :leader
-      :prefix ("d" . "dired")
-      :desc "open dired" "d" #'dired
-      :desc "open current directory" "c" #'dired-jump
-      :desc "toggle peep-dired" "p" #'peep-dired
-      :desc "peep next file" "j"  #'peep-dired-next-file
-      :desc "peep previous file" "k" #'peep-dired-prev-file
+      :prefix ("d" . "divish")
+      :desc "open divish" "w" #'dirvish
+      :desc "open dirvish full screen" "d" #'dirvish-dwim
+      :desc "dirvish main menu" "m" #'dirvish-dispatch
+      :desc "dirvish find file" "s" #'dirvish-fd
 )
 
 (setq! auto-save-default t)
