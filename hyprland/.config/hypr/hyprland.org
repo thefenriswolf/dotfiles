@@ -1,7 +1,44 @@
+#+title: Stefan's Hyprland WM config
+#+author: Stefan Rohrbacher
+#+startup: showeverything
+#+property: header-args :tangle hyprland.conf
+#+auto_tangle: t
+
+* Dude, where is my stuff? :TOC:
+- [[#monitors][Monitors]]
+- [[#autostart][Autostart]]
+- [[#environment-variables][Environment Variables]]
+- [[#xwayland][xwayland]]
+- [[#input-config][input config]]
+- [[#general][general]]
+- [[#prettify][prettify]]
+- [[#windowrules][windowrules]]
+- [[#keybindings][Keybindings]]
+
+* Monitors
+See https://wiki.hyprland.org/Configuring/Monitors/
+- eDP-1: Lenovo Thinkpad Screen
+- HDMI-A-2: Workstaton Screen
+#+begin_src config
 # monitor=,preferred,auto,1
 monitor=eDP-1,preferred,auto,1
 monitor=HDMI-A-2,1680x1050@60,0x0,1
+#+end_src
 
+* Autostart
+- waybar: status bar
+- dunst: notification daemon
+- alacritty: terminal
+- wl-clipboard: clipboard manager
+- polkit: policy kit
+- gnome-keyring-daemon: keyring daemon
+- dbus: env vars
+- pipewire: screen share daemon
+- wlsunset: screen redshift
+- swayidle: screen idle behavior
+- swaybg: wallpaper daemon
+
+#+begin_src config
 exec-once = waybar
 exec-once = dunst -lto 10 -nto 20 -cto 100 -show_age_theshold 11 -startup_notification -idle_threshold 60 &
 exec-once = [workspace 1 silent] alacritty
@@ -17,7 +54,10 @@ exec-once = wlsunset -t 4200 -S 9:00 -s 19:30
 #exec-once = swayidle -w timeout 300 '$HOME/.local/bin/lock.sh' before-sleep '$HOME/.local/bin/lock.sh' &
 #exec-once = swayidle -w timeout 450 'systemctl suspend'
 #exec-once = swaybg -m fill -i /usr/share/backgrounds/manjaro-sway/manjaro-sway-small-wallpaper-3840x2160.png
+#+end_src
 
+* Environment Variables
+#+begin_src config
 env = XCURSOR_SIZE=24
 env = XDG_CURRENT_DESKTOP=Hyprland
 env = XDG_SESSION_TYPE=wayland
@@ -32,11 +72,17 @@ env = QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 env = OZONE_PLATFORM=wayland
 
 env = SDL_VIDEODRIVER=wayland
+#+end_src
 
+* xwayland
+#+begin_src config
 xwayland {
   force_zero_scaling = true
 }
+#+end_src
 
+* input config
+#+begin_src config
 input {
     kb_layout = at
     kb_variant = nodeadkeys
@@ -60,6 +106,10 @@ device:epic-mouse-v1 {
     sensitivity = -0.5
 }
 
+#+end_src
+
+* general
+#+begin_src config
 general {
     # See https://wiki.hyprland.org/Configuring/Variables/ for more
     max_fps = 60
@@ -81,6 +131,10 @@ master {
     new_is_master = true
 }
 
+#+end_src
+
+* prettify
+#+begin_src config
 decoration {
     # See https://wiki.hyprland.org/Configuring/Variables/ for more
     rounding = 8
@@ -109,7 +163,10 @@ misc {
     #force_default_wallpaper = 0 # future v0.31 option to disable weeb backgrounds
     disable_hypr_chan = true # old option to disable weeb backgrounds
 }
+#+end_src
 
+* windowrules
+#+begin_src config
 # Example windowrule v1
 # windowrule = float, ^(kitty)$
 
@@ -126,7 +183,10 @@ windowrulev2 = center,class:^(file-roller)$
 
 # always float foot
 windowrulev2 = float,class:^(foot)$,title:^(foot)$
+#+end_src
 
+* Keybindings
+#+begin_src config
 $mainMod = SUPER
 
 bind = $mainMod, Return, exec, alacritty
@@ -193,3 +253,4 @@ bind = SUPER CTRL, left, resizeactive, -20 0
 bind = SUPER CTRL, right, resizeactive, 20 0
 bind = SUPER CTRL, up, resizeactive, 0 -20
 bind = SUPER CTRL, down, resizeactive, 0 20
+#+end_src

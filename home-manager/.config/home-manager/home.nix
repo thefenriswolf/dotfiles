@@ -23,10 +23,11 @@
   imports = [
     ./cli.nix
     ./programming.nix
-    ./sway.nix
+    ./hypr.nix
     ./git.nix
     ./emacs.nix
     ./latex.nix
+    ./fonts.nix
   ];
 
   # nix settings
