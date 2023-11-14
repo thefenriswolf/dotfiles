@@ -11,8 +11,5 @@
     # document tools
     pkgs.pandoc
     pkgs.diff-pdf
-
-    # performance measurement
-    pkgs.psrecord
   ];
 }

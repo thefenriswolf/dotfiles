@@ -24,6 +24,7 @@
     ./cli.nix
     ./programming.nix
     ./hypr.nix
+    ./benchmark.nix
     ./git.nix
     ./emacs.nix
     ./zsh.nix
@@ -37,6 +38,15 @@
     experimental-features = "nix-command flakes";
   };
 
+  nix = {
+    package = pkgs.nix;
+    settings.experimental-features = [ "nix-command" "flakes" ];
+  };
+
+  # enable gui integration on non-nixos
+  targets.genericLinux.enable = true;
+  xdg.mime.enable = true;
+
   # user config starts here
   home.sessionVariables = {
     EDITOR = "nano";
@@ -45,5 +55,5 @@
     HOME_MANAGER_CONFIG = /home/ro/.config/home-manager/home.nix;
   };
 
-  home.packages = [ pkgs.hello ];
+  home.packages = [ pkgs.cowsay pkgs.auto-cpufreq ];
 }
