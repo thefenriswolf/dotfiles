@@ -4,6 +4,8 @@
   home.packages = [ pkgs.zsh-powerlevel10k ];
   programs.zsh.enable = true;
   programs.zsh.autocd = true;
+  programs.zsh.history.extended = true;
+  programs.zsh.history.size = 50000;
   programs.zsh.history.expireDuplicatesFirst = true;
   programs.zsh.history.ignoreSpace = true;
   programs.zsh.syntaxHighlighting.enable = true;
@@ -26,6 +28,13 @@
     ll = "ls -lisah";
     doom = "~/.config/emacs/bin/doom";
     emacs = "emacs -nw";
+    ls = "ls --color=auto";
+    grep = "grep --colour=auto";
+    egrep = "egrep --colour=auto";
+    fgrep = "fgrep --colour=auto";
+    free = "free -m";
+    btrfsfree = "sudo btrfs fi us /";
+    gitpull = "git pull --rebase";
   };
 
 }

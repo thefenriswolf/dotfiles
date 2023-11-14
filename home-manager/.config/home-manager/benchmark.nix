@@ -9,7 +9,7 @@
   # config options: https://github.com/flightlessmango/MangoHud
   programs.mangohud.enable = true;
   programs.mangohud.settings = {
-    output_folder = "~/Documents/mangohud/";
+    output_folder = "~/Documents/";
     log_interval = 100; # in ms
     full = true; # log everything possible
     autostart_log = 1; # star logging after 1 second
