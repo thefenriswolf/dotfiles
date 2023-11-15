@@ -7,7 +7,7 @@
   ];
 
   # config options: https://github.com/flightlessmango/MangoHud
-  programs.mangohud.enable = true;
+  programs.mangohud.enable = false;
   programs.mangohud.settings = {
     output_folder = "~/Documents/";
     log_interval = 100; # in ms

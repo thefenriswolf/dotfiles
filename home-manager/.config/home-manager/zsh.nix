@@ -35,6 +35,7 @@
     free = "free -m";
     btrfsfree = "sudo btrfs fi us /";
     gitpull = "git pull --rebase";
+    ec = "emacsclient -t";
   };
 
 }

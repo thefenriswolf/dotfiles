@@ -64,6 +64,10 @@
 
 (setq! projectile-project-search-path '("~/playground/" "~/Documents/"))
 
+(map! :leader
+      :desc "fuzzy find file" "f z" #'counsel-fzf
+)
+
 (dirvish-override-dired-mode)
 (after! (dirvish)
 (setq! dirvish-peek-mode t)

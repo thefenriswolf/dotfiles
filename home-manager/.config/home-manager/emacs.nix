@@ -2,6 +2,10 @@
   programs.ripgrep.enable = true;
   editorconfig.enable = true;
 
+  programs.emacs.enable = true;
+  services.emacs.enable = true;
+  services.emacs.startWithUserSession = true;
+
   home.packages = [
     pkgs.xclip
     pkgs.gnuplot
@@ -9,11 +13,11 @@
     pkgs.plantuml
     pkgs.graphviz
     pkgs.fd
+    pkgs.fzf
     pkgs.imagemagick
     pkgs.ffmpegthumbnailer
     pkgs.mediainfo
     pkgs.poppler
-    pkgs.emacs29-nox
     pkgs.wordnet
     pkgs.xdotool
     pkgs.nodejs

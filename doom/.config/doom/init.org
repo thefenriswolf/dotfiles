@@ -33,10 +33,10 @@
 #+begin_src emacs-lisp
        :completion
        company             ; the ultimate code completion backend
-       ;;helm              ; the *other* search engine for love and life
+       ;;(helm +fuzzy)              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
-       ;;ivy               ; a search engine for love and life
-       vertico             ; the search engine of the future
+       (ivy +icons +fuzzy)               ; a search engine for love and life
+       ;;(vertico +icons +fuzzy)             ; the search engine of the future
 #+end_src
 
 * UI TOOLS

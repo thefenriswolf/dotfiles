@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  programs.neovim.enable = false;
+  programs.neovim.enable = true;
   programs.neovim.plugins = [
     pkgs.vimPlugins.rust-tools-nvim
     pkgs.vimPlugins.nightfox-nvim
@@ -9,6 +9,7 @@
     pkgs.vimPlugins.fzf-lua
     pkgs.vimPlugins.feline-nvim
     pkgs.vimPlugins.orgmode
+    pkgs.vimPlugins.harpoon
   ];
   programs.neovim.extraLuaConfig = ''
         vim.cmd("colorscheme nightfox")

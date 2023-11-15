@@ -24,7 +24,8 @@
   - [[#custom-splash-screen][CUSTOM SPLASH SCREEN]]
   - [[#modified-doom-splash-screen][MODIFIED DOOM SPLASH SCREEN]]
 - [[#procejile][PROCEJILE]]
-- [[#dired][DIRED]]
+- [[#findsearch][FIND/SEARCH]]
+- [[#direddirvish][DIRED/DIRVISH]]
   - [[#keybindings][Keybindings]]
 - [[#autosave-and-backups][AUTOSAVE and BACKUPS]]
   - [[#autosave][AUTOSAVE]]
@@ -209,7 +210,14 @@ Make active buffer stand out more.
 (setq! projectile-project-search-path '("~/playground/" "~/Documents/"))
 #+end_src
 
-* DIRED
+* FIND/SEARCH
+#+begin_src emacs-lisp
+(map! :leader
+      :desc "fuzzy find file" "f z" #'counsel-fzf
+)
+#+end_src
+
+* DIRED/DIRVISH
 ** Keybindings
 #+begin_src emacs-lisp
 (dirvish-override-dired-mode)
