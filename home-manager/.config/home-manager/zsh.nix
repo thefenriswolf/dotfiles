@@ -34,8 +34,8 @@
     fgrep = "fgrep --colour=auto";
     free = "free -m";
     btrfsfree = "sudo btrfs fi us /";
-    gitpull = "git pull --rebase";
     ec = "emacsclient -t";
+    notify-me = "notify-send -u normal -t 2000 done";
   };
 
 }

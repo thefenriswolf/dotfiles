@@ -4,8 +4,8 @@
 # Version: 21.10.2023
 ##
 # Tabs not Spaces!
-# begin
 
+# begin
 usr := hyprland doom alacritty home-manager fontconfig waybar sanoid zsh
 sys := ly yabsnap services tuigreet
 
@@ -15,6 +15,8 @@ all: dir install
 
 dir:
 	mkdir -p -v ~/.config/hypr
+	mkdir -p -v ~/playground/notes
+	mkdir -p -v ~/Zotero/references
 	mkdir -p -v ~/.config/alacritty
 	mkdir -p -v ~/.config/home-manager
 	mkdir -p -v ~/.config/doom

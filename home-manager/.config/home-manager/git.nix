@@ -9,6 +9,9 @@
   programs.git.extraConfig = {
     init = { defaultBranch = "main"; };
     core = { editor = "nano"; };
-    alias = { pr = "pull --rebase"; };
+    alias = {
+      pr = "pull --rebase";
+      squash = "rebase -i HEAD~";
+    };
   };
 }

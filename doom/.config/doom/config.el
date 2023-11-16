@@ -78,10 +78,12 @@
       :desc "go to previous" "b" #'empv-playlist-prev
 )
 
-(setq! org-directory "~/playground/org/")
+;;(setq! org-directory "~/playground/org/")
 (setq! org-cite-csl-styles-dir "~/Zotero/styles/")
 (setq! citar-bibliography '("~/Zotero/references/library.bib"))
 (setq! bibtex-completion-bibliography '("~/Zotero/references/library.bib"))
+
+(setq! org-roam-directory "~/playground/notes")
 
 (map! :after org
       :leader

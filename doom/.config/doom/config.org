@@ -35,6 +35,7 @@
 - [[#mpv][MPV]]
 - [[#org-mode][ORG MODE]]
   - [[#global-variables][GLOBAL VARIABLES]]
+  - [[#org-roam][ORG ROAM]]
   - [[#keybindings-1][KEYBINDINGS]]
   - [[#auto-tangle][AUTO TANGLE]]
   - [[#graphs][GRAPHS]]
@@ -113,7 +114,7 @@ Flash cursor after large movement.
 #+end_src
 
 * ESHELL (disabled)
-Eshell should use elisp functions as much as possible for plattform independence.
+Eshell should use elisp functions as much as possible for platform independence.
 #+begin_src emacs-lisp :tangle no
 (setq! eshell-prefer-lisp-functions t)
 #+end_src
@@ -249,10 +250,15 @@ Make active buffer stand out more.
 * ORG MODE
 ** GLOBAL VARIABLES
 #+begin_src emacs-lisp
-(setq! org-directory "~/playground/org/")
+;;(setq! org-directory "~/playground/org/")
 (setq! org-cite-csl-styles-dir "~/Zotero/styles/")
 (setq! citar-bibliography '("~/Zotero/references/library.bib"))
 (setq! bibtex-completion-bibliography '("~/Zotero/references/library.bib"))
+#+end_src
+
+** ORG ROAM
+#+begin_src elisp
+(setq! org-roam-directory "~/playground/notes")
 #+end_src
 
 ** KEYBINDINGS

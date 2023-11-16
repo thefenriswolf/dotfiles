@@ -164,7 +164,7 @@
       (org                ; organize your plain life in plain text
 	 +dragndrop
 	 +gnuplot
-	 +hugo
+	 +roam2
 	 +pandoc
 	 +pretty
 	 +present)
