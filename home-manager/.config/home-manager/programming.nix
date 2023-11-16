@@ -2,11 +2,14 @@
   home.packages = [
 
     # zig
-    pkgs.zig
-    pkgs.zls
+    #pkgs.zig
+    #pkgs.zls
+
+    # lua
+    #pkgs.love
 
     # scheme
-    pkgs.chicken
+    #pkgs.chicken
 
     # nix
     pkgs.nixfmt
@@ -45,6 +48,5 @@
 
     # R
     #pkgs.rPackages.ISwR
-
   ];
 }

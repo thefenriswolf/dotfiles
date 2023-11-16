@@ -19,10 +19,9 @@
   - [[#maximize-emacs-on-startup-disabled][MAXIMIZE EMACS ON STARTUP (disabled)]]
   - [[#scroll-margin][SCROLL MARGIN]]
   - [[#mouse-support][MOUSE SUPPORT]]
+  - [[#faster-window-redraw][Faster Window redraw]]
 - [[#splash-screen][SPLASH screen]]
-  - [[#disable-splash-screen][DISABLE SPLASH SCREEN]]
-  - [[#custom-splash-screen][CUSTOM SPLASH SCREEN]]
-  - [[#modified-doom-splash-screen][MODIFIED DOOM SPLASH SCREEN]]
+  - [[#disable-splash-screen-disabled][DISABLE SPLASH SCREEN (disabled)]]
 - [[#procejile][PROCEJILE]]
 - [[#findsearch][FIND/SEARCH]]
 - [[#direddirvish][DIRED/DIRVISH]]
@@ -155,54 +154,21 @@ Make active buffer stand out more.
 
 ** SCROLL MARGIN
 #+begin_src emacs-lisp
-(setq scroll-margin 4)
+(setq! scroll-margin 4)
 #+end_src
 
 ** MOUSE SUPPORT
 #+begin_src emacs-lisp
 (xterm-mouse-mode 1)
 #+end_src
-
+** Faster Window redraw
+#+begin_src elisp
+(setq! redisplay-dont-pause t)
+#+end_src
 * SPLASH screen
-** DISABLE SPLASH SCREEN
-#+begin_src emacs-lisp
-;;(setq initial-buffer-choice t)
-#+end_src
-
-** CUSTOM SPLASH SCREEN
-#+begin_src emacs-lisp
-;;(setq initial-buffer-choice "~/.doom.d/splash.org")
-#+end_src
-
-** MODIFIED DOOM SPLASH SCREEN
-#+begin_src emacs-lisp
-(defun my-custom-ascii-doom-banner ()
-  (let* ((banner '(" ▓█████▄  ▒█████   ▒█████   ███▄ ▄███▓"
-                   " ▒██▀ ██▌▒██▒  ██▒▒██▒  ██▒▓██▒▀█▀ ██▒"
-                   " ░██   █▌▒██░  ██▒▒██░  ██▒▓██    ▓██░"
-                   "▒░▓█▄   ▌▒██   ██░▒██   ██░▒██    ▒██ "
-                   "░░▒████▓ ░ ████▓▒░░ ████▓▒░▒██▒   ░██▒"
-                   "░ ▒▒▓  ▒ ░ ▒░▒░▒░ ░ ▒░▒░▒░ ░ ▒░   ░  ░"
-                   "  ░ ▒  ▒   ░ ▒ ▒░   ░ ▒ ▒░ ░  ░      ░"
-                   "  ░ ░  ░ ░ ░ ░ ▒  ░ ░ ░ ▒  ░      ░   "
-                   "    ░        ░ ░      ░ ░         ░   "
-                   "                                      "
-                   "        ▒██▀░█▄▒▄█▒▄▀▄░▄▀▀░▄▀▀        "
-                   "        ░█▄▄░█▒▀▒█░█▀█░▀▄▄▒▄██        "
-                   "                                      "
-                   "                                      "
-                   "                                      "))
-         (longest-line (apply #'max (mapcar #'length banner))))
-    (put-text-property
-     (point)
-     (dolist (line banner (point))
-       (insert (+doom-dashboard--center
-                +doom-dashboard--width
-                (concat line (make-string (max 0 (- longest-line (length line))) 32)))
-               "\n"))
-     'face 'doom-dashboard-banner)))
-
-;;(setq +doom-dashboard-ascii-banner-fn 'my-custom-ascii-doom-banner)
+** DISABLE SPLASH SCREEN (disabled)
+#+begin_src emacs-lisp :tangle no
+(setq initial-buffer-choice t)
 #+end_src
 
 * PROCEJILE
@@ -270,12 +236,13 @@ Make active buffer stand out more.
 (setq! empv-video-dir "~")
 (setq! empv-max-directory-search-depth 10)
 (map! :leader
-      :desc "kill mpv" "v q" #'empv-exit
-      :desc "search file" "v p" #'empv-play-file
-      :desc "start/stop mpv playback" "v r" #'empv-toggle
-      :desc "toggle video display" "v v" #'empv-toggle-video
-      :desc "skip to next" "v s" #'empv-playlist-next
-      :desc "go to previous" "v b" #'empv-playlist-prev
+      :prefix ("v" . "media")
+      :desc "kill mpv" "q" #'empv-exit
+      :desc "search file" "p" #'empv-play-file
+      :desc "start/stop mpv playback" "r" #'empv-toggle
+      :desc "toggle video display" "v" #'empv-toggle-video
+      :desc "skip to next" "s" #'empv-playlist-next
+      :desc "go to previous" "b" #'empv-playlist-prev
 )
 #+end_src
 
@@ -292,9 +259,13 @@ Make active buffer stand out more.
 #+begin_src emacs-lisp
 (map! :after org
       :leader
-      :desc "export to PDF" "e p" #'org-latex-export-to-pdf
-      :desc "export to LaTeX" "e l" #'org-latex-export-to-latex
-      :desc "insert citation" "e c" #'citar-insert-citation
+      :prefix ("e" . "export")
+      :desc "export to PDF" "p" #'org-latex-export-to-pdf
+      :desc "export to LaTeX" "l" #'org-latex-export-to-latex
+)
+(map! :after org
+      :leader
+      :desc "insert citation" "i c" #'citar-insert-citation
 )
 #+end_src
 

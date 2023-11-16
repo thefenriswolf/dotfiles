@@ -26,41 +26,11 @@
 
 (setq! display-line-numbers-type 'relative)
 
-(setq scroll-margin 4)
+(setq! scroll-margin 4)
 
 (xterm-mouse-mode 1)
 
-;;(setq initial-buffer-choice t)
-
-;;(setq initial-buffer-choice "~/.doom.d/splash.org")
-
-(defun my-custom-ascii-doom-banner ()
-  (let* ((banner '(" ▓█████▄  ▒█████   ▒█████   ███▄ ▄███▓"
-                   " ▒██▀ ██▌▒██▒  ██▒▒██▒  ██▒▓██▒▀█▀ ██▒"
-                   " ░██   █▌▒██░  ██▒▒██░  ██▒▓██    ▓██░"
-                   "▒░▓█▄   ▌▒██   ██░▒██   ██░▒██    ▒██ "
-                   "░░▒████▓ ░ ████▓▒░░ ████▓▒░▒██▒   ░██▒"
-                   "░ ▒▒▓  ▒ ░ ▒░▒░▒░ ░ ▒░▒░▒░ ░ ▒░   ░  ░"
-                   "  ░ ▒  ▒   ░ ▒ ▒░   ░ ▒ ▒░ ░  ░      ░"
-                   "  ░ ░  ░ ░ ░ ░ ▒  ░ ░ ░ ▒  ░      ░   "
-                   "    ░        ░ ░      ░ ░         ░   "
-                   "                                      "
-                   "        ▒██▀░█▄▒▄█▒▄▀▄░▄▀▀░▄▀▀        "
-                   "        ░█▄▄░█▒▀▒█░█▀█░▀▄▄▒▄██        "
-                   "                                      "
-                   "                                      "
-                   "                                      "))
-         (longest-line (apply #'max (mapcar #'length banner))))
-    (put-text-property
-     (point)
-     (dolist (line banner (point))
-       (insert (+doom-dashboard--center
-                +doom-dashboard--width
-                (concat line (make-string (max 0 (- longest-line (length line))) 32)))
-               "\n"))
-     'face 'doom-dashboard-banner)))
-
-;;(setq +doom-dashboard-ascii-banner-fn 'my-custom-ascii-doom-banner)
+(setq! redisplay-dont-pause t)
 
 (setq! projectile-project-search-path '("~/playground/" "~/Documents/"))
 
@@ -99,12 +69,13 @@
 (setq! empv-video-dir "~")
 (setq! empv-max-directory-search-depth 10)
 (map! :leader
-      :desc "kill mpv" "v q" #'empv-exit
-      :desc "search file" "v p" #'empv-play-file
-      :desc "start/stop mpv playback" "v r" #'empv-toggle
-      :desc "toggle video display" "v v" #'empv-toggle-video
-      :desc "skip to next" "v s" #'empv-playlist-next
-      :desc "go to previous" "v b" #'empv-playlist-prev
+      :prefix ("v" . "media")
+      :desc "kill mpv" "q" #'empv-exit
+      :desc "search file" "p" #'empv-play-file
+      :desc "start/stop mpv playback" "r" #'empv-toggle
+      :desc "toggle video display" "v" #'empv-toggle-video
+      :desc "skip to next" "s" #'empv-playlist-next
+      :desc "go to previous" "b" #'empv-playlist-prev
 )
 
 (setq! org-directory "~/playground/org/")
@@ -114,9 +85,13 @@
 
 (map! :after org
       :leader
-      :desc "export to PDF" "e p" #'org-latex-export-to-pdf
-      :desc "export to LaTeX" "e l" #'org-latex-export-to-latex
-      :desc "insert citation" "e c" #'citar-insert-citation
+      :prefix ("e" . "export")
+      :desc "export to PDF" "p" #'org-latex-export-to-pdf
+      :desc "export to LaTeX" "l" #'org-latex-export-to-latex
+)
+(map! :after org
+      :leader
+      :desc "insert citation" "i c" #'citar-insert-citation
 )
 
 (use-package! org-auto-tangle
