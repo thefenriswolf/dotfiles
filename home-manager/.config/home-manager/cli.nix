@@ -6,7 +6,9 @@
   home.packages = [
     # zfs
     #pkgs.sanoid
-    #pkgs.httm
+    
+    # btrfs
+    pkgs.httm
 
     # document tools
     pkgs.pandoc

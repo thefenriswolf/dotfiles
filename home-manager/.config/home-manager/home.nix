@@ -31,21 +31,22 @@
     ./zsh.nix
     ./latex.nix
     ./fonts.nix
+    ./alien.nix
   ];
 
   # nix settings
-  nixpkgs.config = {
-    allowUnfree = true;
-    experimental-features = "nix-command flakes";
-  };
+  #  nixpkgs.config = {
+  #    allowUnfree = true;
+  #    experimental-features = "nix-command flakes";
+  #  };
 
-  nix = {
-    package = pkgs.nix;
-    settings.experimental-features = [ "nix-command" "flakes" ];
-  };
+  #  nix = {
+  #    package = pkgs.nix;
+  #    settings.experimental-features = [ "nix-command" "flakes" ];
+  #  };
 
   # enable gui integration on non-nixos
-  targets.genericLinux.enable = true;
+  #targets.genericLinux.enable = true;
   xdg.mime.enable = true;
 
   # user config starts here
@@ -56,5 +57,5 @@
     HOME_MANAGER_CONFIG = /home/ro/.config/home-manager/home.nix;
   };
 
-  home.packages = [ pkgs.cowsay pkgs.auto-cpufreq ];
+  home.packages = [ pkgs.cowsay ];
 }

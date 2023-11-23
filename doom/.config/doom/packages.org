@@ -7,6 +7,7 @@
   - [[#additional-info][ADDITIONAL INFO]]
 - [[#header][Header]]
 - [[#auto-tangle][Auto tangle]]
+- [[#themes][Themes]]
 - [[#dirvish][Dirvish]]
 - [[#bpftrace][BPFTRACE]]
 - [[#org-toc-disabled][ORG TOC (disabled)]]
@@ -94,6 +95,11 @@ org babel auto tangle automatically tangles source code blocks on file save.
 add ~#+auto_tangle: nil~ to disable or ~#+auto_tangle: t~ to enable this behavior.
 #+begin_src emacs-lisp
 (package! org-auto-tangle)
+#+end_src
+
+* Themes
+#+begin_src emacs-lisp
+(package! catppuccin-theme)
 #+end_src
 
 * Dirvish

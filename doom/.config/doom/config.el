@@ -10,9 +10,10 @@
 
 ;;(setq! doom-theme 'doom-challenger-deep)
 ;;(setq! doom-theme 'doom-ephemeral)
-(setq! doom-theme 'doom-one)
+;;(setq! doom-theme 'doom-one)
 ;;(setq! doom-theme 'doom-nord)
 ;;(setq! doom-theme 'moe-theme)
+(setq doom-theme 'catppuccin)
 
 (beacon-mode t)
 ;;(after! (beacon)

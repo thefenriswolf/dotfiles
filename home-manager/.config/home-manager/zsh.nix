@@ -8,11 +8,15 @@
   programs.zsh.history.size = 50000;
   programs.zsh.history.expireDuplicatesFirst = true;
   programs.zsh.history.ignoreSpace = true;
-  programs.zsh.syntaxHighlighting.enable = true;
+  # programs.zsh.syntaxHighlighting.enable = true;
   programs.zsh.enableAutosuggestions = true;
   programs.zsh.enableVteIntegration = true;
-  # programs.zsh.oh-my-zsh.enable = true;
-  # programs.zsh.oh-my-zsh.theme = "agnoster";
+
+  programs.zsh.plugins = [{
+    name = "powerlevel10k";
+    src = pkgs.zsh-powerlevel10k;
+    file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+  }];
 
   programs.zsh.envExtra =
     "if [ -e /home/ro/.nix-profile/etc/profile.d/nix.sh ]; then . /home/ro/.nix-profile/etc/profile.d/nix.sh; fi";
@@ -20,7 +24,6 @@
     USE_POWERLINE="true"
     HAS_WIDECHARS="false"
     USE_POWERLINE="true"
-    source ~/.nix-profile/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
     source ~/.config/zsh/.p10k.zsh
   '';
   programs.zsh.shellAliases = {

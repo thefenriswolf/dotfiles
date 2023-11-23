@@ -3,6 +3,8 @@
 
 (package! org-auto-tangle)
 
+(package! catppuccin-theme)
+
 (package! dirvish)
 
 (package! bpftrace-mode)
