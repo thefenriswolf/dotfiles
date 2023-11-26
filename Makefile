@@ -1,13 +1,22 @@
 ##
 # Author: Stefan Rohrbacher
 # Title: GNU Stow managed dotfiles
-# Version: 21.10.2023
+# Version: 26.11.2023
 ##
 # Tabs not Spaces!
 
 # begin
+# check if running on nixos
+#$(eval onNIXOS=`cat /etc/*release | grep 'NAME=NixOS'`)
+onNIXOS=$(shell cat /etc/*release | grep 'NAME=NixOS')
 usr := hyprland doom alacritty home-manager fontconfig waybar sanoid zsh
 sys := ly yabsnap services tuigreet
+home=/home/ro/
+R='\033[0;31m'   #'0;31' is Red's ANSI color code
+G='\033[0;32m'   #'0;32' is Green's ANSI color code
+Y='\033[1;32m'   #'1;32' is Yellow's ANSI color code
+B='\033[0;34m'   #'0;34' is Blue's ANSI color code
+NOCOLOR='\033[0m'     # no color
 
 .PHONY: dir install refresh uninstall
 
@@ -24,18 +33,40 @@ dir:
 	mkdir -p -v ~/.config/waybar
 	mkdir -p -v ~/.config/sanoid
 	mkdir -p -v ~/.config/zsh
+	sudo mkdir -p -v /etc/nixos/
+ifdef $(onNIXOS)
 	sudo mkdir -p -v /etc/ly/lang
 	sudo mkdir -p -v /etc/greetd
 	sudo mkdir -p -v /etc/yabsnap/configs
+else
+	echo -e "\n${G}running on NixOS: skipping /etc/*${NOCOLOR}\n"
+endif
 
 install:
-	stow -v -t $${HOME} -S ${usr}
-	sudo stow -v -t / -S ${sys}
+ifdef $(onNIXOS)
+	stow -v -S -t ${home} ${usr}
+    sudo stow -v -S -t / ${sys}
+else
+	echo -e "\n${G}running on NixOS: skipping /etc/*${NOCOLOR}\n"
+	stow -v -S -t ${home} ${usr}
+endif
+
 uninstall:
-	stow -v -t $${HOME} -D ${usr}
-	sudo stow -v -t / -D ${sys}
+ifdef $(onNIXOS)
+	sudo stow -v D -t / ${sys}
+	stow -v -D -t ${home} ${usr}
+else
+	echo -e "\n${G}running on NixOS: skipping /etc/*${NOCOLOR}\n"
+	stow -v -S -t ${home} ${usr}
+endif
 
 refresh:
-	stow -v -t $${HOME} -R ${usr}
-	sudo stow -v -t / -R ${sys}
+ifdef $(onNIXOS)
+	stow -v -R -t ${home} ${usr}
+	sudo stow -v -R -t / ${sys}
+else
+	stow -v -R -t ${home} ${usr}
+	sudo stow -v -R -t / nixos # todo finish for other build steps
+	echo -e "\n${G}running on ${B}NixOS${G} skipping non user config packages${NOCOLOR}\n"
+endif
 # end

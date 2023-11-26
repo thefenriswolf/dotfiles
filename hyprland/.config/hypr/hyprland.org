@@ -165,7 +165,7 @@ animations {
 }
 misc {
     #force_default_wallpaper = 0 # future v0.31 option to disable weeb backgrounds
-    disable_hypr_chan = true # old option to disable weeb backgrounds
+    #disable_hypr_chan = true # old option to disable weeb backgrounds
 }
 #+end_src
 
@@ -182,6 +182,8 @@ windowrule = float,title:^(File Operation Progress)$
 
 windowrulev2 = float,class:^(brave)$,title:^(Open Files)$
 windowrulev2 = float,class:^(brave)$,title:^(Open File)$
+windowrulev2 = float,class:^(vivaldi)$,title:^(Open Files)$
+windowrulev2 = float,class:^(vivaldi)$,title:^(Open File)$
 windowrulev2 = float,class:^(file-roller)$
 windowrulev2 = center,class:^(file-roller)$
 
@@ -194,7 +196,7 @@ windowrulev2 = float,class:^(foot)$,title:^(foot)$
 $mainMod = SUPER
 
 bind = $mainMod, Return, exec, alacritty
-bind = $mainMod, B, exec, brave
+bind = $mainMod, B, exec, vivaldi
 bind = SUPER_SHIFT, Q, killactive,
 bind = $mainMod, M, exit,
 bind = $mainMod, E, exec, thunar
