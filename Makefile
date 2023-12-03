@@ -9,7 +9,7 @@
 # check if running on nixos
 #$(eval onNIXOS=`cat /etc/*release | grep 'NAME=NixOS'`)
 onNIXOS=$(shell cat /etc/*release | grep 'NAME=NixOS')
-usr := hyprland doom alacritty home-manager fontconfig waybar sanoid zsh
+usr := hyprland doom alacritty dunst home-manager fontconfig waybar sanoid zsh
 sys := ly yabsnap services tuigreet
 home=/home/ro/
 R='\033[0;31m'   #'0;31' is Red's ANSI color code
@@ -31,6 +31,7 @@ dir:
 	mkdir -p -v ~/.config/doom
 	mkdir -p -v ~/.config/fontconfig
 	mkdir -p -v ~/.config/waybar
+	mkdir -p -v ~/.config/.dunst
 	mkdir -p -v ~/.config/sanoid
 	mkdir -p -v ~/.config/zsh
 	sudo mkdir -p -v /etc/nixos/

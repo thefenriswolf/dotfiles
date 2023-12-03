@@ -2,8 +2,8 @@
   home.packages = [
 
     # zig
-    #pkgs.zig
-    #pkgs.zls
+    pkgs.zig
+    pkgs.zls
 
     # lua
     #pkgs.love

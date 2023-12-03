@@ -18,15 +18,22 @@
     ./mixins/nix.nix
     ./mixins/theming.nix
     ./mixins/ssh.nix
+    ./mixins/gaming.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.configurationLimit = 10;
-  boot.loader.systemd-boot.memtest86.enable = true;
-  boot.loader.timeout = 5;
-
+  boot = {
+    tmp.cleanOnBoot = true;
+    loader = {
+      efi.canTouchEfiVariables = true;
+      timeout = 5;
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 10;
+        memtest86.enable = true;
+      };
+    };
+  };
   # Set your time zone.
   time.timeZone = "Europe/Vienna";
 
@@ -39,10 +46,11 @@
     font = "Lat2-Terminus16";
     useXkbConfig = true; # use xkbOptions in tty.
   };
-  programs.thunar.enable = true;
+
+  services.thermald.enable = true;
 
   security.apparmor = {
-    enable = true;
+    enable = false;
     packages = with pkgs; [ apparmor-utils apparmor-profiles ];
   };
 
@@ -52,22 +60,6 @@
   services.dbus.packages = with pkgs; [ xfce.xfconf gnome2.GConf ];
   programs.light.enable = true;
   services.gvfs.enable = true;
-
-  # login daemon
-  services.greetd = {
-    enable = true;
-    vt = 1;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
-        user = "greeter";
-      };
-      initial_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
-        user = "ro";
-      };
-    };
-  };
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
@@ -80,6 +72,11 @@
 
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
+
+  programs = {
+    gnome-disks.enable = true;
+    seahorse.enable = true;
+  };
 
   users.users.ro = {
     isNormalUser = true;
@@ -101,20 +98,47 @@
       vivaldi-ffmpeg-codecs
       widevine-cdm
       tree
+      polkit_gnome
+      #clockify
       git
       stow
+      aria2
+      wget
+      curl
+
+      # 3D Slicer
+      itk
+      vtkWithQt5
+      xorg.libXinerama
+      libGLU
+      libnsl
+      xorg.libxcb
+
+      gwenview
       languagetool
       gnumake
       brave
       home-manager
       neovim
       snapper
-      xfce.thunar-archive-plugin
-      xfce.thunar-volman
-      xfce.thunar-media-tags-plugin
+      libsForQt5.ark
+      libsForQt5.kwayland-integration
+      fuzzel
+      foot
       zip
       unzip
       xz
+      bzip2
+      gzip
+      rar
+      p7zip
+      fwupd
+      openvpn
+      gnome-firmware
+
+      gparted
+      rsync
+      mpv
       file
       gnutar
 
@@ -129,6 +153,10 @@
       wlsunset
       swaybg
       swayidle
+      #nwg-dock-hyprland
+      #nwg-panel
+      pdfgrep
+
       wl-clipboard
 
       greetd.tuigreet
@@ -156,8 +184,6 @@
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
   # system.copySystemConfiguration = true;
-
-  nixpkgs.config.allowUnfree = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

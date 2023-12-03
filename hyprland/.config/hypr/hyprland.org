@@ -5,6 +5,7 @@
 #+auto_tangle: t
 
 * Dude, where is my stuff? :TOC:
+- [[#includes][Includes]]
 - [[#monitors][Monitors]]
 - [[#autostart][Autostart]]
 - [[#environment-variables][Environment Variables]]
@@ -14,6 +15,11 @@
 - [[#prettify][prettify]]
 - [[#windowrules][windowrules]]
 - [[#keybindings][Keybindings]]
+
+* Includes
+#+begin_src config
+source=~/.config/hypr/frappe.conf
+#+end_src
 
 * Monitors
 See https://wiki.hyprland.org/Configuring/Monitors/
@@ -119,9 +125,11 @@ general {
     max_fps = 60
     gaps_in = 5
     gaps_out = 5
-    border_size = 1
-    col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
-    col.inactive_border = rgba(595959aa)
+    border_size = 2
+    col.active_border = 0xff$mauveAlpha 0xff$lavenderAlpha 45deg
+#   col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
+    col.inactive_border = 0xff$overlay0Alpha
+#   col.inactive_border = rgba(595959aa)
     layout = dwindle
 }
 dwindle {
@@ -150,7 +158,8 @@ decoration {
     drop_shadow = true
     shadow_range = 4
     shadow_render_power = 3
-    col.shadow = rgba(1a1a1aee)
+    col.shadow = 0xff$textAlpha
+    col.shadow_inactive = 0xff$text0Alpha
 }
 animations {
     enabled = true
@@ -164,7 +173,7 @@ animations {
     animation = workspaces, 1, 6, default
 }
 misc {
-    #force_default_wallpaper = 0 # future v0.31 option to disable weeb backgrounds
+    force_default_wallpaper = 0 # future v0.31 option to disable weeb backgrounds
     #disable_hypr_chan = true # old option to disable weeb backgrounds
 }
 #+end_src
@@ -201,7 +210,8 @@ bind = SUPER_SHIFT, Q, killactive,
 bind = $mainMod, M, exit,
 bind = $mainMod, E, exec, thunar
 bind = $mainMod, V, togglefloating,
-bind = $mainMod, D, exec, wofi -I -m --show drun
+bind = $mainMod, D, exec, fuzzel
+#bind = $mainMod, D, exec, wofi -I -m --show drun
 bind = SUPER_SHIFT, D, exec, rofi -show window
 bind = $mainMod, P, pseudo, # dwindle
 bind = $mainMod, J, togglesplit, # dwindle

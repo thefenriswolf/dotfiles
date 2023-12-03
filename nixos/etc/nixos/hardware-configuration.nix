@@ -10,7 +10,8 @@
     [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
-  boot.kernelParams = ["quiet" "loglevel=3" "systemd.show_status=auto" "rd.udev.log_level=3"];
+  boot.kernelParams =
+    [ "quiet" "loglevel=3" "systemd.show_status=auto" "rd.udev.log_level=3" ];
   boot.extraModprobeConfig = ''
     options iwlwifi 11n_disable=1 
     options iwlwifi power_save=0
@@ -19,7 +20,7 @@
   boot.extraModulePackages = [ ];
   boot.supportedFilesystems = [ "ntfs" "btrfs" "ext4" "vfat" ];
 
-  services.fwupd.enable = true;
+  services.fwupd.enable = false;
   hardware.enableAllFirmware = false;
 
   services.btrfs.autoScrub.enable = true;
@@ -79,6 +80,9 @@
   # networking.interfaces.wlp4s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode =
-    lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware = {
+    enableRedistributableFirmware = true;
+    cpu.amd.updateMicrocode =
+      lib.mkDefault config.hardware.enableRedistributableFirmware;
+  };
 }
