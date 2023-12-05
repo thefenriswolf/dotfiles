@@ -23,23 +23,6 @@
   services.fwupd.enable = false;
   hardware.enableAllFirmware = false;
 
-  services.btrfs.autoScrub.enable = true;
-  services.fstrim.enable = true;
-  services.fstrim.interval = "weekly";
-
-  services.snapper.cleanupInterval = "1d";
-  services.snapper.snapshotInterval = "hourly";
-  services.snapper.configs = {
-    home = {
-      SUBVOLUME = "/home";
-      FSTYPE = "btrfs";
-      NUMBER_LIMIT = "12";
-      ALLOW_USERS = [ "ro" ];
-      TIMELINE_CREATE = true;
-      TIMELINE_CLEANUP = true;
-    };
-  };
-
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/983358f1-475f-4a33-bae0-9050b62f2cfc";
     fsType = "btrfs";

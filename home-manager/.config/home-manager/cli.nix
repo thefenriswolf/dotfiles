@@ -6,12 +6,16 @@
   home.packages = [
     # zfs
     #pkgs.sanoid
-    
+
     # btrfs
     pkgs.httm
 
     # document tools
     pkgs.pandoc
     pkgs.diff-pdf
+
+    # QoL
+    pkgs.calcurse
+    pkgs.ledger
   ];
 }

@@ -12,7 +12,3 @@
 (package! toc-org)
 
 (package! beacon)
-
-(package! tldr)
-
-(package! empv)

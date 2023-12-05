@@ -1,5 +1,6 @@
 (setq user-full-name "Stefan Rohrbacher"
       user-mail-address "stefan.rohrbacher97@gmail.com")
+;;(setq! package-install-upgrade-built-in t)
 
 (setq! doom-font (font-spec :family "terminal-font" :size 12)
       doom-variable-pitch-font (font-spec :family "terminal-font" :size 13)
@@ -68,23 +69,19 @@
 
 (map! :leader
       :prefix ("v" . "media")
-      :desc "kill mpv" "q" #'empv-exit
-      :desc "search file" "p" #'empv-play-file
-      :desc "start/stop mpv playback" "r" #'empv-toggle
-      :desc "toggle video display" "v" #'empv-toggle-video
-      :desc "skip to next" "s" #'empv-playlist-next
-      :desc "go to previous" "b" #'empv-playlist-prev
+      ;;:desc "kill mpv" "q" #'empv-exit
+      ;;:desc "search file" "p" #'empv-play-file
+      ;;:desc "start/stop mpv playback" "r" #'empv-toggle
+      ;;:desc "toggle video display" "v" #'empv-toggle-video
+      ;;:desc "skip to next" "s" #'empv-playlist-next
+      ;;:desc "go to previous" "b" #'empv-playlist-prev
       :desc "play URL" "y" #'emms-play-url
       :desc "Go to emms playlist"      "a" #'emms-playlist-mode-go
       :desc "Emms pause track"         "x" #'emms-pause
-      ;;:desc "Emms stop track"          "s" #'emms-stop
-      ;;:desc "Emms play previous track" "p" #'emms-previous
+      :desc "Emms stop track"          "s" #'emms-stop
+      :desc "Emms play previous track" "p" #'emms-previous
       :desc "Emms play next track"     "n" #'emms-next
 )
-
-(setq! empv-audio-dir "~")
-(setq! empv-video-dir "~")
-(setq! empv-max-directory-search-depth 10)
 
 (emms-all)
 (setq! emms-player-list '(emms-player-mpv)

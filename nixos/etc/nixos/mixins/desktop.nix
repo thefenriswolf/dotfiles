@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
-let
-  greetFlags =
-    "--remember --time --issue --remember-session --user-menu --asterisks";
+let greetFlags = "--remember --time --remember-session --user-menu --asterisks";
 in {
   # login daemon
   services.greetd = {
@@ -14,11 +12,11 @@ in {
           "${pkgs.greetd.tuigreet}/bin/tuigreet ${greetFlags} --cmd Hyprland";
         user = "ro";
       };
-      initial_session = {
-        command =
-          "${pkgs.greetd.tuigreet}/bin/tuigreet ${greetFlags} --cmd startxfce4";
-        user = "ro";
-      };
+      #      initial_session = {
+      #        command =
+      #          "${pkgs.greetd.tuigreet}/bin/tuigreet ${greetFlags} --cmd startxfce4";
+      #        user = "ro";
+      #      };
     };
   };
   # Xorg
@@ -58,10 +56,15 @@ in {
 
   # envvars
   environment = {
+    xfce.excludePackages = with pkgs; [
+      xfce.xfce4-terminal
+      xfce.parole
+      xfce.orage
+      xfce.ristretto
+    ];
     systemPackages = with pkgs; [
       xfce.catfish
       xfce.gigolo
-      xfce.orage
       xfce.xfburn
       xfce.xfce4-appfinder
       xfce.xfce4-clipman-plugin
@@ -76,12 +79,16 @@ in {
       xfce.xfce4-weather-plugin
       xfce.xfce4-whiskermenu-plugin
       xfce.xfce4-xkb-plugin
+      xfce.xfce4-settings
       xfce.xfdashboard
       xorg.xev
       catppuccin
       catppuccin-gtk
       catppuccin-kde
       catppuccin-cursors
+      vlc
+      swayimg
+      mpv
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";

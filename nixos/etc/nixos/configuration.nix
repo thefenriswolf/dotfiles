@@ -19,6 +19,7 @@
     ./mixins/theming.nix
     ./mixins/ssh.nix
     ./mixins/gaming.nix
+    ./mixins/filesystem.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -99,8 +100,8 @@
       widevine-cdm
       tree
       polkit_gnome
-      #clockify
       git
+      google-drive-ocamlfuse
       stow
       aria2
       wget

@@ -3,7 +3,7 @@
   editorconfig.enable = true;
 
   programs.emacs.enable = true;
-  services.emacs.package = pkgs.emacs-nox;
+  services.emacs.package = pkgs.emacs29-nox;
   services.emacs.enable = true;
   services.emacs.startWithUserSession = true;
 

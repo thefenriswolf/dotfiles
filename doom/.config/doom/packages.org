@@ -13,8 +13,8 @@
 - [[#org-toc-disabled][ORG TOC (disabled)]]
 - [[#toc-org][TOC ORG]]
 - [[#beacon][BEACON]]
-- [[#tldr][TLDR]]
-- [[#mpv][MPV]]
+- [[#tldr-disabled][TLDR (disabled)]]
+- [[#mpv-disabled][MPV (disabled)]]
 
 ** ADDITIONAL INFO
 #+begin_src emacs-lisp :tangle no
@@ -132,14 +132,14 @@ Adds a beacon to the cursor which flashes when focus or cursor position change.
 (package! beacon)
 #+end_src
 
-* TLDR
+* TLDR (disabled)
 alternative to man-pages
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle no
 (package! tldr)
 #+end_src
 
-* MPV
-control mpv from emacs
-#+begin_src emacs-lisp
+* MPV (disabled)
+control mpv from emacs, can be done from emms
+#+begin_src emacs-lisp :tangle no
 (package! empv)
 #+end_src
