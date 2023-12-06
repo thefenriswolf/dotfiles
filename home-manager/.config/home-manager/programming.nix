@@ -9,7 +9,7 @@
     #pkgs.love
 
     # scheme
-    #pkgs.chicken
+    pkgs.chicken
 
     # nix
     pkgs.nixfmt

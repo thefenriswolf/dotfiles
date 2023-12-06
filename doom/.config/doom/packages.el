@@ -9,6 +9,8 @@
 
 (package! bpftrace-mode)
 
+(package! seq)
+
 (package! toc-org)
 
 (package! beacon)

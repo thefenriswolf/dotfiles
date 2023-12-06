@@ -17,5 +17,8 @@
     # QoL
     pkgs.calcurse
     pkgs.ledger
+    pkgs.hledger
+
+    pkgs.google-drive-ocamlfuse
   ];
 }

@@ -49,7 +49,7 @@
 #+begin_src emacs-lisp
 (setq user-full-name "Stefan Rohrbacher"
       user-mail-address "stefan.rohrbacher97@gmail.com")
-;;(setq! package-install-upgrade-built-in t)
+(setq! package-install-upgrade-built-in t)
 #+end_src
 
 * FONT
@@ -335,6 +335,7 @@ Automatically export source code blocks.
      (emacs-lisp . t)
      (shell . t)
      (ditaa . t)
+     (ledger . t)
      (python . t)
      (latex . t)
      (org . t)

@@ -18,7 +18,7 @@
 
 * Includes
 #+begin_src config
-source=~/.config/hypr/frappe.conf
+source=~/.config/hypr/themes/frappe.conf
 #+end_src
 
 * Monitors
@@ -173,7 +173,7 @@ animations {
     animation = workspaces, 1, 6, default
 }
 misc {
-    force_default_wallpaper = 0 # future v0.31 option to disable weeb backgrounds
+    #force_default_wallpaper = 0 # future v0.31 option to disable weeb backgrounds
     #disable_hypr_chan = true # old option to disable weeb backgrounds
 }
 #+end_src
@@ -210,7 +210,7 @@ bind = SUPER_SHIFT, Q, killactive,
 bind = $mainMod, M, exit,
 bind = $mainMod, E, exec, thunar
 bind = $mainMod, V, togglefloating,
-bind = $mainMod, D, exec, fuzzel
+bind = $mainMod, D, exec, fuzzel --dpi-aware=no -w 50 -l 20
 #bind = $mainMod, D, exec, wofi -I -m --show drun
 bind = SUPER_SHIFT, D, exec, rofi -show window
 bind = $mainMod, P, pseudo, # dwindle

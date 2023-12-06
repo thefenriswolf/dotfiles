@@ -1,6 +1,6 @@
 (setq user-full-name "Stefan Rohrbacher"
       user-mail-address "stefan.rohrbacher97@gmail.com")
-;;(setq! package-install-upgrade-built-in t)
+(setq! package-install-upgrade-built-in t)
 
 (setq! doom-font (font-spec :family "terminal-font" :size 12)
       doom-variable-pitch-font (font-spec :family "terminal-font" :size 13)
@@ -129,6 +129,7 @@
      (emacs-lisp . t)
      (shell . t)
      (ditaa . t)
+     (ledger . t)
      (python . t)
      (latex . t)
      (org . t)

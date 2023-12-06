@@ -2,12 +2,13 @@
   # programs.ripgrep.enable = true;
   editorconfig.enable = true;
 
-  programs.emacs.enable = true;
+  # programs.emacs.enable = true;
   services.emacs.package = pkgs.emacs29-nox;
   services.emacs.enable = true;
   services.emacs.startWithUserSession = true;
 
   home.packages = [
+    pkgs.emacs29-nox
     pkgs.xclip
     pkgs.gnuplot
     pkgs.ditaa
