@@ -15,4 +15,5 @@
   systemd.services.NetworkManager-wait-online.enable = false;
 
   programs.kdeconnect.enable = true;
+  programs.kdeconnect.package = pkgs.plasma5Packages.kdeconnect-kde;
 }

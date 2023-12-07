@@ -85,7 +85,6 @@ in {
       xfce.xfce4-settings
       xfce.xfdashboard
       xorg.xev
-      #libsForQt5.plasma-workspace
       catppuccin
       catppuccin-gtk
       catppuccin-kde
