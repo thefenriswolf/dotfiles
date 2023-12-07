@@ -42,6 +42,9 @@ in {
   };
 
   xdg.portal.wlr.enable = true;
+
+  xdg.portal.extraPortals =
+    [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-kde ];
   security.polkit.enable = true;
 
   # xwayland
@@ -82,6 +85,7 @@ in {
       xfce.xfce4-settings
       xfce.xfdashboard
       xorg.xev
+      #libsForQt5.plasma-workspace
       catppuccin
       catppuccin-gtk
       catppuccin-kde
