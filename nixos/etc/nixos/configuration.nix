@@ -92,6 +92,7 @@
       "docker"
       "lxd"
       "podman"
+      "docker"
     ];
     packages = with pkgs; [
       firefox

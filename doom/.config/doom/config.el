@@ -2,12 +2,12 @@
       user-mail-address "stefan.rohrbacher97@gmail.com")
 (setq! package-install-upgrade-built-in t)
 
-(setq! doom-font (font-spec :family "terminal-font" :size 12)
-      doom-variable-pitch-font (font-spec :family "terminal-font" :size 13)
-      doom-big-font (font-spec :family "terminal-font" :size 24))
+;;(setq! doom-font (font-spec :family "terminal-font" :size 12)
+;;      doom-variable-pitch-font (font-spec :family "terminal-font" :size 13)
+;;      doom-big-font (font-spec :family "terminal-font" :size 24))
 
-;;(setq! doom-font (font-spec :family "JetBrainsMono" :size 12)
-;;      doom-variable-pitch-font (font-spec :family "JetBrainsMono" :size 13))
+(setq! doom-font (font-spec :family "JetBrainsMono" :size 12)
+      doom-variable-pitch-font (font-spec :family "JetBrainsMono" :size 13))
 
 ;;(setq! doom-theme 'doom-challenger-deep)
 ;;(setq! doom-theme 'doom-ephemeral)
@@ -130,6 +130,7 @@
      (shell . t)
      (ditaa . t)
      (ledger . t)
+     (hledger .t)
      (python . t)
      (latex . t)
      (org . t)
