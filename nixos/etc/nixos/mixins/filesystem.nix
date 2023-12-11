@@ -47,6 +47,10 @@
 
   environment = {
     systemPackages = with pkgs; [
+      # drive health
+      gsmartcontrol
+      smartmontools
+
       # btrfs
       btrbk
       compsize

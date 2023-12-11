@@ -48,38 +48,28 @@ in {
   documentation.info.enable = false;
   documentation.doc.enable = false;
 
+  services.gnome.gnome-keyring.enable = true;
+
   xdg.portal.wlr.enable = true;
 
   xdg.portal.extraPortals =
     [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-kde ];
   security.polkit.enable = true;
 
-  systemd = {
-    user = {
-      services.polkit-gnome-authentication-agent-1 = {
-        description = "polkit-gnome-authentication-agent-1";
-        wantedBy = [ "default.target" ];
-        serviceConfig = {
-          Type = "simple";
-          ExecStart =
-            "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-          Restart = "on-failure";
-          RestartSec = 1;
-          TimeoutStopSec = 10;
-        };
-      };
-      services.emacsdaemon = {
-        description = "Emacs daemon";
-        wantedBy = [ "default.target" ];
-        serviceConfig = {
-          Type = "forking";
-          ExecStart = "${pkgs.emacs} --daemon";
-          ExecStop = "${pkgs.emacs}/bin/emacsclient -e '(kill-emacs)'";
-          Restart = "on-failure";
-        };
-      };
-    };
-  };
+  # systemd = {
+  #   user = {
+  #     services.emacsdaemon = {
+  #       description = "Emacs daemon";
+  #       wantedBy = [ "default.target" ];
+  #       serviceConfig = {
+  #         Type = "forking";
+  #         ExecStart = "${pkgs.emacs} --daemon";
+  #         ExecStop = "${pkgs.emacs}/bin/emacsclient -e '(kill-emacs)'";
+  #         Restart = "on-failure";
+  #       };
+  #     };
+  #   };
+  # };
 
   # xwayland
   programs = {
@@ -129,6 +119,9 @@ in {
       catppuccin-kde
       catppuccin-cursors
       vlc
+      handbrake
+      ffmpeg
+      imagemagick
       swayimg
       mpv
     ];

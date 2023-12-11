@@ -101,7 +101,7 @@
       vivaldi-ffmpeg-codecs
       widevine-cdm
       tree
-      polkit_gnome
+      libsForQt5.polkit-kde-agent
       git
       google-drive-ocamlfuse
       stow
