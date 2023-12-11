@@ -6,22 +6,24 @@
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules =
-    [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.kernelParams =
-    [ "quiet" "loglevel=3" "systemd.show_status=auto" "rd.udev.log_level=3" ];
-  boot.extraModprobeConfig = ''
-    options iwlwifi 11n_disable=1 
-    options iwlwifi power_save=0
-    options iwlmvm power_scheme=1
-  '';
-  boot.extraModulePackages = [ ];
-  boot.supportedFilesystems = [ "ntfs" "btrfs" "ext4" "vfat" ];
+  services.fwupd.enable = true;
 
-  services.fwupd.enable = false;
-  hardware.enableAllFirmware = false;
+  boot = {
+    blacklistedKernelModules = lib.mkDefault [ "nouveau" ];
+    initrd.availableKernelModules =
+      [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
+    initrd.kernelModules = [ ];
+    kernelModules = [ "kvm-amd" ];
+    kernelParams =
+      [ "quiet" "loglevel=3" "systemd.show_status=auto" "rd.udev.log_level=3" ];
+    extraModprobeConfig = ''
+      options iwlwifi 11n_disable=1
+      options iwlwifi power_save=0
+      options iwlmvm power_scheme=1
+    '';
+    extraModulePackages = [ ];
+    supportedFilesystems = [ "ntfs" "btrfs" "ext4" "vfat" ];
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/983358f1-475f-4a33-bae0-9050b62f2cfc";
@@ -64,6 +66,7 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware = {
+    enableAllFirmware = false;
     enableRedistributableFirmware = true;
     cpu.amd.updateMicrocode =
       lib.mkDefault config.hardware.enableRedistributableFirmware;

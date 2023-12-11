@@ -20,6 +20,7 @@
     ./mixins/ssh.nix
     ./mixins/gaming.nix
     ./mixins/filesystem.nix
+    ./mixins/dev.nix
   ];
 
   # Use the systemd-boot EFI boot loader.

@@ -41,6 +41,13 @@ in {
     ];
   };
 
+  # Only install the docs I use
+  documentation.enable = true;
+  documentation.nixos.enable = false;
+  documentation.man.enable = true;
+  documentation.info.enable = false;
+  documentation.doc.enable = false;
+
   xdg.portal.wlr.enable = true;
 
   xdg.portal.extraPortals =

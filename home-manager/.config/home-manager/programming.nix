@@ -10,7 +10,7 @@
 
     # scheme
     pkgs.chicken
-    pkgs.gerbil
+    pkgs.gambit
 
     # nix
     pkgs.nixfmt
