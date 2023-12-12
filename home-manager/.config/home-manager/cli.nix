@@ -18,7 +18,9 @@
     pkgs.calcurse
     pkgs.ledger
     pkgs.hledger
+    pkgs.reckon
 
+    # google drive
     pkgs.google-drive-ocamlfuse
   ];
 }

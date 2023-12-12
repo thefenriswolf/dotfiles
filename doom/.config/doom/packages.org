@@ -10,7 +10,7 @@
 - [[#themes][Themes]]
 - [[#dirvish][Dirvish]]
 - [[#bpftrace][BPFTRACE]]
-- [[#seq][seq]]
+- [[#startup-profiler][Startup Profiler]]
 - [[#org-toc-disabled][ORG TOC (disabled)]]
 - [[#toc-org][TOC ORG]]
 - [[#beacon][BEACON]]
@@ -113,9 +113,9 @@ add ~#+auto_tangle: nil~ to disable or ~#+auto_tangle: t~ to enable this behavio
 (package! bpftrace-mode)
 #+end_src
 
-* seq
+* Startup Profiler
 #+begin_src emacs-lisp
-(package! seq)
+(package! esup)
 #+end_src
 
 * ORG TOC (disabled)

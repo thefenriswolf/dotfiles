@@ -14,8 +14,10 @@
 - [[#beacon][BEACON]]
 - [[#eshell-disabled][ESHELL (disabled)]]
 - [[#gui-settings-disabled][GUI SETTINGS (disabled)]]
+  - [[#double-buffering-for-vsync][Double buffering for vsync]]
 - [[#solaire-mode-disabled][SOLAIRE MODE (disabled)]]
 - [[#line-settings][LINE SETTINGS]]
+- [[#company][Company]]
 - [[#window-settings][WINDOW SETTINGS]]
   - [[#maximize-emacs-on-startup-disabled][MAXIMIZE EMACS ON STARTUP (disabled)]]
   - [[#scroll-margin][SCROLL MARGIN]]
@@ -143,6 +145,11 @@ Make use of features in Emacs > 29.
 )
 #+end_src
 
+** Double buffering for vsync
+#+begin_src emacs-lisp
+(add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
+#+end_src
+
 * SOLAIRE MODE (disabled)
 Make active buffer stand out more.
 #+begin_src emacs-lisp :tangle no
@@ -157,6 +164,11 @@ Make active buffer stand out more.
 | relative to cursor | relative |
 #+begin_src emacs-lisp
 (setq! display-line-numbers-type 'relative)
+#+end_src
+
+* Company
+#+begin_src emacs-lisp
+(setq! company-idle-delay 0.5)
 #+end_src
 
 * WINDOW SETTINGS
@@ -328,22 +340,23 @@ Automatically export source code blocks.
   (setq! org-ditaa-jar-path "/home/ro/.nix-profile/bin/ditaa")
   ;; enable word count only in org-mode
   (setq! doom-modeline-enable-word-count t)
-   ;; babel languages
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '(
-     (emacs-lisp . t)
-     (shell . t)
-     (ditaa . t)
-     (ledger . t)
-     (hledger .t)
-     (python . t)
-     (latex . t)
-     (org . t)
-     (gnuplot . t)
-     (r . t)
-     )
-   )
+
+;; babel languages NOT NECESSARY ACCORDING TO DOOM EMACS DOCUMENTAION
+;;  (org-babel-do-load-languages
+;;   'org-babel-load-languages
+;;   '(
+;;     (emacs-lisp . t)
+;;     (shell . t)
+;;     (ditaa . t)
+;;     (ledger . t)
+;;     (hledger .t)
+;;     (python . t)
+;;     (latex . t)
+;;     (org . t)
+;;     (gnuplot . t)
+;;     (r . t)
+;;     )
+;;   )
 )
 #+end_src
 

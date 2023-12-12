@@ -28,10 +28,10 @@
        ;;neotree           ; a project drawer, like NERDTree for vim
        ophints             ; highlight the region an operation acts on
        (popup +defaults)   ; tame sudden yet inevitable temporary windows
-       tabs                ; a tab bar for Emacs
+       ;;tabs              ; a tab bar for Emacs
        (treemacs +lsp)     ; a project drawer, like neotree but cooler
        unicode             ; extended unicode support for various languages
-       (vc-gutter +pretty) ; vcs diff in the fringe
+       ;;(vc-gutter +pretty) ; vcs diff in the fringe
        vi-tilde-fringe     ; fringe tildes to mark beyond EOB
        ;;window-select     ; visually switch windows
        ;;workspaces        ; tab emulation, persistence & separate workspaces
@@ -151,7 +151,7 @@
        ;;(ruby +rails)     ; 1.step {|i| p "ruby is #{i.even? ? 'love' : 'life'}"}
        ;;(rust +lsp)       ; fe2o3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
-       (scheme +gambit)    ; a fully conniving family of lisps
+       (scheme)            ; a fully conniving family of lisps
        sh                  ; she sells {ba,z,fi}sh shells on the C xor
        ;;sml
        ;;solidity          ; do you need a blockchain? No.
@@ -162,11 +162,10 @@
        (zig +lsp +tree-sitter)               ; C, but simpler
 
       (org                ; organize your plain life in plain text
-	 +dragndrop
 	 +gnuplot
+         +pretty
 	 +roam2
 	 +pandoc
-	 +pretty
 	 +present)
 
        :email

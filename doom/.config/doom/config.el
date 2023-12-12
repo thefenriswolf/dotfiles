@@ -26,7 +26,11 @@
   ;;(setq! beacon-blink-when-window-scrolls t)
 ;;)
 
+(add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
+
 (setq! display-line-numbers-type 'relative)
+
+(setq! company-idle-delay 0.5)
 
 (setq! scroll-margin 4)
 
@@ -122,20 +126,21 @@
   (setq! org-ditaa-jar-path "/home/ro/.nix-profile/bin/ditaa")
   ;; enable word count only in org-mode
   (setq! doom-modeline-enable-word-count t)
-   ;; babel languages
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '(
-     (emacs-lisp . t)
-     (shell . t)
-     (ditaa . t)
-     (ledger . t)
-     (hledger .t)
-     (python . t)
-     (latex . t)
-     (org . t)
-     (gnuplot . t)
-     (r . t)
-     )
-   )
+
+;; babel languages NOT NECESSARY ACCORDING TO DOOM EMACS DOCUMENTAION
+;;  (org-babel-do-load-languages
+;;   'org-babel-load-languages
+;;   '(
+;;     (emacs-lisp . t)
+;;     (shell . t)
+;;     (ditaa . t)
+;;     (ledger . t)
+;;     (hledger .t)
+;;     (python . t)
+;;     (latex . t)
+;;     (org . t)
+;;     (gnuplot . t)
+;;     (r . t)
+;;     )
+;;   )
 )

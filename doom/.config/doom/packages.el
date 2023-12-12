@@ -9,7 +9,7 @@
 
 (package! bpftrace-mode)
 
-(package! seq)
+(package! esup)
 
 (package! toc-org)
 
