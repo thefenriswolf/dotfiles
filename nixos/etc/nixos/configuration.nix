@@ -103,6 +103,7 @@
       tree
       libsForQt5.polkit-kde-agent
       git
+      localsend
       google-drive-ocamlfuse
       stow
       aria2

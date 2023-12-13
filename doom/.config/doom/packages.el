@@ -11,6 +11,4 @@
 
 (package! esup)
 
-(package! toc-org)
-
 (package! beacon)

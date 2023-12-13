@@ -5,6 +5,9 @@
     pkgs.zig
     pkgs.zls
 
+    # pascal
+    pkgs.fpc
+
     # lua
     #pkgs.love
 
@@ -27,7 +30,7 @@
     # c/cpp
     #pkgs.clang
     #pkgs.clang-tools
-    #pkgs.gnumake
+    pkgs.gnumake
 
     # python
     pkgs.python3Full

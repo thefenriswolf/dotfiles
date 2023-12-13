@@ -12,7 +12,7 @@
 - [[#bpftrace][BPFTRACE]]
 - [[#startup-profiler][Startup Profiler]]
 - [[#org-toc-disabled][ORG TOC (disabled)]]
-- [[#toc-org][TOC ORG]]
+- [[#toc-org-disabled][TOC ORG (disabled)]]
 - [[#beacon][BEACON]]
 - [[#tldr-disabled][TLDR (disabled)]]
 - [[#mpv-disabled][MPV (disabled)]]
@@ -126,9 +126,9 @@ TOC must be the first thing after a heading, there can be no text before it!
 (package! org-make-toc)
 #+end_src
 
-* TOC ORG
+* TOC ORG (disabled)
 Append ~:TOC:~ to a heading and a table of contents will be inserted/updated after the heading on every save.
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle no
 (package! toc-org)
 #+end_src
 
