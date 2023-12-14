@@ -7,6 +7,7 @@
   - [[#additional-info][ADDITIONAL INFO]]
 - [[#header][Header]]
 - [[#auto-tangle][Auto tangle]]
+- [[#harpoon][Harpoon]]
 - [[#themes][Themes]]
 - [[#dirvish][Dirvish]]
 - [[#bpftrace][BPFTRACE]]
@@ -96,6 +97,12 @@ org babel auto tangle automatically tangles source code blocks on file save.
 add ~#+auto_tangle: nil~ to disable or ~#+auto_tangle: t~ to enable this behavior.
 #+begin_src emacs-lisp
 (package! org-auto-tangle)
+#+end_src
+
+* Harpoon
+Quick bookmarks between files
+#+begin_src emacs-lisp
+(package! harpoon)
 #+end_src
 
 * Themes

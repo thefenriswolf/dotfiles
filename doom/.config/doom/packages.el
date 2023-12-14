@@ -3,6 +3,8 @@
 
 (package! org-auto-tangle)
 
+(package! harpoon)
+
 (package! catppuccin-theme)
 
 (package! dirvish)

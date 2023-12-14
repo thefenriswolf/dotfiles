@@ -40,6 +40,21 @@
 
 (setq! projectile-project-search-path '("~/playground/" "~/Documents/"))
 
+(map! :leader "j m" 'harpoon-quick-menu-hydra)
+(map! :leader "j a" 'harpoon-add-file)
+(map! :leader "j c" 'harpoon-clear)
+(map! :leader "j f" 'harpoon-toggle-file)
+(map! :leader "j d" 'harpoon-delete-item)
+(map! :leader "1" 'harpoon-go-to-1)
+(map! :leader "2" 'harpoon-go-to-2)
+(map! :leader "3" 'harpoon-go-to-3)
+(map! :leader "4" 'harpoon-go-to-4)
+(map! :leader "5" 'harpoon-go-to-5)
+(map! :leader "6" 'harpoon-go-to-6)
+(map! :leader "7" 'harpoon-go-to-7)
+(map! :leader "8" 'harpoon-go-to-8)
+(map! :leader "9" 'harpoon-go-to-9)
+
 (map! :leader
       :desc "fuzzy find file" "f z" #'counsel-fzf
 )

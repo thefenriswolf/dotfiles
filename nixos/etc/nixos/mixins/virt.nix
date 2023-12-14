@@ -10,6 +10,7 @@
     podman
     pods
     xorg.xhost
+    ventoy-full
   ];
   virtualisation = {
     podman = {
