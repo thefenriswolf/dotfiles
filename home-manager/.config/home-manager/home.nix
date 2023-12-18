@@ -29,7 +29,7 @@
     ./emacs.nix
     ./nvim.nix
     ./zsh.nix
-    ./latex.nix
+#    ./latex.nix
     ./fonts.nix
     ./alien.nix
   ];

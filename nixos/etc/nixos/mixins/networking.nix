@@ -7,7 +7,7 @@
       allowedUDPPorts = [ 53317 ];
     };
 
-    hostName = "thinkpad-stefan";
+    hostName = "desktop-stefan";
     networkmanager = {
       enable = true;
       wifi = {

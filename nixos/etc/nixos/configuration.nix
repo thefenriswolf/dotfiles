@@ -6,7 +6,7 @@
 
 {
   imports = [
-    ./hardware-configuration_sd_btrfs.nix
+    ./hardware-configuration_raid10_btrfs.nix
     <home-manager/nixos>
     ./mixins/bluetooth.nix
     ./mixins/printing.nix
@@ -21,6 +21,7 @@
     ./mixins/gaming.nix
     ./mixins/filesystem.nix
     ./mixins/dev.nix
+    ./mixins/ios.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -96,7 +97,6 @@
       "docker"
     ];
     packages = with pkgs; [
-      firefox
       vivaldi
       vivaldi-ffmpeg-codecs
       widevine-cdm

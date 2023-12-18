@@ -22,5 +22,8 @@
 
     # google drive
     pkgs.google-drive-ocamlfuse
+
+    # file management
+    pkgs.yazi
   ];
 }

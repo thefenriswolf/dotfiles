@@ -90,8 +90,6 @@ in {
       xfce.ristretto
     ];
     systemPackages = with pkgs; [
-      xfce.catfish
-      xfce.gigolo
       xfce.xfburn
       xfce.xfce4-appfinder
       xfce.xfce4-clipman-plugin
@@ -103,7 +101,6 @@ in {
       xfce.xfce4-panel
       xfce.xfce4-pulseaudio-plugin
       xfce.xfce4-systemload-plugin
-      xfce.xfce4-weather-plugin
       xfce.xfce4-whiskermenu-plugin
       xfce.xfce4-xkb-plugin
       xfce.xfce4-settings
@@ -119,6 +116,7 @@ in {
       catppuccin-kde
       catppuccin-cursors
       vlc
+      libsForQt5.ark
       handbrake
       ffmpeg
       imagemagick
