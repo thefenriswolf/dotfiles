@@ -11,6 +11,7 @@
 - [[#themes][Themes]]
 - [[#dirvish][Dirvish]]
 - [[#bpftrace][BPFTRACE]]
+- [[#org-tangle-autosync][ORG TANGLE AUTOSYNC]]
 - [[#startup-profiler][Startup Profiler]]
 - [[#org-toc-disabled][ORG TOC (disabled)]]
 - [[#toc-org-disabled][TOC ORG (disabled)]]
@@ -120,6 +121,11 @@ Quick bookmarks between files
 (package! bpftrace-mode)
 #+end_src
 
+* ORG TANGLE AUTOSYNC
+#+begin_src emacs-lisp
+(package! org-tanglesync)
+#+end_src
+
 * Startup Profiler
 #+begin_src emacs-lisp
 (package! esup)
@@ -134,6 +140,7 @@ TOC must be the first thing after a heading, there can be no text before it!
 #+end_src
 
 * TOC ORG (disabled)
+Included in DOOM EMACS!
 Append ~:TOC:~ to a heading and a table of contents will be inserted/updated after the heading on every save.
 #+begin_src emacs-lisp :tangle no
 (package! toc-org)

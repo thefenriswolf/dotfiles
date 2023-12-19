@@ -56,6 +56,11 @@ in {
     [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-kde ];
   security.polkit.enable = true;
 
+  systemd.extraConfig = ''
+    DefaultTimeoutStartSec=30s
+    DefaultTimeoutStopSec=30s
+  '';
+
   # systemd = {
   #   user = {
   #     services.emacsdaemon = {

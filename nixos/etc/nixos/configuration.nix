@@ -121,7 +121,6 @@
       gwenview
       languagetool
       gnumake
-      brave
       home-manager
       neovim
       snapper
