@@ -6,7 +6,7 @@
     pkgs.zls
 
     # pascal
-    pkgs.fpc
+    #pkgs.fpc
 
     # lua
     #pkgs.love
@@ -20,11 +20,12 @@
     pkgs.lorri
 
     # rustlang
-    pkgs.rustup
+    #pkgs.rustup
 
     # golang
     pkgs.go
     pkgs.gotools
+    pkgs.delve
     # pkgs.go-tools
 
     # c/cpp
