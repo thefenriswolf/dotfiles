@@ -123,6 +123,7 @@ in {
       vlc
       libsForQt5.ark
       handbrake
+      swaylock
       ffmpeg
       imagemagick
       swayimg

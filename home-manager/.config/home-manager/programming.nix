@@ -26,6 +26,7 @@
     pkgs.go
     pkgs.gotools
     pkgs.delve
+    pkgs.gopls
     # pkgs.go-tools
 
     # c/cpp

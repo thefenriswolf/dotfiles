@@ -8,13 +8,10 @@
     pkgs.vimPlugins.tabby-nvim
     pkgs.vimPlugins.fzf-lua
     pkgs.vimPlugins.feline-nvim
-    pkgs.vimPlugins.orgmode
     pkgs.vimPlugins.harpoon
   ];
   programs.neovim.extraLuaConfig = ''
-        vim.cmd("colorscheme nightfox")
-        vim.o.showtabline = "2"
-        require('feline').setup()
-    require('orgmode').setup_ts_grammar()
+    vim.cmd("colorscheme nightfox")
+    vim.o.showtabline = "2"
   '';
 }
