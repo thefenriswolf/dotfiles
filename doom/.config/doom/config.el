@@ -30,7 +30,7 @@
 
 (setq! display-line-numbers-type 'relative)
 
-(setq! company-idle-delay 0.5)
+(setq! company-idle-delay 0.1)
 
 (setq! scroll-margin 4)
 

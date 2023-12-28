@@ -4,7 +4,7 @@ let greetFlags = "--remember --time --remember-session --user-menu --asterisks";
 in {
   # login daemon
   services.greetd = {
-    enable = true;
+    enable = false;
     vt = 1;
     settings = {
       default_session = {
@@ -12,13 +12,9 @@ in {
           "${pkgs.greetd.tuigreet}/bin/tuigreet ${greetFlags} --cmd Hyprland";
         user = "ro";
       };
-      #      initial_session = {
-      #        command =
-      #          "${pkgs.greetd.tuigreet}/bin/tuigreet ${greetFlags} --cmd startxfce4";
-      #        user = "ro";
-      #      };
     };
   };
+
   # Xorg
   services = {
     xserver = {
@@ -28,8 +24,12 @@ in {
       xkbOptions = "eurosign:e";
       xkbVariant = "nodeadkeys";
       libinput.enable = true;
-      desktopManager = { xfce.enable = true; };
-      displayManager.startx.enable = true;
+      desktopManager = { plasma5.enable = true; };
+      displayManager = {
+        defaultSession = "hyprland";
+        sddm.enable = true;
+        startx.enable = true;
+      };
     };
   };
   programs.thunar = {
@@ -42,19 +42,31 @@ in {
   };
 
   # Only install the docs I use
-  documentation.enable = true;
-  documentation.nixos.enable = false;
-  documentation.man.enable = true;
-  documentation.info.enable = false;
-  documentation.doc.enable = false;
+  documentation = {
+    enable = true;
+    nixos.enable = false;
+    man.enable = true;
+    info.enable = false;
+    doc.enable = false;
+  };
 
   services.gnome.gnome-keyring.enable = true;
 
-  xdg.portal.wlr.enable = true;
+  services.clamav = {
+    updater.frequency = 1; # updates per day
+    updater.enable = true;
+  };
 
-  xdg.portal.extraPortals =
-    [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-kde ];
-  security.polkit.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-kde ];
+  };
+
+  security = {
+    rtkit.enable = true;
+    polkit.enable = true;
+  };
 
   systemd.extraConfig = ''
     DefaultTimeoutStartSec=30s
@@ -86,31 +98,16 @@ in {
     };
   };
 
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark";
+  };
+
   # envvars
   environment = {
-    xfce.excludePackages = with pkgs; [
-      xfce.xfce4-terminal
-      xfce.parole
-      xfce.orage
-      xfce.ristretto
-    ];
     systemPackages = with pkgs; [
       xfce.xfburn
-      xfce.xfce4-appfinder
-      xfce.xfce4-clipman-plugin
-      xfce.xfce4-cpugraph-plugin
-      xfce.xfce4-dict
-      xfce.xfce4-fsguard-plugin
-      xfce.xfce4-genmon-plugin
-      xfce.xfce4-netload-plugin
-      xfce.xfce4-panel
-      xfce.xfce4-pulseaudio-plugin
-      xfce.xfce4-systemload-plugin
-      xfce.xfce4-whiskermenu-plugin
-      xfce.xfce4-xkb-plugin
-      xfce.xfce4-settings
-      xfce.xfdashboard
-      xorg.xev
       hunspell
       hunspellDicts.en_US
       hunspellDicts.de_AT
@@ -127,7 +124,22 @@ in {
       ffmpeg
       imagemagick
       swayimg
+      clamav
       mpv
+      hyprland
+      swww
+      busybox
+      xplorer
+      libnotify
+      libsForQt5.print-manager
+      gwenview
+      xwayland
+      wayland-protocols
+      wayland-utils
+      wl-clipboard
+      wlroots
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-kde
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";

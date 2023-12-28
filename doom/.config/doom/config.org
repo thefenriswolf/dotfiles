@@ -169,7 +169,7 @@ Make active buffer stand out more.
 
 * Company
 #+begin_src emacs-lisp
-(setq! company-idle-delay 0.5)
+(setq! company-idle-delay 0.1)
 #+end_src
 
 * WINDOW SETTINGS

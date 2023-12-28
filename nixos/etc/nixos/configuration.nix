@@ -6,7 +6,7 @@
 
 {
   imports = [
-    ./hardware-configuration_raid10_btrfs.nix
+    ./hardware-configuration_sd_btrfs.nix
     <home-manager/nixos>
     ./mixins/bluetooth.nix
     ./mixins/printing.nix
@@ -60,14 +60,14 @@
   programs.direnv.enable = true;
   programs.dconf.enable = true;
   services.dbus.enable = true;
-  services.dbus.packages = with pkgs; [ xfce.xfconf gnome2.GConf ];
+  services.dbus.packages = with pkgs; [ gnome2.GConf ];
   programs.light.enable = true;
   services.gvfs.enable = true;
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.ro = { pkgs, config, ... }: {
-    home.stateVersion = "23.05";
+    home.stateVersion = "23.11";
     home.homeDirectory = "/home/ro";
     imports = [ "/home/ro/.config/home-manager/home.nix" ];
     home.packages = [ ];
@@ -78,7 +78,7 @@
 
   programs = {
     gnome-disks.enable = true;
-    seahorse.enable = true;
+    seahorse.enable = false;
   };
 
   users.users.ro = {
@@ -146,6 +146,7 @@
       gnutar
 
       alacritty
+      foot
       wofi
       rofi
       waybar
@@ -194,6 +195,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 }
 

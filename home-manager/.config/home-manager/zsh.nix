@@ -37,7 +37,10 @@
     fgrep = "fgrep --colour=auto";
     free = "free -m";
     btrfsfree = "sudo btrfs fi us /";
-    ec = "emacsclient -t";
+    emc = "emacsclient -t";
+    emd = "emacs --daemon";
+    nixos-upgrade =
+      "sudo nixos-rebuild build && nvd diff /run/current-system result";
     notify-me = "notify-send -u normal -t 2000 done";
     gdrivesync = "google-drive-ocamlfuse ~/GDrive";
   };

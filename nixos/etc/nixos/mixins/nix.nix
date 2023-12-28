@@ -14,4 +14,5 @@
     allowUnfree = true;
     permittedInsecurePackages = [ "electron-24.8.6" ];
   };
+  environment.systemPackages = [ pkgs.nvd ];
 }
