@@ -17,17 +17,20 @@
 
     # nix
     pkgs.nixfmt
-    pkgs.lorri
 
     # rustlang
     #pkgs.rustup
 
     # golang
     pkgs.go
-    pkgs.gotools
+    pkgs.gotools # godoc, ...
+    pkgs.go-tools # staticcheck, ...
     pkgs.delve
     pkgs.gopls
-    # pkgs.go-tools
+    pkgs.gomodifytags
+    pkgs.gore
+    pkgs.gotests
+    pkgs.gocode
 
     # c/cpp
     #pkgs.clang

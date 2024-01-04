@@ -28,7 +28,7 @@
 - [[#procejile][PROCEJILE]]
 - [[#harpoon][Harpoon]]
 - [[#findsearch][FIND/SEARCH]]
-- [[#direddirvish][DIRED/DIRVISH]]
+- [[#direddirvish-disabled][DIRED/DIRVISH (disabled)]]
   - [[#keybindings][Keybindings]]
 - [[#autosave-and-backups][AUTOSAVE and BACKUPS]]
   - [[#autosave][AUTOSAVE]]
@@ -227,9 +227,9 @@ Make active buffer stand out more.
 )
 #+end_src
 
-* DIRED/DIRVISH
+* DIRED/DIRVISH (disabled)
 ** Keybindings
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle no
 (dirvish-override-dired-mode)
 (after! (dirvish)
 (setq! dirvish-peek-mode t)

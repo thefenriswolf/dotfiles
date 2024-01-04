@@ -7,8 +7,6 @@
 
 (package! catppuccin-theme)
 
-(package! dirvish)
-
 (package! bpftrace-mode)
 
 (package! org-tanglesync)

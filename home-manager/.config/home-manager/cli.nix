@@ -3,6 +3,14 @@
   programs.btop.enable = true;
   programs.yt-dlp.enable = true;
 
+  programs = {
+    direnv = {
+      enable = true;
+      enableBashIntegration = true; # see note on other shells below
+      nix-direnv.enable = true;
+    };
+  };
+
   home.packages = [
     # zfs
     #pkgs.sanoid
@@ -16,6 +24,7 @@
 
     # QoL
     pkgs.calcurse
+    pkgs.fastfetch
     pkgs.ledger
     pkgs.hledger
     pkgs.reckon

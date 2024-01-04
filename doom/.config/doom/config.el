@@ -59,18 +59,6 @@
       :desc "fuzzy find file" "f z" #'counsel-fzf
 )
 
-(dirvish-override-dired-mode)
-(after! (dirvish)
-(setq! dirvish-peek-mode t)
-)
-(map! :leader
-      :prefix ("d" . "divish")
-      :desc "open divish" "w" #'dirvish
-      :desc "open dirvish full screen" "d" #'dirvish-dwim
-      :desc "dirvish main menu" "m" #'dirvish-dispatch
-      :desc "dirvish find file" "s" #'dirvish-fd
-)
-
 (setq! auto-save-default t)
 
 (setq! make-backup-files nil)

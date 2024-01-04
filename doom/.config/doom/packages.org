@@ -9,7 +9,7 @@
 - [[#auto-tangle][Auto tangle]]
 - [[#harpoon][Harpoon]]
 - [[#themes][Themes]]
-- [[#dirvish][Dirvish]]
+- [[#dirvish-disabled][Dirvish (disabled)]]
 - [[#bpftrace][BPFTRACE]]
 - [[#org-tangle-autosync][ORG TANGLE AUTOSYNC]]
 - [[#startup-profiler][Startup Profiler]]
@@ -111,8 +111,8 @@ Quick bookmarks between files
 (package! catppuccin-theme)
 #+end_src
 
-* Dirvish
-#+begin_src emacs-lisp
+* Dirvish (disabled)
+#+begin_src emacs-lisp :tangle no
 (package! dirvish)
 #+end_src
 
