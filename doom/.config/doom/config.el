@@ -30,7 +30,7 @@
 
 (setq! display-line-numbers-type 'relative)
 
-(setq! company-idle-delay 0.1)
+;;(setq! company-idle-delay 0.1)
 
 (setq! scroll-margin 4)
 
@@ -56,8 +56,7 @@
 (map! :leader "9" 'harpoon-go-to-9)
 
 (map! :leader
-      :desc "fuzzy find file" "f z" #'counsel-fzf
-)
+      :desc "fuzzy find file" "f z" #'counsel-fzf)
 
 (setq! auto-save-default t)
 
@@ -72,16 +71,10 @@
   (setq! +latex-viewers '(zathura))
 )
 
-(setq! langtool-language-tool-jar "/usr/share/java/languagetool/languagetool-commandline.jar")
+;;(setq! langtool-language-tool-jar "/usr/share/java/languagetool/languagetool-commandline.jar")
 
 (map! :leader
       :prefix ("v" . "media")
-      ;;:desc "kill mpv" "q" #'empv-exit
-      ;;:desc "search file" "p" #'empv-play-file
-      ;;:desc "start/stop mpv playback" "r" #'empv-toggle
-      ;;:desc "toggle video display" "v" #'empv-toggle-video
-      ;;:desc "skip to next" "s" #'empv-playlist-next
-      ;;:desc "go to previous" "b" #'empv-playlist-prev
       :desc "play URL" "y" #'emms-play-url
       :desc "Go to emms playlist"      "a" #'emms-playlist-mode-go
       :desc "Emms pause track"         "x" #'emms-pause

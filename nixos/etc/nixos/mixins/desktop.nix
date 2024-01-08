@@ -24,7 +24,7 @@ in {
       xkbOptions = "eurosign:e";
       xkbVariant = "nodeadkeys";
       libinput.enable = true;
-      desktopManager = { plasma5.enable = true; };
+      desktopManager = { lxqt.enable = true; };
       displayManager = {
         defaultSession = "hyprland";
         sddm.enable = true;

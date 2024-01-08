@@ -31,6 +31,7 @@
     pkgs.gore
     pkgs.gotests
     pkgs.gocode
+    pkgs.govulncheck
 
     # c/cpp
     #pkgs.clang

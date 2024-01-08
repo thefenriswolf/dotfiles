@@ -92,7 +92,7 @@ accept. For example:
 
 ** THEME Settings (disabled)
 #+begin_src emacs-lisp :tangle no
-(setq catppuccin-flavor 'frappe) ;; or 'latte, 'macchiato, or 'mocha
+(setq catppuccin-flavor 'mocha) ;; or 'frappe, 'latte, 'macchiato, or 'mocha
 (catppuccin-reload)
 #+end_src
 
@@ -169,7 +169,7 @@ Make active buffer stand out more.
 
 * Company
 #+begin_src emacs-lisp
-(setq! company-idle-delay 0.1)
+;;(setq! company-idle-delay 0.1)
 #+end_src
 
 * WINDOW SETTINGS
@@ -187,10 +187,12 @@ Make active buffer stand out more.
 #+begin_src emacs-lisp
 (xterm-mouse-mode 1)
 #+end_src
+
 ** Faster Window redraw
 #+begin_src emacs-lisp
 (setq! redisplay-dont-pause t)
 #+end_src
+
 * SPLASH screen
 ** DISABLE SPLASH SCREEN (disabled)
 #+begin_src emacs-lisp :tangle no
@@ -223,8 +225,7 @@ Make active buffer stand out more.
 * FIND/SEARCH
 #+begin_src emacs-lisp
 (map! :leader
-      :desc "fuzzy find file" "f z" #'counsel-fzf
-)
+      :desc "fuzzy find file" "f z" #'counsel-fzf)
 #+end_src
 
 * DIRED/DIRVISH (disabled)
@@ -239,8 +240,7 @@ Make active buffer stand out more.
       :desc "open divish" "w" #'dirvish
       :desc "open dirvish full screen" "d" #'dirvish-dwim
       :desc "dirvish main menu" "m" #'dirvish-dispatch
-      :desc "dirvish find file" "s" #'dirvish-fd
-)
+      :desc "dirvish find file" "s" #'dirvish-fd)
 #+end_src
 
 * AUTOSAVE and BACKUPS
@@ -271,7 +271,7 @@ Make active buffer stand out more.
 
 * LanguageTool
 #+begin_src emacs-lisp
-(setq! langtool-language-tool-jar "/usr/share/java/languagetool/languagetool-commandline.jar")
+;;(setq! langtool-language-tool-jar "/usr/share/java/languagetool/languagetool-commandline.jar")
 #+end_src
 
 * MEDIA PLAYER
@@ -279,12 +279,6 @@ Make active buffer stand out more.
 #+begin_src emacs-lisp
 (map! :leader
       :prefix ("v" . "media")
-      ;;:desc "kill mpv" "q" #'empv-exit
-      ;;:desc "search file" "p" #'empv-play-file
-      ;;:desc "start/stop mpv playback" "r" #'empv-toggle
-      ;;:desc "toggle video display" "v" #'empv-toggle-video
-      ;;:desc "skip to next" "s" #'empv-playlist-next
-      ;;:desc "go to previous" "b" #'empv-playlist-prev
       :desc "play URL" "y" #'emms-play-url
       :desc "Go to emms playlist"      "a" #'emms-playlist-mode-go
       :desc "Emms pause track"         "x" #'emms-pause
