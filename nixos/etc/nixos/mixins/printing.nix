@@ -1,4 +1,10 @@
 { config, pkgs, ... }: {
+  # discover network printers
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    openFirewall = true;
+  };
 
   # Enable CUPS to print documents.
   services.printing = {

@@ -1,20 +1,4 @@
-{ config, pkgs, ... }:
-
-let greetFlags = "--remember --time --remember-session --user-menu --asterisks";
-in {
-  # login daemon
-  services.greetd = {
-    enable = false;
-    vt = 1;
-    settings = {
-      default_session = {
-        command =
-          "${pkgs.greetd.tuigreet}/bin/tuigreet ${greetFlags} --cmd Hyprland";
-        user = "ro";
-      };
-    };
-  };
-
+{ config, pkgs, ... }: {
   # Xorg
   services = {
     xserver = {
@@ -98,12 +82,6 @@ in {
     };
   };
 
-  qt = {
-    enable = true;
-    platformTheme = "gnome";
-    style = "adwaita-dark";
-  };
-
   # envvars
   environment = {
     systemPackages = with pkgs; [
@@ -133,6 +111,7 @@ in {
       libnotify
       libsForQt5.print-manager
       gwenview
+      zathura
       xwayland
       wayland-protocols
       wayland-utils
