@@ -16,6 +16,7 @@
     pkgs.gambit
 
     # nix
+    pkgs.niv
     pkgs.nixfmt
 
     # rustlang

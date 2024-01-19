@@ -28,6 +28,8 @@
     pkgs.ledger
     pkgs.hledger
     pkgs.reckon
+    pkgs.inotify-tools
+    pkgs.lorri
 
     # google drive
     pkgs.google-drive-ocamlfuse

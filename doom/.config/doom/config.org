@@ -11,7 +11,7 @@
   - [[#theme-settings-disabled][THEME Settings (disabled)]]
 - [[#general-keybindings-disabled][GENERAL KEYBINDINGS (disabled)]]
 - [[#modeline-disabled][MODELINE (disabled)]]
-- [[#beacon][BEACON]]
+- [[#beacon-disabled][BEACON (disabled)]]
 - [[#eshell-disabled][ESHELL (disabled)]]
 - [[#gui-settings-disabled][GUI SETTINGS (disabled)]]
   - [[#double-buffering-for-vsync][Double buffering for vsync]]
@@ -114,10 +114,10 @@ Modeline config
 (setq! display-time t)
 #+end_src
 
-* BEACON
+* BEACON (disabled)
 Flash cursor after large movement.
 #+begin_src emacs-lisp
-(beacon-mode t)
+;;(beacon-mode t)
 ;;(after! (beacon)
   ;;(setq! beacon-size 50)
   ;;(setq! beacon-blink-when-point-moves-vertically t)

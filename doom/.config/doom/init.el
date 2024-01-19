@@ -23,8 +23,8 @@
        ;;indent-guides     ; highlighted indent columns
        ;;(ligatures +extra); ligatures and symbols to make your code pretty again
        ;;minimap           ; show a map of the code on the side
-       (modeline)          ; snazzy, Atom-inspired modeline, plus API
-       ;;nav-flash         ; blink cursor line after big motions
+       (modeline +light)          ; snazzy, Atom-inspired modeline, plus API
+       nav-flash         ; blink cursor line after big motions
        ;;neotree           ; a project drawer, like NERDTree for vim
        ophints             ; highlight the region an operation acts on
        (popup +defaults)   ; tame sudden yet inevitable temporary windows
@@ -81,13 +81,13 @@
        (eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
-       (lsp +peek +eglot)         ; M-x vscode
+       (lsp +peek +lsp)         ; M-x vscode
        magit               ; a git porcelain for Emacs
        make                ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
        ;;pdf               ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
-       ;;rgb               ; creating color strings
+       rgb               ; creating color strings
        ;;taskrunner        ; taskrunner for all your projects
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
@@ -151,7 +151,7 @@
        ;;(ruby +rails)     ; 1.step {|i| p "ruby is #{i.even? ? 'love' : 'life'}"}
        ;;(rust +lsp)       ; fe2o3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
-       (scheme)            ; a fully conniving family of lisps
+       ;;(scheme)            ; a fully conniving family of lisps
        sh                  ; she sells {ba,z,fi}sh shells on the C xor
        ;;sml
        ;;solidity          ; do you need a blockchain? No.
@@ -159,7 +159,7 @@
        ;;terra             ; Earth and Moon in alignment for performance.
        ;;web               ; the tubes
        ;;yaml              ; JSON, but readable
-       (zig +lsp +tree-sitter)               ; C, but simpler
+       ;;(zig +lsp +tree-sitter)               ; C, but simpler
 
       (org                ; organize your plain life in plain text
 	 +gnuplot

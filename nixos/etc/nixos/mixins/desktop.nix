@@ -11,11 +11,15 @@
       desktopManager = { lxqt.enable = true; };
       displayManager = {
         defaultSession = "hyprland";
-        sddm.enable = true;
+        sddm = {
+          enable = true;
+          theme = "catppuccin-sddm-corners";
+        };
         startx.enable = true;
       };
     };
   };
+
   programs.thunar = {
     enable = true;
     plugins = with pkgs.xfce; [
@@ -57,21 +61,6 @@
     DefaultTimeoutStopSec=30s
   '';
 
-  # systemd = {
-  #   user = {
-  #     services.emacsdaemon = {
-  #       description = "Emacs daemon";
-  #       wantedBy = [ "default.target" ];
-  #       serviceConfig = {
-  #         Type = "forking";
-  #         ExecStart = "${pkgs.emacs} --daemon";
-  #         ExecStop = "${pkgs.emacs}/bin/emacsclient -e '(kill-emacs)'";
-  #         Restart = "on-failure";
-  #       };
-  #     };
-  #   };
-  # };
-
   # xwayland
   programs = {
     xwayland.enable = true;
@@ -96,11 +85,15 @@
       catppuccin-kde
       catppuccin-cursors
       vlc
+      xfce.thunar-archive-plugin
+      xfce.thunar
+      pkgs.kile
       libsForQt5.ark
       handbrake
       swaylock
       ffmpeg
       imagemagick
+      ghostscript
       swayimg
       clamav
       mpv

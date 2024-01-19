@@ -4,51 +4,54 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  services.fwupd.enable = true;
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
-  services.btrfs.autoScrub.enable = true;  
-
-  fileSystems."/" =
-    { device = "/dev/sda1";
-      fsType = "btrfs";
-      options = [ "subvol=root" "compress=zstd" "ssd" ];
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    initrd = {
+      availableKernelModules =
+        [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
+      kernelModules = [ ];
     };
+    blacklistedKernelModules = lib.mkDefault [ "nouveau" ];
+    kernelModules = [ "kvm-amd" ];
+    kernelParams =
+      [ "quiet" "loglevel=3" "systemd.show_status=auto" "rd.udev.log_level=3" ];
+    extraModulePackages = [ ];
+    supportedFilesystems = [ "ntfs" "btrfs" "ext4" "vfat" ];
+  };
 
-  fileSystems."/home" =
-    { device = "/dev/sda1";
-      fsType = "btrfs";
-      options = [ "subvol=home" "compress=zstd" "ssd" ];
-    };
+  services.btrfs.autoScrub.enable = true;
 
-#  fileSystems."/home/ro/playground" =
-#    { device = "/dev/sda1";
-#      fsType = "btrfs";
-#      options = [ "subvol=playground" "compress=zstd" "ssd" ];
-#    };
+  fileSystems."/" = {
+    device = "/dev/sda1";
+    fsType = "btrfs";
+    options = [ "subvol=root" "compress=zstd" "ssd" ];
+  };
 
+  fileSystems."/home" = {
+    device = "/dev/sda1";
+    fsType = "btrfs";
+    options = [ "subvol=home" "compress=zstd" "ssd" ];
+  };
 
-  fileSystems."/nix" =
-    { device = "/dev/sda1";
-      fsType = "btrfs";
-      options = [ "subvol=nix" "noatime" "compress=zstd" "ssd"];
-    };
+  fileSystems."/nix" = {
+    device = "/dev/sda1";
+    fsType = "btrfs";
+    options = [ "subvol=nix" "noatime" "compress=zstd" "ssd" ];
+  };
 
-  fileSystems."/var" =
-    { device = "/dev/sda1";
-      fsType = "btrfs";
-      options = [ "subvol=var" "noatime" "compress=zstd" "ssd"];
-    };
+  fileSystems."/var" = {
+    device = "/dev/sda1";
+    fsType = "btrfs";
+    options = [ "subvol=var" "noatime" "compress=zstd" "ssd" ];
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/A9A7-53FD";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/A9A7-53FD";
+    fsType = "vfat";
+  };
 
   swapDevices = [ ];
 
@@ -61,5 +64,6 @@
   # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode =
+    lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

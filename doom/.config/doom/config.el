@@ -16,7 +16,7 @@
 ;;(setq! doom-theme 'moe-theme)
 (setq doom-theme 'catppuccin)
 
-(beacon-mode t)
+;;(beacon-mode t)
 ;;(after! (beacon)
   ;;(setq! beacon-size 50)
   ;;(setq! beacon-blink-when-point-moves-vertically t)

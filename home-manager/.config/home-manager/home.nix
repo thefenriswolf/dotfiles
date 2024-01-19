@@ -22,6 +22,7 @@
 
   imports = [
     ./cli.nix
+    ./themes.nix
     ./programming.nix
     ./hypr.nix
     ./benchmark.nix
