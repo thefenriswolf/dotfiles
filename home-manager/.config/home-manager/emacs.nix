@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }: {
   editorconfig.enable = true;
   home.packages = [
-    pkgs.emacs-nox
+    pkgs.emacs29-nox
     pkgs.xclip
     pkgs.gnuplot
     pkgs.ditaa

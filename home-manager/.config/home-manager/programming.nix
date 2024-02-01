@@ -2,25 +2,47 @@
   home.packages = [
 
     # zig
-    pkgs.zig
-    pkgs.zls
+    #pkgs.zig
+    #pkgs.zls
 
     # pascal
     #pkgs.fpc
 
+    # c#/f#
+    #pkgs.dotnet-sdk_8
+    #pkgs.fantomas
+    #pkgs.kotlin
+    #pkgs.kotlin-native
+    #pkgs.kotlin-language-server
+    #pkgs.ktlint
+    #pkgs.ktfmt
+    #pkgs.detekt
+    #pkgs.clang
+
+    # elixir
+    pkgs.elixir
+    pkgs.elixir-ls
+    pkgs.asdf-vm
+
     # lua
-    #pkgs.love
+    pkgs.love
+    pkgs.lua
+    pkgs.lua-language-server
+    pkgs.stylua
 
     # scheme
-    pkgs.chicken
-    pkgs.gambit
+    #pkgs.chicken
+    #pkgs.gambit
 
     # nix
-    pkgs.niv
+    #pkgs.niv
     pkgs.nixfmt
 
     # rustlang
     #pkgs.rustup
+
+    # cross plattform TUI
+    pkgs.dosbox
 
     # golang
     pkgs.go

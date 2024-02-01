@@ -9,6 +9,7 @@
 - [[#auto-tangle][Auto tangle]]
 - [[#harpoon][Harpoon]]
 - [[#themes][Themes]]
+  - [[#catppuccin][Catppuccin]]
 - [[#dirvish-disabled][Dirvish (disabled)]]
 - [[#bpftrace][BPFTRACE]]
 - [[#org-tangle-autosync][ORG TANGLE AUTOSYNC]]
@@ -107,6 +108,7 @@ Quick bookmarks between files
 #+end_src
 
 * Themes
+** Catppuccin
 #+begin_src emacs-lisp
 (package! catppuccin-theme)
 #+end_src
@@ -117,17 +119,17 @@ Quick bookmarks between files
 #+end_src
 
 * BPFTRACE
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle no
 (package! bpftrace-mode)
 #+end_src
 
 * ORG TANGLE AUTOSYNC
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle no
 (package! org-tanglesync)
 #+end_src
 
 * Startup Profiler
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle no
 (package! esup)
 #+end_src
 

@@ -14,7 +14,13 @@
 ;;(setq! doom-theme 'doom-one)
 ;;(setq! doom-theme 'doom-nord)
 ;;(setq! doom-theme 'moe-theme)
-(setq doom-theme 'catppuccin)
+(setq! doom-theme 'catppuccin)
+
+(setq! catppuccin-flavor 'latte) ;; or 'frappe, 'latte, 'macchiato, or 'mocha
+
+(map! :leader
+      :desc "format whole buffer" "l l" #'+format/buffer
+      :desc "open eshell terminal" "ö ö" #'eshell)
 
 ;;(beacon-mode t)
 ;;(after! (beacon)
@@ -26,11 +32,18 @@
   ;;(setq! beacon-blink-when-window-scrolls t)
 ;;)
 
+(when (version< "29.0.50" emacs-version)
+  (pixel-scroll-precision-mode t)
+  (set-frame-parameter (selected-frame) 'alpha-background 90)
+  (add-to-list 'default-frame-alist '(alpha-background . 90))
+)
+
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 
 (setq! display-line-numbers-type 'relative)
 
-;;(setq! company-idle-delay 0.1)
+(setq! company-idle-delay 0.3)
+(setq! corfu-auto-delay 0.3)
 
 (setq! scroll-margin 4)
 
@@ -40,23 +53,31 @@
 
 (setq! projectile-project-search-path '("~/playground/" "~/Documents/"))
 
-(map! :leader "j m" 'harpoon-quick-menu-hydra)
-(map! :leader "j a" 'harpoon-add-file)
-(map! :leader "j c" 'harpoon-clear)
-(map! :leader "j f" 'harpoon-toggle-file)
-(map! :leader "j d" 'harpoon-delete-item)
-(map! :leader "1" 'harpoon-go-to-1)
-(map! :leader "2" 'harpoon-go-to-2)
-(map! :leader "3" 'harpoon-go-to-3)
-(map! :leader "4" 'harpoon-go-to-4)
-(map! :leader "5" 'harpoon-go-to-5)
-(map! :leader "6" 'harpoon-go-to-6)
-(map! :leader "7" 'harpoon-go-to-7)
-(map! :leader "8" 'harpoon-go-to-8)
-(map! :leader "9" 'harpoon-go-to-9)
+(map! :leader
+      :prefix ("j" . "harpoon")
+      :desc "harpoon menu" "m" #'harpoon-quick-menu-hydra
+      :desc "add file to harpoon" "a" #'harpoon-add-file
+      :desc "clear harpoon" "c" #'harpoon-clear
+      :desc "open harpoon file" "f" #'harpoon-toggle-file
+      :desc "delete harpoon item" "j" #'harpoon-delete-item
+      :desc "goto 1" "1" #'harpoon-go-to-1
+      :desc "goto 2" "2" #'harpoon-go-to-2
+      :desc "goto 3" "3" #'harpoon-go-to-3
+      :desc "goto 4" "4" #'harpoon-go-to-4
+      :desc "goto 5" "5" #'harpoon-go-to-5
+      :desc "goto 6" "6" #'harpoon-go-to-6
+      :desc "goto 7" "7" #'harpoon-go-to-7
+      :desc "goto 8" "8" #'harpoon-go-to-8
+      :desc "goto 9" "9" #'harpoon-go-to-9)
+
+(setq! lsp-clients-lua-language-server-bin "/etc/profiles/per-user/ro/bin/lua-language-server")
 
 (map! :leader
       :desc "fuzzy find file" "f z" #'counsel-fzf)
+
+(map! :leader
+      :prefix ("d" . "ranger")
+      :desc "open ranger" "d" #'ranger)
 
 (setq! auto-save-default t)
 
@@ -136,7 +157,7 @@
 ;;     (latex . t)
 ;;     (org . t)
 ;;     (gnuplot . t)
-;;     (r . t)
-;;     )
+;;     (r . gotgoto 4goto 5goto 6goto 7goto 8goto 9o 3t)
+;;     gogoto 2to 1)
 ;;   )
 )

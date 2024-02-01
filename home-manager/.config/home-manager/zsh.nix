@@ -39,6 +39,7 @@
     btrfsfree = "sudo btrfs fi us /";
     emc = "emacsclient -t";
     emd = "emacs --daemon";
+    e = "emacsclient -ca '\'''\'' ";
     nixos-upgrade =
       "sudo nixos-rebuild build && nvd diff /run/current-system result";
     notify-me = "notify-send -u normal -t 2000 done";

@@ -8,13 +8,10 @@
       xkbOptions = "eurosign:e";
       xkbVariant = "nodeadkeys";
       libinput.enable = true;
-      desktopManager = { lxqt.enable = true; };
+      desktopManager = { plasma5.enable = true; };
       displayManager = {
         defaultSession = "hyprland";
-        sddm = {
-          enable = true;
-          theme = "catppuccin-sddm-corners";
-        };
+        sddm = { enable = true; };
         startx.enable = true;
       };
     };
@@ -76,6 +73,7 @@
     systemPackages = with pkgs; [
       xfce.xfburn
       hunspell
+      sddm-chili-theme
       hunspellDicts.en_US
       hunspellDicts.de_AT
       hunspellDicts.de_DE
@@ -89,6 +87,7 @@
       xfce.thunar
       pkgs.kile
       libsForQt5.ark
+      libsForQt5.okular
       handbrake
       swaylock
       ffmpeg
@@ -99,8 +98,8 @@
       mpv
       hyprland
       swww
-      busybox
-      xplorer
+      appimage-run
+      coreutils-full
       libnotify
       libsForQt5.print-manager
       gwenview

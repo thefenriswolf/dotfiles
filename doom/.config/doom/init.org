@@ -160,7 +160,7 @@
        data                ; config/data formats
        ;;(dart +flutter)   ; paint ui and not much else
        ;;dhall
-       ;;elixir            ; erlang done right
+       (elixir +lsp +tree-sitter)            ; erlang done right
        ;;elm               ; care for a cup of TEA?
        emacs-lisp          ; drown in parentheses
        ;;erlang            ; an elegant language for a more civilized age
@@ -168,7 +168,7 @@
        ;;factor
        ;;faust             ; dsp, but you get to keep your soul
        ;;fortran           ; in FORTRAN, GOD is REAL (unless declared INTEGER)
-       ;;fsharp            ; ML stands for Microsoft's Language
+       ;;(fsharp +lsp)            ; ML stands for Microsoft's Language
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
        ;;gdscript          ; the language you waited for
        (go +lsp +tree-sitter)           ; the hipster dialect
@@ -176,15 +176,15 @@
        ;;(haskell +lsp)    ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
-       ;;json              ; At least it ain't XML
+       json              ; At least it ain't XML
        ;;(java +lsp)       ; the poster child for carpal tunnel syndrome
        ;;(javascript +tree-sitter)  ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
-       ;;kotlin            ; a better, slicker Java(Script)
+       ;;(kotlin +lsp)            ; a better, slicker Java(Script)
        (latex +fold +lsp +latexmk)  ; writing papers in Emacs has never been so fun
        ;;lean              ; for folks with too much to prove
        ledger              ; be audit you can be
-       ;;lua               ; one-based indices? one-based indices
+       (lua +lsp +tree-sitter)  ; one-based indices? one-based indices
        ;;markdown          ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
        nix                 ; I hereby declare "nix geht mehr!"
@@ -207,7 +207,7 @@
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
-       ;;web               ; the tubes
+       web               ; the tubes
        ;;yaml              ; JSON, but readable
        ;;(zig +lsp +tree-sitter)               ; C, but simpler
 #+end_src
@@ -216,7 +216,7 @@
 #+begin_src emacs-lisp
       (org                ; organize your plain life in plain text
 	 +gnuplot
-         +pretty
+         +crypt
 	 +roam2
 	 +pandoc
 	 +present)

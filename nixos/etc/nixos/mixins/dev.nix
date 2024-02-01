@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [ bintools busybox plantuml jdk ];
+  environment.systemPackages = with pkgs; [ bintools plantuml jdk ];
 }

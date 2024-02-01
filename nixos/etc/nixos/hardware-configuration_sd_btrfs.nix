@@ -4,12 +4,16 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+    #<nixos-hardware/lenovo/thinkpad/t480s>
+  ];
 
   services.fwupd.enable = true;
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_latest; # latest kernel
+    kernelPackages = pkgs.linuxPackages; # LTS kernel
     initrd = {
       availableKernelModules =
         [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
@@ -57,7 +61,7 @@
     fsType = "vfat";
   };
 
-  swapDevices = [ { device = "/swap/swapfile"; } ];
+  swapDevices = [{ device = "/swap/swapfile"; }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
