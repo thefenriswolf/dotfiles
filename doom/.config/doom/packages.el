@@ -7,10 +7,4 @@
 
 (package! catppuccin-theme)
 
-(package! bpftrace-mode)
-
-(package! org-tanglesync)
-
-(package! esup)
-
 (package! beacon)

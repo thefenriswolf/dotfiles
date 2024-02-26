@@ -1,40 +1,49 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }: {
 
-let
-  nixvim = import (builtins.fetchGit {
-    url = "https://github.com/nix-community/nixvim";
-    ref = "nixos-23.11";
-  });
-in {
-  imports = [ nixvim.homeManagerModules.nixvim ];
-  programs.nixvim = {
+  programs.micro = {
     enable = true;
-    vimAlias = true;
-    colorschemes.gruvbox.enable = true;
-    options = {
-      number = true;
-      relativenumber = true;
-      shiftwidth = 2;
+    settings = {
+      autoindent = true;
+      autosave = 10;
+      autosu = false;
+      clipboard = "external";
+      cursorline = true;
+      diffgutter = true;
+      encoding = "utf-8";
+      eofnewline = true;
+      hlsearch = true;
+      incsearch = true;
+      infobar = true;
+      matchbrace = true;
+      mkparents = true;
+      parsecursor = true;
+      reload = "prompt";
+      ruler = true;
+      relativeruler = true;
+      softwrap = true;
+      statusline = true;
+      syntax = true;
+      # plugins
+      autoclose = true;
+      comment = true;
+      linter = true;
+      status = true;
+      diff = true;
     };
-    plugins = {
-      lightline.enable = true;
-      harpoon.enable = true;
+  };
+
+  programs.neovim = { enable = true; };
+
+  programs.helix = {
+    enable = true;
+    settings = {
+      editor = {
+        line-number = "relative";
+        scrolloff = 5;
+        cursorline = true;
+        auto-save = true;
+        bufferline = "always";
+      };
     };
-    # extraPlugins = with pkgs.vimPlugins; [
-    #   nightfox-nvim
-    #   tabby-nvim
-    #   fzf-lua
-    #   feline-nvim
-    #   harpoon
-    #   orgmode
-    #   nvim-lspconfig
-    #   nvim-treesitter.withAllGrammars
-    #   gruvbox-material
-    # ];
-    # extraLuaConfig = # lua
-    #   ''
-    #     vim.o.showtabline = "2"
-    #     vim.o.termguicolors = true
-    #   '';
   };
 }

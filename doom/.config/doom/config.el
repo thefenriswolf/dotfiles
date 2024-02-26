@@ -16,11 +16,13 @@
 ;;(setq! doom-theme 'moe-theme)
 (setq! doom-theme 'catppuccin)
 
-(setq! catppuccin-flavor 'latte) ;; or 'frappe, 'latte, 'macchiato, or 'mocha
+(setq! catppuccin-flavor 'frappe) ;; or 'frappe, 'latte, 'macchiato, or 'mocha
 
 (map! :leader
       :desc "format whole buffer" "l l" #'+format/buffer
-      :desc "open eshell terminal" "ö ö" #'eshell)
+      :desc "open eshell terminal" "ö ö" #'eshell
+      :desc "comment highlighted region" "c b" #'comment-region
+)
 
 ;;(beacon-mode t)
 ;;(after! (beacon)
@@ -71,6 +73,12 @@
       :desc "goto 9" "9" #'harpoon-go-to-9)
 
 (setq! lsp-clients-lua-language-server-bin "/etc/profiles/per-user/ro/bin/lua-language-server")
+
+(setq! gofmt-command "goimports")
+(setq! gofmt-before-save t)
+(after! go-mode
+  (set-formatter! 'goimports '("goimports") :modes '(go-mode))
+)
 
 (map! :leader
       :desc "fuzzy find file" "f z" #'counsel-fzf)

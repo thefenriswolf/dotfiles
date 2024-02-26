@@ -47,7 +47,7 @@
   #  };
 
   # enable gui integration on non-nixos
-  #targets.genericLinux.enable = true;
+  # targets.genericLinux.enable = true;
   xdg.mime.enable = true;
 
   # user config starts here

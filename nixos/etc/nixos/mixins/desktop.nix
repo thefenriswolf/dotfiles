@@ -86,6 +86,8 @@
       xfce.thunar-archive-plugin
       xfce.thunar
       pkgs.kile
+      joplin-desktop
+      libsForQt5.skanlite
       libsForQt5.ark
       libsForQt5.okular
       handbrake
@@ -103,7 +105,6 @@
       libnotify
       libsForQt5.print-manager
       gwenview
-      zathura
       xwayland
       wayland-protocols
       wayland-utils

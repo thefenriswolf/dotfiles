@@ -1,6 +1,9 @@
 { config, desktop, lib, pkgs, ... }: {
 
-  sound.enable = true;
+  sound = {
+    enable = true;
+    mediaKeys = { enable = true; };
+  };
   environment.systemPackages = with pkgs; [
     alsa-utils
     pulseaudio

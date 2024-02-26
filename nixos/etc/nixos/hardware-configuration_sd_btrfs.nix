@@ -15,9 +15,16 @@
     # kernelPackages = pkgs.linuxPackages_latest; # latest kernel
     kernelPackages = pkgs.linuxPackages; # LTS kernel
     initrd = {
-      availableKernelModules =
-        [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
-      kernelModules = [ ];
+      availableKernelModules = [
+        "thinkpad_acpi"
+        "nvme"
+        "xhci_pci"
+        "ahci"
+        "usb_storage"
+        "sd_mod"
+        "sdhci_pci"
+      ];
+      kernelModules = [ "acpi_call" ];
     };
     blacklistedKernelModules = lib.mkDefault [ "nouveau" ];
     kernelModules = [ "kvm-amd" ];
@@ -28,7 +35,7 @@
       options iwlwifi power_save=0
       options iwlmvm power_scheme=1
     '';
-    extraModulePackages = [ ];
+    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
     supportedFilesystems = [ "ntfs" "btrfs" "ext4" "vfat" ];
   };
 

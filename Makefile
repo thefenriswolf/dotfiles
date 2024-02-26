@@ -6,7 +6,7 @@
 # Tabs not Spaces!
 # begin
 
-usr := hyprland doom alacritty dunst home-manager fontconfig waybar sanoid zsh
+usr := hyprland doom alacritty dunst home-manager waybar sanoid zsh
 sys := ly yabsnap services tuigreet auto-cpufreq
 
 R='\033[0;31m'   #'0;31' is Red's ANSI color code

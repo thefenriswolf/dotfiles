@@ -28,6 +28,8 @@
 - [[#procejile][PROCEJILE]]
 - [[#harpoon][Harpoon]]
 - [[#lsp][LSP]]
+  -  [[#lua][Lua]]
+  - [[#go][Go]]
 - [[#findsearch][FIND/SEARCH]]
 - [[#direddirvish][DIRED/DIRVISH]]
   - [[#keybindings][Keybindings]]
@@ -93,14 +95,16 @@ accept. For example:
 
 ** THEME Settings
 #+begin_src emacs-lisp
-(setq! catppuccin-flavor 'latte) ;; or 'frappe, 'latte, 'macchiato, or 'mocha
+(setq! catppuccin-flavor 'frappe) ;; or 'frappe, 'latte, 'macchiato, or 'mocha
 #+end_src
 
 * GENERAL KEYBINDINGS
 #+begin_src emacs-lisp
 (map! :leader
       :desc "format whole buffer" "l l" #'+format/buffer
-      :desc "open eshell terminal" "ö ö" #'eshell)
+      :desc "open eshell terminal" "ö ö" #'eshell
+      :desc "comment highlighted region" "c b" #'comment-region
+)
 #+end_src
 
 * MODELINE (disabled)
@@ -226,8 +230,18 @@ Make active buffer stand out more.
 #+end_src
 
 * LSP
+**  Lua
 #+begin_src emacs-lisp
 (setq! lsp-clients-lua-language-server-bin "/etc/profiles/per-user/ro/bin/lua-language-server")
+#+end_src
+
+** Go
+#+begin_src emacs-lisp
+(setq! gofmt-command "goimports")
+(setq! gofmt-before-save t)
+(after! go-mode
+  (set-formatter! 'goimports '("goimports") :modes '(go-mode))
+)
 #+end_src
 
 * FIND/SEARCH

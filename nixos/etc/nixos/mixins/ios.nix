@@ -2,10 +2,10 @@
 
 {
   services.usbmuxd = {
-    enable = true;
+    enable = false;
     package = pkgs.usbmuxd2;
   };
-
+  services.udisks2 = { enable = true; };
   environment.systemPackages = with pkgs; [
     libimobiledevice
     idevicerestore

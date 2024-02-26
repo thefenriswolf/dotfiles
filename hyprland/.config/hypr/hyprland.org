@@ -51,7 +51,7 @@ exec-once = waybar
 exec-once = nm-applet &
 exec-once = blueman-applet &
 exec-once = dunst -lto 10 -nto 20 -cto 100 -show_age_theshold 11 -startup_notification -idle_threshold 60 &
-exec-once = [workspace 1 silent] alacritty
+exec-once = [workspace 1 silent] foot
 exec-once = wl-clipboard-history -t
 exec-once = wl-paste --type text --watch cliphist store # clipboard store text data
 exec-once = wl-paste --type image --watch cliphist store # clipboard store image data
@@ -130,10 +130,10 @@ general {
     gaps_in = 5
     gaps_out = 5
     border_size = 2
-    col.active_border = 0xff$mauveAlpha 0xff$lavenderAlpha 45deg
-#   col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
-    col.inactive_border = 0xff$overlay0Alpha
-#   col.inactive_border = rgba(595959aa)
+#   col.active_border = 0xff$mauveAlpha 0xff$lavenderAlpha 45deg
+    col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
+#   col.inactive_border = 0xff$overlay0Alpha
+    col.inactive_border = rgba(595959aa)
     layout = dwindle
 }
 dwindle {
@@ -178,7 +178,6 @@ animations {
 }
 misc {
     force_default_wallpaper = 0 # requires v0.31 option to disable weeb backgrounds
-    #disable_hypr_chan = true # old option to disable weeb backgrounds
 }
 #+end_src
 
@@ -200,15 +199,17 @@ windowrulev2 = float,class:^(vivaldi)$,title:^(Open File)$
 windowrulev2 = float,class:^(file-roller)$
 windowrulev2 = center,class:^(file-roller)$
 
-# always float foot
-windowrulev2 = float,class:^(foot)$,title:^(foot)$
+windowrulev2 = tile,class:(LibreOffice),title:(.*)(LibreOffice)(.*)$
+windowrulev2 = tile,class:(Slicer),title:(.*)(3D Slicer)(.*),xwayland:1
+
 #+end_src
 
 * Keybindings
 #+begin_src config
 $mainMod = SUPER
 
-bind = $mainMod, Return, exec, alacritty
+bind = $mainMod, Return, exec, foot
+#bind = $mainMod, Return, exec, alacritty
 bind = $mainMod, B, exec, vivaldi
 bind = SUPER_SHIFT, Q, killactive,
 bind = $mainMod, M, exit,

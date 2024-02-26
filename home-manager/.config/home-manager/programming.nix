@@ -2,8 +2,8 @@
   home.packages = [
 
     # zig
-    #pkgs.zig
-    #pkgs.zls
+    pkgs.zig
+    pkgs.zls
 
     # pascal
     #pkgs.fpc
@@ -20,15 +20,18 @@
     #pkgs.clang
 
     # elixir
-    pkgs.elixir
-    pkgs.elixir-ls
-    pkgs.asdf-vm
+    # pkgs.elixir
+    # pkgs.elixir-ls
+    # pkgs.asdf-vmi
+
+    # Odin
+    pkgs.odin
 
     # lua
-    pkgs.love
-    pkgs.lua
-    pkgs.lua-language-server
-    pkgs.stylua
+    # pkgs.love
+    # pkgs.lua
+    # pkgs.lua-language-server
+    # pkgs.stylua
 
     # scheme
     #pkgs.chicken
@@ -50,6 +53,7 @@
     pkgs.go-tools # staticcheck, ...
     pkgs.delve
     pkgs.gopls
+    pkgs.revive
     pkgs.gomodifytags
     pkgs.gore
     pkgs.gotests
@@ -64,9 +68,9 @@
     # python
     pkgs.python3Full
     pkgs.python311Packages.numpy
-    pkgs.python311Packages.scikit-image
+    #pkgs.python311Packages.scikit-image
     pkgs.python311Packages.pydicom
-    pkgs.python311Packages.opencv4
+    #pkgs.python311Packages.opencv4
     pkgs.python311Packages.matplotlib
     pkgs.black
     pkgs.isort

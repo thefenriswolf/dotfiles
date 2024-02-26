@@ -100,6 +100,7 @@
       vivaldi
       vivaldi-ffmpeg-codecs
       widevine-cdm
+      firefox
       tree
       libsForQt5.polkit-kde-agent
       git
@@ -145,7 +146,6 @@
       file
       gnutar
 
-      alacritty
       foot
       wofi
       rofi
@@ -157,13 +157,8 @@
       wlsunset
       swaybg
       swayidle
-      #nwg-dock-hyprland
-      #nwg-panel
       pdfgrep
-
       wl-clipboard
-
-      greetd.tuigreet
     ];
   };
 
