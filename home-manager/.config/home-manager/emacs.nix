@@ -9,7 +9,6 @@
     pkgs.ripgrep
     pkgs.graphviz
     pkgs.fd
-    pkgs.fzf
     pkgs.imagemagick
     pkgs.ffmpegthumbnailer
     pkgs.mediainfo

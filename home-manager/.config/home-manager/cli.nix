@@ -3,6 +3,19 @@
   programs.btop.enable = true;
   programs.yt-dlp.enable = true;
 
+  programs.fzf = {
+    enable = true;
+    tmux = { enableShellIntegration = true; };
+  };
+
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+    mouse = true;
+    newSession = true; # create new session if none are running
+
+  };
+
   programs = {
     direnv = {
       enable = true;
