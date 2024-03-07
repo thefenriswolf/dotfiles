@@ -76,6 +76,9 @@
       httm
 
       # zfs
+
+      # network
+      localsend
     ];
   };
 }

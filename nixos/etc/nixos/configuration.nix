@@ -6,7 +6,7 @@
 
 {
   imports = [
-    ./hardware-configuration_raid10_btrfs.nix
+    ./hardware-configuration_sd_btrfs.nix
     <home-manager/nixos>
     ./mixins/bluetooth.nix
     ./mixins/printing.nix

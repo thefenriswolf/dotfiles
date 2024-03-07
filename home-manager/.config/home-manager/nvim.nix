@@ -1,5 +1,7 @@
 { config, lib, pkgs, ... }: {
 
+  home.packages = [ pkgs.lite-xl ];
+
   programs.micro = {
     enable = true;
     settings = {

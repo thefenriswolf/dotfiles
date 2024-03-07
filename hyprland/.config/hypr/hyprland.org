@@ -29,6 +29,7 @@ See https://wiki.hyprland.org/Configuring/Monitors/
 # monitor=,preferred,auto,1
 monitor=eDP-1,preferred,auto,1.1
 monitor=HDMI-A-2,1680x1050@60,0x0,1.0
+monitor=HDMI-a-1,1280x720@50,0x0,1.0
 #+end_src
 
 * Autostart

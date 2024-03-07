@@ -13,7 +13,6 @@
     clock24 = true;
     mouse = true;
     newSession = true; # create new session if none are running
-
   };
 
   programs = {
