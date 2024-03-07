@@ -3,8 +3,9 @@
 {
   qt = {
     enable = true;
-    platformTheme = "gtk3";
+    platformTheme = "gtk";
     style.name = "adwaita-dark";
+    style.package = pkgs.adwaita-qt;
   };
   gtk = {
     enable = true;

@@ -14,5 +14,6 @@
     wineWowPackages.staging
     wineWowPackages.waylandFull
     winetricks
+    mangohud
   ];
 }

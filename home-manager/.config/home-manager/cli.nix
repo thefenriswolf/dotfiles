@@ -3,6 +3,25 @@
   programs.btop.enable = true;
   programs.yt-dlp.enable = true;
 
+  programs.yazi = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+    settings = {
+      manager = {
+        sort_by = "alphabetical";
+        sort_sensitive = true;
+        sort_dir_first = true;
+        linemode = "size";
+        show_hidden = false;
+      };
+      preview = {
+        image_filter = "nearest";
+        image_quality = 50;
+      };
+    };
+  };
+
   programs.fzf = {
     enable = true;
     tmux = { enableShellIntegration = true; };
@@ -62,12 +81,12 @@
     pkgs.inotify-tools
     pkgs.lorri
     pkgs.sherlock
+    (import ./packages/ttt.nix)
 
     # google drive
     pkgs.google-drive-ocamlfuse
 
     # file management
-    pkgs.yazi
     pkgs.ueberzugpp
 
     # coreutil replacements
