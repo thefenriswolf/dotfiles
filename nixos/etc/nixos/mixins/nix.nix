@@ -10,9 +10,6 @@
     auto-optimise-store = true;
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    permittedInsecurePackages = [ "electron-24.8.6" ];
-  };
+  nixpkgs.config = { allowUnfree = true; };
   environment.systemPackages = [ pkgs.nvd ];
 }

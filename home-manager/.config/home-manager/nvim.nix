@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }: {
 
-  home.packages = [ pkgs.lite-xl ];
+  home.packages = [ ];
 
   programs.micro = {
     enable = true;
@@ -37,7 +37,7 @@
   programs.neovim = { enable = true; };
 
   programs.helix = {
-    enable = true;
+    enable = false;
     settings = {
       editor = {
         line-number = "relative";

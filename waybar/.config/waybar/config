@@ -92,12 +92,12 @@
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}",
-        "on-right-click": "foot calcurse"
+        "on-right-click": "foot -e calcurse"
     },
     "cpu": {
         "format": "{usage}% ",
         "tooltip": false,
-        "on-click": "foot btop"
+        "on-click": "foot -e btop"
     },
     "memory": {
         "format": "{}% "

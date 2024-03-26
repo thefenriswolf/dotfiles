@@ -22,6 +22,7 @@
       :desc "format whole buffer" "l l" #'+format/buffer
       :desc "open eshell terminal" "ö ö" #'eshell
       :desc "comment highlighted region" "c b" #'comment-region
+      :desc "uncomment highlighted region" "c v" #'uncomment-region
 )
 
 ;;(beacon-mode t)

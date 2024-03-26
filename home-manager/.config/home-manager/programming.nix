@@ -1,9 +1,18 @@
 { config, lib, pkgs, ... }: {
+
   home.packages = [
 
     # zig
     pkgs.zig
     pkgs.zls
+
+    # ocaml
+    pkgs.ocaml
+    pkgs.ocamlPackages.merlin
+    pkgs.ocamlPackages.utop
+    pkgs.ocamlPackages.ocp-indent
+    pkgs.ocamlPackages.stdune
+    pkgs.ocamlPackages.ocamlformat
 
     # pascal
     #pkgs.fpc
@@ -25,7 +34,7 @@
     # pkgs.asdf-vmi
 
     # Odin
-    pkgs.odin
+    # pkgs.odin
 
     # lua
     # pkgs.love
@@ -49,6 +58,7 @@
 
     # golang
     pkgs.go
+    pkgs.tinygo
     pkgs.gotools # godoc, ...
     pkgs.go-tools # staticcheck, ...
     pkgs.delve
@@ -61,8 +71,8 @@
     pkgs.govulncheck
 
     # c/cpp
-    #pkgs.clang
-    #pkgs.clang-tools
+    pkgs.clang
+    pkgs.clang-tools
     pkgs.gnumake
 
     # python

@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
 {
+  home.packages = [ pkgs.nix-prefetch-scripts ];
+
   programs.git = {
     enable = true;
     userEmail = "stefan.rohrbacher97@gmail.com";

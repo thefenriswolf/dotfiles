@@ -13,6 +13,7 @@
 - [[#dirvish-disabled][Dirvish (disabled)]]
 - [[#bpftrace][BPFTRACE]]
 - [[#org-tangle-autosync][ORG TANGLE AUTOSYNC]]
+- [[#org-pretty-code-blocks][ORG Pretty Code blocks]]
 - [[#startup-profiler][Startup Profiler]]
 - [[#org-toc-disabled][ORG TOC (disabled)]]
 - [[#toc-org-disabled][TOC ORG (disabled)]]
@@ -126,6 +127,11 @@ Quick bookmarks between files
 * ORG TANGLE AUTOSYNC
 #+begin_src emacs-lisp :tangle no
 (package! org-tanglesync)
+#+end_src
+
+* ORG Pretty Code blocks
+#+begin_src emacs-lisp :tangle no
+(package! org-modern-indent)
 #+end_src
 
 * Startup Profiler

@@ -48,6 +48,7 @@
   - [[#org-roam][ORG ROAM]]
   - [[#keybindings-2][KEYBINDINGS]]
   - [[#auto-tangle][AUTO TANGLE]]
+  - [[#pretty-code-blocks][Pretty Code Blocks]]
   - [[#graphs][GRAPHS]]
 - [[#general-info][GENERAL INFO]]
 
@@ -104,6 +105,7 @@ accept. For example:
       :desc "format whole buffer" "l l" #'+format/buffer
       :desc "open eshell terminal" "ö ö" #'eshell
       :desc "comment highlighted region" "c b" #'comment-region
+      :desc "uncomment highlighted region" "c v" #'uncomment-region
 )
 #+end_src
 
@@ -243,6 +245,10 @@ Make active buffer stand out more.
   (set-formatter! 'goimports '("goimports") :modes '(go-mode))
 )
 #+end_src
+*** Debug
+#+begin_src
+(setq! no-byte-compile nil)
+#+end_src
 
 * FIND/SEARCH
 #+begin_src emacs-lisp
@@ -357,6 +363,13 @@ Automatically export source code blocks.
   :hook (org-mode . org-auto-tangle-mode)
   :config
   (setq! org-auto-tangle-default t)
+)
+#+end_src
+
+** Pretty Code Blocks
+#+begin_src emacs-lisp :tangle no
+(after! (org)
+  :hook (org-mode . org-modern-indent-mode 90)
 )
 #+end_src
 
