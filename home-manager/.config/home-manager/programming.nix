@@ -7,26 +7,33 @@
     pkgs.zls
 
     # ocaml
-    pkgs.ocaml
-    pkgs.ocamlPackages.merlin
-    pkgs.ocamlPackages.utop
-    pkgs.ocamlPackages.ocp-indent
-    pkgs.ocamlPackages.stdune
-    pkgs.ocamlPackages.ocamlformat
+    # pkgs.ocaml
+    # pkgs.ocamlPackages.merlin
+    # pkgs.ocamlPackages.utop
+    # pkgs.ocamlPackages.ocp-indent
+    # pkgs.ocamlPackages.stdune
+    # pkgs.ocamlPackages.ocamlformat
 
     # pascal
-    #pkgs.fpc
+    # pkgs.fpc
 
     # c#/f#
-    #pkgs.dotnet-sdk_8
-    #pkgs.fantomas
-    #pkgs.kotlin
-    #pkgs.kotlin-native
-    #pkgs.kotlin-language-server
-    #pkgs.ktlint
-    #pkgs.ktfmt
-    #pkgs.detekt
-    #pkgs.clang
+    # pkgs.dotnet-sdk_8
+    # pkgs.mono
+    # pkgs.omnisharp-roslyn
+    # pkgs.csharpier
+    # pkgs.fantomas
+
+    # java/jvm
+    # pkgs.kotlin
+    # pkgs.kotlin-native
+    # pkgs.kotlin-language-server
+    # pkgs.ktlint
+    # pkgs.ktfmt
+    # pkgs.detekt
+
+    # flutter
+    # pkgs.flutter
 
     # elixir
     # pkgs.elixir
@@ -35,6 +42,7 @@
 
     # Odin
     # pkgs.odin
+    # pkgs.ols
 
     # lua
     # pkgs.love
@@ -43,15 +51,15 @@
     # pkgs.stylua
 
     # scheme
-    #pkgs.chicken
-    #pkgs.gambit
+    # pkgs.chicken
+    # pkgs.gambit
 
     # nix
-    #pkgs.niv
+    # pkgs.niv
     pkgs.nixfmt
 
     # rustlang
-    #pkgs.rustup
+    # pkgs.rustup
 
     # cross plattform TUI
     pkgs.dosbox
@@ -72,6 +80,7 @@
 
     # c/cpp
     pkgs.clang
+    # pkgs.gcc
     pkgs.clang-tools
     pkgs.gnumake
 

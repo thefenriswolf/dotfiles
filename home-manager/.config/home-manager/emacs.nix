@@ -1,7 +1,14 @@
 { config, lib, pkgs, ... }: {
+
   editorconfig.enable = true;
+
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs29-pgtk;
+  };
+
   home.packages = [
-    pkgs.emacs-nox
+    #    pkgs.emacs-nox
     pkgs.xclip
     pkgs.gnuplot
     pkgs.ditaa
