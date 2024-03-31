@@ -25,6 +25,12 @@
     # pkgs.fantomas
 
     # java/jvm
+    pkgs.clojure
+    pkgs.clojure-lsp
+    pkgs.leiningen
+    pkgs.clj-kondo
+    pkgs.cljfmt
+    pkgs.jdk
     # pkgs.kotlin
     # pkgs.kotlin-native
     # pkgs.kotlin-language-server

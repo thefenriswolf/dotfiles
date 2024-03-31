@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  home.packages = [ pkgs.nix-prefetch-scripts ];
+  home.packages = with pkgs; [ git-annex nix-prefetch-scripts ];
 
   programs.git = {
     enable = true;
@@ -10,10 +10,10 @@
   };
   programs.git.extraConfig = {
     init = { defaultBranch = "main"; };
-    core = { editor = "nano"; };
+    core = { editor = "micro"; };
     alias = {
       pr = "pull --rebase";
-      squash = "rebase -i HEAD~";
+      squash = "rebase -i ";
     };
   };
 }

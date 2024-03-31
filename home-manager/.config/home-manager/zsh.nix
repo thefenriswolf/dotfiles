@@ -27,11 +27,11 @@
 
   programs.zsh.shellAliases = {
     ssh = "TERM=xterm-256color ssh";
-    ll = "ls -lisah";
+    l = "eza -alh --total-size";
     doom = "~/.config/emacs/bin/doom";
     emacs = "emacs -nw";
     nano = "micro";
-    ls = "exa -l --no-user";
+    ll = "eza -l --no-user";
     cat = "bat";
     find = "fd";
     ps = "procs";
@@ -43,8 +43,10 @@
     emc = "emacsclient -t";
     emd = "emacs --daemon";
     e = "emacsclient -ca '''''' ";
-    nixos-upgrade =
-      "sudo nixos-rebuild build && nvd diff /run/current-system result";
+    nut =
+      "sudo nixos-rebuild build && nvd diff /run/current-system result && notify-me";
+    nub = "sudo nixos-rebuild boot && notify-me";
+    nus = "sudo nixos-rebuild switch && notify-me";
     notify-me = "notify-send -u normal -t 2000 done";
     gdrivesync = "google-drive-ocamlfuse ~/GDrive";
   };

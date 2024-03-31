@@ -2,19 +2,19 @@ with import <nixpkgs> { };
 
 buildGoModule rec {
   pname = "gopta";
-  version = "v20240326";
+  version = "v20240331";
 
   src = fetchFromGitHub {
     owner = "thefenriswolf";
     repo = "fin";
-    rev = "${version}";
-    hash = "sha256-vZcCOl2V6sP10nbdiaF85CiPJaPY+QG+ERKRAbPx3yY=";
+    rev = "13e5a72d7b75862391c351e32b6f15c59b0e826a";
+    hash = "sha256-4vIFlAobg7Izb2HrES6syXEE+MIessIZHy9zy9m4aMU=";
   };
-  vendorHash = "sha256-vZcCOl2V6sP10nbdiaF85CiPJaPY+QG+ERKRAbPx3yY=";
+  vendorHash = null;
 
   meta = with lib; {
-    description = "CSV to beancount/ledger converter";
-    homepage = "https://github.com/thefenriswolf/gopta";
+    description = "Time Tracker Tool written in Golang";
+    homepage = "https://github.com/thefenriswolf/ttt";
     license = licenses.mit;
     maintainers = with maintainers; [ thefenriswolf ];
   };

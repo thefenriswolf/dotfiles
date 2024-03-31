@@ -82,7 +82,7 @@
     pkgs.lorri
     pkgs.sherlock
     (import ./packages/ttt.nix)
-    #    (import ./packages/gopta.nix)
+    (import ./packages/gopta.nix)
 
     # google drive
     pkgs.google-drive-ocamlfuse
