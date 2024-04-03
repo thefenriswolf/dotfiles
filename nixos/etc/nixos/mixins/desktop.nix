@@ -58,16 +58,6 @@
     DefaultTimeoutStopSec=30s
   '';
 
-  # xwayland
-  programs = {
-    xwayland.enable = true;
-    hyprland = {
-      xwayland.enable = true;
-      enable = true;
-      portalPackage = pkgs.xdg-desktop-portal-hyprland;
-    };
-  };
-
   # envvars
   environment = {
     systemPackages = with pkgs; [
