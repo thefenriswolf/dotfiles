@@ -65,7 +65,12 @@
     pkgs.nixfmt
 
     # rustlang
-    pkgs.rustup
+    # pkgs.rustup
+    pkgs.rustc
+    pkgs.rustfmt
+    pkgs.cargo
+    pkgs.clippy
+    pkgs.rust-analyzer
 
     # cross plattform TUI
     pkgs.dosbox

@@ -8,20 +8,23 @@
     podman-compose
     podman-tui
     podman
+    runc
+    crun
     pods
     xorg.xhost
     ventoy-full
   ];
+
+  systemd.enableUnifiedCgroupHierarchy = true;
+
   virtualisation = {
     podman = {
-      defaultNetwork.settings = { dns_enabled = true; };
+      enable = true;
+      defaultNetwork = { settings = { dns_enabled = true; }; };
       autoPrune = {
         dates = "monthly";
         enable = true;
       };
-      dockerCompat = true;
-      dockerSocket.enable = true;
-      enable = true;
     };
   };
 

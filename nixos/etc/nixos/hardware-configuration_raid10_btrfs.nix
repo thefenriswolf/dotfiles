@@ -8,7 +8,7 @@
   services.fwupd.enable = true;
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_latest;
     initrd = {
       availableKernelModules =
         [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
@@ -16,8 +16,14 @@
     };
     blacklistedKernelModules = lib.mkDefault [ "nouveau" ];
     kernelModules = [ "kvm-amd" ];
-    kernelParams =
-      [ "quiet" "loglevel=3" "systemd.show_status=auto" "rd.udev.log_level=3" ];
+    kernelParams = [
+      "quiet"
+      "loglevel=3"
+      "systemd.show_status=auto"
+      "rd.udev.log_level=3"
+      #   "cgroup_no_v1=all"
+      #   "systemd.unified_cgroup_hierarchy=1"
+    ];
     extraModulePackages = [ ];
     supportedFilesystems = [ "ntfs" "btrfs" "ext4" "vfat" ];
   };

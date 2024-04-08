@@ -63,6 +63,9 @@
     # zfs
     #pkgs.sanoid
 
+    # top
+    pkgs.nvtop-amd
+
     # btrfs
     pkgs.httm
 
