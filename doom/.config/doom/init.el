@@ -102,7 +102,7 @@
        ;;agda              ; types of types of types of types...
        beancount         ; mind the GAAP
        ;;(cc +lsp)         ; C > C++ == 1
-       (clojure +lsp +tree-sitter)           ; java with a lisp
+       ;;(clojure +lsp +tree-sitter)           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
@@ -149,7 +149,7 @@
        ;;rest              ; emacs as a rest client
        ;;rst               ; rest in peace
        ;;(ruby +rails)     ; 1.step {|i| p "ruby is #{i.even? ? 'love' : 'life'}"}
-       ;;(rust +lsp)       ; fe2o3.unwrap().unwrap().unwrap().unwrap()
+       (rust +lsp +tree-sitter)       ; fe2o3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
        ;;(scheme +chez +chicken)            ; a fully conniving family of lisps
        sh                  ; she sells {ba,z,fi}sh shells on the C xor
@@ -159,7 +159,7 @@
        ;;terra             ; Earth and Moon in alignment for performance.
        ;;web               ; the tubes
        ;;yaml              ; JSON, but readable
-       (zig +lsp +tree-sitter)               ; C, but simpler
+       ;;(zig +lsp +tree-sitter)               ; C, but simpler
 
       (org                ; organize your plain life in plain text
 	 +gnuplot

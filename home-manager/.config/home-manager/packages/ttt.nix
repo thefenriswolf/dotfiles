@@ -8,7 +8,7 @@ buildGoModule rec {
     owner = "thefenriswolf";
     repo = "ttt";
     rev = "${version}";
-    hash = "sha256-bYfuh0SAIVm8KfCMXEhmBJjsw423jp22j3QXEiCNO/E=";
+    hash = "sha256-nk9LusSJYJerc54vFCBhpU6/jInJ/MIU+wtiIjM+P8k=";
   };
   vendorHash = "sha256-ekZ5rRbvD8U+UEfqWbPCZ9v++ZDTpAuU3LT9hWlwC5Q=";
 

@@ -13,5 +13,17 @@
       turbo = "auto";
     };
   };
+
+  services.ananicy = {
+    enable = true;
+    package = pkgs.ananicy-cpp;
+    extraRules = [{
+      name = "SlicerApp-real";
+      nice = -19;
+      sched = "normal";
+      ioclass = "best-effort";
+    }];
+  };
+
   environment = { systemPackages = with pkgs; [ power-calibrate ]; };
 }

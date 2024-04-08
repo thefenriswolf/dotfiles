@@ -8,9 +8,9 @@ buildGoModule rec {
     owner = "thefenriswolf";
     repo = "fin";
     rev = "13e5a72d7b75862391c351e32b6f15c59b0e826a";
-    hash = "sha256-4vIFlAobg7Izb2HrES6syXEE+MIessIZHy9zy9m4aMU=";
+    hash = "sha256-6N2cHnFOyuPkrUHCLFYKi4OuzF7zNqTMJoIc/RNLzv4=";
   };
-  vendorHash = null;
+  vendorHash = "sha256-0HDZ3llIgLMxRLNei93XrcYliBzjajU6ZPllo3/IZVY=";
 
   meta = with lib; {
     description = "Time Tracker Tool written in Golang";

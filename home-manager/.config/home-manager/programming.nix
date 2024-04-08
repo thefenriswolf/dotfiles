@@ -3,8 +3,8 @@
   home.packages = [
 
     # zig
-    pkgs.zig
-    pkgs.zls
+    # pkgs.zig
+    # pkgs.zls
 
     # ocaml
     # pkgs.ocaml
@@ -25,12 +25,12 @@
     # pkgs.fantomas
 
     # java/jvm
-    pkgs.clojure
-    pkgs.clojure-lsp
-    pkgs.leiningen
-    pkgs.clj-kondo
-    pkgs.cljfmt
-    pkgs.jdk
+    # pkgs.clojure
+    # pkgs.clojure-lsp
+    # pkgs.leiningen
+    # pkgs.clj-kondo
+    # pkgs.cljfmt
+    # pkgs.jdk
     # pkgs.kotlin
     # pkgs.kotlin-native
     # pkgs.kotlin-language-server
@@ -65,7 +65,7 @@
     pkgs.nixfmt
 
     # rustlang
-    # pkgs.rustup
+    pkgs.rustup
 
     # cross plattform TUI
     pkgs.dosbox
