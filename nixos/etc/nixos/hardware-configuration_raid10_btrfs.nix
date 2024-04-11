@@ -9,6 +9,7 @@
 
   boot = {
     # kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages; # LTS kernel
     initrd = {
       availableKernelModules =
         [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];

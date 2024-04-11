@@ -5,15 +5,20 @@
     # pkgs.zsh-powerlevel10k
     pkgs.powerline-go
   ];
-  programs.zsh.enable = true;
-  programs.zsh.autocd = true;
-  programs.zsh.history.extended = true;
-  programs.zsh.history.size = 50000;
-  programs.zsh.history.expireDuplicatesFirst = true;
-  programs.zsh.history.ignoreSpace = true;
-  programs.zsh.syntaxHighlighting.enable = true;
-  programs.zsh.enableAutosuggestions = true;
-  programs.zsh.enableVteIntegration = true;
+
+  programs.zsh = {
+    enable = true;
+    autocd = true;
+    history = {
+      extended = true;
+      size = 50000;
+      expireDuplicatesFirst = true;
+      ignoreSpace = true;
+    };
+    syntaxHighlighting.enable = true;
+    autosuggestion = { enable = true; };
+    enableVteIntegration = true;
+  };
 
   programs.powerline-go.enable = true;
 

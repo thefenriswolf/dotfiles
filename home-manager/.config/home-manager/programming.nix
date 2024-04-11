@@ -62,7 +62,7 @@
 
     # nix
     # pkgs.niv
-    pkgs.nixfmt
+    pkgs.nixfmt-classic
 
     # rustlang
     # pkgs.rustup
@@ -77,7 +77,7 @@
 
     # golang
     pkgs.go
-    pkgs.tinygo
+    #    pkgs.tinygo
     pkgs.gotools # godoc, ...
     pkgs.go-tools # staticcheck, ...
     pkgs.delve
@@ -86,7 +86,6 @@
     pkgs.gomodifytags
     pkgs.gore
     pkgs.gotests
-    pkgs.gocode
     pkgs.govulncheck
 
     # c/cpp

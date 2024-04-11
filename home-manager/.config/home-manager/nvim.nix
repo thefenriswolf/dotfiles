@@ -4,6 +4,7 @@
 
   programs.micro = {
     enable = true;
+    #catppuccin.enable = true;
     settings = {
       autoindent = true;
       autosave = 10;
@@ -34,7 +35,10 @@
     };
   };
 
-  programs.neovim = { enable = true; };
+  programs.neovim = {
+    enable = true;
+    catppuccin.enable = true;
+  };
 
   programs.helix = {
     enable = false;

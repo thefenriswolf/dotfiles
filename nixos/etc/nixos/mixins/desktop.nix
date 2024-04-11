@@ -4,9 +4,11 @@
     xserver = {
       excludePackages = with pkgs; [ xterm ];
       enable = true;
-      layout = "at";
-      xkbOptions = "eurosign:e";
-      xkbVariant = "nodeadkeys";
+      xkb = {
+        layout = "at";
+        options = "eurosign:e";
+        variant = "nodeadkeys";
+      };
       libinput.enable = true;
       desktopManager = { plasma5.enable = true; };
       displayManager = {

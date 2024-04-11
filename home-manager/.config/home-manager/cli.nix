@@ -5,6 +5,7 @@
 
   programs.yazi = {
     enable = true;
+    catppuccin.enable = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
     settings = {
@@ -24,6 +25,7 @@
 
   programs.fzf = {
     enable = true;
+    catppuccin.enable = true;
     tmux = { enableShellIntegration = true; };
   };
 
@@ -31,6 +33,7 @@
     enable = true;
     clock24 = true;
     mouse = true;
+    catppuccin.enable = true;
     newSession = true; # create new session if none are running
   };
 
@@ -54,6 +57,7 @@
   };
   programs.zathura = {
     enable = true;
+    catppuccin.enable = true;
     extraConfig = ''
       set selection-clipboard clipboard
     '';
@@ -64,7 +68,7 @@
     #pkgs.sanoid
 
     # top
-    pkgs.nvtop-amd
+    pkgs.nvtopPackages.amd
 
     # btrfs
     pkgs.httm
