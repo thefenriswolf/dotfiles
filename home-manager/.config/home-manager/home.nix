@@ -23,7 +23,7 @@
   imports = [
     <catppuccin/modules/home-manager>
     ./cli.nix
-    # ./themes.nix
+    #./themes.nix
     ./programming.nix
     ./hypr.nix
     ./benchmark.nix
@@ -36,6 +36,7 @@
     ./alien.nix
   ];
 
+  xdg.enable = true;
   # nix settings
   #  nixpkgs.config = {
   #    allowUnfree = true;

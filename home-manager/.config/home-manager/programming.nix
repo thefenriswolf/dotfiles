@@ -3,8 +3,8 @@
   home.packages = [
 
     # zig
-    # pkgs.zig
-    # pkgs.zls
+    pkgs.zig
+    pkgs.zls
 
     # ocaml
     # pkgs.ocaml
@@ -42,9 +42,9 @@
     # pkgs.flutter
 
     # elixir
-    # pkgs.elixir
-    # pkgs.elixir-ls
-    # pkgs.asdf-vmi
+    pkgs.elixir
+    pkgs.elixir-ls
+    pkgs.asdf-vm
 
     # Odin
     # pkgs.odin

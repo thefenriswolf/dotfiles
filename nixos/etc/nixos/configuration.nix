@@ -15,11 +15,13 @@
     ./mixins/powersave.nix
     ./mixins/virt.nix
     ./mixins/desktop.nix
+    ./mixins/hyprland.nix
     ./mixins/nix.nix
     ./mixins/theming.nix
     ./mixins/ssh.nix
     ./mixins/gaming.nix
     ./mixins/filesystem.nix
+    ./mixins/security.nix
     ./mixins/dev.nix
     ./mixins/ios.nix
   ];
@@ -97,8 +99,6 @@
       "docker"
     ];
     packages = with pkgs; [
-      vivaldi
-      vivaldi-ffmpeg-codecs
       widevine-cdm
       firefox
       tree

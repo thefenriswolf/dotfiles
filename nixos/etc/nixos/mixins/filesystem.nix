@@ -1,7 +1,11 @@
 { config, lib, pkgs, ... }:
 
 {
-  services.btrfs.autoScrub.enable = true;
+  services.btrfs.autoScrub = {
+    enable = true;
+    interval = "weekly";
+  };
+
   services.fstrim.enable = true;
   services.fstrim.interval = "weekly";
 

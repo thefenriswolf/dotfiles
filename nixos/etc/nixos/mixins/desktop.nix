@@ -1,6 +1,10 @@
 { config, pkgs, ... }: {
   # Xorg
   services = {
+    displayManager = {
+      defaultSession = "hyprland";
+      sddm = { enable = true; };
+    };
     xserver = {
       excludePackages = with pkgs; [ xterm ];
       enable = true;
@@ -11,11 +15,6 @@
       };
       libinput.enable = true;
       desktopManager = { plasma5.enable = true; };
-      displayManager = {
-        defaultSession = "hyprland";
-        sddm = { enable = true; };
-        startx.enable = true;
-      };
     };
   };
 
