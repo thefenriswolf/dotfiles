@@ -74,12 +74,12 @@
       compsize
       btrfs-snap
       btrfs-heatmap
-      btrfs-assistant
 
       # btrfs/zfs
       httm
 
       # zfs
+      sanoid
 
       # network
       localsend

@@ -63,6 +63,13 @@
     options = [ "subvol=var" "compress=zstd" "noatime" "ssd" "discard=async" ];
   };
 
+  fileSystems."/home/ro/data" = {
+    device = "/dev/disk/by-id/ata-TOSHIBA_MQ04ABF100_9759C55LT-part1";
+    fsType = "btrfs";
+    options = [ "compress=zstd" "noatime" "discard=async" ];
+    neededForBoot = false;
+  };
+
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/319F-0F5F";
     fsType = "vfat";

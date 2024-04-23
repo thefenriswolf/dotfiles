@@ -19,6 +19,6 @@
   environment.systemPackages = with pkgs; [
     sane-frontends
     libinsane
-    paperwork
+    #paperwork
   ];
 }
