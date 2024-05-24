@@ -6,6 +6,8 @@
     pkgs.zig
     pkgs.zls
 
+    pkgs.godot_4
+
     # ocaml
     # pkgs.ocaml
     # pkgs.ocamlPackages.merlin

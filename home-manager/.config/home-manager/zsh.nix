@@ -32,11 +32,11 @@
 
   programs.zsh.shellAliases = {
     ssh = "TERM=xterm-256color ssh";
-    l = "eza -alh --total-size";
+    l = "ls -lisah";
     doom = "~/.config/emacs/bin/doom";
     emacs = "emacs -nw";
     nano = "micro";
-    ll = "eza -l --no-user";
+    # ll = "eza -l --no-user";
     cat = "bat";
     find = "fd";
     ps = "procs";

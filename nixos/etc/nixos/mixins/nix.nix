@@ -11,5 +11,5 @@
   };
 
   nixpkgs.config = { allowUnfree = true; };
-  environment.systemPackages = [ pkgs.nvd ];
+  environment.systemPackages = [ pkgs.nvd pkgs.nixd ];
 }

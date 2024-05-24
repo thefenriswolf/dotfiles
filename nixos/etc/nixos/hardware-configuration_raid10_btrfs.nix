@@ -6,10 +6,12 @@
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
   services.fwupd.enable = true;
-
+  networking.hostId = "f092bcf0"; # needed for ZFS
   boot = {
-    # kernelPackages = pkgs.linuxPackages_latest;
-    kernelPackages = pkgs.linuxPackages; # LTS kernel
+    # kernelPackages = pkgs.linuxPackages_latest; # latest kernel
+    # kernelPackages = pkgs.linuxPackages; # LTS kernel
+    kernelPackages =
+      config.boot.zfs.package.latestCompatibleLinuxPackages; # latest zfs kernel
     initrd = {
       availableKernelModules =
         [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
@@ -22,8 +24,7 @@
       "loglevel=3"
       "systemd.show_status=auto"
       "rd.udev.log_level=3"
-      #   "cgroup_no_v1=all"
-      #   "systemd.unified_cgroup_hierarchy=1"
+      "nohibernate"
     ];
     extraModulePackages = [ ];
     supportedFilesystems = [ "ntfs" "btrfs" "ext4" "vfat" ];

@@ -1,9 +1,15 @@
 { config, pkgs, ... }: {
   # Xorg
   services = {
+    libinput.enable = true;
+    desktopManager = { plasma6.enable = true; };
     displayManager = {
       defaultSession = "hyprland";
-      sddm = { enable = true; };
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+        autoNumlock = true;
+      };
     };
     xserver = {
       excludePackages = with pkgs; [ xterm ];
@@ -13,8 +19,6 @@
         options = "eurosign:e";
         variant = "nodeadkeys";
       };
-      libinput.enable = true;
-      desktopManager = { plasma5.enable = true; };
     };
   };
 
@@ -76,7 +80,8 @@
       vlc
       xfce.thunar-archive-plugin
       xfce.thunar
-      pkgs.kile
+      kile
+      inkscape-with-extensions
       joplin-desktop
       libsForQt5.skanlite
       libsForQt5.ark

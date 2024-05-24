@@ -7,7 +7,6 @@
     fuse-overlayfs
     podman-compose
     podman-tui
-    podman
     runc
     crun
     pods

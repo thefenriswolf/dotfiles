@@ -3,6 +3,11 @@
   programs.btop.enable = true;
   programs.yt-dlp.enable = true;
 
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   programs.yazi = {
     enable = true;
     catppuccin.enable = true;
@@ -44,17 +49,19 @@
       nix-direnv.enable = true;
     };
     foot = {
+      # https://codeberg.org/dnkl/foot/src/branch/master/foot.ini
       enable = true;
       settings = {
         main = {
           term = "xterm-256color";
-          font = "Fira Code:size=9";
-          dpi-aware = "yes";
+          font = "Fira Code:size=11";
+          dpi-aware = "no";
         };
         mouse = { hide-when-typing = "yes"; };
       };
     };
   };
+
   programs.zathura = {
     enable = true;
     catppuccin.enable = true;
@@ -69,6 +76,10 @@
 
     # top
     pkgs.nvtopPackages.amd
+    pkgs.lm_sensors
+    pkgs.psensor
+    pkgs.hddtemp
+    pkgs.acpi
 
     # btrfs
     pkgs.httm
@@ -91,14 +102,14 @@
     (import ./packages/ttt.nix)
     (import ./packages/gopta.nix)
 
-    # google drive
+    # cloud storage: google drive, dropbox
     pkgs.google-drive-ocamlfuse
+    pkgs.rclone
 
     # file management
     pkgs.ueberzugpp
 
     # coreutil replacements
-    pkgs.eza
     pkgs.bat
     pkgs.fd
     pkgs.procs

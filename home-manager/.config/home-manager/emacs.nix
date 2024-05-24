@@ -4,8 +4,8 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs-nox;
-    #    package = pkgs.emacs29-pgtk;
+    # package = pkgs.emacs-nox;
+    package = pkgs.emacs29-pgtk;
   };
 
   home.packages = [
@@ -28,5 +28,7 @@
     pkgs.shfmt
     pkgs.shellcheck
     pkgs.tldr
+
+    pkgs.zeal
   ];
 }
