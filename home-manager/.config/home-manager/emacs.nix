@@ -2,6 +2,13 @@
 
   editorconfig.enable = true;
 
+  xdg.configFile."doom/config.el".source =
+    /home/ro/playground/dotfiles/doom/.config/doom/config.el;
+  xdg.configFile."doom/init.el".source =
+    /home/ro/playground/dotfiles/doom/.config/doom/init.el;
+  xdg.configFile."doom/packages.el".source =
+    /home/ro/playground/dotfiles/doom/.config/doom/packages.el;
+
   programs.emacs = {
     enable = true;
     # package = pkgs.emacs-nox;

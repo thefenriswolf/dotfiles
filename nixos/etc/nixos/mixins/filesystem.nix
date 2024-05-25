@@ -63,6 +63,17 @@
   #   };
   # };
 
+  # ZFS
+  services.sanoid = {
+    enable = false;
+    interval = "hourly";
+    templates = {
+      crucial = { daily = 48; };
+      lazy = { daily = 0; };
+      intermediate = { daily = 12; };
+    };
+  };
+
   environment = {
     systemPackages = with pkgs; [
       # drive health
