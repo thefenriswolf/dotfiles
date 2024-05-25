@@ -68,10 +68,32 @@
     enable = false;
     interval = "hourly";
     templates = {
-      crucial = { daily = 48; };
-      lazy = { daily = 0; };
-      intermediate = { daily = 12; };
+      ignore = {
+        daily = 0;
+        weekly = 0;
+        monthly = 0;
+        yearly = 0;
+        "autoprune" = true;
+        "autosnap" = false;
+        "monitor" = false;
+      };
     };
+    datasets = {
+      "rpool/ROOT" = {
+        recursive = true;
+        autosnap = true;
+        autoprune = true;
+        use_template = [ "ignore" ];
+      };
+      "dpool/study" = {
+        recursive = true;
+        autosnap = true;
+        autoprune = true;
+        processChildrenOnly = true;
+        use_template = [ "ignore" ];
+      };
+    };
+    extraArgs = [ "--verbose" ];
   };
 
   environment = {

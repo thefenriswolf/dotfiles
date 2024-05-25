@@ -20,7 +20,7 @@
     blacklistedKernelModules = lib.mkDefault [ "nouveau" ];
     kernelModules = [ "kvm-amd" ];
     kernelParams = [
-      #  "elevator=none" # for ZFS
+      #"elevator=none" DEPRECATED!!! for ZFS
       "quiet"
       "loglevel=3"
       "systemd.show_status=auto"

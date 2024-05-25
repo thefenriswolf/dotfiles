@@ -69,7 +69,6 @@
     systemPackages = with pkgs; [
       xfce.xfburn
       hunspell
-      sddm-chili-theme
       hunspellDicts.en_US
       hunspellDicts.de_AT
       hunspellDicts.de_DE
