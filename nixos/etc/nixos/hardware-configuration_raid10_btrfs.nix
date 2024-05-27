@@ -6,7 +6,8 @@
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
   services.fwupd.enable = true;
-  networking.hostId = "f092bcf0"; # needed for ZFS
+  networking.hostId =
+    "f092bcf0"; # needed for ZFS: head -c4 /dev/urandom | od -A none -t x4
   boot = {
     # kernelPackages = pkgs.linuxPackages_latest; # latest kernel
     # kernelPackages = pkgs.linuxPackages; # LTS kernel

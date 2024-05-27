@@ -6,7 +6,7 @@
 
 {
   imports = [
-    ./hardware-configuration_sd_btrfs.nix
+    ./hardware-configuration_raid10_btrfs.nix
     <home-manager/nixos>
     ./mixins/bluetooth.nix
     ./mixins/printing.nix
@@ -128,7 +128,6 @@
       libsForQt5.ark
       libsForQt5.kwayland-integration
       fuzzel
-      foot
       zip
       unzip
       xz
@@ -146,7 +145,6 @@
       file
       gnutar
 
-      foot
       wofi
       rofi
       waybar

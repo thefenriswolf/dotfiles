@@ -2,7 +2,8 @@
   # Xorg
   services = {
     libinput.enable = true;
-    desktopManager = { plasma6.enable = true; };
+    desktopManager = { plasma6.enable = false; };
+    xserver.desktopManager = { plasma5.enable = true; };
     displayManager = {
       defaultSession = "hyprland";
       sddm = {
