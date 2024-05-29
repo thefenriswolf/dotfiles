@@ -87,6 +87,8 @@
       libsForQt5.skanlite
       libsForQt5.ark
       libsForQt5.okular
+      kdePackages.spectacle
+      kdePackages.networkmanager-qt
       handbrake
       swaylock
       ffmpeg
