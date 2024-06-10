@@ -4,7 +4,11 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+    ./mixins/filesystem_btrfs.nix
+  ];
+
   services.fwupd.enable = true;
   networking.hostId =
     "f092bcf0"; # needed for ZFS: head -c4 /dev/urandom | od -A none -t x4

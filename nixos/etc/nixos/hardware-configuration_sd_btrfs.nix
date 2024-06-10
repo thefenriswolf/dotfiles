@@ -7,6 +7,7 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     #<nixos-hardware/lenovo/thinkpad/t480s>
+    ./mixins/filesystem_btrfs.nix
   ];
 
   services.fwupd.enable = true;
