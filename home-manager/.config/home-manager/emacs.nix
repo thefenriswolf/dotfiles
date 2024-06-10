@@ -12,7 +12,7 @@
   programs.emacs = {
     enable = true;
     # package = pkgs.emacs-nox;
-    package = pkgs.emacs29-pgtk;
+    package = pkgs.emacs28-nox;
   };
 
   home.packages = [
@@ -26,8 +26,6 @@
     pkgs.fd
     pkgs.imagemagick
     pkgs.ffmpegthumbnailer
-    pkgs.mediainfo
-    pkgs.mpv
     pkgs.poppler
     pkgs.wordnet
     pkgs.xdotool

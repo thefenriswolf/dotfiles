@@ -14,6 +14,7 @@
         backend = "iwd";
         powersave = false;
       };
+      insertNameservers = [ "1.1.1.2" ];
     };
     wireless.iwd.package = pkgs.iwd;
   };

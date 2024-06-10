@@ -9,6 +9,7 @@ in {
       enable = true;
       package = unstable.hyprland;
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
+      systemd.setPath.enable = true;
     };
   };
 }

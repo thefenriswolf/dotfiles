@@ -20,11 +20,11 @@
     # pkgs.fpc
 
     # c#/f#
-    pkgs.dotnet-sdk_8
-    pkgs.mono
-    pkgs.omnisharp-roslyn
-    pkgs.csharpier
-    pkgs.fantomas
+    # pkgs.dotnet-sdk_8
+    # pkgs.mono
+    # pkgs.omnisharp-roslyn
+    # pkgs.csharpier
+    # pkgs.fantomas
 
     # java/jvm
     # pkgs.clojure
@@ -61,6 +61,7 @@
     # scheme
     # pkgs.chicken
     # pkgs.gambit
+    # pkgs.racket
 
     # nix
     # pkgs.niv
@@ -79,7 +80,7 @@
 
     # golang
     pkgs.go
-    #    pkgs.tinygo
+    pkgs.tinygo
     pkgs.gotools # godoc, ...
     pkgs.go-tools # staticcheck, ...
     pkgs.delve
@@ -116,5 +117,8 @@
 
     # R
     #pkgs.rPackages.ISwR
+
+    # Julia
+    pkgs.julia
   ];
 }

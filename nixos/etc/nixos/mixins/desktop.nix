@@ -2,8 +2,11 @@
   # Xorg
   services = {
     libinput.enable = true;
-    desktopManager = { plasma6.enable = false; };
-    xserver.desktopManager = { plasma5.enable = true; };
+    desktopManager = {
+      plasma6.enable = true;
+      plasma6.enableQt5Integration = true;
+    };
+    xserver.desktopManager = { plasma5.enable = false; };
     displayManager = {
       defaultSession = "hyprland";
       sddm = {
@@ -23,6 +26,8 @@
       };
     };
   };
+
+  programs.kdeconnect.enable = true;
 
   programs.thunar = {
     enable = true;
@@ -51,8 +56,8 @@
 
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-kde ];
+    wlr.enable = false;
+    extraPortals = [ pkgs.xdg-desktop-portal-kde ];
   };
 
   security = {
@@ -78,7 +83,6 @@
       catppuccin-gtk
       catppuccin-kde
       catppuccin-cursors
-      vlc
       xfce.thunar-archive-plugin
       xfce.thunar
       kile
@@ -96,7 +100,6 @@
       ghostscript
       swayimg
       clamav
-      mpv
       hyprland
       swww
       appimage-run
@@ -109,7 +112,6 @@
       wayland-utils
       wl-clipboard
       wlroots
-      xdg-desktop-portal-gtk
       xdg-desktop-portal-kde
     ];
     sessionVariables = {
@@ -119,14 +121,14 @@
     variables = {
       GTK_THEME = "Catppuccin-Macchiato-Standard-Teal-Dark";
       XCURSOR_THEME = "Catppuccin-Macchiato-Teal";
-      XCURSOR_SIZE = "24";
+      #  XCURSOR_SIZE = "24";
       XDG_CURRENT_DESKTOP = "Hyprland";
       XDG_SESSION_TYPE = "wayland";
       XDG_SESSION_DESKTOP = "Hyprland";
       GDK_BACKEND = "wayland,x11";
       QT_QPA_PLATFORM = "wayland;xcb";
-      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      #  QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+      #  QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       OZONE_PLATFORM = "wayland";
       SDL_VIDEODRIVER = "wayland";
     };

@@ -6,7 +6,7 @@
 
 {
   imports = [
-    ./hardware-configuration-zfs.nix
+    ./hardware-configuration_raid10_btrfs.nix
     <home-manager/nixos>
     ./mixins/bluetooth.nix
     ./mixins/printing.nix
@@ -20,8 +20,8 @@
     ./mixins/theming.nix
     ./mixins/ssh.nix
     ./mixins/gaming.nix
-   #./mixins/filesystem_btrfs.nix
-    ./mixins/filesystem_zfs.nix
+    ./mixins/filesystem_btrfs.nix
+    # ./mixins/filesystem_zfs.nix
     ./mixins/security.nix
     ./mixins/dev.nix
     ./mixins/ios.nix
@@ -125,7 +125,6 @@
       gnumake
       home-manager
       neovim
-      snapper
       libsForQt5.ark
       libsForQt5.kwayland-integration
       fuzzel
@@ -142,7 +141,7 @@
 
       gparted
       rsync
-      mpv
+
       file
       gnutar
 

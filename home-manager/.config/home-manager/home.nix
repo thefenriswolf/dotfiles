@@ -23,7 +23,7 @@
   imports = [
     <catppuccin/modules/home-manager>
     ./cli.nix
-    #./themes.nix
+    ./media.nix
     ./programming.nix
     ./hypr.nix
     ./benchmark.nix
@@ -54,11 +54,11 @@
 
   # user config starts here
   home.sessionVariables = {
-    EDITOR = "nano";
-    VISUAL = "nano";
-    GIT_EDITOR = "nano";
+    EDITOR = "micro";
+    VISUAL = "micro";
+    GIT_EDITOR = "micro";
     HOME_MANAGER_CONFIG = /home/ro/.config/home-manager/home.nix;
   };
 
-  home.packages = [ pkgs.cowsay ];
+  home.packages = [ pkgs.xdg-utils ];
 }

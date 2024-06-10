@@ -1,8 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  xdg.enable = true;
-
   qt = {
     enable = true;
     platformTheme = "gtk";
