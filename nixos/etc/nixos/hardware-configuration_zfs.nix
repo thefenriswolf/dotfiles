@@ -11,29 +11,34 @@
   ];
 
   services.fwupd.enable = true;
-
-  boot.initrd.availableKernelModules =
-    [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
   networking.hostId = "8c884ab5";
-  boot.supportedFilesystems = [ "zfs" "vfat" ];
-  boot.kernelPackages =
-    config.boot.zfs.package.latestCompatibleLinuxPackages; # latest zfs kernel
-  boot.kernelParams = [
-    "quiet"
-    "loglevel=3"
-    "systemd.show_status=auto"
-    "rd.udev.log_level=3"
-    "nohibernate"
-  ];
-  boot.extraModprobeConfig = ''
-    options iwlwifi 11n_disable=1
-    options iwlwifi power_save=0
-    options iwlmvm power_scheme=1
-  '';
 
+  boot = {
+    initrd = {
+      availableKernelModules =
+        [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
+      kernelModules = [ ];
+    };
+    kernelModules = [ "kvm-amd" "zenpower" ];
+    blacklistedKernelModules = lib.mkDefault [ "nouveau" "k10temp" ];
+    extraModulePackages = [ config.boot.kernelPackages.zenpower ];
+    kernelPackages =
+      config.boot.zfs.package.latestCompatibleLinuxPackages; # latest zfs kernel
+    kernelParams = [
+      "quiet"
+      "loglevel=3"
+      "systemd.show_status=auto"
+      "rd.udev.log_level=3"
+      "nohibernate"
+      "acpi_backlight=native"
+    ];
+    extraModprobeConfig = ''
+      options iwlwifi 11n_disable=1
+      options iwlwifi power_save=0
+      options iwlmvm power_scheme=1
+    '';
+    supportedFilesystems = [ "zfs" "vfat" ];
+  };
   fileSystems."/" = {
     device = "rpool/root";
     fsType = "zfs";
@@ -68,6 +73,7 @@
   swapDevices =
     [{ device = "/dev/disk/by-uuid/811578c0-a02d-41ea-bb7d-47d5fef48a88"; }];
   zramSwap.enable = true;
+
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction

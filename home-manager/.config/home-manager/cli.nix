@@ -80,6 +80,8 @@
     pkgs.psensor
     pkgs.hddtemp
     pkgs.acpi
+    pkgs.inxi
+    pkgs.viddy
 
     # btrfs
     pkgs.httm
@@ -87,8 +89,10 @@
     # document tools
     pkgs.pandoc
     pkgs.diff-pdf
+    pkgs.veracrypt
 
     # QoL
+    pkgs.comma
     pkgs.calcurse
     pkgs.fastfetch
     pkgs.ledger

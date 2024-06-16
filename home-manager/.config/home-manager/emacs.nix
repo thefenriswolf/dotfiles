@@ -11,12 +11,11 @@
 
   programs.emacs = {
     enable = true;
-    # package = pkgs.emacs-nox;
-    package = pkgs.emacs28-nox;
+    package = pkgs.emacs-nox;
+    #package = pkgs.emacs28-nox;
   };
 
   home.packages = [
-    #    pkgs.emacs-nox
     pkgs.xclip
     pkgs.gnuplot
     pkgs.ditaa

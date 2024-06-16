@@ -1,12 +1,11 @@
 { config, pkgs, ... }: {
-  # Xorg
+
   services = {
     libinput.enable = true;
     desktopManager = {
       plasma6.enable = true;
       plasma6.enableQt5Integration = true;
     };
-    xserver.desktopManager = { plasma5.enable = false; };
     displayManager = {
       defaultSession = "hyprland";
       sddm = {
@@ -16,15 +15,23 @@
         enableHidpi = true;
       };
     };
+
     xserver = {
-      excludePackages = with pkgs; [ xterm ];
       enable = true;
+      videoDrivers = [ "amdgpu" ];
+      desktopManager = { plasma5.enable = false; };
       xkb = {
         layout = "at";
         options = "eurosign:e";
         variant = "nodeadkeys";
       };
     };
+  };
+
+  hardware.opengl = {
+    driSupport = true;
+    driSupport32Bit = true;
+    extraPackages = with pkgs; [ rocmPackages.clr.icd ];
   };
 
   programs.kdeconnect.enable = true;
@@ -69,6 +76,8 @@
     DefaultTimeoutStartSec=30s
     DefaultTimeoutStopSec=30s
   '';
+
+  services.zeitgeist.enable = true;
 
   # envvars
   environment = {
@@ -119,9 +128,9 @@
       WLR_NO_HARDWARE_CURSORS = "1";
     };
     variables = {
-      GTK_THEME = "Catppuccin-Macchiato-Standard-Teal-Dark";
-      XCURSOR_THEME = "Catppuccin-Macchiato-Teal";
-      #  XCURSOR_SIZE = "24";
+      # GTK_THEME = "Catppuccin-Macchiato-Standard-Teal-Dark";
+      # XCURSOR_THEME = "Catppuccin-Macchiato-Teal";
+      # XCURSOR_SIZE = "24";
       XDG_CURRENT_DESKTOP = "Hyprland";
       XDG_SESSION_TYPE = "wayland";
       XDG_SESSION_DESKTOP = "Hyprland";
@@ -131,6 +140,7 @@
       #  QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       OZONE_PLATFORM = "wayland";
       SDL_VIDEODRIVER = "wayland";
+      ROC_ENABLE_PRE_VEGA = "1";
     };
   };
 }

@@ -3,9 +3,9 @@
 {
   qt = {
     enable = true;
-    platformTheme = "gtk";
-    style.name = "adwaita-dark";
-    style.package = pkgs.adwaita-qt;
+    # platformTheme = "gtk";
+    # style.name = "adwaita-dark";
+    # style.package = pkgs.adwaita-qt;
   };
   gtk = {
     enable = true;
@@ -13,14 +13,14 @@
       name = "dracula";
       package = pkgs.dracula-icon-theme;
     };
-    theme = {
-      name = "catppuccin";
-      package = pkgs.catppuccin-gtk;
-    };
-    cursorTheme = {
-      name = "catppuccin cursors";
-      package = pkgs.catppuccin-cursors;
-    };
+    # theme = {
+    #   name = "catppuccin";
+    #   package = pkgs.catppuccin-gtk;
+    # };
+    # cursorTheme = {
+    #   name = "catppuccin cursors";
+    #   package = pkgs.catppuccin-cursors;
+    # };
     gtk3.extraConfig = {
       Settings = ''
         gtk-application-prefer-dark-theme=1
@@ -33,5 +33,5 @@
     };
   };
 
-  home.sessionVariables.GTK_THEME = "catppuccin";
+  # home.sessionVariables.GTK_THEME = "catppuccin";
 }

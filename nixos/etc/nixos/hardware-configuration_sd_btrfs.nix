@@ -24,6 +24,7 @@
         "usb_storage"
         "sd_mod"
         "sdhci_pci"
+        "acpi_backlight=native"
       ];
       kernelModules = [ "acpi_call" ];
     };

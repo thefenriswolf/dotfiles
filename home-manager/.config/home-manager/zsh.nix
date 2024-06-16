@@ -40,6 +40,7 @@
     cat = "bat";
     find = "fd";
     ps = "procs";
+    watch = "viddy";
     grep = "rg";
     egrep = "egrep --colour=auto";
     fgrep = "fgrep --colour=auto";

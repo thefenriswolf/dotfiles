@@ -37,6 +37,9 @@
 
   programs.neovim = {
     enable = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+
     catppuccin.enable = true;
   };
 

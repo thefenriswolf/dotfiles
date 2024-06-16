@@ -3,8 +3,8 @@
   home.packages = [
 
     # zig
-    # pkgs.zig
-    # pkgs.zls
+    pkgs.zig
+    pkgs.zls
 
     pkgs.godot_4
 
@@ -69,18 +69,17 @@
 
     # rustlang
     # pkgs.rustup
-    # pkgs.rustc
-    # pkgs.rustfmt
-    # pkgs.cargo
-    # pkgs.clippy
-    # pkgs.rust-analyzer
+    pkgs.rustc
+    pkgs.rustfmt
+    pkgs.cargo
+    pkgs.clippy
+    pkgs.rust-analyzer
 
     # cross plattform TUI
     pkgs.dosbox
 
     # golang
     pkgs.go
-    pkgs.tinygo
     pkgs.gotools # godoc, ...
     pkgs.go-tools # staticcheck, ...
     pkgs.delve
@@ -106,7 +105,6 @@
     pkgs.python311Packages.matplotlib
     pkgs.black
     pkgs.isort
-    pkgs.nodePackages.pyright
     pkgs.python311Packages.python-lsp-server
     pkgs.python311Packages.pyflakes
     pkgs.python311Packages.pygments
@@ -119,6 +117,6 @@
     #pkgs.rPackages.ISwR
 
     # Julia
-    pkgs.julia
+    # pkgs.julia
   ];
 }

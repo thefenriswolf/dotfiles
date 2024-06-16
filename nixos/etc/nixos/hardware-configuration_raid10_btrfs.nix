@@ -9,6 +9,8 @@
     ./mixins/filesystem_btrfs.nix
   ];
 
+  services.ratbagd.enable = false; # for configurable gaming mice
+
   services.fwupd.enable = true;
   networking.hostId =
     "f092bcf0"; # needed for ZFS: head -c4 /dev/urandom | od -A none -t x4
@@ -18,12 +20,19 @@
     kernelPackages =
       config.boot.zfs.package.latestCompatibleLinuxPackages; # latest zfs kernel
     initrd = {
-      availableKernelModules =
-        [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
+      availableKernelModules = [
+        "nvme"
+        "xhci_pci"
+        "ahci"
+        "usb_storage"
+        "sd_mod"
+        "sdhci_pci"
+        "amdgpu"
+      ];
       kernelModules = [ ];
     };
-    blacklistedKernelModules = lib.mkDefault [ "nouveau" ];
-    kernelModules = [ "kvm-amd" ];
+    blacklistedKernelModules = lib.mkDefault [ "nouveau" "k10temp" ];
+    kernelModules = [ "kvm-amd" "zenpower" ];
     kernelParams = [
       #"elevator=none" DEPRECATED!!! for ZFS
       "quiet"
@@ -32,7 +41,7 @@
       "rd.udev.log_level=3"
       "nohibernate"
     ];
-    extraModulePackages = [ ];
+    extraModulePackages = [ config.boot.kernelPackages.zenpower ];
     supportedFilesystems = [ "ntfs" "btrfs" "ext4" "vfat" ];
   };
 
@@ -68,6 +77,7 @@
   };
 
   swapDevices = [ ];
+  zramSwap.enable = true;
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
