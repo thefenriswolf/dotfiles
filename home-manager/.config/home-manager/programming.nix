@@ -3,10 +3,15 @@
   home.packages = [
 
     # zig
-    pkgs.zig
-    pkgs.zls
+    #pkgs.zig
+    #pkgs.zls
 
+    # GODOT
     pkgs.godot_4
+
+    # Dart/Flutter
+    pkgs.flutter
+    pkgs.android-studio
 
     # ocaml
     # pkgs.ocaml
@@ -20,11 +25,11 @@
     # pkgs.fpc
 
     # c#/f#
-    # pkgs.dotnet-sdk_8
-    # pkgs.mono
-    # pkgs.omnisharp-roslyn
-    # pkgs.csharpier
-    # pkgs.fantomas
+    #pkgs.dotnet-sdk_8
+    #pkgs.mono
+    #pkgs.omnisharp-roslyn
+    #pkgs.csharpier
+    #pkgs.fantomas
 
     # java/jvm
     # pkgs.clojure
@@ -39,9 +44,6 @@
     # pkgs.ktlint
     # pkgs.ktfmt
     # pkgs.detekt
-
-    # flutter
-    # pkgs.flutter
 
     # elixir
     # pkgs.elixir
@@ -69,11 +71,11 @@
 
     # rustlang
     # pkgs.rustup
-    pkgs.rustc
-    pkgs.rustfmt
-    pkgs.cargo
-    pkgs.clippy
-    pkgs.rust-analyzer
+    #pkgs.rustc
+    #pkgs.rustfmt
+    #pkgs.cargo
+    #pkgs.clippy
+    #pkgs.rust-analyzer
 
     # cross plattform TUI
     pkgs.dosbox

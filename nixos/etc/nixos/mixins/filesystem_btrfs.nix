@@ -14,16 +14,16 @@
   };
 
   # BTRBK #
-  services.btrbk.instances."btrbk" = {
-    onCalendar = "*:0/10";
-    settings = {
-      snapshot_preserve_min = "2d";
-      volume."/" = {
-        subvolume = "home";
-        snapshot_dir = "/home/.snapshots";
-      };
-    };
-  };
+  # services.btrbk.instances."btrbk" = {
+  #   onCalendar = "*:0/10";
+  #   settings = {
+  #     snapshot_preserve_min = "2d";
+  #     volume."/" = {
+  #       subvolume = "home";
+  #       snapshot_dir = "/home/.snapshots";
+  #     };
+  #   };
+  # };
   #######
   # ZFS #
   #######
