@@ -8,3 +8,5 @@
 (package! catppuccin-theme)
 
 (package! beacon)
+
+(package! yeetube)
