@@ -1,5 +1,11 @@
 { config, lib, pkgs, ... }: {
-  programs.zellij.enable = true;
+
+  programs.zellij = {
+    enable = true;
+    enableZshIntegration = false;
+    # https://zellij.dev/documentation/configuration
+    settings = { theme = "default"; };
+  };
 
   # hyprland
   xdg.configFile."hypr/hyprland.conf".source =
@@ -65,6 +71,7 @@
       }
     '';
     settings = {
+      # icons: https://www.w3schools.com/charsets/ref_utf_basic_latin.asp
       mainBar = {
         layer = "top";
         position = "top";
@@ -77,19 +84,19 @@
           "hyprland/submap"
           "pulseaudio"
         ];
-        modules-center = [ "hyprland/window" ];
+        modules-center = [ "hyprland/window" "keyboard-state" "temperature" ];
         modules-right = [
           "backlight"
           "network"
-          "bluetooth"
+          #          "bluetooth"
           "cpu"
           "memory"
-          "temperature"
           "clock"
           "battery"
         ];
         "custom/logo" = {
-          format = "";
+          format = "{icon}";
+          format-icon = "";
           tooltip = false;
           on-click = "foot emacs";
         };
@@ -100,7 +107,7 @@
           on-scroll-down = "hyprctl dispatch workspace m+1 > /dev/null";
           all-outputs = true;
           format = "{name}";
-          persistent_workspaces = {
+          persistent-workspaces = {
             "1" = [ ];
             "2" = [ ];
           };
@@ -118,14 +125,29 @@
           capslock = false;
           format = "{name} {icon}";
           format-icons = {
-            locked = "<U+F023>";
-            unlocked = "<U+F09C>";
+            locked = "⚿";
+            unlocked = "⌨";
           };
         };
         "cpu" = {
-          #format = "{usage}%";
+          format = "{usage}% {icon}";
           tooltip = true;
           on-click = "foot btop";
+          format-icons = [ "▣" ];
+        };
+        "memory" = {
+          format = "{usage}% {icon}";
+          tooltip = true;
+          on-click = "foot btop";
+          format-icons = [ "◔" "⛁" ];
+        };
+        "backlight" = {
+          format = "{percent}% {icon}";
+          format-icons = [ "☼" "☾" ];
+        };
+        "temperature" = {
+          format = "{temperatureC}°C {icon}";
+          format-icons = [ "♨" ];
         };
         "clock" = {
           tooltip-format = ''
@@ -133,14 +155,21 @@
             <tt><small>{calendar}</small></tt>'';
         };
         "battery" = {
+          format = "{capacity}% {icon}";
           tooltip = false;
           states = {
             "good" = 95;
             "warning" = 35;
             "critical" = 20;
           };
+          format-icons = {
+            warning = "⏻";
+            critical = "☠";
+            good = "⚡";
+          };
         };
         "network" = {
+          format-icons = [ "☢" "⛗" ];
           format-wifi =
             "<span color='#589df6'><U+F1EB></span> <span color='gray'>{essid}</span> {frequency} <span color='#589df6'>{signaldBm} dB</span> <span color='#589df6'>⇵</span> {bandwidthUpBits}/{bandwidthDownBits}";
           format-ethernet = "{ifname}: {ipaddr}/{cidr} <U+F796>";
@@ -149,7 +178,8 @@
           "interval" = 5;
         };
         "pulseaudio" = {
-          format = "{volume}%{icon} {format_source}";
+          format = "{volume}% {icon} {format_source}";
+          format-icons = [ "♬" ];
           on-click = "pavucontrol";
         };
       };

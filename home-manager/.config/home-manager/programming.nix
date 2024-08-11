@@ -7,11 +7,11 @@
     #pkgs.zls
 
     # GODOT
-    pkgs.godot_4
+    # pkgs.godot_4
 
     # Dart/Flutter
-    pkgs.flutter
-    pkgs.android-studio
+    # pkgs.flutter
+    # pkgs.android-studio
 
     # ocaml
     # pkgs.ocaml

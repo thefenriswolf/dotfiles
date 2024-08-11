@@ -334,6 +334,7 @@ Make active buffer stand out more.
 (setq! org-cite-csl-styles-dir "~/Zotero/styles/")
 (setq! citar-bibliography '("~/Zotero/library.bib"))
 (setq! bibtex-completion-bibliography '("~/Zotero/library.bib"))
+(setq! whitespace-style '(space-mark tab-mark))
 #+end_src
 
 ** ORG ROAM

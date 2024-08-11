@@ -28,11 +28,11 @@
     };
   };
 
-  hardware.opengl = {
-    driSupport = true;
-    driSupport32Bit = true;
-    extraPackages = with pkgs; [ rocmPackages.clr.icd ];
-  };
+  # hardware.opengl = {
+  #   driSupport = true;
+  #   driSupport32Bit = true;
+  #   extraPackages = with pkgs; [ rocmPackages.clr.icd ];
+  # };
 
   programs.kdeconnect.enable = true;
 
@@ -100,6 +100,7 @@
       libsForQt5.skanlite
       libsForQt5.ark
       libsForQt5.okular
+      kdePackages.discover
       kdePackages.spectacle
       kdePackages.networkmanager-qt
       handbrake

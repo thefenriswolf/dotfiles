@@ -6,25 +6,25 @@
 
 {
   imports = [
-    ./hardware-configuration_zfs.nix
+    ./hardware-configuration_sd_zfs.nix
     <home-manager/nixos>
-    ./mixins/bluetooth.nix
-    ./mixins/printing.nix
-    ./mixins/networking.nix
-    ./mixins/sound.nix
-    ./mixins/powersave.nix
-    ./mixins/virt.nix
-    ./mixins/desktop.nix
-    ./mixins/hyprland.nix
-    ./mixins/nix.nix
-    ./mixins/theming.nix
-    ./mixins/ssh.nix
-    ./mixins/gaming.nix
+     ./mixins/bluetooth.nix
+     ./mixins/printing.nix
+     ./mixins/networking.nix
+     ./mixins/sound.nix
+     ./mixins/powersave.nix
+     ./mixins/virt.nix
+     ./mixins/desktop.nix
+     ./mixins/hyprland.nix
+     ./mixins/nix.nix
+     ./mixins/theming.nix
+     ./mixins/ssh.nix
+     ./mixins/gaming.nix
     #./mixins/filesystem_btrfs.nix
      ./mixins/filesystem_zfs.nix
-    ./mixins/security.nix
-    ./mixins/dev.nix
-    ./mixins/ios.nix
+     ./mixins/security.nix
+     ./mixins/dev.nix
+     ./mixins/ios.nix
   ];
 
   # Use the systemd-boot EFI boot loader.

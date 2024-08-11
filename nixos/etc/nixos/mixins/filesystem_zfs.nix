@@ -14,12 +14,13 @@
     enable = true;
     interval = "hourly";
     templates = {
+
       ignore = {
-        daily = 0;
-        weekly = 0;
-        monthly = 0;
-        yearly = 0;
-        "autoprune" = true;
+       # daily = 0;
+       # weekly = 0;
+       # monthly = 0;
+       # yearly = 0;
+        "autoprune" = false;
         "autosnap" = false;
         "monitor" = false;
       };
@@ -50,10 +51,10 @@
         use_template = [ "crucial" ];
       };
       "rpool/nix" = {
-        recursive = true;
-        autosnap = true;
-        autoprune = true;
-        processChildrenOnly = false;
+       # recursive = true;
+       # autosnap = true;
+       # autoprune = true;
+       # processChildrenOnly = false;
         use_template = [ "ignore" ];
       };
       "rpool/var" = {
@@ -71,7 +72,7 @@
         use_template = [ "lazy" ];
       };
     };
-    extraArgs = [ "--verbose" "--debug" " >> ~/storage/sanoid.log" ];
+    extraArgs = [ "--verbose" "--debug" ]; # " >> ~/storage/sanoid.log" ];
   };
 
   environment = {

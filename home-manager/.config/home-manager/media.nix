@@ -2,5 +2,14 @@
 
 {
   programs.mpv = { enable = true; };
-  home.packages = with pkgs; [ cmus vlc mediainfo spotube ];
+  home.packages = with pkgs; [
+    drawing
+    pinta
+    kdePackages.kolourpaint
+    krita
+    cmus
+    vlc
+    mediainfo
+    spotube
+  ];
 }

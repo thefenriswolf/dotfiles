@@ -22,7 +22,7 @@
       defaultNetwork = { settings = { dns_enabled = true; }; };
       autoPrune = {
         dates = "monthly";
-        enable = true;
+        enable = false;
       };
     };
   };

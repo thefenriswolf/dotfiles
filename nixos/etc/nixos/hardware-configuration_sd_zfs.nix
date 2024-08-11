@@ -17,7 +17,7 @@
     initrd = {
       availableKernelModules =
         [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
-      kernelModules = [ "acpi_call" ];
+      kernelModules = [ ];
     };
     kernelModules = [ "kvm-amd" "zenpower" ];
     blacklistedKernelModules = lib.mkDefault [ "nouveau" "k10temp" ];
@@ -60,7 +60,7 @@
   };
 
   fileSystems."/home/ro/storage" = {
-    device = "dpool/data";
+    device = "dpool/storage";
     fsType = "zfs";
   };
 
@@ -70,8 +70,8 @@
     options = [ "fmask=0077" "dmask=0077" ];
   };
 
-  swapDevices =
-    [{ device = "/dev/disk/by-uuid/811578c0-a02d-41ea-bb7d-47d5fef48a88"; }];
+ # swapDevices =
+ #   [{ device = "/dev/disk/by-uuid/811578c0-a02d-41ea-bb7d-47d5fef48a88"; }];
   zramSwap.enable = true;
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
