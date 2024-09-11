@@ -6,6 +6,7 @@
 * INTRO :TOC:
   - [[#additional-info][ADDITIONAL INFO]]
 - [[#header][Header]]
+- [[#odin][Odin]]
 - [[#auto-tangle][Auto tangle]]
 - [[#harpoon][Harpoon]]
 - [[#themes][Themes]]
@@ -95,6 +96,14 @@ release. The `unpin!' macro allows you to unpin single packages...
 ;;; -*- no-byte-compile: t; -*-
 ;;; $DOOMDIR/packages.el
 #+end_src
+
+* Odin
+#+begin_src emacs-lisp
+(package! odin-mode
+  :recipe (:host github :repo "mattt-b/odin-mode"
+           :files ("odin-mode.el")))
+#+end_src
+
 
 * Auto tangle
 org babel auto tangle automatically tangles source code blocks on file save.

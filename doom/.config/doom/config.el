@@ -23,6 +23,7 @@
       :desc "open eshell terminal" "ö ö" #'eshell
       :desc "comment highlighted region" "c b" #'comment-region
       :desc "uncomment highlighted region" "c v" #'uncomment-region
+      :desc "insert citation" "i c" #'citar-insert-citation
 )
 
 ;;(beacon-mode t)
@@ -127,17 +128,13 @@
 (setq! bibtex-completion-bibliography '("~/Zotero/library.bib"))
 (setq! whitespace-style '(space-mark tab-mark))
 
-(setq! org-roam-directory "~/playground/notes")
+;;(setq! org-roam-directory "~/playground/notes")
 
 (map! :after org
       :leader
       :prefix ("e" . "export")
       :desc "export to PDF" "p" #'org-latex-export-to-pdf
       :desc "export to LaTeX" "l" #'org-latex-export-to-latex
-)
-(map! :after org
-      :leader
-      :desc "insert citation" "i c" #'citar-insert-citation
 )
 
 (use-package! org-auto-tangle

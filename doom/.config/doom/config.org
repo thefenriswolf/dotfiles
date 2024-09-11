@@ -106,6 +106,7 @@ accept. For example:
       :desc "open eshell terminal" "ö ö" #'eshell
       :desc "comment highlighted region" "c b" #'comment-region
       :desc "uncomment highlighted region" "c v" #'uncomment-region
+      :desc "insert citation" "i c" #'citar-insert-citation
 )
 #+end_src
 
@@ -339,7 +340,7 @@ Make active buffer stand out more.
 
 ** ORG ROAM
 #+begin_src emacs-lisp
-(setq! org-roam-directory "~/playground/notes")
+;;(setq! org-roam-directory "~/playground/notes")
 #+end_src
 
 ** KEYBINDINGS
@@ -349,10 +350,6 @@ Make active buffer stand out more.
       :prefix ("e" . "export")
       :desc "export to PDF" "p" #'org-latex-export-to-pdf
       :desc "export to LaTeX" "l" #'org-latex-export-to-latex
-)
-(map! :after org
-      :leader
-      :desc "insert citation" "i c" #'citar-insert-citation
 )
 #+end_src
 

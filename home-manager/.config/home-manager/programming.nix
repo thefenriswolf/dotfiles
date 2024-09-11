@@ -3,8 +3,8 @@
   home.packages = [
 
     # zig
-    #pkgs.zig
-    #pkgs.zls
+    pkgs.zig
+    pkgs.zls
 
     # GODOT
     # pkgs.godot_4
@@ -51,8 +51,8 @@
     # pkgs.asdf-vm
 
     # Odin
-    # pkgs.odin
-    # pkgs.ols
+     pkgs.odin
+     pkgs.ols
 
     # lua
     # pkgs.love
@@ -93,9 +93,9 @@
     pkgs.govulncheck
 
     # c/cpp
-    pkgs.clang
+    #pkgs.clang
     # pkgs.gcc
-    pkgs.clang-tools
+    #pkgs.clang-tools
     pkgs.gnumake
 
     # python

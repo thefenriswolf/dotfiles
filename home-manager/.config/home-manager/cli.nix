@@ -114,9 +114,10 @@
     pkgs.ueberzugpp
 
     # coreutil replacements
-    pkgs.bat
-    pkgs.fd
-    pkgs.procs
-    pkgs.tokei
+    pkgs.dust # du
+    pkgs.bat # cat
+    pkgs.fd # find
+    pkgs.procs # ps
+    pkgs.tokei # git repo info
   ];
 }

@@ -85,7 +85,6 @@ env = QT_AUTO_SCREEN_SCALE_FACTOR=1
 env = QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 
 env = OZONE_PLATFORM=wayland
-
 env = SDL_VIDEODRIVER=wayland
 #+end_src
 
@@ -126,14 +125,9 @@ gestures {
 #+begin_src config
 general {
     # See https://wiki.hyprland.org/Configuring/Variables/ for more
-#    max_fps = 60
     gaps_in = 5
     gaps_out = 5
     border_size = 2
-#   col.active_border = 0xff$mauveAlpha 0xff$lavenderAlpha 45deg
-    col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
-#   col.inactive_border = 0xff$overlay0Alpha
-    col.inactive_border = rgba(595959aa)
     layout = dwindle
 }
 dwindle {
@@ -155,11 +149,11 @@ decoration {
     # See https://wiki.hyprland.org/Configuring/Variables/ for more
     rounding = 8
     blur {
-        enabled = true
+        enabled = true # disable for battery life
         size = 3
         passes = 1
     }
-    drop_shadow = true
+    drop_shadow = true # disable for battery life
     shadow_range = 4
     shadow_render_power = 3
     col.shadow = 0xff$textAlpha
@@ -178,6 +172,7 @@ animations {
 }
 misc {
     force_default_wallpaper = 1 # requires v0.31 option to disable weeb backgrounds
+    vfr = true
 }
 #+end_src
 
@@ -244,6 +239,7 @@ bind = $mainMod SHIFT, S, exec, grim -t png && notify-send -u normal -t 950 "Scr
 
 
 bind = SUPER ALT, L, exec, swaylock --color 000000 --ignore-empty-password --daemonize --show-keyboard-layout --show-failed-attempts
+bind = SUPER ALT, Z, exec, hyprctl dispatch exit 1
 
 bind = $mainMod, left, movefocus, l
 bind = $mainMod, right, movefocus, r
