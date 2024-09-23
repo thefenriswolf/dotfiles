@@ -11,5 +11,7 @@
     vlc
     mediainfo
     spotube
+
+    vscode-fhs
   ];
 }

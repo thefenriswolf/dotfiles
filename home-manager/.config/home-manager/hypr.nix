@@ -187,7 +187,7 @@
   };
 
   programs.qutebrowser = {
-    enable = true;
+    enable = false;
     enableDefaultBindings = true;
     searchEngines = {
       hm = "https://home-manager-options.extranix.com/?query={}";

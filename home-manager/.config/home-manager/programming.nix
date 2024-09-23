@@ -25,10 +25,10 @@
     # pkgs.fpc
 
     # c#/f#
-    #pkgs.dotnet-sdk_8
+    pkgs.dotnet-sdk_8
     #pkgs.mono
-    #pkgs.omnisharp-roslyn
-    #pkgs.csharpier
+    pkgs.omnisharp-roslyn
+    pkgs.csharpier
     #pkgs.fantomas
 
     # java/jvm
@@ -51,8 +51,8 @@
     # pkgs.asdf-vm
 
     # Odin
-     pkgs.odin
-     pkgs.ols
+    pkgs.odin
+    pkgs.ols
 
     # lua
     # pkgs.love

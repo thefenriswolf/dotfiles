@@ -97,12 +97,26 @@
       kile
       inkscape-with-extensions
       joplin-desktop
-      libsForQt5.skanlite
-      libsForQt5.ark
-      libsForQt5.okular
+
+      kdePackages.skanlite
+      kdePackages.ark
+      kdePackages.okular
       kdePackages.discover
       kdePackages.spectacle
       kdePackages.networkmanager-qt
+      kdePackages.kcalc
+      kdePackages.kio
+      kdePackages.kmag
+      kdePackages.kigo
+      kdePackages.kate
+      kdePackages.kmail
+      kdePackages.kalarm
+      kdePackages.tokodon
+      kdePackages.kbackup
+      kdePackages.dolphin
+      kdePackages.dolphin-plugins
+      kdePackages.kteatime
+
       handbrake
       swaylock
       ffmpeg
