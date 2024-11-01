@@ -88,10 +88,6 @@
       hunspellDicts.de_AT
       hunspellDicts.de_DE
       hunspellDicts.en_GB-large
-      catppuccin
-      catppuccin-gtk
-      catppuccin-kde
-      catppuccin-cursors
       xfce.thunar-archive-plugin
       xfce.thunar
       kile
@@ -143,8 +139,6 @@
       WLR_NO_HARDWARE_CURSORS = "1";
     };
     variables = {
-      # GTK_THEME = "Catppuccin-Macchiato-Standard-Teal-Dark";
-      # XCURSOR_THEME = "Catppuccin-Macchiato-Teal";
       # XCURSOR_SIZE = "24";
       XDG_CURRENT_DESKTOP = "Hyprland";
       XDG_SESSION_TYPE = "wayland";

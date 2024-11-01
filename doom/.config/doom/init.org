@@ -1,13 +1,4 @@
-#+title: Stefan's DOOM EMACS INIT
-#+author: Stefan Rohrbacher
-#+startup: showeverything
-#+property: header-args :tangle init.el
-#+auto_tangle: t
-* INFO :TOC:
-- [[#keyboard-layout][KEYBOARD LAYOUT]]
-- [[#completion-and-search][COMPLETION AND SEARCH]]
-- [[#ui-tools][UI TOOLS]]
-- [[#editor][EDITOR]]
+
 - [[#file-manipulation][FILE MANIPULATION]]
 - [[#terminal][TERMINAL]]
 - [[#check-and-spell][CHECK AND SPELL]]

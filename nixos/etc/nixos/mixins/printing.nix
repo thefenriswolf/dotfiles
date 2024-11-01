@@ -9,7 +9,13 @@
   # Enable CUPS to print documents.
   services.printing = {
     enable = true;
-    drivers = [ pkgs.gutenprintBin pkgs.hplipWithPlugin ];
+    drivers = [
+      pkgs.foomatic-db-ppds-withNonfreeDb
+      pkgs.foomatic-db-ppds
+      pkgs.gutenprintBin
+      pkgs.gutenprint
+      pkgs.hplipWithPlugin
+    ];
   };
   # scanner support
   hardware.sane = {
@@ -19,6 +25,7 @@
   environment.systemPackages = with pkgs; [
     sane-frontends
     libinsane
+    ink
     #paperwork
   ];
 }

@@ -21,7 +21,6 @@
   news.display = "silent";
 
   imports = [
-    <catppuccin/modules/home-manager>
     ./cli.nix
     ./media.nix
     ./programming.nix

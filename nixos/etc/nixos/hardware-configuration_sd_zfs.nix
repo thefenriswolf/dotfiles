@@ -25,6 +25,11 @@
     kernelPackages =
       config.boot.zfs.package.latestCompatibleLinuxPackages; # latest zfs kernel
     kernelParams = [
+      # intel
+      #"intel_pstate=disable"
+      # amd
+      "initcall_blacklist=amd_pstate_init"
+      "amd_pstate.enable=0"
       "quiet"
       "loglevel=3"
       "systemd.show_status=auto"
@@ -70,8 +75,8 @@
     options = [ "fmask=0077" "dmask=0077" ];
   };
 
- # swapDevices =
- #   [{ device = "/dev/disk/by-uuid/811578c0-a02d-41ea-bb7d-47d5fef48a88"; }];
+  # swapDevices =
+  #   [{ device = "/dev/disk/by-uuid/811578c0-a02d-41ea-bb7d-47d5fef48a88"; }];
   zramSwap.enable = true;
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

@@ -10,7 +10,6 @@
 
   programs.yazi = {
     enable = true;
-    catppuccin.enable = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
     settings = {
@@ -30,15 +29,13 @@
 
   programs.fzf = {
     enable = true;
-    catppuccin.enable = true;
     tmux = { enableShellIntegration = true; };
   };
 
   programs.tmux = {
-    enable = true;
+    enable = false;
     clock24 = true;
     mouse = true;
-    catppuccin.enable = true;
     newSession = true; # create new session if none are running
   };
 
@@ -48,14 +45,23 @@
       enableBashIntegration = true; # see note on other shells below
       nix-direnv.enable = true;
     };
+
     foot = {
       # https://codeberg.org/dnkl/foot/src/branch/master/foot.ini
       enable = true;
       settings = {
         main = {
-          term = "xterm-256color";
+          # term = "xterm-256color";
+          title = "foot";
+          app-id = "foot";
+          term = "foot";
           font = "Fira Code:size=11";
-          dpi-aware = "no";
+          dpi-aware = "yes";
+        };
+        bell = {
+          urgent = "no";
+          notify = "no";
+          visual = "yes";
         };
         mouse = { hide-when-typing = "yes"; };
       };
@@ -64,7 +70,6 @@
 
   programs.zathura = {
     enable = true;
-    catppuccin.enable = false;
     extraConfig = ''
       set selection-clipboard clipboard
     '';
@@ -73,6 +78,11 @@
   home.packages = [
     # zfs
     #pkgs.sanoid
+
+    # terminal
+    pkgs.alacritty
+    pkgs.wezterm
+    pkgs.kitty
 
     # top
     pkgs.nvtopPackages.amd
@@ -90,6 +100,10 @@
     pkgs.pandoc
     pkgs.diff-pdf
     pkgs.veracrypt
+
+    # encryption
+    pkgs.gnupg
+    pkgs.encfs
 
     # QoL
     pkgs.comma

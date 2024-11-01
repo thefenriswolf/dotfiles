@@ -3,8 +3,8 @@
   home.packages = [
 
     # zig
-    pkgs.zig
-    pkgs.zls
+    #pkgs.zig
+    #pkgs.zls
 
     # GODOT
     # pkgs.godot_4
@@ -25,11 +25,10 @@
     # pkgs.fpc
 
     # c#/f#
-    pkgs.dotnet-sdk_8
-    #pkgs.mono
+    pkgs.dotnet-sdk
+    pkgs.nuget-to-nix
     pkgs.omnisharp-roslyn
     pkgs.csharpier
-    #pkgs.fantomas
 
     # java/jvm
     # pkgs.clojure
@@ -51,8 +50,8 @@
     # pkgs.asdf-vm
 
     # Odin
-    pkgs.odin
-    pkgs.ols
+    # pkgs.odin
+    # pkgs.ols
 
     # lua
     # pkgs.love
@@ -78,7 +77,7 @@
     #pkgs.rust-analyzer
 
     # cross plattform TUI
-    pkgs.dosbox
+    # pkgs.dosbox
 
     # golang
     pkgs.go
@@ -93,9 +92,9 @@
     pkgs.govulncheck
 
     # c/cpp
-    #pkgs.clang
+    # pkgs.clang
     # pkgs.gcc
-    #pkgs.clang-tools
+    # pkgs.clang-tools
     pkgs.gnumake
 
     # python

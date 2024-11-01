@@ -1,11 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  catppuccin = {
-    enable = true;
-    flavor = "mocha";
-  };
-
   # qt = {
   #   enable = true;
   #   # platformTheme = "gtk";

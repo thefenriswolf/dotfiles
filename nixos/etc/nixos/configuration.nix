@@ -8,23 +8,23 @@
   imports = [
     ./hardware-configuration_sd_zfs.nix
     <home-manager/nixos>
-     ./mixins/bluetooth.nix
-     ./mixins/printing.nix
-     ./mixins/networking.nix
-     ./mixins/sound.nix
-     ./mixins/powersave.nix
-     ./mixins/virt.nix
-     ./mixins/desktop.nix
-     ./mixins/hyprland.nix
-     ./mixins/nix.nix
-     ./mixins/theming.nix
-     ./mixins/ssh.nix
-     ./mixins/gaming.nix
+    ./mixins/bluetooth.nix
+    ./mixins/printing.nix
+    ./mixins/networking.nix
+    ./mixins/sound.nix
+    ./mixins/powersave.nix
+    ./mixins/virt.nix
+    ./mixins/desktop.nix
+    ./mixins/hyprland.nix
+    ./mixins/nix.nix
+    ./mixins/theming.nix
+    ./mixins/ssh.nix
+    ./mixins/gaming.nix
     #./mixins/filesystem_btrfs.nix
-     ./mixins/filesystem_zfs.nix
-     ./mixins/security.nix
-     ./mixins/dev.nix
-     ./mixins/ios.nix
+    ./mixins/filesystem_zfs.nix
+    ./mixins/security.nix
+    ./mixins/dev.nix
+    ./mixins/ios.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -53,7 +53,6 @@
     useXkbConfig = true; # use xkbOptions in tty.
   };
 
-  services.thermald.enable = true;
 
   security.apparmor = {
     enable = false;
@@ -98,6 +97,7 @@
       "lxd"
       "podman"
       "docker"
+      "cups"
     ];
     packages = with pkgs; [
       widevine-cdm
@@ -124,7 +124,6 @@
       languagetool
       gnumake
       home-manager
-      neovim
       libsForQt5.ark
       libsForQt5.kwayland-integration
       fuzzel

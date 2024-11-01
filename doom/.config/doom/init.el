@@ -159,7 +159,7 @@
        ;;terra             ; Earth and Moon in alignment for performance.
        ;;web               ; the tubes
        ;;yaml              ; JSON, but readable
-       (zig +lsp +tree-sitter)               ; C, but simpler
+       ;; (zig +lsp +tree-sitter)               ; C, but simpler
 
       (org                ; organize your plain life in plain text
 	 +gnuplot

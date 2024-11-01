@@ -177,7 +177,7 @@ alternative to man-pages
 #+end_src
 
 * YeeTube
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :tangle no
 (package! yeetube)
 #+end_src
 
