@@ -1,7 +1,8 @@
 { config, pkgs, ... }: {
 
   services.thermald.enable = true;
-  powerManagement.powertop.enable = true; # auto tune powertop
+  powerManagement.powertop.enable = false; # auto tune powertop
+
   services = {
     auto-cpufreq = {
       enable = true;
@@ -35,7 +36,6 @@
         };
       };
     };
-
     power-profiles-daemon.enable = false; # enable either tlp or auto-cpufreq
     tlp = {
       enable = false; # enable either tlp or auto-cpufreq

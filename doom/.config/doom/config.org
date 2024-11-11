@@ -331,7 +331,8 @@ Make active buffer stand out more.
 * ORG MODE
 ** GLOBAL VARIABLES
 #+begin_src emacs-lisp
-;;(setq! org-directory "~/playground/org/")
+(setq! org-directory "~/org/")
+;;(setq! org-agenda-files "~/org/todo/")
 (setq! org-cite-csl-styles-dir "~/Zotero/styles/")
 (setq! citar-bibliography '("~/Zotero/library.bib"))
 (setq! bibtex-completion-bibliography '("~/Zotero/library.bib"))
@@ -340,7 +341,7 @@ Make active buffer stand out more.
 
 ** ORG ROAM
 #+begin_src emacs-lisp
-;;(setq! org-roam-directory "~/playground/notes")
+(setq! org-roam-directory "~/org/notes/")
 #+end_src
 
 ** KEYBINDINGS
@@ -379,23 +380,6 @@ Automatically export source code blocks.
   (setq! org-ditaa-jar-path "/home/ro/.nix-profile/bin/ditaa")
   ;; enable word count only in org-mode
   (setq! doom-modeline-enable-word-count t)
-
-;; babel languages NOT NECESSARY ACCORDING TO DOOM EMACS DOCUMENTAION
-;;  (org-babel-do-load-languages
-;;   'org-babel-load-languages
-;;   '(
-;;     (emacs-lisp . t)
-;;     (shell . t)
-;;     (ditaa . t)
-;;     (ledger . t)
-;;     (hledger .t)
-;;     (python . t)
-;;     (latex . t)
-;;     (org . t)
-;;     (gnuplot . t)
-;;     (r . gotgoto 4goto 5goto 6goto 7goto 8goto 9o 3t)
-;;     gogoto 2to 1)
-;;   )
 )
 #+end_src
 

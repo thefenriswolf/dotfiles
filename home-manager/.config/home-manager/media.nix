@@ -11,7 +11,6 @@
     vlc
     mediainfo
     spotube
-    nyxt
 
     vscode-fhs
   ];

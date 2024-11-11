@@ -8,6 +8,8 @@
     /home/ro/playground/dotfiles/doom/.config/doom/init.el;
   xdg.configFile."doom/packages.el".source =
     /home/ro/playground/dotfiles/doom/.config/doom/packages.el;
+  xdg.configFile."doom/tdcmd.sh".source =
+    /home/ro/playground/dotfiles/zsh/tdcmd.sh;
 
   programs.emacs = {
     enable = true;
@@ -32,6 +34,7 @@
     pkgs.shfmt
     pkgs.shellcheck
     pkgs.tldr
+    pkgs.sqlite
 
     pkgs.zeal
   ];

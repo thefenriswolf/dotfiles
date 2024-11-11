@@ -26,7 +26,7 @@
   #   /home/ro/playground/dotfiles/waybar/.config/waybar/style.css;
 
   programs.waybar = {
-    enable = true;
+    enable = false;
     systemd = {
       enable = true;
       target = "graphical-session.target";

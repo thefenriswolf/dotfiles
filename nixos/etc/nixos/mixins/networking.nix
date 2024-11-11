@@ -1,6 +1,7 @@
 { config, pkgs, ... }: {
 
   networking = {
+    nftables = { enable = true; };
     firewall = {
       enable = true;
       allowedTCPPorts = [ 53317 ];
@@ -25,7 +26,11 @@
     domains = [ "~." ];
     dnsovertls = "false";
     dnssec = "false";
-    fallbackDns = [ "116.202.176.26#noads.libredns.gr" "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
+    fallbackDns = [
+      "116.202.176.26#noads.libredns.gr"
+      "1.1.1.1#one.one.one.one"
+      "1.0.0.1#one.one.one.one"
+    ];
   };
 
   # Workaround https://github.com/NixOS/nixpkgs/issues/180175

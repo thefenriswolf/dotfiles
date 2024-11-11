@@ -1,5 +1,11 @@
 { config, pkgs, ... }: {
 
+  # auto-enable appimage-run
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
   services = {
     libinput.enable = true;
     desktopManager = {

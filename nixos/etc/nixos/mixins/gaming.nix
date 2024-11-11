@@ -11,8 +11,9 @@
 
   environment.systemPackages = with pkgs; [
     # support both 32- and 64-bit applications
-    wineWowPackages.staging
-    wineWowPackages.waylandFull
+    wine64
+    wine-wayland
+    winePackages.wayland
     winetricks
     mangohud
   ];
