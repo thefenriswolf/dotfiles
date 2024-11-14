@@ -2,10 +2,6 @@
 
   home.packages = [
 
-    # zig
-    pkgs.zig
-    #pkgs.zls
-
     # GODOT
     # pkgs.godot_4
 
@@ -45,13 +41,13 @@
     # pkgs.detekt
 
     # elixir
-    pkgs.elixir
-    pkgs.elixir-ls
+    # pkgs.elixir
+    # pkgs.elixir-ls
     # pkgs.asdf-vm
 
     # erlang
-    pkgs.erlang
-    pkgs.erlang-ls
+    # pkgs.erlang
+    # pkgs.erlang-ls
 
     # Odin
     pkgs.odin
@@ -85,15 +81,15 @@
 
     # golang
     pkgs.go
-    pkgs.gotools # godoc, ...
-    pkgs.go-tools # staticcheck, ...
-    pkgs.delve
-    pkgs.gopls
-    pkgs.revive
-    #pkgs.gomodifytags
-    #pkgs.gore
-    #pkgs.gotests
-    pkgs.govulncheck
+    # pkgs.gotools # godoc, ...
+    # pkgs.go-tools # staticcheck, ...
+    # pkgs.delve
+    # pkgs.gopls
+    # pkgs.revive
+    # pkgs.gomodifytags
+    # pkgs.gore
+    # pkgs.gotests
+    # pkgs.govulncheck
 
     # c/cpp
     pkgs.clang

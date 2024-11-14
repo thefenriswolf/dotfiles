@@ -83,7 +83,7 @@
     DefaultTimeoutStopSec=30s
   '';
 
-  services.zeitgeist.enable = true;
+  services.zeitgeist.enable = false;
 
   # envvars
   environment = {

@@ -23,6 +23,7 @@
   imports = [
     ./cli.nix
     ./media.nix
+    ./crypt.nix
     ./programming.nix
     ./hypr.nix
     ./benchmark.nix

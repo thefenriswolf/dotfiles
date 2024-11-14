@@ -1,5 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ gnupg pinentry pinentry-curses ];
+  home.packages = with pkgs; [
+    gnupg
+    gocryptfs
+    sirikali
+  ];
 }
