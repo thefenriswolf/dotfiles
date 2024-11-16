@@ -13,5 +13,9 @@
     spotube
 
     vscode-fhs
+
+    ntfs3g
+    woeusb-ng
+
   ];
 }

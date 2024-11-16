@@ -5,7 +5,7 @@
     settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
-      # PermitRootLogin = "yes";
+      PermitRootLogin = "no";
     };
     allowSFTP = false; # Don't set this if you need sftp
     extraConfig = ''

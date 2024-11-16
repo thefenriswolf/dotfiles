@@ -13,8 +13,8 @@
 
   programs.emacs = {
     enable = true;
-    #package = pkgs.emacs-nox;
-    package = pkgs.emacs28-nox;
+    package = pkgs.emacs-nox;
+    #package = pkgs.emacs28-nox;
   };
 
   home.packages = [
@@ -37,5 +37,8 @@
     pkgs.sqlite
 
     pkgs.zeal
+
+    pkgs.ntfs3g
+    pkgs.woeusb-ng
   ];
 }

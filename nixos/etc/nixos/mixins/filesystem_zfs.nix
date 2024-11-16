@@ -5,6 +5,13 @@
   # ZFS #
   #######
 
+  services.zfs.autoScrub = {
+    enable = true;
+    interval = "monthly";
+    pools = [ ]; # scrub all
+    randomizedDelaySec = "1h";
+  };
+
   services.zfs.trim = {
     enable = true;
     interval = "weekly";
@@ -16,10 +23,10 @@
     templates = {
 
       ignore = {
-       # daily = 0;
-       # weekly = 0;
-       # monthly = 0;
-       # yearly = 0;
+        # daily = 0;
+        # weekly = 0;
+        # monthly = 0;
+        # yearly = 0;
         "autoprune" = false;
         "autosnap" = false;
         "monitor" = false;
@@ -51,10 +58,10 @@
         use_template = [ "crucial" ];
       };
       "rpool/nix" = {
-       # recursive = true;
-       # autosnap = true;
-       # autoprune = true;
-       # processChildrenOnly = false;
+        # recursive = true;
+        # autosnap = true;
+        # autoprune = true;
+        # processChildrenOnly = false;
         use_template = [ "ignore" ];
       };
       "rpool/var" = {

@@ -63,8 +63,9 @@
   services.gnome.gnome-keyring.enable = true;
 
   services.clamav = {
-    updater.frequency = 1; # updates per day
+    daemon.enable = true;
     updater.enable = true;
+    updater.frequency = 1; # updates per day
   };
 
   xdg.portal = {

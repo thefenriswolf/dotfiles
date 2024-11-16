@@ -94,7 +94,7 @@
     # c/cpp
     pkgs.clang
     # pkgs.gcc
-    # pkgs.clang-tools
+    pkgs.clang-tools
     pkgs.gnumake
 
     # python

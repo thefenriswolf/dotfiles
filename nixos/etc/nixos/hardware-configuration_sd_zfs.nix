@@ -20,14 +20,14 @@
       kernelModules = [ ];
     };
     kernelModules = [ "kvm-amd" "zenpower" ];
-    blacklistedKernelModules = lib.mkDefault [ "nouveau" "k10temp" ];
+    blacklistedKernelModules = lib.mkDefault [ "nouveau" "nvidia" "k10temp" ];
     extraModulePackages = [ config.boot.kernelPackages.zenpower ];
     kernelPackages =
       config.boot.zfs.package.latestCompatibleLinuxPackages; # latest zfs kernel
     kernelParams = [
-      # intel
+      ## intel
       #"intel_pstate=disable"
-      # amd
+      ## amd
       "initcall_blacklist=amd_pstate_init"
       "amd_pstate.enable=0"
       "quiet"
@@ -42,7 +42,7 @@
       options iwlwifi power_save=0
       options iwlmvm power_scheme=1
     '';
-    supportedFilesystems = [ "zfs" "vfat" ];
+    supportedFilesystems = [ "zfs" "vfat" "ntfs" ];
   };
   fileSystems."/" = {
     device = "rpool/root";

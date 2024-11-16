@@ -4,8 +4,12 @@
   fonts.fontconfig.cache32Bit = true;
   programs.steam = {
     enable = true;
+    extest.enable = true;
+    localNetworkGameTransfers.openFirewall = true;
     remotePlay.openFirewall = false;
     gamescopeSession.enable = false;
+    extraCompatPackages = with pkgs; [ proton-ge-bin ];
+    extraPackages = with pkgs; [ gamescope ];
   };
   hardware.steam-hardware.enable = true;
 

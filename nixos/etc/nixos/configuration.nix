@@ -53,9 +53,8 @@
     useXkbConfig = true; # use xkbOptions in tty.
   };
 
-
   security.apparmor = {
-    enable = false;
+    enable = true;
     packages = with pkgs; [ apparmor-utils apparmor-profiles ];
   };
 
