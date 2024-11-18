@@ -5,6 +5,8 @@ in {
     unstable.neovim
     unstable.zig
     unstable.zls
+    unstable.odin
+    unstable.ols
   ];
 }
 #  environment.systemPackages = with pkgs; [

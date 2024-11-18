@@ -693,6 +693,7 @@ require("lazy").setup({
 				texlab = {
 					cmd = { "/etc/profiles/per-user/ro/bin/texlab" },
 				},
+        ols = {},
 				-- clangd = {},
 				-- gopls = {},
 				-- pyright = {},
@@ -790,6 +791,7 @@ require("lazy").setup({
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
+        odin = { "odinfmt" };
 				latex = { "latexindent" },
 				-- Conform can also run multiple formatters sequentially
 				python = { "isort", "black" },

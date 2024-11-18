@@ -26,7 +26,7 @@
           engergy_performance_preference = "powersave";
           platform_profile = "powersave";
           #energy_perf_bias="balance_performance"; # for intel
-          turbo = "never";
+          turbo = "auto";
           #scaling_min_freq=;
           #scaling_max_freq=;
           # battery

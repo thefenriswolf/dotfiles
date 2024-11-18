@@ -55,7 +55,8 @@
     nus = "sudo nixos-rebuild switch && notify-me";
     notify-me = "notify-send -u normal -t 2000 done";
     gdrivesync = "google-drive-ocamlfuse ~/GDrive";
-    todo = "sh ~/.config/doom/tdcmd.sh t";
+    todo = "~/org/odo ~/org/todo.org";
+    #todo = "sh ~/.config/doom/tdcmd.sh t";
     agenda = "sh ~/.config/doom/tdcmd.sh a";
   };
 }

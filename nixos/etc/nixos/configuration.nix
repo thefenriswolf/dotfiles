@@ -96,6 +96,7 @@
       "lxd"
       "podman"
       "docker"
+      "gamemode"
       "cups"
     ];
     packages = with pkgs; [

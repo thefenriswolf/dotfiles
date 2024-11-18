@@ -1,6 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
+  programs.gamemode = {
+    enable = true;
+    settings.general.inhibit_screensaver = 0;
+  };
   fonts.fontconfig.cache32Bit = true;
   programs.steam = {
     enable = true;

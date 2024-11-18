@@ -50,8 +50,8 @@
     # pkgs.erlang-ls
 
     # Odin
-    pkgs.odin
-    pkgs.ols
+    #pkgs.odin
+    #pkgs.ols
 
     # lua
     # pkgs.love

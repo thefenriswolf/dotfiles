@@ -4,11 +4,10 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [
+  imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ./mixins/filesystem_zfs.nix
-    ];
+  ];
 
   services.fwupd.enable = true;
   networking.hostId = "8c884ab5";
@@ -20,7 +19,7 @@
       kernelModules = [ ];
     };
     kernelModules = [ "kvm-amd" "zenpower" ];
-    blacklistedKernelModules = lib.mkDefault [ "nouveau" "k10temp" ];
+    blacklistedKernelModules = lib.mkDefault [ "nouveau" "nvidia" "k10temp" ];
     extraModulePackages = [ config.boot.kernelPackages.zenpower ];
     kernelPackages =
       config.boot.zfs.package.latestCompatibleLinuxPackages; # latest zfs kernel
@@ -40,31 +39,31 @@
     supportedFilesystems = [ "zfs" "vfat" ];
   };
 
-  fileSystems."/" =
-    { device = "rpool/root";
-      fsType = "zfs";
-    };
+  fileSystems."/" = {
+    device = "rpool/root";
+    fsType = "zfs";
+  };
 
-  fileSystems."/nix" =
-    { device = "rpool/nix";
-      fsType = "zfs";
-    };
+  fileSystems."/nix" = {
+    device = "rpool/nix";
+    fsType = "zfs";
+  };
 
-  fileSystems."/var" =
-    { device = "rpool/var";
-      fsType = "zfs";
-    };
+  fileSystems."/var" = {
+    device = "rpool/var";
+    fsType = "zfs";
+  };
 
-  fileSystems."/home" =
-    { device = "rpool/home";
-      fsType = "zfs";
-    };
+  fileSystems."/home" = {
+    device = "rpool/home";
+    fsType = "zfs";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/ED1A-E1B6";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/ED1A-E1B6";
+    fsType = "vfat";
+    options = [ "fmask=0022" "dmask=0022" ];
+  };
 
   swapDevices = [ ];
   zramSwap.enable = true;
@@ -78,5 +77,6 @@
   # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode =
+    lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
