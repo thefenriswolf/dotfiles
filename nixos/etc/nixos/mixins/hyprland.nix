@@ -5,9 +5,10 @@ in {
   programs = {
     xwayland.enable = true;
     hyprland = {
-      xwayland.enable = true;
-      enable = true;
-      package = unstable.hyprland;
+      enable = false;
+      xwayland.enable = false;
+      # package = unstable.hyprland;
+      package = pkgs.hyprland;
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
       systemd.setPath.enable = true;
     };

@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }: {
 
-#  nixpkgs.overlays = [
+  #  nixpkgs.overlays = [
   #    (import (builtins.fetchTarball {
   #    url =
   #      "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
@@ -23,8 +23,8 @@
     pkgs.luaformatter
     pkgs.lua
     pkgs.lua52Packages.lua-lsp
+    pkgs.ltex-ls
   ];
-
 
   programs.micro = {
     enable = true;

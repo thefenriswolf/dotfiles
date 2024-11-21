@@ -13,7 +13,7 @@
       plasma6.enableQt5Integration = true;
     };
     displayManager = {
-      defaultSession = "hyprland";
+      defaultSession = "plasma";
       sddm = {
         enable = true;
         wayland.enable = true;
@@ -43,7 +43,7 @@
   programs.kdeconnect.enable = true;
 
   programs.thunar = {
-    enable = true;
+    enable = false;
     plugins = with pkgs.xfce; [
       thunar-archive-plugin
       thunar-media-tags-plugin
@@ -89,14 +89,11 @@
   # envvars
   environment = {
     systemPackages = with pkgs; [
-      xfce.xfburn
       hunspell
       hunspellDicts.en_US
       hunspellDicts.de_AT
       hunspellDicts.de_DE
       hunspellDicts.en_GB-large
-      xfce.thunar-archive-plugin
-      xfce.thunar
       kile
       inkscape-with-extensions
       joplin-desktop
@@ -127,7 +124,6 @@
       ghostscript
       swayimg
       clamav
-      hyprland
       swww
       appimage-run
       coreutils-full
@@ -146,17 +142,17 @@
       WLR_NO_HARDWARE_CURSORS = "1";
     };
     variables = {
-      # XCURSOR_SIZE = "24";
-      XDG_CURRENT_DESKTOP = "Hyprland";
-      XDG_SESSION_TYPE = "wayland";
-      XDG_SESSION_DESKTOP = "Hyprland";
+      # # XCURSOR_SIZE = "24";
+      # XDG_CURRENT_DESKTOP = "Hyprland";
+      # XDG_SESSION_TYPE = "wayland";
+      # XDG_SESSION_DESKTOP = "Hyprland";
       GDK_BACKEND = "wayland,x11";
       QT_QPA_PLATFORM = "wayland;xcb";
       #  QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       #  QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       OZONE_PLATFORM = "wayland";
       SDL_VIDEODRIVER = "wayland";
-      ROC_ENABLE_PRE_VEGA = "1";
+      # ROC_ENABLE_PRE_VEGA = "1";
     };
   };
 }

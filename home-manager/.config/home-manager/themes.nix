@@ -1,6 +1,14 @@
 { config, lib, pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    catppuccin
+    catppuccin-kde
+    catppuccin-gtk
+    catppuccin-sddm
+    catppuccin-cursors
+  ];
+
   # qt = {
   #   enable = true;
   #   # platformTheme = "gtk";

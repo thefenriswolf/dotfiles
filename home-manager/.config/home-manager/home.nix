@@ -34,6 +34,7 @@
     ./latex.nix
     ./fonts.nix
     ./alien.nix
+    ./themes.nix
   ];
 
   xdg.enable = true;

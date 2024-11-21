@@ -4,7 +4,12 @@
     enable = true;
     powerOnBoot = false;
     package = pkgs.bluez;
-    settings = { General = { Enable = "Source,Sink,Media,Socket"; }; };
+    settings = {
+      General = {
+        Enable = "Source,Sink,Media,Socket";
+        Experimental = false;
+      };
+    };
   };
-  services.blueman.enable = true;
+  services.blueman.enable = false; # bluetooth gui for tiling WM
 }

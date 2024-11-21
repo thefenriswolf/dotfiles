@@ -16,7 +16,7 @@
 ;;(setq! doom-theme 'moe-theme)
 (setq! doom-theme 'catppuccin)
 
-(setq! catppuccin-flavor 'frappe) ;; or 'frappe, 'latte, 'macchiato, or 'mocha
+(setq! catppuccin-flavor 'latte) ;; or 'frappe, 'latte, 'macchiato, or 'mocha
 
 (map! :leader
       :desc "format whole buffer" "l l" #'+format/buffer
