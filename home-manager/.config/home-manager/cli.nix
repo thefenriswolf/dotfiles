@@ -106,6 +106,7 @@
     pkgs.encfs
 
     # QoL
+    pkgs.pueue
     pkgs.comma
     pkgs.calcurse
     pkgs.fastfetch

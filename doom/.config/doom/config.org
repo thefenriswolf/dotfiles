@@ -96,7 +96,7 @@ accept. For example:
 
 ** THEME Settings
 #+begin_src emacs-lisp
-(setq! catppuccin-flavor 'latte) ;; or 'frappe, 'latte, 'macchiato, or 'mocha
+(setq! catppuccin-flavor 'frappe) ;; or 'latte 'frappe, 'latte, 'macchiato, or 'mocha
 #+end_src
 
 * GENERAL KEYBINDINGS
