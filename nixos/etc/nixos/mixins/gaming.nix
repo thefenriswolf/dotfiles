@@ -1,6 +1,11 @@
 { config, lib, pkgs, ... }:
 
 {
+  hardware.amdgpu = {
+    initrd.enable = true;
+    amdvlk = { enable = true; };
+  };
+
   programs.gamemode = {
     enable = true;
     settings.general.inhibit_screensaver = 0;

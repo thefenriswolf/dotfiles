@@ -23,13 +23,15 @@
     blacklistedKernelModules = lib.mkDefault [ "nouveau" "nvidia" "k10temp" ];
     extraModulePackages = [ config.boot.kernelPackages.zenpower ];
     kernelPackages =
-      config.boot.zfs.package.latestCompatibleLinuxPackages; # latest zfs kernel
+      pkgs.linuxPackages_6_6; # EOL: 12/2026 -> https://www.kernel.org/releases.html
     kernelParams = [
       ## intel
       #"intel_pstate=disable"
-      ## amd
+
+      ## amd: disable pstate in favour of auto-cpufreq
       "initcall_blacklist=amd_pstate_init"
       "amd_pstate.enable=0"
+
       "quiet"
       "loglevel=3"
       "systemd.show_status=auto"

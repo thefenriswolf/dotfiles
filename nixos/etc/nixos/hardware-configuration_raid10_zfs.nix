@@ -22,7 +22,7 @@
     blacklistedKernelModules = lib.mkDefault [ "nouveau" "nvidia" "k10temp" ];
     extraModulePackages = [ config.boot.kernelPackages.zenpower ];
     kernelPackages =
-      config.boot.zfs.package.latestCompatibleLinuxPackages; # latest zfs kernel
+      pkgs.linuxPackages_6_6; # EOL: 12/2026 -> https://www.kernel.org/releases.html
     kernelParams = [
       "quiet"
       "loglevel=3"

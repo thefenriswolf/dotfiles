@@ -87,7 +87,6 @@
     # top
     pkgs.nvtopPackages.amd
     pkgs.lm_sensors
-    pkgs.psensor
     pkgs.hddtemp
     pkgs.acpi
     pkgs.inxi

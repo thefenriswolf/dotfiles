@@ -14,8 +14,6 @@
     ventoy-full
   ];
 
-  systemd.enableUnifiedCgroupHierarchy = true;
-
   virtualisation = {
     podman = {
       enable = true;

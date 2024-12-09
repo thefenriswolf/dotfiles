@@ -25,7 +25,6 @@
     xserver = {
       enable = true;
       videoDrivers = [ "amdgpu" ];
-      desktopManager = { plasma5.enable = false; };
       xkb = {
         layout = "at";
         options = "eurosign:e";
@@ -34,11 +33,10 @@
     };
   };
 
-  # hardware.opengl = {
-  #   driSupport = true;
-  #   driSupport32Bit = true;
-  #   extraPackages = with pkgs; [ rocmPackages.clr.icd ];
-  # };
+  hardware.graphics = {
+    enable32Bit = true;
+    extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
+  };
 
   programs.kdeconnect.enable = true;
 
@@ -63,8 +61,8 @@
   services.gnome.gnome-keyring.enable = true;
 
   services.clamav = {
-    daemon.enable = true;
-    updater.enable = true;
+    daemon.enable = false;
+    updater.enable = false;
     updater.frequency = 1; # updates per day
   };
 
