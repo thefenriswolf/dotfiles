@@ -8,7 +8,17 @@
 
   programs.gamemode = {
     enable = true;
-    settings.general.inhibit_screensaver = 0;
+    enableRenice = true;
+    settings = {
+      general = {
+        inhibit_screensaver = 0;
+        renice = 10;
+      };
+      custom = {
+        start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
+        end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+      };
+    };
   };
   fonts.fontconfig.cache32Bit = true;
   programs.steam = {
