@@ -5,6 +5,7 @@
   # paths it should manage.
   home.username = "ro";
   home.homeDirectory = "/home/ro";
+  home.language.base = "en_US.UTF-8";
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage

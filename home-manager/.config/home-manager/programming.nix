@@ -2,13 +2,6 @@
 
   home.packages = [
 
-    # GODOT
-    # pkgs.godot_4
-
-    # Dart/Flutter
-    # pkgs.flutter
-    # pkgs.android-studio
-
     # ocaml
     # pkgs.ocaml
     # pkgs.ocamlPackages.merlin
@@ -21,18 +14,18 @@
     # pkgs.fpc
 
     # c#/f#
-    pkgs.dotnet-sdk
+    #pkgs.dotnet-sdk
     #pkgs.nuget-to-nix
     #pkgs.omnisharp-roslyn
     #pkgs.csharpier
 
     # java/jvm
-    # pkgs.clojure
-    # pkgs.clojure-lsp
-    # pkgs.leiningen
-    # pkgs.clj-kondo
-    # pkgs.cljfmt
-    # pkgs.jdk
+    pkgs.clojure
+    pkgs.clojure-lsp
+    pkgs.leiningen
+    pkgs.clj-kondo
+    pkgs.cljfmt
+    pkgs.jdk
     # pkgs.kotlin
     # pkgs.kotlin-native
     # pkgs.kotlin-language-server
@@ -56,8 +49,8 @@
     # lua
     # pkgs.love
     # pkgs.lua
-    # pkgs.lua-language-server
-    # pkgs.stylua
+    pkgs.lua-language-server
+    pkgs.stylua
 
     # scheme
     # pkgs.chicken
@@ -70,26 +63,26 @@
 
     # rustlang
     # pkgs.rustup
-    #pkgs.rustc
-    #pkgs.rustfmt
-    #pkgs.cargo
-    #pkgs.clippy
-    #pkgs.rust-analyzer
+    # pkgs.rustc
+    # pkgs.rustfmt
+    # pkgs.cargo
+    # pkgs.clippy
+    # pkgs.rust-analyzer
 
     # cross plattform TUI
     # pkgs.dosbox
 
     # golang
     pkgs.go
-    # pkgs.gotools # godoc, ...
-    # pkgs.go-tools # staticcheck, ...
-    # pkgs.delve
-    # pkgs.gopls
-    # pkgs.revive
-    # pkgs.gomodifytags
-    # pkgs.gore
-    # pkgs.gotests
-    # pkgs.govulncheck
+    pkgs.gotools # godoc, ...
+    pkgs.go-tools # staticcheck, ...
+    pkgs.delve
+    pkgs.gopls
+    pkgs.revive
+    pkgs.gomodifytags
+    pkgs.gore
+    pkgs.gotests
+    pkgs.govulncheck
 
     # c/cpp
     pkgs.clang
