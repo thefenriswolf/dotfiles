@@ -26,12 +26,13 @@
     pkgs.clj-kondo
     pkgs.cljfmt
     pkgs.jdk
-    # pkgs.kotlin
-    # pkgs.kotlin-native
-    # pkgs.kotlin-language-server
-    # pkgs.ktlint
-    # pkgs.ktfmt
-    # pkgs.detekt
+    #pkgs.graalvm-ce
+    #pkgs.babashka
+    pkgs.kotlin
+    pkgs.kotlin-native
+    pkgs.kotlin-language-server
+    pkgs.ktlint
+    pkgs.detekt
 
     # elixir
     # pkgs.elixir

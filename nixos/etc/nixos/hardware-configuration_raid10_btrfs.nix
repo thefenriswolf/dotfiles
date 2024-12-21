@@ -7,6 +7,7 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ./mixins/filesystem_btrfs.nix
+    ./mixins/blacklist.nix
   ];
 
   services.ratbagd.enable = false; # for configurable gaming mice
@@ -31,7 +32,6 @@
       ];
       kernelModules = [ ];
     };
-    blacklistedKernelModules = lib.mkDefault [ "nouveau" "k10temp" ];
     kernelModules = [ "kvm-amd" "zenpower" ];
     kernelParams = [
       #"elevator=none" DEPRECATED!!! for ZFS

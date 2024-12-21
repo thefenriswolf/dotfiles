@@ -7,6 +7,7 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ./mixins/filesystem_zfs.nix
+    ./mixins/blacklist.nix
   ];
 
   services.fwupd.enable = true;
@@ -19,7 +20,6 @@
       kernelModules = [ ];
     };
     kernelModules = [ "kvm-amd" "zenpower" ];
-    blacklistedKernelModules = lib.mkDefault [ "nouveau" "nvidia" "k10temp" ];
     extraModulePackages = [ config.boot.kernelPackages.zenpower ];
     kernelPackages =
       pkgs.linuxPackages_6_6; # EOL: 12/2026 -> https://www.kernel.org/releases.html

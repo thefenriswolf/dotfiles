@@ -8,6 +8,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     #<nixos-hardware/lenovo/thinkpad/t480s>
     ./mixins/filesystem_btrfs.nix
+    ./mixins/blacklist.nix
   ];
 
   services.fwupd.enable = true;
@@ -28,7 +29,6 @@
       ];
       kernelModules = [ "acpi_call" ];
     };
-    blacklistedKernelModules = lib.mkDefault [ "nouveau" ];
     kernelModules = [ "kvm-amd" ];
     kernelParams =
       [ "quiet" "loglevel=3" "systemd.show_status=auto" "rd.udev.log_level=3" ];

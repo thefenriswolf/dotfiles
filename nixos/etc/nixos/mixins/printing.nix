@@ -9,9 +9,13 @@
   # Enable CUPS to print documents.
   services.printing = {
     enable = true;
+    webInterface = true;
+    openFirewall = false;
+    startWhenNeeded = true;
+    tempDir = "/tmp";
     drivers = [
-      pkgs.foomatic-db-ppds-withNonfreeDb
-      pkgs.foomatic-db-ppds
+      pkgs.canon-cups-ufr2
+      pkgs.canon-capt
       pkgs.gutenprintBin
       pkgs.gutenprint
       pkgs.hplipWithPlugin

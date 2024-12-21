@@ -40,6 +40,10 @@
       };
     };
   };
+
+  services.lvm.enable = false;
+  boot.initrd.services.lvm.enable = false;
+
   # Set your time zone.
   time.timeZone = "Europe/Vienna";
 
