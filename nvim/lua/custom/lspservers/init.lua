@@ -3,7 +3,7 @@
 return {
     ltex = {
         mason = false,
-        cmd = {'/etc/profiles/per-user/ro/bin/ltex-ls', '--no-endless'},
+        cmd = {'ltex-ls', '--no-endless'},
         filetypes = {'markdown', 'org', 'tex', 'gitcommit'},
         settings = {
             ltex = {

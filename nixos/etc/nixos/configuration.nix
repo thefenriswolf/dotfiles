@@ -25,6 +25,7 @@
     ./mixins/security.nix
     ./mixins/dev.nix
     ./mixins/ios.nix
+    ./mixins/cli.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -165,7 +166,7 @@
       waybar
       brightnessctl
       grim
-      dunst
+      # dunst
       libnotify
       wlsunset
       swaybg

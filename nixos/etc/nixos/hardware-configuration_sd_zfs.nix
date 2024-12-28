@@ -22,7 +22,7 @@
     kernelModules = [ "kvm-amd" "zenpower" ];
     extraModulePackages = [ config.boot.kernelPackages.zenpower ];
     kernelPackages =
-      pkgs.linuxPackages_6_6; # EOL: 12/2026 -> https://www.kernel.org/releases.html
+      pkgs.linuxPackages_6_12; # TODO: EOL: 12/2026 -> https://www.kernel.org/releases.html
     kernelParams = [
       ## intel
       #"intel_pstate=disable"

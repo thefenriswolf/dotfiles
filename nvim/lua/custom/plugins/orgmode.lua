@@ -17,6 +17,29 @@ return {
             --   ensure_installed = 'all',
             --   ignore_install = { 'org' },
             -- })
+        end,
+        dependencies = {
+            "chipsenkbeil/org-roam.nvim", "lukas-reineke/headlines.nvim"
+        }
+    }, {
+        "lukas-reineke/headlines.nvim",
+        enabled = true,
+        lazy = true,
+        dependencies = {
+            "nvim-orgmode/orgmode", "nvim-treesitter/nvim-treesitter"
+        },
+        config = true
+    }, {
+        "chipsenkbeil/org-roam.nvim",
+        enabled = true,
+        lazy = true,
+        dependencies = {"nvim-orgmode/orgmode"},
+        config = function()
+            require("org-roam").setup({
+                directory = "~/org/notes"
+                -- optional
+                -- org_files = {"~/another_org_dir", "~/some/folder/*.org","~/a/single/org_file.org"}
+            })
         end
     }, {
         "nvim-neorg/neorg",

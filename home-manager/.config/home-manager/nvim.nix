@@ -1,12 +1,5 @@
 { config, lib, pkgs, ... }: {
 
-  #  nixpkgs.overlays = [
-  #    (import (builtins.fetchTarball {
-  #    url =
-  #      "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
-  #  }))
-  #];
-
   xdg.configFile."nvim".source = /home/ro/playground/dotfiles/nvim;
   xdg.configFile."nvim".recursive = true;
 

@@ -9,6 +9,9 @@ in {
     unstable.ols
   ];
 }
+
+#programs.neovim.vimAlias=true;
+
 #  environment.systemPackages = with pkgs; [
 #    bintools
 #    lynis
