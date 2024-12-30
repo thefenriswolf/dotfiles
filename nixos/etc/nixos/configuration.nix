@@ -24,7 +24,7 @@
     ./mixins/filesystem_zfs.nix
     ./mixins/security.nix
     ./mixins/dev.nix
-    ./mixins/ios.nix
+    ./mixins/sync.nix
     ./mixins/cli.nix
   ];
 
@@ -115,6 +115,7 @@
       "docker"
       "gamemode"
       "cups"
+      "syncthing"
     ];
     packages = with pkgs; [
       widevine-cdm

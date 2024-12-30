@@ -1,8 +1,8 @@
 return {
     { -- https://github.com/nvim-orgmode/orgmode
         "nvim-orgmode/orgmode",
-        lazy = true,
         enabled = true,
+        lazy = true,
         event = "VeryLazy",
         ft = {"org"},
         config = function()
@@ -43,9 +43,9 @@ return {
         end
     }, {
         "nvim-neorg/neorg",
-        enabled = false,
+        enabled = true,
         lazy = true, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
-        version = "*", -- Pin Neorg to the latest stable release
+        -- version = "*", -- Pin Neorg to the latest stable release
         config = true
     }
 }

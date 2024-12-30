@@ -6,12 +6,11 @@
     flyctl
     fuse-overlayfs
     podman-compose
-    podman-tui
     runc
     crun
-    pods
-    xorg.xhost
     ventoy-full
+    quickemu
+    #   quickgui
   ];
 
   virtualisation = {

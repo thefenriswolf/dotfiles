@@ -55,8 +55,12 @@
     nus = "sudo nixos-rebuild switch && notify-me";
     notify-me = "notify-send -u normal -t 2000 done";
     gdrivesync = "google-drive-ocamlfuse ~/GDrive";
-    todo = "~/org/odo ~/org/todo.org";
+    #todo = "~/org/odo ~/org/todo.org";
     #todo = "sh ~/.config/doom/tdcmd.sh t";
-    agenda = "sh ~/.config/doom/tdcmd.sh a";
+    #agenda = "sh ~/.config/doom/tdcmd.sh a";
+    sync_restart = "syncthing cli operations restart";
+    sync_stop = "syncthing cli operations shutdown";
+    sync_start =
+      "syncthing serve --no-default-folder --home=~/.config/syncthing/ --no-upgrade --logfile=/tmp/syncthing.log";
   };
 }
