@@ -10,6 +10,7 @@
     crun
     ventoy-full
     quickemu
+    qemu_full
     #   quickgui
   ];
 

@@ -3,16 +3,15 @@
 {
   environment.systemPackages = with pkgs; [ obsidian syncthing syncthingtray ];
 
-  systemd.services.syncthing.environment.STNODEFAULTFOLDER =
-    "true"; # Don't create default ~/Sync folder
-
-  # Permission fixes: https://nitinpassa.com/running-syncthing-as-a-system-user-on-nixos/
-  # users.users.syncthing.extraGroups = [ "users" ];
-  # users.users.ro.extraGroups = [ "syncthing" ];
-  # systemd.services.syncthing.serviceConfig.UMask = "0007";
+  ##########
+  # BROKEN #
+  ##########
   services = {
     syncthing = {
       enable = false;
+      systemService = false;
+      dataDir = "/home/ro/org";
+      configDir = "/home/ro/.config/syncthing";
       group = "syncthing";
       user = "syncthing";
       openDefaultPorts = true;
