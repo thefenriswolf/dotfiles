@@ -93,9 +93,6 @@
 
       # zfs
       sanoid
-
-      # network
-      localsend
     ];
   };
 }

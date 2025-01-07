@@ -19,7 +19,8 @@ return {
             -- })
         end,
         dependencies = {
-            "chipsenkbeil/org-roam.nvim", "lukas-reineke/headlines.nvim"
+            -- "chipsenkbeil/org-roam.nvim", 
+            "lukas-reineke/headlines.nvim"
         }
     }, {
         "lukas-reineke/headlines.nvim",
@@ -31,7 +32,7 @@ return {
         config = true
     }, {
         "chipsenkbeil/org-roam.nvim",
-        enabled = true,
+        enabled = false,
         lazy = true,
         dependencies = {"nvim-orgmode/orgmode"},
         config = function()
@@ -45,7 +46,7 @@ return {
         "nvim-neorg/neorg",
         enabled = true,
         lazy = true, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
-        -- version = "*", -- Pin Neorg to the latest stable release
+        version = "*", -- Pin Neorg to the latest stable release
         config = true
     }
 }

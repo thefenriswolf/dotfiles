@@ -9,6 +9,7 @@
       options = "--delete-older-than 7d";
     };
     settings = {
+      allowed-users = [ "@wheel" ];
       experimental-features = [ "nix-command" "flakes" ];
       auto-optimise-store = true;
     };

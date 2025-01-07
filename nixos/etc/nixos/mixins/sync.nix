@@ -1,7 +1,17 @@
 { config, lib, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [ obsidian syncthing syncthingtray ];
+  environment.systemPackages = with pkgs; [
+    obsidian
+    localsend
+    syncthing
+    syncthingtray
+  ];
+
+  programs.localsend = {
+    enable = true;
+    openFirewall = true; # port 53317
+  };
 
   ##########
   # BROKEN #

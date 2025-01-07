@@ -1,12 +1,23 @@
 { config, pkgs, ... }: {
 
+  environment.systemPackages = with pkgs; [ firewalld firewalld-gui ];
+
   networking = {
-    nftables = { enable = true; };
+    # nftables = { enable = true; };
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 53317 ];
-      allowedUDPPorts = [ 53317 ];
+      #allowedTCPPorts = [ 53317 ];
+      #allowedUDPPorts = [ 53317 ];
+      #allowedUDPPortRanges = [{
+      #  from = 1714;
+      #  to = 1764;
+      #}];
+      #allowedTCPPortRanges = [{
+      #  from = 1714;
+      #  to = 1764;
+      #}];
     };
+
     hostName = "desktop-stefan";
     # useDHCP = true;
     networkmanager = {
@@ -36,10 +47,10 @@
   # Workaround https://github.com/NixOS/nixpkgs/issues/180175
   systemd.services.NetworkManager-wait-online.enable = false;
 
-  environment.systemPackages = with pkgs.libsForQt5; [
-    kio
-    kio-gdrive
-    #    kio-fuse
-    kio-extras
-  ];
+  #  environment.systemPackages = with pkgs.libsForQt5; [
+  #  kio
+  #  kio-gdrive
+  #  # kio-fuse
+  #  kio-extras
+  #];
 }

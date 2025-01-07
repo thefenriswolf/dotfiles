@@ -38,7 +38,10 @@
     extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
   };
 
-  programs.kdeconnect.enable = true;
+  programs.kdeconnect = {
+    enable = true;
+    #package = pkgs.kdePackages.kdeconnect-kde;
+  };
 
   programs.thunar = {
     enable = false;
