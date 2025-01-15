@@ -25,14 +25,14 @@
     pkgs.leiningen
     pkgs.clj-kondo
     pkgs.cljfmt
-    pkgs.jdk
-    #pkgs.graalvm-ce
+    #pkgs.jdk
+    pkgs.graalvm-ce
     #pkgs.babashka
-    pkgs.kotlin
-    pkgs.kotlin-native
-    pkgs.kotlin-language-server
-    pkgs.ktlint
-    pkgs.detekt
+    #pkgs.kotlin
+    #pkgs.kotlin-native
+    #pkgs.kotlin-language-server
+    #pkgs.ktlint
+    #pkgs.detekt
 
     # elixir
     # pkgs.elixir

@@ -5,8 +5,8 @@ in {
     unstable.neovim
     unstable.zig
     unstable.zls
-    unstable.odin
-    unstable.ols
+    #unstable.odin
+    #unstable.ols
   ];
 }
 

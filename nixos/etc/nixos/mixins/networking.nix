@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
 
-  environment.systemPackages = with pkgs; [ firewalld firewalld-gui ];
+  # environment.systemPackages = with pkgs; [ firewalld firewalld-gui ];
 
   networking = {
     # nftables = { enable = true; };

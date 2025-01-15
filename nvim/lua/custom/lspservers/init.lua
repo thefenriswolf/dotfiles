@@ -15,21 +15,17 @@ return {
             }
         }
     },
-    texlab = {
-        mason = false,
-        cmd = {'/etc/profiles/per-user/ro/bin/texlab'},
-        filetypes = {'tex'}
-    },
+    texlab = {mason = false, cmd = {'texlab'}, filetypes = {'tex'}},
     ols = {
         mason = false,
-        cmd = {'/run/current-system/sw/bin/ols'},
+        cmd = {'ols'},
         fileypes = {'odin'}
         -- settings = {checker_args = "-strict-style"}
     },
     kotlin_language_server = {
         mason = false,
         enable = false,
-        cmd = {'/etc/profiles/per-user/ro/bin/kotlin-language-server'},
+        cmd = {'kotlin-language-server'},
         fileypes = {'kotlin'}
     },
 
@@ -47,12 +43,12 @@ return {
 
     omnisharp = {
         mason = false,
-        cmd = {'/etc/profiles/per-user/ro/bin/OmniSharp', '-lsp'},
+        cmd = {'OmniSharp', '-lsp'},
         filetypes = {'cs', 'fs'}
     },
     lua_ls = {
         mason = false,
-        cmd = {'/etc/profiles/per-user/ro/bin/lua-lsp'},
+        cmd = {'lua-lsp'},
         filetypes = {'lua'},
         -- capabilities = {},
         settings = {
@@ -65,7 +61,7 @@ return {
     },
     clojure_lsp = {
         mason = false,
-        cmd = {'/etc/profiles/per-user/ro/bin/clojure-lsp'},
+        cmd = {'clojure-lsp'},
         filetypes = {'clojure'}
     }
 }
