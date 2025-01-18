@@ -5,8 +5,8 @@ in {
   programs = {
     xwayland.enable = true;
     hyprland = {
-      enable = false;
-      xwayland.enable = false;
+      enable = true;
+      xwayland.enable = true;
       # package = unstable.hyprland;
       package = pkgs.hyprland;
       portalPackage = pkgs.xdg-desktop-portal-hyprland;

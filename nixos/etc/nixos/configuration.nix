@@ -15,7 +15,7 @@
     ./mixins/powersave.nix
     ./mixins/virt.nix
     ./mixins/desktop.nix
-    ./mixins/hyprland.nix
+    #./mixins/hyprland.nix
     ./mixins/nix.nix
     ./mixins/theming.nix
     ./mixins/ssh.nix
@@ -121,7 +121,6 @@
       widevine-cdm
       firefox
       tree
-      libsForQt5.polkit-kde-agent
       git
       google-drive-ocamlfuse
       stow
@@ -137,12 +136,9 @@
       libnsl
       xorg.libxcb
 
-      gwenview
       languagetool
       gnumake
       home-manager
-      libsForQt5.ark
-      libsForQt5.kwayland-integration
       fuzzel
       zip
       unzip

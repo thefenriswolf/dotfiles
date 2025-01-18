@@ -72,7 +72,7 @@
   xdg.portal = {
     enable = true;
     wlr.enable = false;
-    extraPortals = [ pkgs.xdg-desktop-portal-kde ];
+    # extraPortals = [ pkgs.xdg-desktop-portal-kde ];
   };
 
   security = {
@@ -95,48 +95,31 @@
       hunspellDicts.de_AT
       hunspellDicts.de_DE
       hunspellDicts.en_GB-large
-      kile
       inkscape-with-extensions
-      joplin-desktop
 
       kdePackages.skanlite
       kdePackages.ark
       kdePackages.okular
-      kdePackages.discover
       kdePackages.spectacle
       kdePackages.networkmanager-qt
       kdePackages.kcalc
       kdePackages.kio
       kdePackages.kmag
-      kdePackages.kigo
       kdePackages.kate
-      kdePackages.kmail
       kdePackages.kalarm
-      kdePackages.tokodon
-      kdePackages.kbackup
       kdePackages.dolphin
       kdePackages.dolphin-plugins
-      kdePackages.kteatime
 
       handbrake
-      swaylock
       ffmpeg
       imagemagick
       ghostscript
-      swayimg
       clamav
       swww
       appimage-run
       coreutils-full
       libnotify
-      libsForQt5.print-manager
-      gwenview
-      xwayland
-      wayland-protocols
-      wayland-utils
       wl-clipboard
-      wlroots
-      xdg-desktop-portal-kde
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";

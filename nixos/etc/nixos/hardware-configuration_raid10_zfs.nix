@@ -14,6 +14,12 @@
   networking.hostId = "8c884ab5";
 
   boot = {
+    zfs = {
+      package = pkgs.zfs;
+      allowHibernation = false;
+      removeLinuxDRM = true;
+      passwordTimeout = 0; # 0 = no timeout
+    };
     initrd = {
       availableKernelModules =
         [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
