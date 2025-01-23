@@ -31,7 +31,7 @@
     ./git.nix
     ./emacs.nix
     ./nvim.nix
-    ./zsh.nix
+    #./zsh.nix
     ./latex.nix
     ./fonts.nix
     ./alien.nix

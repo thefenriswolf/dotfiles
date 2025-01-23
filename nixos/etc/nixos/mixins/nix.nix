@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
 
   nix = {
-    package = pkgs.lix;
+    #package = pkgs.lix;
     optimise.automatic = true;
     gc = {
       automatic = false;
