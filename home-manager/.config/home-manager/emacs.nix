@@ -36,8 +36,6 @@
     pkgs.tldr
     pkgs.sqlite
 
-    pkgs.zeal
-
     pkgs.ntfs3g
     pkgs.woeusb-ng
   ];

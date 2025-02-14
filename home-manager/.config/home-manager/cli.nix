@@ -81,8 +81,6 @@
 
     # terminal
     pkgs.alacritty
-    pkgs.wezterm
-    pkgs.kitty
 
     # top
     pkgs.nvtopPackages.amd
@@ -105,6 +103,8 @@
     pkgs.encfs
 
     # QoL
+    pkgs.usbtop
+    pkgs.btop
     pkgs.pueue
     pkgs.comma
     pkgs.calcurse
@@ -116,6 +116,7 @@
     pkgs.reckon
     pkgs.inotify-tools
     pkgs.lorri
+    pkgs.nh
     pkgs.sherlock
     (import ./packages/ttt.nix)
     (import ./packages/gopta.nix)
@@ -128,6 +129,10 @@
     pkgs.ueberzugpp
 
     # coreutil replacements
+    pkgs.gping # ping
+    pkgs.viu
+    pkgs.scriptisto
+    pkgs.chafa
     pkgs.dust # du
     pkgs.bat # cat
     pkgs.fd # find

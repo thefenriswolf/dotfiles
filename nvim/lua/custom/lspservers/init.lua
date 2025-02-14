@@ -15,9 +15,15 @@ return {
             }
         }
     },
-    texlab = {mason = false, cmd = {'texlab'}, filetypes = {'tex'}},
+    texlab = {
+        mason = false,
+        enable = true,
+        cmd = {'texlab'},
+        filetypes = {'tex', 'org'}
+    },
     ols = {
         mason = false,
+        enable = true,
         cmd = {'ols'},
         fileypes = {'odin'}
         -- settings = {checker_args = "-strict-style"}
@@ -30,7 +36,12 @@ return {
     },
 
     -- clangd = {},
-    -- gopls = {},
+    gopls = {
+        mason = false,
+        enable = true,
+        -- cmd={'gopls'},
+        filetypes = {'go'}
+    },
     -- pyright = {},
     -- rust_analyzer = {},
     -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -43,11 +54,13 @@ return {
 
     omnisharp = {
         mason = false,
+        enable = false,
         cmd = {'OmniSharp', '-lsp'},
         filetypes = {'cs', 'fs'}
     },
     lua_ls = {
         mason = false,
+        enable = true,
         cmd = {'lua-lsp'},
         filetypes = {'lua'},
         -- capabilities = {},
@@ -61,6 +74,7 @@ return {
     },
     clojure_lsp = {
         mason = false,
+        enable = true,
         cmd = {'clojure-lsp'},
         filetypes = {'clojure'}
     }

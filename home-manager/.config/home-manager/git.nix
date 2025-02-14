@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ git-annex nix-prefetch-scripts ];
+  home.packages = with pkgs; [ nix-prefetch-scripts ];
 
   programs.git = {
     enable = true;
@@ -13,7 +13,7 @@
     core = { editor = "micro"; };
     alias = {
       pr = "pull --rebase";
-      squash = "rebase -i ";
+      sq = "rebase -i ";
     };
   };
 }

@@ -421,11 +421,13 @@
       l = "ls -lisah";
       doom = "~/.config/emacs/bin/doom";
       emacs = "emacs -nw";
+      nvimperf = "nvim --startuptime /tmp/nvperf.log";
       # ll = "eza -l --no-user";
       cat = "bat";
       find = "fd";
       ps = "procs";
       watch = "viddy";
+      ping = "gping";
       egrep = "egrep --colour=auto";
       fgrep = "fgrep --colour=auto";
       free = "free -m";
@@ -434,7 +436,7 @@
       emd = "emacs --daemon";
       e = "emacsclient -ca '''''' ";
       nut =
-        "sudo nixos-rebuild build && nvd diff /run/current-system result && notify-me";
+        "cd /tmp && sudo nixos-rebuild build && nvd --color auto diff /run/current-system /tmp/result && notify-me";
       nub = "sudo nixos-rebuild boot && notify-me";
       nus = "sudo nixos-rebuild switch && notify-me";
       notify-me = "notify-send -u normal -t 2000 done";

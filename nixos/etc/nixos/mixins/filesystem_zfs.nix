@@ -79,7 +79,7 @@
         use_template = [ "lazy" ];
       };
     };
-    extraArgs = [ "--verbose" "--debug" ]; # " >> ~/storage/sanoid.log" ];
+    extraArgs = [ "--verbose" "--debug" " >> /tmp/sanoid.log" ];
   };
 
   environment = {
@@ -94,5 +94,11 @@
       # zfs
       sanoid
     ];
+  };
+
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 30;
   };
 }

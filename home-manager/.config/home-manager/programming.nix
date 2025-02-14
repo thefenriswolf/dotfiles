@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }: {
 
   home.packages = [
+    # shell
+    pkgs.shfmt
 
     # ocaml
     # pkgs.ocaml

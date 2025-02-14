@@ -269,7 +269,8 @@ require("lazy").setup({
         event = "VimEnter",
         branch = "0.1.x",
         dependencies = {
-            "nvim-lua/plenary.nvim",
+            "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons",
+
             { -- If encountering errors, see telescope-fzf-native README for installation instructions
                 "nvim-telescope/telescope-fzf-native.nvim",
 
@@ -318,7 +319,7 @@ require("lazy").setup({
                 --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
                 --   },
                 -- },
-                -- pickers = {}
+                -- pickers = {},
                 extensions = {
                     ["ui-select"] = {require("telescope.themes").get_dropdown()}
                 }
@@ -643,22 +644,26 @@ require("lazy").setup({
                 else
                     lsp_format_opt = "fallback"
                 end
-                return {timeout_ms = 500, lsp_format = lsp_format_opt}
+                return {
+                    -- async = true,
+                    timeout_ms = 2500,
+                    lsp_format = lsp_format_opt
+                }
             end,
             formatters_by_ft = {
+                sh = {"shfmt"},
+                c = {"clang-format"},
+                haskell = {"hindent"},
+                beancount = {"bean-format"},
                 kotlin = {"ktlint -F"},
-                lua = {"lua-format", "stylua"},
-                odin = {"odinfmt"},
+                lua = {"lua-format", "stylua", stop_after_first = true},
                 odin = {"odinfmt"},
                 latex = {"latexindent"},
-                -- Conform can also run multiple formatters sequentially
                 python = {"isort", "black"},
                 nix = {"nixfmt"},
-                go = {"gofmt"},
-                clojure = {"cljfmt"}
-                --
-                -- You can use 'stop_after_first' to run the first available formatter from the list
-                -- javascript = { "prettierd", "prettier", stop_after_first = true },
+                go = {"goimports", "gofmt", stop_after_first = true},
+                clojure = {"cljfmt"},
+                javascript = {"prettierd", "prettier", stop_after_first = true}
             }
         }
     }, { -- Autocompletion
@@ -879,7 +884,7 @@ require("lazy").setup({
     --
     --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
     --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-    {import = "custom.plugins"}
+    {import = "custom.plugins"} -- recursive import
 }, {
     ui = {
         -- If you are using a Nerd Font: set icons to an empty table which will use the

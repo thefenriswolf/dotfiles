@@ -33,13 +33,24 @@
     };
   };
 
+  services.flatpak.enable = true;
+  systemd.services.flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
+
   hardware.graphics = {
+    enable = true;
     enable32Bit = true;
+    extraPackages = with pkgs; [ libvdpau-va-gl ];
     extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
   };
 
   programs.kdeconnect = {
-    enable = true;
+    enable = false;
     #package = pkgs.kdePackages.kdeconnect-kde;
   };
 
@@ -87,7 +98,6 @@
 
   services.zeitgeist.enable = false;
 
-  # envvars
   environment = {
     systemPackages = with pkgs; [
       hunspell
@@ -104,15 +114,21 @@
       kdePackages.networkmanager-qt
       kdePackages.kcalc
       kdePackages.kio
+      kdePackages.kio-fuse
+      kdePackages.kio-extras
       kdePackages.kmag
+      kdePackages.qtsvg
       kdePackages.kate
-      kdePackages.kalarm
       kdePackages.dolphin
       kdePackages.dolphin-plugins
 
       handbrake
       ffmpeg
       imagemagick
+
+      calibre
+      mtpfs
+
       ghostscript
       clamav
       swww
