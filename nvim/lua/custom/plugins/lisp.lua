@@ -2,7 +2,7 @@ return {
     {
         "Olical/conjure",
         lazy = true,
-        enabled = true,
+        enabled = false,
         ft = {"clojure", "fennel", "racket", "python"},
         init = function()
             -- Set configuration options here
@@ -15,6 +15,7 @@ return {
     }, {
         "PaterJason/cmp-conjure",
         lazy = true,
+        enabled = false,
         config = function()
             local cmp = require("cmp")
             local config = cmp.get_config()

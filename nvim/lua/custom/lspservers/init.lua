@@ -3,6 +3,7 @@
 return {
     ltex = {
         mason = false,
+        enable = true,
         cmd = {'ltex-ls', '--no-endless'},
         filetypes = {'markdown', 'org', 'tex', 'gitcommit'},
         settings = {
@@ -17,13 +18,13 @@ return {
     },
     texlab = {
         mason = false,
-        enable = true,
+        enable = false,
         cmd = {'texlab'},
         filetypes = {'tex', 'org'}
     },
     ols = {
         mason = false,
-        enable = true,
+        enable = false,
         cmd = {'ols'},
         fileypes = {'odin'}
         -- settings = {checker_args = "-strict-style"}
@@ -51,7 +52,6 @@ return {
     --
     -- But for many setups, the LSP (`ts_ls`) will work just fine
     -- ts_ls = {},
-
     omnisharp = {
         mason = false,
         enable = false,
@@ -74,7 +74,7 @@ return {
     },
     clojure_lsp = {
         mason = false,
-        enable = true,
+        enable = false,
         cmd = {'clojure-lsp'},
         filetypes = {'clojure'}
     }

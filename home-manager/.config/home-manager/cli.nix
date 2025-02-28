@@ -120,6 +120,7 @@
     pkgs.sherlock
     (import ./packages/ttt.nix)
     (import ./packages/gopta.nix)
+    (import ./packages/uvtools.nix)
 
     # cloud storage: google drive, dropbox
     pkgs.google-drive-ocamlfuse

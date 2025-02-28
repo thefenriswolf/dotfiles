@@ -34,7 +34,7 @@
     #./zsh.nix
     ./latex.nix
     ./fonts.nix
-    ./alien.nix
+    #./alien.nix
     ./themes.nix
   ];
 

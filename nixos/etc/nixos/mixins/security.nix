@@ -4,7 +4,7 @@
   boot.tmp.cleanOnBoot = true;
   security = {
     audit = {
-      enable = true;
+      enable = false;
       rules = [ "-a exit,always -F arch=b64 -S execve" ];
     };
     auditd.enable = true;
