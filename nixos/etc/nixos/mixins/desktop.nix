@@ -75,8 +75,8 @@
   services.gnome.gnome-keyring.enable = true;
 
   services.clamav = {
-    daemon.enable = false;
-    updater.enable = false;
+    daemon.enable = true;
+    updater.enable = true;
     updater.frequency = 1; # updates per day
   };
 

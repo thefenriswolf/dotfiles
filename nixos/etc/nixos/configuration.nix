@@ -26,6 +26,7 @@
     ./mixins/dev.nix
     ./mixins/sync.nix
     ./mixins/cli.nix
+    ./mixins/host-laptop.nix
   ];
 
   # Use the systemd-boot EFI boot loader.

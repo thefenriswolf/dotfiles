@@ -18,7 +18,6 @@
       #}];
     };
 
-    hostName = "desktop-stefan";
     # useDHCP = true;
     networkmanager = {
       enable = true;

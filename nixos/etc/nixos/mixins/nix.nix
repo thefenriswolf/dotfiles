@@ -1,10 +1,17 @@
 { config, pkgs, ... }: {
 
   nix = {
-    #package = pkgs.lix;
+    sshServe = {
+      enable = true;
+      keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILoB3A+XDzvLGzB5y4/znpWW21UNlgjuPZMPSNVKgStC ro@laptop-stefan"
+      ];
+      # example:
+      # nixos-rebuild --option substituters "http://binarycache.example.com" --option trusted-public-keys "binarycache.example.com-1:dsafdafDFW123fdasfa123124FADSAD" switch
+    };
     optimise.automatic = true;
     gc = {
-      automatic = false;
+      automatic = true;
       dates = "weekly";
       options = "--delete-older-than 7d";
     };

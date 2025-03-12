@@ -7,6 +7,8 @@
     defaultUserShell = pkgs.zsh;
   };
 
+  programs.bcc.enable = true;
+
   programs.starship = {
     enable = true;
     settings = {
@@ -437,8 +439,8 @@
       e = "emacsclient -ca '''''' ";
       nut =
         "cd /tmp && sudo nixos-rebuild build && nvd --color auto diff /run/current-system /tmp/result && notify-me";
-      nub = "sudo nixos-rebuild boot && notify-me";
-      nus = "sudo nixos-rebuild switch && notify-me";
+      nub = "sudo nixos-rebuild boot --upgrade && notify-me";
+      nus = "sudo nixos-rebuild switch&& notify-me";
       notify-me = "notify-send -u normal -t 2000 done";
       gdrivesync = "google-drive-ocamlfuse ~/GDrive";
       #todo = "~/org/odo ~/org/todo.org";

@@ -4,6 +4,7 @@
   powerManagement.powertop.enable = false; # auto tune powertop
 
   services = {
+    bpftune.enable = true;
     auto-cpufreq = {
       enable = false; # enable either auto-cpufreq or TLP
       settings = {
