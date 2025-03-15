@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }: {
 
-  editorconfig.enable = true;
+  #editorconfig.enable = true;
 
   xdg.configFile."doom/config.el".source =
     /home/ro/playground/dotfiles/doom/.config/doom/config.el;

@@ -4,9 +4,11 @@ in {
   environment.systemPackages = with pkgs; [
     unstable.neovim
     unstable.zig
-    unstable.zls
+    #unstable.zls
     #unstable.odin
     #unstable.ols
+    pkgs.gomatrix
+    pkgs.gotop
   ];
 }
 
