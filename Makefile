@@ -42,7 +42,7 @@ install:
 	sudo stow -v -S -t / ${sys}
 
 uninstall:
-	sudo stow -v D -t / ${sys}
+	sudo stow -v -D -t / ${sys}
 	stow -v -D -t ${home} ${usr}
 
 refresh:

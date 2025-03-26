@@ -133,7 +133,11 @@
       clamav
       swww
       appimage-run
+
       coreutils-full
+      uutils-coreutils
+      #uutils-coreutils-noprefix
+
       libnotify
       wl-clipboard
     ];

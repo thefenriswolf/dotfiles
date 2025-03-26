@@ -6,8 +6,8 @@
 
 {
   imports = [
-    ./hardware-configuration_sd_zfs.nix
-    <home-manager/nixos>
+    # ./hardware-configuration_sd_zfs.nix
+    #   <home-manager/nixos>
     ./mixins/bluetooth.nix
     ./mixins/printing.nix
     ./mixins/networking.nix
@@ -85,12 +85,12 @@
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
-  home-manager.users.ro = { pkgs, config, ... }: {
-    home.stateVersion = "23.11";
-    home.homeDirectory = "/home/ro";
-    imports = [ "/home/ro/.config/home-manager/home.nix" ];
-    home.packages = [ ];
-  };
+  #home-manager.users.ro = { pkgs, config, ... }: {
+  #  home.stateVersion = "23.11";
+  #  home.homeDirectory = "/home/ro";
+  #  imports = [ "/home/ro/.config/home-manager/home.nix" ];
+  #  home.packages = [ ];
+  #};
 
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;

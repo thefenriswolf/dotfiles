@@ -51,7 +51,7 @@ return {
     --    https://github.com/pmizio/typescript-tools.nvim
     --
     -- But for many setups, the LSP (`ts_ls`) will work just fine
-    -- ts_ls = {},
+    ts_ls = {mason = false, enable = false, filetypes = {'ts'}},
     omnisharp = {
         mason = false,
         enable = false,
