@@ -663,7 +663,8 @@ require("lazy").setup({
                 nix = {"nixfmt"},
                 go = {"goimports", "gofmt", stop_after_first = true},
                 clojure = {"cljfmt"},
-                javascript = {"prettierd", "prettier", stop_after_first = true}
+                javascript = {"prettierd", "prettier", stop_after_first = true},
+                typescript = {"prettierd", "prettier", stop_after_first = true}
             }
         }
     }, { -- Autocompletion

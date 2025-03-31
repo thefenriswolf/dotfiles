@@ -6,7 +6,7 @@
   services = {
     bpftune.enable = true;
     auto-cpufreq = {
-      enable = false; # enable either auto-cpufreq or TLP
+      enable = true; # enable either auto-cpufreq or TLP
       settings = {
         battery = {
           # cpu
@@ -39,7 +39,7 @@
     };
     power-profiles-daemon.enable = false; # enable either tlp or auto-cpufreq
     tlp = {
-      enable = true; # enable either tlp or auto-cpufreq
+      enable = false; # enable either tlp or auto-cpufreq
       settings = {
         TLP_DEFAULT_MODE = "BAT"; # default power profile after boot
         TLP_PERSISTENT_DEFAULT =
