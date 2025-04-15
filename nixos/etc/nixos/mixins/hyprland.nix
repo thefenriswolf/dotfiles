@@ -1,6 +1,4 @@
-{ config, lib, pkgs, ... }:
-let unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-in {
+{ config, lib, pkgs, ... }: {
   # xwayland
   programs = {
     xwayland.enable = true;

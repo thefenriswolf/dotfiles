@@ -1,12 +1,12 @@
 with import <nixpkgs> { };
 let
   pname = "UVtools";
-  version = "5.0.8";
+  version = "5.0.9";
 
   src = fetchurl {
     url =
       "https://github.com/sn4k3/${pname}/releases/download/v${version}/${pname}_linux-x64_v${version}.AppImage";
-    hash = "sha256-yvbPQR1MOkOhC3Cr+py5p7mo+2nYps1uEHIodqIOy/M";
+    hash = "sha256-WfmErdnSOyxYl1tTAXtPhJ9idbtE2vhiF0KpGGBM70A";
   };
 
 in appimageTools.wrapType2 {

@@ -4,10 +4,12 @@
   users = {
     motd = "Get Schwifity";
     motdFile = null;
-    defaultUserShell = pkgs.zsh;
   };
 
-  programs.bcc.enable = true;
+  console = {
+    font = "Lat2-Terminus16";
+    useXkbConfig = true; # use xkbOptions in tty.
+  };
 
   programs.starship = {
     enable = true;
@@ -404,6 +406,7 @@
   };
 
   system.userActivationScripts.zshrc = "touch .zshrc";
+  users.defaultUserShell = pkgs.zsh;
   programs.zsh = {
     enable = true;
     enableCompletion = true;

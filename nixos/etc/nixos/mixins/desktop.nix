@@ -1,17 +1,12 @@
 { config, pkgs, ... }: {
 
-  # auto-enable appimage-run
-  programs.appimage = {
-    enable = true;
-    binfmt = true;
-  };
-
   services = {
     libinput.enable = true;
     desktopManager = {
       plasma6.enable = true;
       plasma6.enableQt5Integration = true;
     };
+
     displayManager = {
       defaultSession = "plasma";
       sddm = {
@@ -33,27 +28,6 @@
     };
   };
 
-  services.flatpak.enable = true;
-  systemd.services.flatpak-repo = {
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
-  };
-
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-    extraPackages = with pkgs; [ libvdpau-va-gl ];
-    extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
-  };
-
-  programs.kdeconnect = {
-    enable = false;
-    #package = pkgs.kdePackages.kdeconnect-kde;
-  };
-
   programs.thunar = {
     enable = false;
     plugins = with pkgs.xfce; [
@@ -71,32 +45,6 @@
     info.enable = false;
     doc.enable = false;
   };
-
-  services.gnome.gnome-keyring.enable = true;
-
-  services.clamav = {
-    daemon.enable = true;
-    updater.enable = true;
-    updater.frequency = 1; # updates per day
-  };
-
-  xdg.portal = {
-    enable = true;
-    wlr.enable = false;
-    # extraPortals = [ pkgs.xdg-desktop-portal-kde ];
-  };
-
-  security = {
-    rtkit.enable = true;
-    polkit.enable = true;
-  };
-
-  systemd.extraConfig = ''
-    DefaultTimeoutStartSec=30s
-    DefaultTimeoutStopSec=30s
-  '';
-
-  services.zeitgeist.enable = false;
 
   environment = {
     systemPackages = with pkgs; [
@@ -122,24 +70,13 @@
       kdePackages.dolphin
       kdePackages.dolphin-plugins
 
+      gnome-firmware
+      gparted
+
       handbrake
-      ffmpeg
-      imagemagick
 
       calibre
       mtpfs
-
-      ghostscript
-      clamav
-      swww
-      appimage-run
-
-      coreutils-full
-      uutils-coreutils
-      #uutils-coreutils-noprefix
-
-      libnotify
-      wl-clipboard
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";

@@ -1,7 +1,7 @@
 return {
     { -- https://github.com/nvim-orgmode/orgmode
         "nvim-orgmode/orgmode",
-        enabled = true,
+        enabled = false,
         lazy = true,
         -- event = "VeryLazy",
         ft = {"org"},
@@ -24,7 +24,7 @@ return {
         }
     }, {
         "lukas-reineke/headlines.nvim",
-        enabled = true,
+        enabled = false,
         lazy = true,
         dependencies = {
             "nvim-orgmode/orgmode", "nvim-treesitter/nvim-treesitter"
@@ -45,8 +45,17 @@ return {
     }, {
         "nvim-neorg/neorg",
         enabled = true,
-        lazy = true, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+        lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
         version = "*", -- Pin Neorg to the latest stable release
-        config = true
+        config = function()
+            require("neorg").setup({
+                load = {
+                    ["core.defaults"] = {},
+                    ["core.concealer"] = {},
+                    ["core.syntax"] = {},
+                    ["core.tangle"] = {}
+                }
+            })
+        end
     }
 }

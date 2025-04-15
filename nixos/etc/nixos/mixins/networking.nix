@@ -1,13 +1,12 @@
 { config, pkgs, ... }: {
 
-  # environment.systemPackages = with pkgs; [ firewalld firewalld-gui ];
+  environment.systemPackages = with pkgs; [ rsync openvpn ];
 
   networking = {
-    # nftables = { enable = true; };
     firewall = {
       enable = true;
-      #allowedTCPPorts = [ 53317 ];
-      #allowedUDPPorts = [ 53317 ];
+      #allowedTCPPorts = [ 2283 ];
+      #allowedUDPPorts = [ 2283 ];
       #allowedUDPPortRanges = [{
       #  from = 1714;
       #  to = 1764;
@@ -42,7 +41,6 @@
       "1.0.0.1#one.one.one.one"
     ];
   };
-
   # Workaround https://github.com/NixOS/nixpkgs/issues/180175
   systemd.services.NetworkManager-wait-online.enable = false;
 }

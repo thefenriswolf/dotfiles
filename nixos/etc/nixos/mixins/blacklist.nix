@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
+  services.lvm.enable = false;
+  boot.initrd.services.lvm.enable = false;
+
   boot.blacklistedKernelModules = lib.mkDefault [
     "nouveau"
     "nvidia"
