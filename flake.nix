@@ -7,21 +7,21 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     nur.url = "github:nix-community/nur";
-
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, neovim-nightly, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, neovim-nightly-overlay
+    , home-manager, ... }@inputs:
     let
       inherit (self) outputs;
       stateVersion = "24.11";
       helper = import ./lib { inherit inputs outputs stateVersion; };
-      overlays = [ neovim-nightly.overlay ];
+      overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
     in {
       nixosConfigurations = {
         desktop-stefan = nixpkgs.lib.nixosSystem {
@@ -31,30 +31,54 @@
             ./nixos/etc/nixos/hardware-configuration_raid10.nix
             ./nixos/etc/nixos/mixins/host-desktop.nix
 
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.ro = import ./home-manager/.config/home-manager/home.nix;
-              };
-            }
+            #home-manager.nixosModules.home-manager
+            #{
+            #  home-manager = {
+            #    useGlobalPkgs = true;
+            #    useUserPackages = true;
+            #    users.ro = import ./home-manager/.config/home-manager/home.nix;
+            #  };
+            # }
           ];
         };
         laptop-stefan = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
           modules = [
             ./nixos/etc/nixos/configuration.nix
-            ./nixos/etc/nixos/hardware-configuration_sd_zfs.nix
+            ./nixos/etc/nixos/hardware-configuration-sd-zfs.nix
             ./nixos/etc/nixos/mixins/host-laptop.nix
 
-            home-manager.nixosModules.home-manager
+            ./nixos/etc/nixos/mixins/blacklist.nix
+            ./nixos/etc/nixos/mixins/bluetooth.nix
+            ./nixos/etc/nixos/mixins/cli.nix
+            ./nixos/etc/nixos/mixins/core.nix
+            ./nixos/etc/nixos/mixins/desktop.nix
+            ./nixos/etc/nixos/mixins/dev.nix
+            ./nixos/etc/nixos/mixins/editors.nix
+            #./nixos/etc/nixos/mixins/filesystem_btrfs.nix
+            ./nixos/etc/nixos/mixins/filesystem_zfs.nix
+            #./nixos/etc/nixos/mixins/gaming.nix
+            ./nixos/etc/nixos/mixins/graphics.nix
+            #./nixos/etc/nixos/mixins/hyperland.nix
+            #./nixos/etc/nixos/mixins/ios.nix
+            ./nixos/etc/nixos/mixins/locale.nix
+            ./nixos/etc/nixos/mixins/networking.nix
+            ./nixos/etc/nixos/mixins/nix.nix
+            ./nixos/etc/nixos/mixins/non-nixpkgs.nix
+            ./nixos/etc/nixos/mixins/performance.nix
+            ./nixos/etc/nixos/mixins/powersave.nix
+            ./nixos/etc/nixos/mixins/printing.nix
+            ./nixos/etc/nixos/mixins/security.nix
+            #./nixos/etc/nixos/mixins/server.nix
+            ./nixos/etc/nixos/mixins/sound.nix
+            ./nixos/etc/nixos/mixins/ssh.nix
+            ./nixos/etc/nixos/mixins/sync.nix
+            ./nixos/etc/nixos/mixins/theming.nix
+            ./nixos/etc/nixos/mixins/virt.nix
+
             {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.ro = import ./home-manager/.config/home-manager/home.nix;
-              };
+              nixpkgs.overlays = overlays;
             }
           ];
         };

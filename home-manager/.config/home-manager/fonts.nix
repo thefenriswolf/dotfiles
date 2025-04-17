@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  fonts.fontconfig.enable = true;
+  #fonts.fontconfig.enable = true;
   home.packages = [
     pkgs.jetbrains-mono
     pkgs.fira-code

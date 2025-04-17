@@ -18,6 +18,13 @@
       kwalletmanager
     ];
     xfce.excludePackages = [ ];
-    gnome.excludePackages = [ ];
+    gnome.excludePackages = with pkgs; [
+      geary
+      epiphany
+      gnome-music
+      gnome-tour
+      totem
+      gnome-text-editor
+    ];
   };
 }

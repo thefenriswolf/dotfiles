@@ -27,27 +27,27 @@
   # changes in each release.
 
   # home manager settings
-  #programs.home-manager.enable = true;
-  #news.display = "silent";
+  # programs.home-manager.enable = true;
+  # news.display = "silent";
 
   imports = [
-    ./cli.nix
-    ./media.nix
-    ./crypt.nix
-    ./programming.nix
+    #./cli.nix
+    #./media.nix
+    #./crypt.nix
+    #./programming.nix
     #./hypr.nix
-    ./benchmark.nix
-    ./git.nix
-    ./emacs.nix
-    ./nvim.nix
+    #./benchmark.nix
+    #./git.nix
+    #./emacs.nix
+    #./nvim.nix
     #./zsh.nix
-    ./latex.nix
-    ./fonts.nix
+    #./latex.nix
+    #./fonts.nix
     #./alien.nix
     #./themes.nix
   ];
 
-  xdg.enable = true;
+  # xdg.enable = true;
   # nix settings
   #  nixpkgs.config = {
   #    allowUnfree = true;
@@ -61,7 +61,7 @@
 
   # enable gui integration on non-nixos
   # targets.genericLinux.enable = true;
-  xdg.mime.enable = true;
+  # xdg.mime.enable = true;
 
   home.packages = [ ];
 }

@@ -6,7 +6,7 @@
   #######
 
   services.zfs.autoScrub = {
-    enable = true;
+    enable = false;
     interval = "monthly";
     pools = [ ]; # scrub all
     randomizedDelaySec = "1h";

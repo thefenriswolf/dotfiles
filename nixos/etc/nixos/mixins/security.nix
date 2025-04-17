@@ -5,7 +5,7 @@
   services.gnome.gnome-keyring.enable = true;
   services.clamav = {
     daemon.enable = false;
-    updater.enable = true;
+    updater.enable = false;
     updater.frequency = 1; # updates per day
   };
 
@@ -16,7 +16,7 @@
     };
     rtkit.enable = true;
     polkit.enable = true;
-    auditd.enable = true;
+    auditd.enable = false;
     allowSimultaneousMultithreading = true;
     sudo = {
       enable = true;

@@ -6,43 +6,12 @@
 # rebuild: sudo nixos-rebuild boot --flake '.#laptop-stefan' --impure
 { config, pkgs, ... }: {
 
-  imports = [
-    ./mixins/blacklist.nix
-    ./mixins/bluetooth.nix
-    ./mixins/cli.nix
-    ./mixins/core.nix
-    ./mixins/desktop.nix
-    ./mixins/dev.nix
-    ./mixins/editors.nix
-    #./mixins/filesystem_btrfs.nix
-    ./mixins/filesystem_zfs.nix
-    ./mixins/gaming.nix
-    ./mixins/graphics.nix
-    #./mixins/hyperland.nix
-    #./mixins/ios.nix
-    ./mixins/locale.nix
-    ./mixins/networking.nix
-    ./mixins/nix.nix
-    ./mixins/non-nixpkgs.nix
-    ./mixins/performance.nix
-    ./mixins/powersave.nix
-    ./mixins/printing.nix
-    ./mixins/security.nix
-    #./mixins/server.nix
-    ./mixins/sound.nix
-    ./mixins/ssh.nix
-    ./mixins/sync.nix
-    ./mixins/theming.nix
-    ./mixins/virt.nix
-  ];
+  imports = [ ];
 
   programs.direnv.enable = true;
   programs.dconf.enable = true;
   services.dbus.enable = true;
   services.gvfs.enable = true;
-
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
 
   programs = {
     gnome-disks.enable = true;

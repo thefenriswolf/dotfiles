@@ -1,24 +1,39 @@
 { config, pkgs, ... }: {
 
+  programs.thunderbird = { enable = true; };
+
   services = {
+    gnome = {
+      games.enable = false;
+      core-utilities.enable = true;
+      sushi.enable = true;
+      gnome-browser-connector.enable = false;
+      rygel.enable = false;
+    };
     libinput.enable = true;
     desktopManager = {
-      plasma6.enable = true;
-      plasma6.enableQt5Integration = true;
+      plasma6.enable = false;
+      plasma6.enableQt5Integration = false;
     };
 
     displayManager = {
-      defaultSession = "plasma";
+      autoLogin.enable = false;
+      #defaultSession = "plasma";
       sddm = {
-        enable = true;
+        enable = false;
         wayland.enable = true;
         autoNumlock = true;
         enableHidpi = true;
       };
     };
-
     xserver = {
       enable = true;
+      displayManager.gdm = {
+        enable = true;
+        wayland = true;
+        autoSuspend = false;
+      };
+      desktopManager.gnome.enable = true;
       videoDrivers = [ "amdgpu" ];
       xkb = {
         layout = "at";
@@ -55,27 +70,28 @@
       hunspellDicts.en_GB-large
       inkscape-with-extensions
 
-      kdePackages.skanlite
-      kdePackages.ark
-      kdePackages.okular
-      kdePackages.spectacle
-      kdePackages.networkmanager-qt
-      kdePackages.kcalc
-      kdePackages.kio
-      kdePackages.kio-fuse
-      kdePackages.kio-extras
-      kdePackages.kmag
-      kdePackages.qtsvg
-      kdePackages.kate
-      kdePackages.dolphin
-      kdePackages.dolphin-plugins
+      #kdePackages.skanlite
+      #kdePackages.ark
+      #kdePackages.okular
+      #kdePackages.spectacle
+      #kdePackages.networkmanager-qt
+      #kdePackages.kcalc
+      #kdePackages.kio
+      #kdePackages.kio-fuse
+      #kdePackages.kio-extras
+      #kdePackages.kmag
+      #kdePackages.qtsvg
+      #kdePackages.kate
+      #kdePackages.dolphin
+      #kdePackages.dolphin-plugins
 
       gnome-firmware
+      gnomeExtensions.dash-to-panel
       gparted
 
       handbrake
 
-      calibre
+      #calibre
       mtpfs
     ];
     sessionVariables = {

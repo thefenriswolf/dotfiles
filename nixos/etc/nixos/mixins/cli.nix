@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
 {
+  environment.systemPackages = with pkgs; [ zoxide ripgrep fzf yazi alacritty ];
+
   users = {
     motd = "Get Schwifity";
     motdFile = null;
@@ -419,8 +421,10 @@
     };
     syntaxHighlighting.enable = true;
     enableLsColors = true;
-    shellInit =
-      "if [ -e /home/ro/.nix-profile/etc/profile.d/nix.sh ]; then . /home/ro/.nix-profile/etc/profile.d/nix.sh; fi";
+    shellInit = ''
+      eval "$(zoxide init zsh)"
+        if [ -e /home/ro/.nix-profile/etc/profile.d/nix.sh ]; then . /home/ro/.nix-profile/etc/profile.d/nix.sh; fi 
+    '';
     shellAliases = {
       ssh = "TERM=xterm-256color ssh";
       l = "ls -lisah";
@@ -428,24 +432,23 @@
       emacs = "emacs -nw";
       nvimperf = "nvim --startuptime /tmp/nvperf.log";
       # ll = "eza -l --no-user";
-      cat = "bat";
+      #cat = "bat";
       find = "fd";
       ps = "procs";
       watch = "viddy";
-      ping = "gping";
+      #ping = "gping";
       egrep = "egrep --colour=auto";
       fgrep = "fgrep --colour=auto";
       free = "free -m";
-      btrfsfree = "sudo btrfs fi us /";
-      emc = "emacsclient -t";
-      emd = "emacs --daemon";
-      e = "emacsclient -ca '''''' ";
-      nut =
-        "cd /tmp && sudo nixos-rebuild build && nvd --color auto diff /run/current-system /tmp/result && notify-me";
-      nub = "sudo nixos-rebuild boot --upgrade && notify-me";
-      nus = "sudo nixos-rebuild switch&& notify-me";
+      #btrfsfree = "sudo btrfs fi us /";
+      #emc = "emacsclient -t";
+      #emd = "emacs --daemon";
+      #e = "emacsclient -ca '''''' ";
+      #nut = "cd /tmp && sudo nixos-rebuild build && nvd --color auto diff /run/current-system /tmp/result && notify-me";
+      #nub = "sudo nixos-rebuild boot --upgrade && notify-me";
+      #nus = "sudo nixos-rebuild switch&& notify-me";
       notify-me = "notify-send -u normal -t 2000 done";
-      gdrivesync = "google-drive-ocamlfuse ~/GDrive";
+      #gdrivesync = "google-drive-ocamlfuse ~/GDrive";
       #todo = "~/org/odo ~/org/todo.org";
       #todo = "sh ~/.config/doom/tdcmd.sh t";
       #agenda = "sh ~/.config/doom/tdcmd.sh a";

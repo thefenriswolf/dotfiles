@@ -97,10 +97,11 @@
   };
 
   environment = {
-    systemPackages = with pkgs; [
-      power-calibrate
-      # lact
-      powertop
-    ];
+    systemPackages = with pkgs;
+      [
+        # power-calibrate
+        # lact
+        # powertop
+      ];
   };
 }
