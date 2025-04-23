@@ -7,6 +7,8 @@
       games.enable = false;
       core-utilities.enable = true;
       sushi.enable = true;
+      gnome-online-accounts.enable = false;
+      gnome-remote-desktop.enable = false;
       gnome-browser-connector.enable = false;
       rygel.enable = false;
     };
@@ -33,7 +35,7 @@
         wayland = true;
         autoSuspend = false;
       };
-      desktopManager.gnome.enable = true;
+      desktopManager = { gnome = { enable = true; }; };
       videoDrivers = [ "amdgpu" ];
       xkb = {
         layout = "at";

@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, inputs, ... }:
+let
+  uvtools = import ./custom-packages/uvtools.nix { inherit pkgs; };
+  lychee = import ./custom-packages/lychee.nix { inherit pkgs; };
+in {
   # discover network printers
   services.avahi = {
     enable = true;
@@ -30,6 +34,9 @@
     sane-frontends
     libinsane
     ink
+
+    uvtools
+    lychee
     #paperwork
   ];
 }

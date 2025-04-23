@@ -61,7 +61,8 @@ return {
     lua_ls = {
         mason = false,
         enable = true,
-        cmd = {'lua-lsp'},
+        -- cmd = {'lua-lsp'},
+        cmd = {'/run/current-system/sw/bin/lua-language-server'},
         filetypes = {'lua'},
         -- capabilities = {},
         settings = {

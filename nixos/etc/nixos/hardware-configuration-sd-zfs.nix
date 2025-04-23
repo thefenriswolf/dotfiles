@@ -53,15 +53,15 @@
     fsType = "zfs";
   };
 
-  # fileSystems."/home/models" =
-  #   { device = "dpool/root/models";
-  #     fsType = "zfs";
-  #   };
+  fileSystems."/home/ro/playground" = {
+    device = "zpool/playground";
+    fsType = "zfs";
+  };
 
-  # fileSystems."/home/storage" =
-  #   { device = "dpool/root/storage";
-  #     fsType = "zfs";
-  #   };
+  fileSystems."/home/ro/storage" = {
+    device = "zpool/storage";
+    fsType = "zfs";
+  };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/06DD-306D";

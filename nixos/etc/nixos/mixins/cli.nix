@@ -1,7 +1,14 @@
 { config, lib, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [ zoxide ripgrep fzf yazi alacritty ];
+  environment.systemPackages = with pkgs; [
+    zoxide
+    ripgrep
+    fzf
+    yazi
+    alacritty
+    ghostty
+  ];
 
   users = {
     motd = "Get Schwifity";
@@ -412,6 +419,8 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
+    enableBashCompletion = true;
+    syntaxHighlighting.enable = true;
     vteIntegration = true;
     setOptions = [ "AUTO_CD" "HIST_IGNORE_DUPS" ];
     histSize = 50000;
@@ -419,7 +428,6 @@
       enable = true;
       async = true;
     };
-    syntaxHighlighting.enable = true;
     enableLsColors = true;
     shellInit = ''
       eval "$(zoxide init zsh)"

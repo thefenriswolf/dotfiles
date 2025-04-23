@@ -2,6 +2,7 @@
 
 {
   programs.bcc.enable = true;
+  services.sysprof.enable = true;
 
   zramSwap = {
     enable = true;
