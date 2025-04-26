@@ -30,7 +30,7 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./nixos/etc/nixos/configuration.nix
-            ./nixos/etc/nixos/hardware-configuration_raid10.nix
+            ./nixos/etc/nixos/hardware-configuration_raid10_zfs.nix
             ./nixos/etc/nixos/mixins/host-desktop.nix
 
             ./nixos/etc/nixos/mixins/blacklist.nix
