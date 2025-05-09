@@ -10,11 +10,11 @@ pkgs.rustPlatform.buildRustPackage {
   src = pkgs.fetchFromGitHub {
     owner = "Wolfyxon";
     repo = "lover";
-    rev = "v2.1.1";
-    hash = "sha256-+RTX6ID/PqK0eGoypl4vudC/ug7ubfLb/UmTKNvNyDk=";
+    rev = "033b5584e050fc950386d93c2dd389d9630b46a9"; # latest commit
+    hash = "sha256-Y96YosbKv0u5AuMvPQhLO0yZM4U8G9g2fFgAWfJyJyc=";
   };
   useFetchCargoVendor = true;
-  cargoHash = "sha256-jXglMIEr48RO4FYIcR7ipzDcv6L+dlWFsKFBfooWNW8=";
+  cargoHash = "sha256-/4aXFMpH+86KpkOaqmcKF585jfI+vz0qESw5rMfLbTI=";
 
   meta = with pkgs.lib; {
     description = "Love2D runner and cross platform builder inspired by Cargo";

@@ -6,8 +6,11 @@
     ripgrep
     fzf
     yazi
-    alacritty
     ghostty
+    usbutils
+    btop
+    fastfetch
+    inotify-tools
   ];
 
   users = {

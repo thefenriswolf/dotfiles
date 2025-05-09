@@ -1,23 +1,29 @@
 # https://github.com/nmasur/dotfiles/blob/b282e76be4606d9f2fecc06d2dc8e58d5e3514be/flake.nix
 # https://nixos-and-flakes.thiscute.world/nixos-with-flakes/start-using-home-manager
 # https://github.com/wimpysworld/nix-config/blob/main/flake.nix
+# https://laniakita.com/blog/nixos-fde-tpm-hm-guide#introduction
+
 {
   description = "thefenriswolf's NixOS configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nur.url = "github:nix-community/nur";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    #home-manager = {
-    #  url = "github:nix-community/home-manager";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
-  };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, neovim-nightly-overlay,
-    #home-manager, 
-    ... }@inputs:
+    nur.url = "github:nix-community/nur";
+
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+  outputs = { self, nixpkgs, nur, nixpkgs-unstable, neovim-nightly-overlay
+    , home-manager, ... }@inputs:
     let
       inherit (self) outputs;
       stateVersion = "24.11";
@@ -29,6 +35,8 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
+            { nixpkgs.overlays = overlays; }
+
             ./nixos/etc/nixos/configuration.nix
             ./nixos/etc/nixos/hardware-configuration_raid10.nix
             ./nixos/etc/nixos/mixins/host-desktop.nix
@@ -60,8 +68,6 @@
             ./nixos/etc/nixos/mixins/sync.nix
             ./nixos/etc/nixos/mixins/theming.nix
             ./nixos/etc/nixos/mixins/virt.nix
-
-            { nixpkgs.overlays = overlays; }
           ];
         };
         laptop-stefan = nixpkgs.lib.nixosSystem {

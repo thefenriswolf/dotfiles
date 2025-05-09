@@ -1,4 +1,5 @@
 { config, lib, pkgs, inputs, ... }:
+
 let lover = import ./custom-packages/lover.nix { inherit pkgs; };
 
 in {
@@ -139,11 +140,6 @@ in {
     vimAlias = true;
     viAlias = true;
     defaultEditor = true;
-    configure = {
-      # lib.fileContents /home/ro/playground/dotfiles/nvim/init.lua;
-      # luafile ${/home/ro/playground/dotfiles/nvim/init.lua}
-      #customRC = '' '';
-    };
   };
 
   services.emacs = { enable = true; };

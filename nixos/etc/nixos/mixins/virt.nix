@@ -10,17 +10,27 @@
     crun
     ventoy-full
     quickemu
+    swtpm
     qemu_full
-    #   quickgui
+    gnome-boxes
+    quickgui
   ];
-
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = [ "ro" ];
+  users.users.ro.extraGroups = [ "libvirtd" ];
   virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu.swtpm.enable = true;
+    };
+    spiceUSBRedirection.enable = true;
+
     podman = {
       enable = true;
       defaultNetwork = { settings = { dns_enabled = true; }; };
       autoPrune = {
         dates = "monthly";
-        enable = false;
+        enable = true;
       };
     };
   };

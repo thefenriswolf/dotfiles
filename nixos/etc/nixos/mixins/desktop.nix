@@ -92,6 +92,8 @@
       gparted
 
       handbrake
+      mpv
+      yt-dlp
 
       #calibre
       mtpfs

@@ -51,12 +51,11 @@ return {
     --    https://github.com/pmizio/typescript-tools.nvim
     --
     -- But for many setups, the LSP (`ts_ls`) will work just fine
-    ts_ls = {mason = false, enable = true, filetypes = {'ts', 'js'}},
-    omnisharp = {
+    ts_ls = {
         mason = false,
-        enable = false,
-        cmd = {'OmniSharp', '-lsp'},
-        filetypes = {'cs', 'fs'}
+        enable = true,
+        cmd = "/run/current-system/sw/bin/typescript-language-server",
+        filetypes = {'ts', 'js'}
     },
     lua_ls = {
         mason = false,
