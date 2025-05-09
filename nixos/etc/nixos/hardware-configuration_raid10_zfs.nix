@@ -4,16 +4,21 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-    ./mixins/filesystem_zfs.nix
-    ./mixins/blacklist.nix
-  ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   services.fwupd.enable = true;
   networking.hostId = "8c884ab5";
 
   boot = {
+    loader = {
+      efi.canTouchEfiVariables = true;
+      timeout = 1;
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 10;
+        memtest86.enable = true;
+      };
+    };
     zfs = {
       package = pkgs.zfs;
       allowHibernation = false;

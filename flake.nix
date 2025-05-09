@@ -35,10 +35,9 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            { nixpkgs.overlays = overlays; }
 
             ./nixos/etc/nixos/configuration.nix
-            ./nixos/etc/nixos/hardware-configuration_raid10.nix
+            ./nixos/etc/nixos/hardware-configuration_raid10_zfs.nix
             ./nixos/etc/nixos/mixins/host-desktop.nix
 
             ./nixos/etc/nixos/mixins/blacklist.nix
@@ -68,6 +67,8 @@
             ./nixos/etc/nixos/mixins/sync.nix
             ./nixos/etc/nixos/mixins/theming.nix
             ./nixos/etc/nixos/mixins/virt.nix
+
+            { nixpkgs.overlays = overlays; }
           ];
         };
         laptop-stefan = nixpkgs.lib.nixosSystem {

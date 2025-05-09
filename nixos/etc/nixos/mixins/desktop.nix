@@ -88,6 +88,10 @@
       #kdePackages.dolphin-plugins
 
       gnome-firmware
+      gnome-tweaks
+      adwaita-icon-theme
+      numix-cursor-theme
+      numix-icon-theme
       gnomeExtensions.dash-to-panel
       gparted
 
