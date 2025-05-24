@@ -508,7 +508,7 @@ require("lazy").setup({
                     local client = vim.lsp
                                        .get_client_by_id(event.data.client_id)
                     if client and
-                        client.supports_method(
+                        client:supports_method(
                             vim.lsp.protocol.Methods
                                 .textDocument_documentHighlight) then
                         local highlight_augroup =
@@ -548,7 +548,7 @@ require("lazy").setup({
                     --
                     -- This may be unwanted, since they displace some of your code
                     if client and
-                        client.supports_method(
+                        client:supports_method(
                             vim.lsp.protocol.Methods.textDocument_inlayHint) then
                         map("<leader>th", function()
                             vim.lsp.inlay_hint.enable(
@@ -596,7 +596,7 @@ require("lazy").setup({
                 -- "stylua" -- Used to format Lua code
             })
             require("mason-tool-installer").setup({
-                ensure_installed = ensure_installed
+                -- ensure_installed = ensure_installed
             })
 
             require("mason-lspconfig").setup({

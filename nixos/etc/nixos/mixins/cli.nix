@@ -11,6 +11,8 @@
     btop
     fastfetch
     inotify-tools
+    tldr
+    file
   ];
 
   users = {

@@ -1,5 +1,8 @@
 { config, pkgs, ... }: {
 
+  system.rebuild.enableNg = true;
+  system.switch.enableNg = true;
+
   nix = {
     sshServe = {
       enable = false;

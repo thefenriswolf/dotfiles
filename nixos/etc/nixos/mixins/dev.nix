@@ -4,6 +4,7 @@ in {
   services.lorri.enable = true;
   environment.systemPackages = with pkgs; [
     git
+    wine64
     unstable.zig
     unstable.zls
     unstable.odin

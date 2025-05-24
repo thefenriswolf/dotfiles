@@ -13,7 +13,7 @@
       dina-font
       proggyfonts
       jetbrains-mono
-      nerdfonts
+      nerd-fonts.fira-code
       corefonts
       vistafonts
       nerd-font-patcher

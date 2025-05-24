@@ -8,7 +8,7 @@
     podman-compose
     runc
     crun
-    ventoy-full
+    #ventoy-full
     quickemu
     swtpm
     qemu_full

@@ -7,7 +7,7 @@
   description = "thefenriswolf's NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nur.url = "github:nix-community/nur";
@@ -26,7 +26,7 @@
     , home-manager, ... }@inputs:
     let
       inherit (self) outputs;
-      stateVersion = "24.11";
+      stateVersion = "25.05";
       helper = import ./lib { inherit inputs outputs stateVersion; };
       overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
     in {
@@ -35,7 +35,6 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-
             ./nixos/etc/nixos/configuration.nix
             ./nixos/etc/nixos/hardware-configuration_raid10_zfs.nix
             ./nixos/etc/nixos/mixins/host-desktop.nix
