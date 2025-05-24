@@ -19,8 +19,8 @@
           #scaling_max_freq=;
           # battery
           enable_thresholds = true;
-          start_threshold = 30;
-          stop_threshold = 80;
+          #start_threshold = 30;
+          #stop_threshold = 80;
         };
         charger = {
           governor = "performance";
@@ -32,8 +32,8 @@
           #scaling_max_freq=;
           # battery
           enable_thresholds = true;
-          start_threshold = 30;
-          stop_threshold = 80;
+          #start_threshold = 30;
+          #stop_threshold = 80;
         };
       };
     };

@@ -5,7 +5,7 @@
   services = {
     gnome = {
       games.enable = false;
-      core-utilities.enable = true;
+      core-apps.enable = true;
       sushi.enable = true;
       gnome-online-accounts.enable = false;
       gnome-remote-desktop.enable = false;

@@ -60,9 +60,13 @@ return {
     lua_ls = {
         mason = false,
         enable = true,
-        -- cmd = {'lua-lsp'},
-        cmd = {'/run/current-system/sw/bin/lua-language-server'},
+        cmd = {'lua-language-server'},
+        -- cmd = {'/run/current-system/sw/bin/lua-language-server'},
         filetypes = {'lua'},
+        root_markers = {
+            ".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml",
+            "stylua.toml", "selene.toml", "selene.yml", "lover.toml"
+        },
         -- capabilities = {},
         settings = {
             Lua = {

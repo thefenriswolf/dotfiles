@@ -12,6 +12,7 @@
 
   services.fwupd.enable = true;
   networking.hostId = "8c884ab5";
+  services.ncps.cache.hostName = "laptop-stefan";
 
   boot = {
     loader = {

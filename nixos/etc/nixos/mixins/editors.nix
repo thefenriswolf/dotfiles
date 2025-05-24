@@ -8,10 +8,17 @@ in {
     stylua
     luaformatter
     lua
+    luajit
     lua52Packages.lua-lsp
+    lua52Packages.luacheck
     lua-language-server
     ltex-ls
     fd
+    viu
+    chafa
+    ueberzugpp
+
+    emacs
 
     # shell
     shfmt
@@ -142,7 +149,7 @@ in {
     defaultEditor = true;
   };
 
-  services.emacs = { enable = true; };
+  services.emacs = { enable = false; };
 
 }
 

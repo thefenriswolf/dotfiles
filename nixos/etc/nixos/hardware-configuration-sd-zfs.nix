@@ -5,6 +5,8 @@
 
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  services.fwupd.enable = true;
+  services.ncps.cache.hostName = "laptop-stefan";
 
   networking.hostId = "8c884ab5";
   boot = {
