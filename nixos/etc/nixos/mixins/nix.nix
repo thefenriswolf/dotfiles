@@ -3,6 +3,13 @@
   system.rebuild.enableNg = true;
   system.switch.enableNg = true;
 
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/ro/playground/dotfiles";
+  };
+
   services.ncps = { # https://github.com/kalbasit/ncps
     enable = true;
     upstream.caches = [ "https://cache.nixos.org" ];
@@ -16,7 +23,7 @@
     };
     optimise.automatic = true;
     gc = {
-      automatic = true;
+      automatic = false;
       dates = "weekly";
       options = "--delete-older-than 7d";
     };

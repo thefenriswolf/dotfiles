@@ -1,6 +1,8 @@
 -- Names must conform to: 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 return {
+    csharp_ls = {mason = false, enable = true},
+    omnisharp = {mason = false, enable = false},
     ltex = {
         mason = false,
         enable = true,

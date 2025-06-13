@@ -6,6 +6,8 @@
     ripgrep
     fzf
     yazi
+    neofetch
+    scriptisto
     ghostty
     usbutils
     btop
