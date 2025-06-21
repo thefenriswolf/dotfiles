@@ -12,6 +12,7 @@
 
   services.ncps = { # https://github.com/kalbasit/ncps
     enable = true;
+    server.addr = ":8501";
     upstream.caches = [ "https://cache.nixos.org" ];
     openTelemetry.enable = false;
   };
@@ -31,9 +32,11 @@
       allowed-users = [ "@wheel" ];
       experimental-features = [ "nix-command" "flakes" ];
       auto-optimise-store = true;
-      substituters = [ "http://192.168.1.108" ];
-      trusted-public-keys =
-        [ "laptop-stefan:wKNpmUwSoyIZl4HO3bqwOAqKXbvJ3WkWHuXgskwxPSk=" ];
+      substituters = [ "http://192.168.1.108" "192.168.1.107" ]; # port 8501
+      trusted-public-keys = [
+        "laptop-stefan:wKNpmUwSoyIZl4HO3bqwOAqKXbvJ3WkWHuXgskwxPSk="
+        "desktop-stefan:fBJWXy7DhcVKTLSAqIgUlgm4/c71735n2r4tb7RbMDM="
+      ];
     };
   };
 
