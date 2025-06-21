@@ -1,8 +1,12 @@
 -- Names must conform to: 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 return {
-    csharp_ls = {mason = false, enable = true},
-    omnisharp = {mason = false, enable = false},
+    scheme_langserver = {
+        mason = false,
+        enable = true
+        -- cmd = {"scheme-langserver", "~/.scheme-langserver.log", "enable", "disable"}
+    },
+    omnisharp = {mason = false, enable = true, filetypes = {'cs'}},
     ltex = {
         mason = false,
         enable = true,
@@ -18,6 +22,12 @@ return {
             }
         }
     },
+    erlang_ls = {
+        mason = false,
+        enable = true,
+        cmd = {"erlang_ls"},
+        filetypes = {"erlang"}
+    },
     texlab = {
         mason = false,
         enable = false,
@@ -26,7 +36,7 @@ return {
     },
     ols = {
         mason = false,
-        enable = false,
+        enable = true,
         cmd = {'ols'},
         fileypes = {'odin'}
         -- settings = {checker_args = "-strict-style"}
@@ -39,12 +49,7 @@ return {
     },
 
     -- clangd = {},
-    gopls = {
-        mason = false,
-        enable = true,
-        -- cmd={'gopls'},
-        filetypes = {'go'}
-    },
+    gopls = {mason = false, enable = true, cmd = {'gopls'}, filetypes = {'go'}},
     -- pyright = {},
     -- rust_analyzer = {},
     -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -55,15 +60,14 @@ return {
     -- But for many setups, the LSP (`ts_ls`) will work just fine
     ts_ls = {
         mason = false,
-        enable = true,
-        cmd = "/run/current-system/sw/bin/typescript-language-server",
+        enable = false,
+        cmd = "typescript-language-server",
         filetypes = {'ts', 'js'}
     },
     lua_ls = {
         mason = false,
         enable = true,
         cmd = {'lua-language-server'},
-        -- cmd = {'/run/current-system/sw/bin/lua-language-server'},
         filetypes = {'lua'},
         root_markers = {
             ".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml",

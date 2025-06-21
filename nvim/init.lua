@@ -655,6 +655,7 @@ require("lazy").setup({
                 c = {"clang-format"},
                 haskell = {"hindent"},
                 beancount = {"bean-format"},
+                erlang = {"efmt"},
                 kotlin = {"ktlint -F"},
                 lua = {"lua-format", "stylua", stop_after_first = true},
                 odin = {"odinfmt"},
