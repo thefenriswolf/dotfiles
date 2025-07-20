@@ -39,7 +39,6 @@
       ];
     };
   };
-
   nixpkgs.config = { allowUnfree = true; };
   environment.systemPackages = [ pkgs.nixfmt-classic pkgs.nixd ];
 }

@@ -5,6 +5,9 @@
     zoxide
     ripgrep
     fzf
+    eza
+    fd
+    isd
     yazi
     neofetch
     scriptisto

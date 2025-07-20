@@ -9,11 +9,11 @@
     runc
     crun
     #ventoy-full
-    quickemu
+    # quickemu
     swtpm
     qemu_full
-    gnome-boxes
-    quickgui
+    # gnome-boxes
+    # quickgui
   ];
   programs.virt-manager.enable = true;
   users.groups.libvirtd.members = [ "ro" ];

@@ -18,8 +18,13 @@
     polkit.enable = true;
     auditd.enable = false;
     allowSimultaneousMultithreading = true;
-    sudo = {
+    sudo-rs = {
       enable = true;
+      wheelNeedsPassword = true;
+      execWheelOnly = true;
+    };
+    sudo = {
+      enable = false;
       execWheelOnly = true;
     };
   };
