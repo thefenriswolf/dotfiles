@@ -31,7 +31,15 @@
     [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
+  boot.kernelPackages = let
+    pkgs = import <nixpkgs> {
+      overlays = [
+        (self: super: {
+          stdenv = super.impureUseNativeOptimizations super.stdenv;
+        })
+      ];
+    };
+  in pkgs.linuxPackages_6_12;
   boot.extraModulePackages = [ ];
   boot.supportedFilesystems = [ "zfs" "vfat" ];
 
