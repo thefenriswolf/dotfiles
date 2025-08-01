@@ -2,7 +2,7 @@
 
   environment.systemPackages = with pkgs; [
     widevine-cdm
-    firefox
+    # firefox
 
     tree
     git

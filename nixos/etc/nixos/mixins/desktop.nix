@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
 
-  programs.thunderbird = { enable = true; };
+  programs.thunderbird = { enable = false; };
 
   services = {
     gnome = {
