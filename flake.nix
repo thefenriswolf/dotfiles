@@ -17,6 +17,8 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    tiddlydesktop = { url = "github:TiddlyWiki/TiddlyDesktop"; };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -46,12 +48,9 @@
             ./nixos/etc/nixos/mixins/desktop.nix
             ./nixos/etc/nixos/mixins/dev.nix
             ./nixos/etc/nixos/mixins/editors.nix
-            #./nixos/etc/nixos/mixins/filesystem_btrfs.nix
             ./nixos/etc/nixos/mixins/filesystem_zfs.nix
             ./nixos/etc/nixos/mixins/gaming.nix
             ./nixos/etc/nixos/mixins/graphics.nix
-            #./nixos/etc/nixos/mixins/hyperland.nix
-            #./nixos/etc/nixos/mixins/ios.nix
             ./nixos/etc/nixos/mixins/locale.nix
             ./nixos/etc/nixos/mixins/networking.nix
             ./nixos/etc/nixos/mixins/nix.nix
@@ -60,7 +59,6 @@
             ./nixos/etc/nixos/mixins/powersave.nix
             ./nixos/etc/nixos/mixins/printing.nix
             ./nixos/etc/nixos/mixins/security.nix
-            #./nixos/etc/nixos/mixins/server.nix
             ./nixos/etc/nixos/mixins/sound.nix
             ./nixos/etc/nixos/mixins/ssh.nix
             ./nixos/etc/nixos/mixins/sync.nix
@@ -85,12 +83,8 @@
             ./nixos/etc/nixos/mixins/desktop.nix
             ./nixos/etc/nixos/mixins/dev.nix
             ./nixos/etc/nixos/mixins/editors.nix
-            #./nixos/etc/nixos/mixins/filesystem_btrfs.nix
             ./nixos/etc/nixos/mixins/filesystem_zfs.nix
-            #./nixos/etc/nixos/mixins/gaming.nix
             ./nixos/etc/nixos/mixins/graphics.nix
-            #./nixos/etc/nixos/mixins/hyperland.nix
-            #./nixos/etc/nixos/mixins/ios.nix
             ./nixos/etc/nixos/mixins/locale.nix
             ./nixos/etc/nixos/mixins/networking.nix
             ./nixos/etc/nixos/mixins/nix.nix
@@ -99,7 +93,6 @@
             ./nixos/etc/nixos/mixins/powersave.nix
             ./nixos/etc/nixos/mixins/printing.nix
             ./nixos/etc/nixos/mixins/security.nix
-            #./nixos/etc/nixos/mixins/server.nix
             ./nixos/etc/nixos/mixins/sound.nix
             ./nixos/etc/nixos/mixins/ssh.nix
             ./nixos/etc/nixos/mixins/sync.nix

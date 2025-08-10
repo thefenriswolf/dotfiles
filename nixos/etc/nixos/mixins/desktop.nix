@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, inputs, ... }: {
 
   programs.thunderbird = { enable = false; };
 
@@ -99,6 +99,8 @@
       mpv
       yt-dlp
 
+      inputs.tiddlydesktop.packages.x86_64-linux.tiddlydesktop
+
       #calibre
       mtpfs
     ];
@@ -107,12 +109,12 @@
       WLR_NO_HARDWARE_CURSORS = "1";
     };
     variables = {
-      # # XCURSOR_SIZE = "24";
-      # XDG_CURRENT_DESKTOP = "Hyprland";
-      # XDG_SESSION_TYPE = "wayland";
-      # XDG_SESSION_DESKTOP = "Hyprland";
-      GDK_BACKEND = "wayland,x11";
-      QT_QPA_PLATFORM = "wayland;xcb";
+      #      XCURSOR_SIZE = "24";
+      #      XDG_CURRENT_DESKTOP = "Hyprland";
+      XDG_SESSION_TYPE = "wayland";
+      #      XDG_SESSION_DESKTOP = "Hyprland";
+      #      GDK_BACKEND = "wayland,x11";
+      #      QT_QPA_PLATFORM = "wayland;xcb";
       #  QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       #  QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       OZONE_PLATFORM = "wayland";

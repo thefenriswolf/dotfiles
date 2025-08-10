@@ -18,7 +18,7 @@ in {
     chafa
     ueberzugpp
 
-    emacs
+    #emacs
 
     # shell
     shfmt
@@ -78,8 +78,8 @@ in {
     #pkgs.ols
 
     # lua
-    love
-    lover
+    #love
+    #lover
 
     # scheme
     # pkgs.chicken
