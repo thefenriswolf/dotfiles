@@ -1,7 +1,7 @@
 { config, pkgs, inputs, ... }:
 let
   uvtools = import ./custom-packages/uvtools.nix { inherit pkgs; };
-  #lychee = import ./custom-packages/lychee.nix { inherit pkgs; };
+  lychee = import ./custom-packages/lychee.nix { inherit pkgs; };
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in {
   # discover network printers
@@ -37,7 +37,7 @@ in {
     ink
 
     uvtools
-    unstable.lychee
+    lychee
     #paperwork
   ];
 }
