@@ -30,10 +30,17 @@
   boot.initrd.availableKernelModules =
     [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
-  boot.extraModulePackages = [ ];
-  boot.supportedFilesystems = [ "zfs" "vfat" ];
+  boot.kernelModules = [ "kvm-amd" "zenpower" ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.zenpower ];
+  boot.kernelParams = [
+    "quiet"
+    "loglevel=3"
+    "systemd.show_status=auto"
+    "nmi_watchdog=0"
+    "rd.udev.log_level=3"
+  ];
+  boot.kernelPackages = pkgs.linuxPackages_6_15;
+  boot.supportedFilesystems = [ "zfs" "vfat" "ntfs" "ext4" ];
 
   fileSystems."/" = {
     device = "rpool/root";

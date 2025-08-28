@@ -34,7 +34,7 @@
     kernelModules = [ "kvm-amd" "zenpower" ];
     extraModulePackages = [ config.boot.kernelPackages.zenpower ];
     kernelPackages =
-      pkgs.linuxPackages_6_12; # EOL: 12/2026 -> https://www.kernel.org/releases.html
+      pkgs.linuxPackages_6_15; # EOL: 12/2026 -> https://www.kernel.org/releases.html
     kernelParams = [
       "quiet"
       "loglevel=3"

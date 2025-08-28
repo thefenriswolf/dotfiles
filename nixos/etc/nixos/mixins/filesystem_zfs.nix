@@ -21,7 +21,6 @@
     enable = true;
     interval = "hourly";
     templates = {
-
       ignore = {
         # daily = 0;
         # weekly = 0;
@@ -49,7 +48,19 @@
         "autosnap" = true;
         "monitor" = true;
       };
+      comatose = {
+        daily = 4;
+        weekly = 4;
+        monthly = 4;
+        yearly = 4;
+        "autoprune" = true;
+        "autosnap" = true;
+        "monitor" = true;
+      };
+
     };
+    ####################### datasets
+    # HOME
     datasets = {
       "rpool/home" = {
         recursive = true;
@@ -57,19 +68,30 @@
         autoprune = true;
         use_template = [ "crucial" ];
       };
-      "rpool/nix" = {
-        # recursive = true;
-        # autosnap = true;
-        # autoprune = true;
-        # processChildrenOnly = false;
-        use_template = [ "ignore" ];
-      };
+      # SYSTEM
+      "rpool/root" = { use_template = [ "comatose" ]; };
+      "rpool/nix" = { use_template = [ "ignore" ]; };
       "rpool/var" = {
         recursive = true;
         autosnap = false;
         autoprune = true;
         processChildrenOnly = false;
         use_template = [ "ignore" ];
+      };
+      # EXTRA
+      "zpool/playground" = {
+        recursive = true;
+        autosnap = true;
+        autoprune = true;
+        processChildrenOnly = false;
+        use_template = [ "lazy" ];
+      };
+      "zpool/storage" = {
+        recursive = true;
+        autosnap = true;
+        autoprune = true;
+        processChildrenOnly = false;
+        use_template = [ "lazy" ];
       };
       "dpool/data" = {
         recursive = true;
