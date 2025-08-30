@@ -20,7 +20,7 @@
     xz
     bzip2
     gzip
-    rar
+		#rar
     gnutar
     p7zip
 

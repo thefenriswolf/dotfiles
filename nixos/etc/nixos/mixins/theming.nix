@@ -9,11 +9,11 @@
       liberation_ttf
       fira-code
       fira-code-symbols
-      mplus-outline-fonts.githubRelease
       dina-font
       proggyfonts
       jetbrains-mono
       nerd-fonts.fira-code
+      nerd-fonts.ubuntu
       corefonts
       vistafonts
       nerd-font-patcher
