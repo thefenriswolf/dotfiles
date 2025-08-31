@@ -21,6 +21,7 @@
       enable = true;
       keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN6UP5STE2pEgdRRS7mLnRYAENNWL+Tox/P7VGXSyHNE ro@desktop-stefan"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINEEJdsCP4JLaSOuQYTQxbjQgudrBK4kQblWuU6mmN+I ro@laptop-stefan"
       ];
     };
     optimise.automatic = true;
