@@ -10,17 +10,18 @@
     flake = "/home/ro/playground/dotfiles";
   };
 
-  services.ncps = { # https://github.com/kalbasit/ncps
+  services.nix-serve = {
     enable = false;
-    server.addr = ":8501";
-    upstream.caches = [ "https://cache.nixos.org" ];
-    openTelemetry.enable = false;
+    openFirewall = true;
+    port = 6969;
   };
 
   nix = {
     sshServe = {
-      enable = false;
-      keys = [ ];
+      enable = true;
+      keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN6UP5STE2pEgdRRS7mLnRYAENNWL+Tox/P7VGXSyHNE ro@desktop-stefan"
+      ];
     };
     optimise.automatic = true;
     gc = {
@@ -32,8 +33,6 @@
       allowed-users = [ "@wheel" ];
       experimental-features = [ "nix-command" "flakes" ];
       auto-optimise-store = true;
-      # substituters = [ "http://192.168.1.108" "192.168.1.107" ]; # port 8501
-      # trusted-public-keys = ["laptop-stefan:wKNpmUwSoyIZl4HO3bqwOAqKXbvJ3WkWHuXgskwxPSk=" "desktop-stefan:fBJWXy7DhcVKTLSAqIgUlgm4/c71735n2r4tb7RbMDM="];
     };
   };
   nixpkgs.config = { allowUnfree = true; };
