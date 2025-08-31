@@ -19,6 +19,7 @@
   nix = {
     sshServe = {
       enable = true;
+      trusted = true;
       keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN6UP5STE2pEgdRRS7mLnRYAENNWL+Tox/P7VGXSyHNE ro@desktop-stefan"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINEEJdsCP4JLaSOuQYTQxbjQgudrBK4kQblWuU6mmN+I ro@laptop-stefan"
@@ -34,6 +35,7 @@
       allowed-users = [ "@wheel" ];
       experimental-features = [ "nix-command" "flakes" ];
       auto-optimise-store = true;
+      trusted-substituters = [ "ssh://ro@192.168.1.108" "ssh://ro@192.168.1.107"];
     };
   };
   nixpkgs.config = { allowUnfree = true; };
