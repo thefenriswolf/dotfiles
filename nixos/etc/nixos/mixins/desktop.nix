@@ -101,7 +101,8 @@
 
       inputs.tiddlydesktop.packages.x86_64-linux.tiddlydesktop
 
-      #calibre
+      calibre
+      calibre-web
       mtpfs
     ];
     sessionVariables = {
