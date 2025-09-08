@@ -39,7 +39,7 @@
     "nmi_watchdog=0"
     "rd.udev.log_level=3"
   ];
-  boot.kernelPackages = pkgs.linuxPackages_6_15;
+  boot.kernelPackages = pkgs.linuxPackages_6_12;
   boot.supportedFilesystems = [ "zfs" "vfat" "ntfs" "ext4" ];
 
   fileSystems."/" = {
