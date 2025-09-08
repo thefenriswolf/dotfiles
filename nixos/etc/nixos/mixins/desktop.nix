@@ -102,8 +102,9 @@
       inputs.tiddlydesktop.packages.x86_64-linux.tiddlydesktop
 
       calibre
-      calibre-web
       mtpfs
+      libmtp
+      android-file-transfer
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
