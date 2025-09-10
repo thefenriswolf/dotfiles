@@ -17,6 +17,7 @@
     fastfetch
     inotify-tools
     tldr
+    viddy
     file
   ];
 

@@ -16,6 +16,7 @@ in {
     fd
     viu
     chafa
+     stow
     ueberzugpp
 
     #emacs

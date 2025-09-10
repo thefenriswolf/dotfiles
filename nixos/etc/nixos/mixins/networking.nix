@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
 
-  environment.systemPackages = with pkgs; [ rsync openvpn sniffnet ];
+  environment.systemPackages = with pkgs; [ rsync openvpn sniffnet nethogs ];
 
   networking = {
     firewall = {
