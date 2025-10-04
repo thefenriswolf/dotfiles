@@ -20,7 +20,7 @@
   users.users.ro.extraGroups = [ "libvirtd" ];
   virtualisation = {
     libvirtd = {
-      enable = true;
+      enable = false;
       qemu.swtpm.enable = true;
     };
     spiceUSBRedirection.enable = true;

@@ -20,14 +20,14 @@
     xz
     bzip2
     gzip
-		#rar
+    #rar
     gnutar
     p7zip
 
     pdfgrep
-    findutils
     binutils
-    diffutils
+    uutils-diffutils
+    uutils-findutils
     #coreutils
     uutils-coreutils-noprefix
   ];
