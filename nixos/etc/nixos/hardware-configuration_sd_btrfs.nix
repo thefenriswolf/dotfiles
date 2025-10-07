@@ -15,7 +15,7 @@
 
   boot = {
     # kernelPackages = pkgs.linuxPackages_latest; # latest kernel
-    # kernelPackages = pkgs.linuxPackages; # LTS kernel
+    kernelPackages = pkgs.linuxPackages_6_12; # LTS kernel
     initrd = {
       availableKernelModules = [
         "thinkpad_acpi"

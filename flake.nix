@@ -54,6 +54,7 @@
             ./nixos/etc/nixos/mixins/locale.nix
             ./nixos/etc/nixos/mixins/networking.nix
             ./nixos/etc/nixos/mixins/nix.nix
+            ./nixos/etc/nixos/mixins/rgb.nix
             ./nixos/etc/nixos/mixins/non-nixpkgs.nix
             ./nixos/etc/nixos/mixins/performance.nix
             ./nixos/etc/nixos/mixins/powersave.nix

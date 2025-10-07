@@ -17,7 +17,7 @@
     "f092bcf0"; # needed for ZFS: head -c4 /dev/urandom | od -A none -t x4
   boot = {
     # kernelPackages = pkgs.linuxPackages_latest; # latest kernel
-    # kernelPackages = pkgs.linuxPackages; # LTS kernel
+    kernelPackages = pkgs.linuxPackages_6_12; # LTS kernel
     kernelPackages =
       config.boot.zfs.package.latestCompatibleLinuxPackages; # latest zfs kernel
     initrd = {
