@@ -19,13 +19,11 @@
 
     tiddlydesktop = { url = "github:TiddlyWiki/TiddlyDesktop"; };
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #home-manager = {url = "github:nix-community/home-manager";inputs.nixpkgs.follows = "nixpkgs";};
   };
   outputs = { self, nixpkgs, nur, nixpkgs-unstable, neovim-nightly-overlay
-    , home-manager, ... }@inputs:
+    , # home-manager,
+    ... }@inputs:
     let
       inherit (self) outputs;
       stateVersion = "25.05";
@@ -54,6 +52,7 @@
             ./nixos/etc/nixos/mixins/locale.nix
             ./nixos/etc/nixos/mixins/networking.nix
             ./nixos/etc/nixos/mixins/nix.nix
+            ./nixos/etc/nixos/mixins/git.nix
             ./nixos/etc/nixos/mixins/rgb.nix
             ./nixos/etc/nixos/mixins/non-nixpkgs.nix
             ./nixos/etc/nixos/mixins/performance.nix
@@ -89,6 +88,7 @@
             ./nixos/etc/nixos/mixins/locale.nix
             ./nixos/etc/nixos/mixins/networking.nix
             ./nixos/etc/nixos/mixins/nix.nix
+            ./nixos/etc/nixos/mixins/git.nix
             ./nixos/etc/nixos/mixins/non-nixpkgs.nix
             ./nixos/etc/nixos/mixins/performance.nix
             ./nixos/etc/nixos/mixins/powersave.nix
