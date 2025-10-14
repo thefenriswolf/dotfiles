@@ -1,11 +1,11 @@
 { pkgs, ... }:
 let
   pname = "Lychee";
-  version = "7.4.4";
+  version = "7.4.5";
   src = pkgs.fetchurl {
     url =
       "https://mango-lychee.nyc3.cdn.digitaloceanspaces.com/LycheeSlicer-${version}.AppImage";
-    hash = "sha256-ZbKMCbTKqdjcTefEfrhovRQSRydKf3QBsXHi/XwXuUc=";
+    hash = "sha256-UY8bS3nPhUqyBeMD7Ou6OJZ2LKFi3QbNGeTSmtC1Sbg=";
   };
 in pkgs.appimageTools.wrapType2 {
   inherit pname version src;
@@ -15,9 +15,13 @@ in pkgs.appimageTools.wrapType2 {
   desktopItems = [
     (pkgs.makeDesktopItem {
       name = "Lychee Slicer";
-      exec = "Lychee";
       desktopName = "Lychee Slicer";
-      categories = [ "Graphics" ];
+      genericName = "Slicer";
+      comment = "Lychee 3D Resin and FDM Slicer";
+      exec = "Lychee %U";
+      terminal = false;
+      categories = [ "Graphics" "Office" ];
+      mimeTypes = [ "model/stl" "application/x-bgcode" ];
     })
   ];
 }

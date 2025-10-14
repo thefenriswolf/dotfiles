@@ -38,6 +38,7 @@ in {
 
     uvtools
     lychee
+    mslicer
     #paperwork
   ];
 }

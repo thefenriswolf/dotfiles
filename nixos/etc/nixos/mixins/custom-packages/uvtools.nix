@@ -15,10 +15,9 @@ let
       comment =
         "MSLA/DLP, file analysis, calibration, repair, conversion and manipulation  tool";
       desktopName = "UVtools";
-      noDisplay = false;
-      exec = "UVtools";
+      exec = "UVtools %U";
       terminal = false;
-      mimeTypes = [ "model/stl" ];
+      mimeTypes = [ "model/stl" "application/x-bgcode" ];
       categories = [ "Graphics" ];
       keywords = [ "STL" "Slicer" "Printing" ];
     })
@@ -26,8 +25,6 @@ let
 
 in pkgs.appimageTools.wrapType2 {
   inherit pname version src;
-
-  #extraInstallCommands = ''install -Dm444 -t $out/share/applications ${desktopItem}/share/applications/*'';
 
   extraLibraries = pkgs: [ pkgs.icu ];
 

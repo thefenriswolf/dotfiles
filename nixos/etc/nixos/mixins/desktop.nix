@@ -1,6 +1,28 @@
 { config, pkgs, inputs, ... }: {
 
-  programs.thunderbird = { enable = false; };
+  programs.thunderbird = { enable = true; };
+  programs.firefox = {
+    enable = true;
+    preferencesStatus = "user";
+    languagePacks = [ "de" "en-GB" ];
+    preferences = {
+      "browser.translations.neverTranslateLanguages" = "de";
+      "browser.toolbars.bookmarks.visibility" = "always";
+      "browser.ml.chat.enabled" = false;
+      "services.sync.engine.history" = false;
+      "services.sync.engine.passwords" = false;
+      "browser.contextual-password-manager.enabled" = false;
+      "services.sync.engine.prefs.modified" = false;
+      "browser.urlbar.placeholderName" = "DuckDuckGo";
+      "browser.urlbar.placeholderName.private" = "DuckDuckGo";
+      "privacy.clearOnShutdown_v2.formdata" = true;
+      "privacy.clearOnShutdown.offlineApps" = true;
+      "privacy.clearOnShutdown_v2.browsingHistoryAndDownloads" = true;
+      "privacy.clearOnShutdown_v2.cookiesAndStorage" = true;
+      "privacy.clearOnShutdown_v2.historyFormDataAndDownloads" = true;
+      "browser.contentblocking.category" = "standard";
+    };
+  };
 
   services = {
     gnome = {
@@ -86,6 +108,9 @@
       #kdePackages.kate
       #kdePackages.dolphin
       #kdePackages.dolphin-plugins
+
+      #firefox
+      #thunderbird
 
       gnome-firmware
       gnome-tweaks
