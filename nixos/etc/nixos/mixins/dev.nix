@@ -4,15 +4,15 @@ in {
   services.lorri.enable = true;
   environment.systemPackages = with pkgs; [
     git
+    tokei
     #godot-mono
     #godotPackages.export-template
     #godotPackages.export-template-mono
 
-    wine64
     unstable.zig
-    unstable.zls
+    #unstable.zls
     unstable.odin
-    unstable.ols
+    #unstable.ols
   ];
 }
 

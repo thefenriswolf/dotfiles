@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, lib, ... }: {
 
   environment.systemPackages = with pkgs; [
     widevine-cdm
@@ -28,7 +28,7 @@
     binutils
     uutils-diffutils
     uutils-findutils
-    #coreutils
-    uutils-coreutils-noprefix
+    coreutils
+    (lib.hiPrio uutils-coreutils-noprefix)
   ];
 }

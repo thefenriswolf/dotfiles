@@ -38,6 +38,7 @@
     "systemd.show_status=auto"
     "nmi_watchdog=0"
     "rd.udev.log_level=3"
+    "vmscape=ibpb"
   ];
   boot.kernelPackages = pkgs.linuxPackages_6_12;
   boot.supportedFilesystems = [ "zfs" "vfat" "ntfs" "ext4" ];

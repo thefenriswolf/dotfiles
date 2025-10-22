@@ -19,7 +19,6 @@
 
     tiddlydesktop = { url = "github:TiddlyWiki/TiddlyDesktop"; };
 
-    #home-manager = {url = "github:nix-community/home-manager";inputs.nixpkgs.follows = "nixpkgs";};
   };
   outputs = { self, nixpkgs, nur, nixpkgs-unstable, neovim-nightly-overlay
     , # home-manager,
@@ -73,7 +72,7 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./nixos/etc/nixos/configuration.nix
-            ./nixos/etc/nixos/hardware-configuration-sd-zfs.nix
+            ./nixos/etc/nixos/hardware-configuration_sd_zfs.nix
             ./nixos/etc/nixos/mixins/host-laptop.nix
 
             ./nixos/etc/nixos/mixins/blacklist.nix

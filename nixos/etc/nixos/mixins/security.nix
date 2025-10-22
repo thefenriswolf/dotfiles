@@ -9,6 +9,8 @@
     updater.frequency = 1; # updates per day
   };
 
+  programs.firejail.enable = true;
+
   security = {
     audit = {
       enable = false;
