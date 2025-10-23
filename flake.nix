@@ -17,7 +17,7 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    tiddlydesktop = { url = "github:TiddlyWiki/TiddlyDesktop"; };
+    #tiddlydesktop = { url = "github:TiddlyWiki/TiddlyDesktop"; };
 
   };
   outputs = { self, nixpkgs, nur, nixpkgs-unstable, neovim-nightly-overlay

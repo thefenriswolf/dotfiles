@@ -41,7 +41,7 @@
     "vmscape=ibpb"
   ];
   boot.kernelPackages = pkgs.linuxPackages_6_12;
-  boot.supportedFilesystems = [ "zfs" "vfat" "ntfs" "ext4" ];
+  boot.supportedFilesystems = [ "zfs" "vfat" "ntfs" "ext4" "btrfs" ];
 
   fileSystems."/" = {
     device = "rpool/root";

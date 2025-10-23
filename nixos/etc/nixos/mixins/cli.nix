@@ -9,7 +9,6 @@
     glow
     fd
     isd
-    yazi
     neofetch
     scriptisto
     ghostty
@@ -21,6 +20,7 @@
     pandoc
     viddy
     file
+    btrfs-progs
   ];
 
   users = {
@@ -32,6 +32,21 @@
     font = "Lat2-Terminus16";
     useXkbConfig = true; # use xkbOptions in tty.
   };
+
+  programs.yazi = {
+    enable = true;
+    settings.yazi = {
+      manager = {
+        show_hidden = true;
+        sort_by = "natural";
+        sort_sensitive = true;
+        show_symlink = true;
+      };
+    };
+
+  };
+
+  programs.bat = { enable = true; };
 
   programs.starship = {
     enable = true;
@@ -453,6 +468,7 @@
       emacs = "emacs -nw";
       nvimperf = "nvim --startuptime /tmp/nvperf.log";
       find = "fd";
+      c = "bat";
       ps = "procs";
       watch = "viddy";
       egrep = "egrep --colour=auto";
