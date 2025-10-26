@@ -22,6 +22,18 @@ return {
     },
   },
   config = function()
+    -- Nix
+    vim.lsp.config("nixd", {
+      settings = {
+        nixd = {
+          formatting = {
+            command = { "nixfmt" },
+          },
+        },
+      },
+    })
+    vim.lsp.enable("nixd", true)
+
     -- GO
     vim.lsp.config("gopls", {
       root_markers = { "go.mod", ".git" },

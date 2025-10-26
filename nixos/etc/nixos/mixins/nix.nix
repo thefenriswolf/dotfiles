@@ -39,5 +39,5 @@
     permittedInsecurePackages = [ "mbedtls-2.28.10" ]; # TODO: remove once fixed
     allowUnfree = true;
   };
-  environment.systemPackages = [ pkgs.nixfmt-classic pkgs.nixd ];
+  environment.systemPackages = [ pkgs.nixfmt-rfc-style pkgs.nixd ];
 }

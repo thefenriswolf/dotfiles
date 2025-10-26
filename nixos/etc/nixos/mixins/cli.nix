@@ -6,6 +6,7 @@
     ripgrep
     fzf
     eza
+    bat
     glow
     fd
     isd
@@ -33,6 +34,11 @@
     useXkbConfig = true; # use xkbOptions in tty.
   };
 
+  programs.bat = {
+    enable = true;
+    extraPackages = with pkgs.bat-extras; [ batdiff batman prettybat ];
+  };
+
   programs.yazi = {
     enable = true;
     settings.yazi = {
@@ -45,8 +51,6 @@
     };
 
   };
-
-  programs.bat = { enable = true; };
 
   programs.starship = {
     enable = true;
