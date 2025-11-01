@@ -1,9 +1,13 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   environment.systemPackages = with pkgs; [ systeroid ];
 
-  programs.bcc.enable = true;
   services.sysprof.enable = true;
 
   zramSwap = {

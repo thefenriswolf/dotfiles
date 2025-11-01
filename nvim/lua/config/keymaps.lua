@@ -28,3 +28,8 @@ vim.keymap.set("n", "grh", function()
     --max_width = 120,
   })
 end, { desc = "Display info in floating window" })
+
+-- vim.keymap.set("n", "G", "Gzz", { noremap = true, desc = "Go to bottom and center" })
+
+-- Git commands
+vim.keymap.set("n", "<leader>g", ":Neogit<CR>", { desc = "Git status" })

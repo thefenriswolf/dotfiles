@@ -20,15 +20,22 @@
     #tiddlydesktop = { url = "github:TiddlyWiki/TiddlyDesktop"; };
 
   };
-  outputs = { self, nixpkgs, nur, nixpkgs-unstable, neovim-nightly-overlay
-    , # home-manager,
-    ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nur,
+      nixpkgs-unstable,
+      neovim-nightly-overlay, # home-manager,
+      ...
+    }@inputs:
     let
       inherit (self) outputs;
       stateVersion = "25.05";
       helper = import ./lib { inherit inputs outputs stateVersion; };
       overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
-    in {
+    in
+    {
       nixosConfigurations = {
         desktop-stefan = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -77,6 +84,7 @@
 
             ./nixos/etc/nixos/mixins/blacklist.nix
             ./nixos/etc/nixos/mixins/bluetooth.nix
+            ./nixos/etc/nixos/mixins/ebpf.nix
             ./nixos/etc/nixos/mixins/cli.nix
             ./nixos/etc/nixos/mixins/core.nix
             ./nixos/etc/nixos/mixins/desktop.nix
