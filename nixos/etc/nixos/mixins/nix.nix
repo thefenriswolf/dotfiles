@@ -1,7 +1,11 @@
-{ config, pkgs, ... }: {
-
+{ pkgs, ... }:
+{
   # system.rebuild.enableNg = true;
   # system.switch.enableNg = true;
+
+  programs.nix-ld = {
+    enable = true;
+  };
 
   programs.nh = {
     enable = true;
@@ -30,7 +34,10 @@
     };
     settings = {
       allowed-users = [ "@wheel" ];
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       auto-optimise-store = true;
       trusted-substituters = [ ];
     };
@@ -39,5 +46,8 @@
     permittedInsecurePackages = [ "mbedtls-2.28.10" ]; # TODO: remove once fixed
     allowUnfree = true;
   };
-  environment.systemPackages = [ pkgs.nixfmt-rfc-style pkgs.nixd ];
+  environment.systemPackages = [
+    pkgs.nixfmt-rfc-style
+    pkgs.nixd
+  ];
 }

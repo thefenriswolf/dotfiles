@@ -1,5 +1,4 @@
-{ config, lib, pkgs, ... }:
-
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     zoxide
@@ -15,6 +14,7 @@
     ghostty
     usbutils
     btop
+    nvtopPackages.full
     fastfetch
     inotify-tools
     tldr
@@ -36,7 +36,11 @@
 
   programs.bat = {
     enable = true;
-    extraPackages = with pkgs.bat-extras; [ batdiff batman prettybat ];
+    extraPackages = with pkgs.bat-extras; [
+      batdiff
+      batman
+      prettybat
+    ];
   };
 
   programs.yazi = {
@@ -58,8 +62,7 @@
       # source: https://gist.github.com/flexiondotorg/d823f23a2c0b2f1f4fd181e521b1618f
       add_newline = false;
       command_timeout = 1000;
-      format =
-        "[](surface1)$os[](bg:surface2 fg:surface1)$username$sudo[](bg:overlay0 fg:surface2)$hostname[](bg:mauve fg:overlay0)$directory[](fg:mauve bg:peach)$c$dart$dotnet$elixir$elm$erlang$golang$haskell$haxe$java$julia$kotlin$lua$nim$nodejs$rlang$ruby$rust$perl$php$python$scala$swift$zig$package$git_branch[](fg:peach bg:yellow)$git_status[](fg:yellow bg:teal)$container$direnv$nix_shell$cmd_duration$jobs$shlvl$status$character";
+      format = "[](surface1)$os[](bg:surface2 fg:surface1)$username$sudo[](bg:overlay0 fg:surface2)$hostname[](bg:mauve fg:overlay0)$directory[](fg:mauve bg:peach)$c$dart$dotnet$elixir$elm$erlang$golang$haskell$haxe$java$julia$kotlin$lua$nim$nodejs$rlang$ruby$rust$perl$php$python$scala$swift$zig$package$git_branch[](fg:peach bg:yellow)$git_status[](fg:yellow bg:teal)$container$direnv$nix_shell$cmd_duration$jobs$shlvl$status$character";
       palette = "catppuccin_mocha";
 
       c = {
@@ -401,10 +404,8 @@
         disabled = false;
         format = "$symbol";
         map_symbol = true;
-        not_executable_symbol =
-          "[](fg:teal bg:pink)[  $common_meaning](fg:red bg:pink)";
-        not_found_symbol =
-          "[](fg:teal bg:pink)[ 󰩌 $common_meaning](fg:red bg:pink)";
+        not_executable_symbol = "[](fg:teal bg:pink)[  $common_meaning](fg:red bg:pink)";
+        not_found_symbol = "[](fg:teal bg:pink)[ 󰩌 $common_meaning](fg:red bg:pink)";
         sigint_symbol = "[](fg:teal bg:pink)[  $signal_name](fg:red bg:pink)";
         signal_symbol = "[](fg:teal bg:pink)[ ⚡ $signal_name](fg:red bg:pink)";
         style = "";
@@ -425,7 +426,9 @@
         symbol = "";
       };
 
-      time = { disabled = true; };
+      time = {
+        disabled = true;
+      };
 
       username = {
         format = "[ $user]($style)";
@@ -454,7 +457,10 @@
     enableBashCompletion = true;
     syntaxHighlighting.enable = true;
     vteIntegration = true;
-    setOptions = [ "AUTO_CD" "HIST_IGNORE_DUPS" ];
+    setOptions = [
+      "AUTO_CD"
+      "HIST_IGNORE_DUPS"
+    ];
     histSize = 50000;
     autosuggestions = {
       enable = true;
