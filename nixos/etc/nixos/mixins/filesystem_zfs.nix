@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   #######
@@ -115,6 +115,7 @@
 
       # zfs
       sanoid
+      zfs-prune-snapshots
     ];
   };
 }
