@@ -14,7 +14,7 @@
     ghostty
     usbutils
     btop
-    nvtopPackages.full
+    nvtopPackages.amd
     fastfetch
     inotify-tools
     tldr

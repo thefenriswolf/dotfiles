@@ -1,8 +1,10 @@
-{ config, lib, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 
-let lover = import ./custom-packages/lover.nix { inherit pkgs; };
+let
+  lover = import ./custom-packages/lover.nix { inherit pkgs; };
 
-in {
+in
+{
   environment.systemPackages = with pkgs; [
     tree-sitter
     stylua
@@ -16,7 +18,7 @@ in {
     fd
     viu
     chafa
-     stow
+    stow
     ueberzugpp
 
     #emacs
@@ -150,7 +152,8 @@ in {
     defaultEditor = true;
   };
 
-  services.emacs = { enable = false; };
+  services.emacs = {
+    enable = false;
+  };
 
 }
-
