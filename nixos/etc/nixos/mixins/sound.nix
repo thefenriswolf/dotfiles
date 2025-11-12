@@ -1,4 +1,11 @@
-{ config, desktop, lib, pkgs, ... }: {
+{
+  config,
+  desktop,
+  lib,
+  pkgs,
+  ...
+}:
+{
 
   environment.systemPackages = with pkgs; [
     alsa-utils
@@ -19,4 +26,3 @@
     };
   };
 }
-

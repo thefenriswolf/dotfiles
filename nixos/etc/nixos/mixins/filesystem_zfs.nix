@@ -69,8 +69,12 @@
         use_template = [ "crucial" ];
       };
       # SYSTEM
-      "rpool/root" = { use_template = [ "comatose" ]; };
-      "rpool/nix" = { use_template = [ "ignore" ]; };
+      "rpool/root" = {
+        use_template = [ "comatose" ];
+      };
+      "rpool/nix" = {
+        use_template = [ "ignore" ];
+      };
       "rpool/var" = {
         recursive = true;
         autosnap = false;
@@ -101,7 +105,11 @@
         use_template = [ "lazy" ];
       };
     };
-    extraArgs = [ "--verbose" "--debug" " >> /tmp/sanoid.log" ];
+    extraArgs = [
+      "--verbose"
+      "--debug"
+      " >> /tmp/sanoid.log"
+    ];
   };
 
   environment = {

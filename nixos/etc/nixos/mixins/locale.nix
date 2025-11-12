@@ -1,11 +1,20 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   # Set your time zone.
   time.timeZone = "Europe/Vienna";
 
   # Select internationalisation properties.
   i18n = {
     defaultLocale = "en_US.UTF-8";
-    extraLocales = [ "en_US.UTF-8/UTF-8" "de_AT.UTF-8/UTF-8" ];
+    extraLocales = [
+      "en_US.UTF-8/UTF-8"
+      "de_AT.UTF-8/UTF-8"
+    ];
     extraLocaleSettings = {
       LANGUAGE = "en_US.UTF-8";
       LC_ALL = "en_US.UTF-8";

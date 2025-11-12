@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
 
   #https://nixos.wiki/wiki/Podman
   environment.systemPackages = with pkgs; [
@@ -27,7 +28,11 @@
 
     podman = {
       enable = true;
-      defaultNetwork = { settings = { dns_enabled = true; }; };
+      defaultNetwork = {
+        settings = {
+          dns_enabled = true;
+        };
+      };
       autoPrune = {
         dates = "monthly";
         enable = true;

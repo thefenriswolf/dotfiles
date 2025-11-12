@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
 
   # auto-enable appimage-run
   programs.appimage = {

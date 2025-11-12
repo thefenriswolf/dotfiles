@@ -1,6 +1,12 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
 
-  environment.systemPackages = with pkgs; [ rsync openvpn sniffnet nethogs ];
+  environment.systemPackages = with pkgs; [
+    rsync
+    openvpn
+    sniffnet
+    nethogs
+  ];
 
   networking = {
     firewall = {
@@ -25,7 +31,10 @@
         powersave = false;
       };
       dns = "systemd-resolved";
-      insertNameservers = [ "1.1.1.2" "8.8.8.8" ];
+      insertNameservers = [
+        "1.1.1.2"
+        "8.8.8.8"
+      ];
     };
     wireless.iwd.package = pkgs.iwd;
   };

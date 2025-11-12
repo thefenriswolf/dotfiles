@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
 
   services.thermald.enable = true; # always leave on on Laptops
   powerManagement.powertop.enable = false; # auto tune powertop
@@ -42,8 +43,7 @@
       enable = false; # enable either tlp or auto-cpufreq
       settings = {
         TLP_DEFAULT_MODE = "BAT"; # default power profile after boot
-        TLP_PERSISTENT_DEFAULT =
-          0; # 0: autoselect power profile, 1: always choose default profile
+        TLP_PERSISTENT_DEFAULT = 0; # 0: autoselect power profile, 1: always choose default profile
         RUNTIME_PM_ON_AC = "auto"; # also try to save power on AC
 
         RESTORE_THRESHOLDS_ON_BAT = 1;
@@ -65,8 +65,7 @@
 
         WOL_DISABLE = "Y"; # disable wake on lan, I never use it
 
-        RUNTIME_PM_DRIVER_DENYLIST =
-          "nouveau nvidia"; # don't try to manage NVIDIA GPU
+        RUNTIME_PM_DRIVER_DENYLIST = "nouveau nvidia"; # don't try to manage NVIDIA GPU
 
         USB_EXCLUDE_PHONE = "Y";
         USB_AUTOSUSPEND = 1;
@@ -81,27 +80,30 @@
   services.ananicy = {
     enable = false;
     package = pkgs.ananicy-cpp;
-    extraRules = [{
-      name = "SlicerApp-real";
-      nice = -19;
-      sched = "normal";
-      ioclass = "best-effort";
-    }];
+    extraRules = [
+      {
+        name = "SlicerApp-real";
+        nice = -19;
+        sched = "normal";
+        ioclass = "best-effort";
+      }
+    ];
   };
 
   systemd.services.lactd = {
     description = "AMDGPU Control Daemon";
     enable = false;
-    serviceConfig = { ExecStart = "${pkgs.lact}/bin/lact daemon"; };
+    serviceConfig = {
+      ExecStart = "${pkgs.lact}/bin/lact daemon";
+    };
     wantedBy = [ "multi-user.target" ];
   };
 
   environment = {
-    systemPackages = with pkgs;
-      [
-        # power-calibrate
-        # lact
-        # powertop
-      ];
+    systemPackages = with pkgs; [
+      # power-calibrate
+      # lact
+      # powertop
+    ];
   };
 }

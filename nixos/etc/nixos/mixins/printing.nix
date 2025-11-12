@@ -1,9 +1,19 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 let
   uvtools = import ./custom-packages/uvtools.nix { inherit pkgs; };
   lychee = import ./custom-packages/lychee.nix { inherit pkgs; };
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-in {
+  unstable = import <nixos-unstable> {
+    config = {
+      allowUnfree = true;
+    };
+  };
+in
+{
   # discover network printers
   services.avahi = {
     enable = true;
@@ -29,7 +39,10 @@ in {
   # scanner support
   hardware.sane = {
     enable = true;
-    extraBackends = [ pkgs.sane-airscan pkgs.sane-backends ];
+    extraBackends = [
+      pkgs.sane-airscan
+      pkgs.sane-backends
+    ];
   };
   environment.systemPackages = with pkgs; [
     sane-frontends

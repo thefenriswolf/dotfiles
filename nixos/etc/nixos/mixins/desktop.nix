@@ -1,10 +1,21 @@
-{ config, pkgs, inputs, ... }: {
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+{
 
-  programs.thunderbird = { enable = true; };
+  programs.thunderbird = {
+    enable = true;
+  };
   programs.firefox = {
     enable = true;
     preferencesStatus = "user";
-    languagePacks = [ "de" "en-GB" ];
+    languagePacks = [
+      "de"
+      "en-GB"
+    ];
     preferences = {
       "browser.translations.neverTranslateLanguages" = "de";
       "browser.toolbars.bookmarks.visibility" = "always";
@@ -58,7 +69,11 @@
         wayland = true;
         autoSuspend = false;
       };
-      desktopManager = { gnome = { enable = true; }; };
+      desktopManager = {
+        gnome = {
+          enable = true;
+        };
+      };
       videoDrivers = [ "amdgpu" ];
       xkb = {
         layout = "at";

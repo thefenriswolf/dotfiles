@@ -1,9 +1,16 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   hardware.amdgpu = {
     initrd.enable = true;
-    amdvlk = { enable = true; };
+    amdvlk = {
+      enable = true;
+    };
   };
 
   programs.gamemode = {

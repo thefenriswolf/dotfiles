@@ -7,4 +7,4 @@ let
     };
   };
 in
-  pkgs.linuxPackages_6_12
+pkgs.linuxPackages_6_12

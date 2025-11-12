@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -6,4 +12,3 @@
     extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
   };
 }
-

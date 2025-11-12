@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   # https://nixos.wiki/wiki/Bluetooth
   hardware.bluetooth = {
     enable = true;

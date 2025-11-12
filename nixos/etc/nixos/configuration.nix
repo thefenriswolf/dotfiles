@@ -4,7 +4,8 @@
 
 # lint: nix run github:astro/deadnix -- path/
 # rebuild: sudo nixos-rebuild boot --flake '.#laptop-stefan' --impure
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
 
   imports = [ ];
 
@@ -41,4 +42,3 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
 }
-

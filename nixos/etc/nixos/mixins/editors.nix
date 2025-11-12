@@ -22,6 +22,7 @@ in
     ueberzugpp
 
     #emacs
+    micro
 
     # shell
     shfmt
@@ -128,10 +129,10 @@ in
     black
     isort
     python311Packages.python-lsp-server
-    python311Packages.pyflakes
-    python311Packages.pygments
-    python311Packages.virtualenv
-    python311Packages.pip
+    #python311Packages.pyflakes
+    #python311Packages.pygments
+    #python311Packages.virtualenv
+    #python311Packages.pip
     #pkgs.python311Packages.pyyaml
     #pkgs.python311Packages.pip-requirements-parser
 
@@ -141,16 +142,6 @@ in
     # Julia
     # pkgs.julia
   ];
-
-  nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
-
-  programs.neovim = {
-    enable = true;
-    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
-    vimAlias = true;
-    viAlias = true;
-    defaultEditor = true;
-  };
 
   services.emacs = {
     enable = false;

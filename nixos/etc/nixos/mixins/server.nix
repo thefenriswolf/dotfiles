@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
 
   services.immich = {
     enable = true;
@@ -16,5 +22,8 @@
       #port = 5432;
     };
   };
-  users.users.immich.extraGroups = [ "video" "render" ];
+  users.users.immich.extraGroups = [
+    "video"
+    "render"
+  ];
 }
