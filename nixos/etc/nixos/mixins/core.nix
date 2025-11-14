@@ -34,7 +34,7 @@
     binutils
     uutils-diffutils
     uutils-findutils
-    coreutils
+    #coreutils
     (lib.hiPrio uutils-coreutils-noprefix)
   ];
 }

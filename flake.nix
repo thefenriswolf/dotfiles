@@ -12,17 +12,17 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nur.url = "github:nix-community/nur";
 
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #   sops-nix = {
+    #     url = "github:Mic92/sops-nix";
+    #     inputs.nixpkgs.follows = "nixpkgs";
+    #   };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      # If you are not running an unstable channel of nixpkgs, select the corresponding branch of Nixvim.
-      # url = "github:nix-community/nixvim/nixos-25.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #   nixvim = {
+    #     url = "github:nix-community/nixvim";
+    # If you are not running an unstable channel of nixpkgs, select the corresponding branch of Nixvim.
+    # url = "github:nix-community/nixvim/nixos-25.05";
+    #     inputs.nixpkgs.follows = "nixpkgs";
+    #   };
 
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak"; # unstable branch. Use github:gmodena/nix-flatpak/?ref=<tag> to pin releases.
@@ -42,28 +42,26 @@
     {
       self,
       nixpkgs,
-      sops-nix,
+      #    sops-nix,
       nix-flatpak,
       nixos-hardware,
       nur,
       nixpkgs-unstable,
       neovim-nightly-overlay, # home-manager,
-      nixvim,
+      #   nixvim,
       ...
     }@inputs:
     let
       inherit (self) outputs;
       stateVersion = "25.05";
       helper = import ./lib { inherit inputs outputs stateVersion; };
-      nixvim' = nixvim.legacyPackages.x86_64-linux;
-      nvim = nixvim'.makeNixvim ./nixos/etc/nixos/mixins/nixvim.nix;
       overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
     in
     {
       nixosConfigurations = {
         desktop-stefan = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs nvim; };
+          specialArgs = { inherit inputs; };
           modules = [
             ./nixos/etc/nixos/configuration.nix
             ./nixos/etc/nixos/hardware-configuration_raid10_zfs.nix
@@ -100,7 +98,7 @@
         };
         laptop-stefan = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs nvim; };
+          specialArgs = { inherit inputs; };
           modules = [
             ./nixos/etc/nixos/configuration.nix
             ./nixos/etc/nixos/hardware-configuration_sd_zfs.nix
