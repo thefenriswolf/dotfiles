@@ -25,10 +25,11 @@
     defaultEditor = true;
     configure = {
       customRC = ''
-                         packadd! catppuccin-nvim
+                       packadd! catppuccin-nvim
 
 
 lua << END
+
 
                        -- colorscheme
                        vim.cmd.colorscheme[[catppuccin-frappe]]
@@ -212,6 +213,8 @@ lua << END
                        formatters_by_ft = {
                          lua = { "stylua", "lua-format", stop_after_first = true },
                          nix = { "nixfmt" },
+                         -- fsharp = { "fantomas", lsp_format = "first" },
+                         cs = { "csharpier" },
                          go = { "goimports", "gofmt", stop_after_first = true },
                          python = { "isort", "black", stop_after_first = true },
                          rust = { "rustfmt", lsp_format = "fallback" },
@@ -238,12 +241,17 @@ lua << END
              cmd = { "gopls" },
            })
            vim.lsp.enable("gopls", true)
+
            -- C#
            vim.lsp.config("omnisharp", {
              root_markers = { "*.csproj" },
              --  cmd = { "OmniSharp -lsp" },
            })
            vim.lsp.enable("omnisharp", true)
+
+           -- F#
+           vim.lsp.enable("fsautocomplete", true)
+
            -- Java
            vim.lsp.config("jdtls", {
              root_markers = { "build.gradle", "build.gradle.kts", "gradlew.bat", "pom.xml", ".git" },
@@ -251,6 +259,7 @@ lua << END
              --cmd = { "jdtls" },
            })
            vim.lsp.enable("java_language_server", true)
+
 
 
 END
@@ -265,11 +274,12 @@ END
           conform-nvim
           mini-nvim
           telescope-nvim
+          vim-visual-multi
+          gitsigns-nvim
+          nvim-treesitter
         ];
         opt = [
-          nvim-treesitter
           conjure
-          gitsigns-nvim
           catppuccin-nvim
         ];
       };

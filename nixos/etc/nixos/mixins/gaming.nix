@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   ...
 }:
@@ -32,7 +30,8 @@
     enable = true;
     extest.enable = true;
     localNetworkGameTransfers.openFirewall = true;
-    remotePlay.openFirewall = false;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
     gamescopeSession.enable = false;
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
     extraPackages = with pkgs; [ gamescope ];
@@ -40,10 +39,6 @@
   hardware.steam-hardware.enable = true;
 
   environment.systemPackages = with pkgs; [
-    # support both 32- and 64-bit applications
-    wine-wayland
-    wineWowPackages.waylandFull
-    winetricks
     mangohud
   ];
 }

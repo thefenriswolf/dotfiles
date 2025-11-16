@@ -112,6 +112,7 @@
             ./nixos/etc/nixos/mixins/desktop.nix
             ./nixos/etc/nixos/mixins/dev.nix
             ./nixos/etc/nixos/mixins/editors.nix
+            ./nixos/etc/nixos/mixins/gaming.nix
             ./nixos/etc/nixos/mixins/nixvim.nix
             ./nixos/etc/nixos/mixins/filesystem_zfs.nix
             ./nixos/etc/nixos/mixins/graphics.nix

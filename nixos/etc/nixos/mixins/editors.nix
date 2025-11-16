@@ -21,7 +21,7 @@ in
     stow
     ueberzugpp
 
-    #emacs
+    emacs
     micro
 
     # shell
