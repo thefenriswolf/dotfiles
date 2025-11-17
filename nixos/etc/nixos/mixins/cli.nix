@@ -11,7 +11,26 @@
     isd
     neofetch
     scriptisto
-    ghostty
+    #ghostty
+    (pkgs.symlinkJoin {
+      name = "ghostty";
+      nativeBuildInputs = [ pkgs.makeWrapper ];
+      paths = [ pkgs.ghostty ];
+      postBuild =
+        #     let
+        #       configFile = pkgs.writeText "config"
+        #       ''
+        #       # window
+        #       window-width = 95
+        #       window-height = 95
+        #       '';
+        #     in
+        ''
+          wrapProgram $out/bin/ghostty \
+            --append-flags "--window-width=32 --window-height=85"
+        '';
+    })
+
     usbutils
     btop
     nvtopPackages.amd

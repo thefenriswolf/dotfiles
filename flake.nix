@@ -11,16 +11,10 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nur.url = "github:nix-community/nur";
+    wrappers.url = "github:lassulus/wrappers";
 
     #   sops-nix = {
     #     url = "github:Mic92/sops-nix";
-    #     inputs.nixpkgs.follows = "nixpkgs";
-    #   };
-
-    #   nixvim = {
-    #     url = "github:nix-community/nixvim";
-    # If you are not running an unstable channel of nixpkgs, select the corresponding branch of Nixvim.
-    # url = "github:nix-community/nixvim/nixos-25.05";
     #     inputs.nixpkgs.follows = "nixpkgs";
     #   };
 
@@ -42,13 +36,13 @@
     {
       self,
       nixpkgs,
-      #    sops-nix,
+      sops-nix,
       nix-flatpak,
       nixos-hardware,
       nur,
       nixpkgs-unstable,
       neovim-nightly-overlay, # home-manager,
-      #   nixvim,
+      wrappers,
       ...
     }@inputs:
     let
@@ -74,6 +68,7 @@
             ./nixos/etc/nixos/mixins/desktop.nix
             ./nixos/etc/nixos/mixins/dev.nix
             ./nixos/etc/nixos/mixins/editors.nix
+            ./nixos/etc/nixos/mixins/nixvim.nix
             ./nixos/etc/nixos/mixins/filesystem_zfs.nix
             ./nixos/etc/nixos/mixins/gaming.nix
             ./nixos/etc/nixos/mixins/graphics.nix

@@ -51,11 +51,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1763078664,
-        "narHash": "sha256-HDuT9S50/3+2blDIL4Y5qX8g5bA5FtpzP9lyagmyNq4=",
+        "lastModified": 1763251442,
+        "narHash": "sha256-3lCTIv2dk/GTD4x8kd50sTC/tzCx8bNgc6cPtxn4TY0=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "994eb1828abe40f256e27ff38663b4f3f819d4cb",
+        "rev": "e00db0f40c5c8d0832f085849bf16d85743b21c6",
         "type": "github"
       },
       "original": {
@@ -67,11 +67,11 @@
     "neovim-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1763078375,
-        "narHash": "sha256-oGwmSPl+FA0y2uPEGkkavr5sxLkpHR6+Cio8eZ8OtPo=",
+        "lastModified": 1763250368,
+        "narHash": "sha256-pXxROYFUhQ/4TECG2R0+H8edKXKsanY/1tiXvT1hq8M=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "d017f3c9a0b745e0c57feb8c92dcc852948f7301",
+        "rev": "30634f63e26da1ecfd8642eec4a53f4c220247d7",
         "type": "github"
       },
       "original": {
@@ -160,6 +160,22 @@
     },
     "nixpkgs_3": {
       "locked": {
+        "lastModified": 1763191728,
+        "narHash": "sha256-esRhOS0APE6k40Hs/jjReXg+rx+J5LkWw7cuWFKlwYA=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1d4c88323ac36805d09657d13a5273aea1b34f0c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_4": {
+      "locked": {
         "lastModified": 1761828793,
         "narHash": "sha256-xjdPwMD4wVuDD85U+3KST62VzFkJueI6oBwIzpzUHLY=",
         "owner": "NixOS",
@@ -174,17 +190,33 @@
         "type": "github"
       }
     },
+    "nixpkgs_5": {
+      "locked": {
+        "lastModified": 1758690382,
+        "narHash": "sha256-NY3kSorgqE5LMm1LqNwGne3ZLMF2/ILgLpFr1fS4X3o=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "e643668fd71b949c53f8626614b21ff71a07379d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nur": {
       "inputs": {
         "flake-parts": "flake-parts_2",
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1763246442,
-        "narHash": "sha256-Fz67dJbhPhoISJqmqN3snBsvSeP+1NN9g3a6weRbFbM=",
+        "lastModified": 1763291588,
+        "narHash": "sha256-R4GciuSNPcqNno1ZgAdUqf/5yTo6hrM6oT6N5lJrjH8=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "5ce75241e4aee42bc80c0323dcbd9b13d40d5169",
+        "rev": "c02fd1373d7a39443bc46e91619352345426664e",
         "type": "github"
       },
       "original": {
@@ -201,12 +233,31 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nur": "nur",
-        "tiddlydesktop": "tiddlydesktop"
+        "sops-nix": "sops-nix",
+        "tiddlydesktop": "tiddlydesktop",
+        "wrappers": "wrappers"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1763264763,
+        "narHash": "sha256-N0BEoJIlJ+M6sWZJ8nnfAjGY9VLvM6MXMitRenmhBkY=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "882e56c8293e44d57d882b800a82f8b2ee7a858f",
+        "type": "github"
+      },
+      "original": {
+        "id": "sops-nix",
+        "type": "indirect"
       }
     },
     "tiddlydesktop": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_4"
       },
       "locked": {
         "lastModified": 1762076915,
@@ -219,6 +270,24 @@
       "original": {
         "owner": "TiddlyWiki",
         "repo": "TiddlyDesktop",
+        "type": "github"
+      }
+    },
+    "wrappers": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_5"
+      },
+      "locked": {
+        "lastModified": 1763233857,
+        "narHash": "sha256-tfiPogVJ4jGG6tQgzRFWmvWPm6FxtbPtTV0QwefLJZs=",
+        "owner": "lassulus",
+        "repo": "wrappers",
+        "rev": "4bd551bd26e4eac91ec8307553413e83244d2717",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lassulus",
+        "repo": "wrappers",
         "type": "github"
       }
     }
