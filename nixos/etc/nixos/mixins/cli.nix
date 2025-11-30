@@ -27,7 +27,7 @@
         #     in
         ''
           wrapProgram $out/bin/ghostty \
-            --append-flags "--window-width=32 --window-height=85"
+            --append-flags "--window-width=120 --window-height=35"
         '';
     })
 
@@ -38,6 +38,7 @@
     inotify-tools
     tldr
     pandoc
+    openai-whisper
     viddy
     file
     btrfs-progs
@@ -493,7 +494,7 @@
     shellAliases = {
       ssh = "TERM=xterm-256color ssh";
       l = "ls -lisah";
-      doom = "~/.config/emacs/bin/doom";
+      s = "ls -lorths";
       emacs = "emacs -nw";
       nvimperf = "nvim --startuptime /tmp/nvperf.log";
       find = "fd";
@@ -503,7 +504,7 @@
       egrep = "egrep --colour=auto";
       fgrep = "fgrep --colour=auto";
       free = "free -m";
-      #btrfsfree = "sudo btrfs fi us /";
+      btrfsfree = "sudo btrfs fi us /";
       notify-me = "notify-send -u normal -t 2000 done";
       #gdrivesync = "google-drive-ocamlfuse ~/GDrive";
     };
