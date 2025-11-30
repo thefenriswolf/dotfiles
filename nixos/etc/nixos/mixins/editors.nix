@@ -6,7 +6,6 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    tree-sitter
     stylua
     luaformatter
     lua

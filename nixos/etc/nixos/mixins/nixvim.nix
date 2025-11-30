@@ -1,11 +1,12 @@
 # inputs,
 {
   pkgs,
+  inputs,
   ...
 }:
 {
   environment.systemPackages = with pkgs; [
-    tree-sitter
+    #tree-sitter
     stylua
     luaformatter
     lua
@@ -16,10 +17,10 @@
     neovim
   ];
 
-  # nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
+  nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
   programs.neovim = {
     enable = true;
-    # package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     vimAlias = true;
     viAlias = true;
     defaultEditor = true;
