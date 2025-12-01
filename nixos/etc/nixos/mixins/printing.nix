@@ -3,7 +3,7 @@
   ...
 }:
 let
-  uvtools = import ./custom-packages/uvtools/uvtools.nix { inherit pkgs; };
+  uvtools = import ./custom-packages/uvtools/uvtools_appimage.nix { inherit pkgs; };
   lychee = import ./custom-packages/lychee.nix { inherit pkgs; };
   unstable = import <nixos-unstable> {
     config = {

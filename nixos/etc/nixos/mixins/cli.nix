@@ -58,7 +58,7 @@
     enable = true;
     extraPackages = with pkgs.bat-extras; [
       batdiff
-      batman
+      # batman
       prettybat
     ];
   };

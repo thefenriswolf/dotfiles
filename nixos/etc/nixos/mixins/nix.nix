@@ -1,7 +1,5 @@
 { pkgs, ... }:
 {
-  # system.rebuild.enableNg = true;
-  # system.switch.enableNg = true;
 
   programs.nix-ld = {
     enable = true;
@@ -26,6 +24,7 @@
       trusted = true;
       keys = [ ];
     };
+
     optimise.automatic = true;
     gc = {
       automatic = false;
@@ -43,7 +42,7 @@
     };
   };
   nixpkgs.config = {
-    permittedInsecurePackages = [ "mbedtls-2.28.10" ]; # TODO: remove once fixed
+    #permittedInsecurePackages = [ "mbedtls-2.28.10" ]; # TODO: remove once fixed
     allowUnfree = true;
   };
   environment.systemPackages = [

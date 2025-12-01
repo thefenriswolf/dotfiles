@@ -62,18 +62,19 @@
         enableHidpi = true;
       };
     };
+    desktopManager = {
+      gnome = {
+        enable = true;
+      };
+    };
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+      autoSuspend = false;
+    };
+
     xserver = {
       enable = true;
-      displayManager.gdm = {
-        enable = true;
-        wayland = true;
-        autoSuspend = false;
-      };
-      desktopManager = {
-        gnome = {
-          enable = true;
-        };
-      };
       videoDrivers = [ "amdgpu" ];
       xkb = {
         layout = "at";
@@ -110,6 +111,7 @@
 
       mpv
       yt-dlp
+      paisa
 
       calibre
       mtpfs

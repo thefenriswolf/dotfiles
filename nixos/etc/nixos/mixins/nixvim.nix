@@ -17,10 +17,10 @@
     neovim
   ];
 
-  nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
+  # nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
   programs.neovim = {
     enable = true;
-    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+    # package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     vimAlias = true;
     viAlias = true;
     defaultEditor = true;
@@ -277,7 +277,7 @@
           telescope-nvim
           vim-visual-multi
           gitsigns-nvim
-          nvim-treesitter
+          nvim-treesitter.withAllGrammars
           #Ionide-vim
         ];
         opt = [

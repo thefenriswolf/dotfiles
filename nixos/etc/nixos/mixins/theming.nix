@@ -6,7 +6,7 @@
     packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       liberation_ttf
       fira-code
       fira-code-symbols
@@ -16,7 +16,7 @@
       nerd-fonts.fira-code
       nerd-fonts.ubuntu
       corefonts
-      vistafonts
+      vista-fonts
       nerd-font-patcher
     ];
   };

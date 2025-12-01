@@ -7,7 +7,7 @@
   description = "thefenriswolf's NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nur.url = "github:nix-community/nur";
@@ -22,10 +22,10 @@
       url = "github:gmodena/nix-flatpak"; # unstable branch. Use github:gmodena/nix-flatpak/?ref=<tag> to pin releases.
     };
 
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
+    #   neovim-nightly-overlay = {
+    #     url = "github:nix-community/neovim-nightly-overlay";
+    #     inputs.nixpkgs.follows = "nixpkgs-unstable";
+    #   };
 
     tiddlydesktop = {
       url = "github:TiddlyWiki/TiddlyDesktop";
@@ -41,7 +41,7 @@
       nixos-hardware,
       nur,
       nixpkgs-unstable,
-      neovim-nightly-overlay, # home-manager,
+      # neovim-nightly-overlay,
       wrappers,
       ...
     }@inputs:
@@ -49,7 +49,7 @@
       inherit (self) outputs;
       stateVersion = "25.05";
       helper = import ./lib { inherit inputs outputs stateVersion; };
-      overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
+      overlays = [ ]; # inputs.neovim-nightly-overlay.overlays.default ];
     in
     {
       nixosConfigurations = {

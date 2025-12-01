@@ -119,7 +119,7 @@ in
     gnumake
 
     # python
-    python3Full
+    #python3Full
     #pkgs.python311Packages.numpy
     #pkgs.python311Packages.scikit-image
     #pkgs.python311Packages.pydicom
@@ -127,7 +127,7 @@ in
     #pkgs.python311Packages.matplotlib
     black
     isort
-    python311Packages.python-lsp-server
+    #python311Packages.python-lsp-server
     #python311Packages.pyflakes
     #python311Packages.pygments
     #python311Packages.virtualenv
@@ -143,7 +143,7 @@ in
   ];
 
   services.emacs = {
-    enable = false;
+    enable = true;
   };
 
 }
