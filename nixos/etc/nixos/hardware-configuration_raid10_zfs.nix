@@ -92,6 +92,11 @@
     fsType = "zfs";
   };
 
+  fileSystems."/tank" = {
+    device = "tank/store";
+    fsType = "zfs";
+  };
+
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/ED1A-E1B6";
     fsType = "vfat";
