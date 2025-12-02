@@ -103,6 +103,7 @@
       inkscape-with-extensions
 
       gnome-firmware
+      btrfs-assistant
       gnome-tweaks
       adwaita-icon-theme
       numix-cursor-theme

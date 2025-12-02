@@ -31,28 +31,28 @@
         "monitor" = false;
       };
       crucial = {
-        daily = 48;
-        weekly = 14;
-        monthly = 60;
-        yearly = 24;
+        daily = 24;
+        weekly = 7;
+        monthly = 15;
+        yearly = 12;
         "autoprune" = true;
         "autosnap" = true;
         "monitor" = true;
       };
       lazy = {
-        daily = 12;
+        daily = 6;
         weekly = 5;
-        monthly = 15;
-        yearly = 6;
+        monthly = 4;
+        yearly = 4;
         "autoprune" = true;
         "autosnap" = true;
         "monitor" = true;
       };
       comatose = {
-        daily = 4;
-        weekly = 4;
-        monthly = 4;
-        yearly = 4;
+        daily = 1;
+        weekly = 1;
+        monthly = 1;
+        yearly = 1;
         "autoprune" = true;
         "autosnap" = true;
         "monitor" = true;
@@ -106,9 +106,9 @@
       };
     };
     extraArgs = [
-      "--verbose"
-      "--debug"
-      " >> /tmp/sanoid.log"
+      #"--verbose"
+      #"--debug"
+      #" >> /tmp/sanoid.log"
     ];
   };
 
