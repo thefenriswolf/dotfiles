@@ -106,6 +106,15 @@
     ];
   };
 
+  services.syncoid = {
+    enable = true;
+    commands = {
+      "rpool/home".target = "tank/home";
+    };
+  };
+
+  # sudo syncoid rpool/home tank/home
+
   #swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
