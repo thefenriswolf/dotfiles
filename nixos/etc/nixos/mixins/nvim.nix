@@ -20,8 +20,15 @@
       };
     };
     colorschemes = {
-      catppuccin = {
+      bamboo = {
         enable = true;
+        settings = {
+          style = "multiplex"; # vulgaris, light, multiplex
+          transparent = true;
+        };
+      };
+      catppuccin = {
+        enable = false;
         settings = {
           flavour = "frappe";
         };
@@ -233,6 +240,7 @@
       };
       lsp = {
         enable = true;
+        autoLoad = true;
         inlayHints = true;
         servers = {
           nixd = {
@@ -246,7 +254,10 @@
           };
           omnisharp = {
             enable = true;
-            autostart = true;
+            cmd = [
+              "OmniSharp"
+              "-lsp"
+            ];
           };
           beancount = {
             enable = true;
@@ -255,6 +266,7 @@
       };
       blink-cmp = {
         enable = true;
+        autoLoad = true;
         setupLspCapabilities = true;
         settings.sources.default = [
           "lsp"
