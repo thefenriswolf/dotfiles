@@ -111,8 +111,10 @@
       gnomeExtensions.dash-to-panel
 
       mpv
+      ollama-vulkan
       yt-dlp
-      paisa
+      beancount
+      beancount-language-server
 
       calibre
       mtpfs

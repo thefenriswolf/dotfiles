@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 let
   lover = import ./custom-packages/lover.nix { inherit pkgs; };
@@ -6,13 +6,6 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    stylua
-    luaformatter
-    lua
-    luajit
-    lua52Packages.lua-lsp
-    lua52Packages.luacheck
-    lua-language-server
     ltex-ls
     fd
     viu
@@ -20,7 +13,6 @@ in
     stow
     ueberzugpp
 
-    emacs
     micro
 
     # shell
@@ -40,7 +32,7 @@ in
     # js
     #assemblyscript
     #typescript
-    typescript-language-server
+    #typescript-language-server
     #electron-bin
     #nodePackages.prettier
     #nodejs
@@ -101,25 +93,25 @@ in
     # pkgs.dosbox
 
     # golang
-    go
-    gotools # godoc, ...
-    go-tools # staticcheck, ...
-    delve
-    gopls
-    revive
-    gomodifytags
-    gore
-    gotests
-    govulncheck
+    #go
+    #gotools # godoc, ...
+    #go-tools # staticcheck, ...
+    #delve
+    #gopls
+    #revive
+    #gomodifytags
+    #gore
+    #gotests
+    #govulncheck
 
     # c/cpp
     clang
-    # pkgs.gcc
-    clang-tools
+    #gcc
+    #clang-tools
     gnumake
 
     # python
-    #python3Full
+    python3Minimal
     #pkgs.python311Packages.numpy
     #pkgs.python311Packages.scikit-image
     #pkgs.python311Packages.pydicom
@@ -141,9 +133,4 @@ in
     # Julia
     # pkgs.julia
   ];
-
-  services.emacs = {
-    enable = true;
-  };
-
 }

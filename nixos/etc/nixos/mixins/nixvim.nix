@@ -14,7 +14,7 @@
     lua52Packages.lua-lsp
     lua52Packages.luacheck
     lua-language-server
-    neovim
+    #neovim
   ];
 
   # nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
@@ -177,6 +177,17 @@
                               vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
                               vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
+                              require("blink-cmp").setup({
+                                -- opts={},
+                                keymap = { preset = 'default' },
+                                appearance = {
+                                  use_nvim_cmp_as_default = true,
+                                  nerd_font_variant = 'mono'
+                                  },
+                                signature = { enabled = true }
+                              })
+
+
                               -- " Mini
                               -- Better Around/Inside textobjects
                               -- Examples:
@@ -192,11 +203,9 @@
                               require("mini.surround").setup()
 
                               -- Simple and easy statusline.
-                              --  You could remove this setup call if you don't like it,
-                              --  and try some other statusline plugin
                               local statusline = require("mini.statusline")
                               -- set use_icons to true if you have a Nerd Font
-                              statusline.setup({ use_icons = vim.g.have_nerd_font })
+                              statusline.setup({ use_icons = true }) --vim.g.have_nerd_font })
 
                               -- quickly comment line or region
                               -- - gcc  -  comment line
@@ -221,11 +230,13 @@
                                  rust = { "rustfmt", lsp_format = "fallback" },
                                  javascript = { "prettierd", "prettier", stop_after_first = true },
                                  html = { "tidy -m" }
-                                  }
-                                  })
+                                 }
+                                })
+                local capabilities = require('blink-cmp').get_lsp_capabilities()
                 -- " LSPCONFIG
                    -- Nix
                    vim.lsp.config("nixd", {
+                     capabilities = capabilities,
                      settings = {
                        nixd = {
                          formatting = {
@@ -238,13 +249,27 @@
 
                    -- GO
                    vim.lsp.config("gopls", {
+                     capabilities = capabilities,
                      root_markers = { "go.mod", ".git" },
                      cmd = { "gopls" },
                    })
                    vim.lsp.enable("gopls", true)
 
+                   -- Beancount
+                   vim.lsp.config("beancount", {
+                     capabilities = capabilities,
+                   })
+                   vim.lsp.enable("beancount", true)
+
+                   -- Odin
+                   vim.lsp.config("ols", {
+                     capabilities = capabilities,
+                   })
+                   vim.lsp.enable("ols", false)
+
                    -- C#
                    vim.lsp.config("omnisharp", {
+                     capabilities = capabilities,
                      root_markers = { "*.csproj" },
                      --  cmd = { "OmniSharp -lsp" },
                    })
@@ -255,11 +280,20 @@
 
                    -- Java
                    vim.lsp.config("jdtls", {
+                     capabilities = capabilities,
                      root_markers = { "build.gradle", "build.gradle.kts", "gradlew.bat", "pom.xml", ".git" },
                      filetypes = { "java" },
                      --cmd = { "jdtls" },
                    })
-                   vim.lsp.enable("java_language_server", true)
+                   vim.lsp.enable("java_language_server", false)
+
+                   -- Zig
+                   vim.lsp.config("zls", {
+                     capabilities = capabilities,
+                     root_markers = { "zls.json", "build.zig", "build.zig.zon", ".git"},
+                   })
+                   vim.lsp.enable("zls", false)
+
 
 
 
@@ -272,13 +306,13 @@
           which-key-nvim
           trouble-nvim
           blink-cmp
+          friendly-snippets
           conform-nvim
           mini-nvim
           telescope-nvim
           vim-visual-multi
           gitsigns-nvim
           nvim-treesitter.withAllGrammars
-          #Ionide-vim
         ];
         opt = [
           conjure

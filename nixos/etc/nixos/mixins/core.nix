@@ -8,6 +8,7 @@
 
   environment.systemPackages = with pkgs; [
     widevine-cdm
+    brave
     # firefox
 
     tree
