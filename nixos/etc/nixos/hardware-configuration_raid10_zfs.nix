@@ -108,11 +108,28 @@
 
   services.syncoid = {
     enable = true;
+    interval = "hourly";
+    localTargetAllow = [
+      "change-key"
+      "compression"
+      "create"
+      "mount"
+      "mountpoint"
+      "receive"
+      "rollback"
+    ];
+    localSourceAllow = [
+      #  "bookmark"
+      #  "hold"
+      "send"
+      "snapshot"
+      #  "destroy"
+      #  "mount"
+    ];
     commands = {
       "rpool/home".target = "tank/home";
     };
   };
-
   # sudo syncoid rpool/home tank/home
 
   #swapDevices = [ ];

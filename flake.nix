@@ -13,6 +13,10 @@
     nur.url = "github:nix-community/nur";
     wrappers.url = "github:lassulus/wrappers";
 
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-25.11";
+    };
+
     #   sops-nix = {
     #     url = "github:Mic92/sops-nix";
     #     inputs.nixpkgs.follows = "nixpkgs";
@@ -36,7 +40,7 @@
     {
       self,
       nixpkgs,
-      sops-nix,
+      nixvim,
       nix-flatpak,
       nixos-hardware,
       nur,
@@ -47,7 +51,7 @@
     }@inputs:
     let
       inherit (self) outputs;
-      stateVersion = "25.05";
+      stateVersion = "25.11";
       helper = import ./lib { inherit inputs outputs stateVersion; };
       overlays = [ ]; # inputs.neovim-nightly-overlay.overlays.default ];
     in
@@ -68,7 +72,8 @@
             ./nixos/etc/nixos/mixins/desktop.nix
             ./nixos/etc/nixos/mixins/dev.nix
             ./nixos/etc/nixos/mixins/editors.nix
-            ./nixos/etc/nixos/mixins/nixvim.nix
+            #./nixos/etc/nixos/mixins/nixvim.nix
+            ./nixos/etc/nixos/mixins/nvim.nix
             ./nixos/etc/nixos/mixins/filesystem_zfs.nix
             ./nixos/etc/nixos/mixins/gaming.nix
             ./nixos/etc/nixos/mixins/graphics.nix
@@ -108,7 +113,7 @@
             ./nixos/etc/nixos/mixins/dev.nix
             ./nixos/etc/nixos/mixins/editors.nix
             ./nixos/etc/nixos/mixins/gaming.nix
-            ./nixos/etc/nixos/mixins/nixvim.nix
+            ./nixos/etc/nixos/mixins/nvim.nix
             ./nixos/etc/nixos/mixins/filesystem_zfs.nix
             ./nixos/etc/nixos/mixins/graphics.nix
             ./nixos/etc/nixos/mixins/locale.nix
