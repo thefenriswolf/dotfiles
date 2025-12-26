@@ -8,34 +8,34 @@
     bat
     glow
     fd
-    isd
+    pueue
+    # isd
     neofetch
-    scriptisto
-    #ghostty
-    (pkgs.symlinkJoin {
-      name = "ghostty";
-      nativeBuildInputs = [ pkgs.makeWrapper ];
-      paths = [ pkgs.ghostty ];
-      postBuild =
-        #     let
-        #       configFile = pkgs.writeText "config"
-        #       ''
-        #       # window
-        #       window-width = 95
-        #       window-height = 95
-        #       '';
-        #     in
-        ''
-          wrapProgram $out/bin/ghostty \
-            --append-flags "--window-width=120 --window-height=35"
-        '';
-    })
-
+    ghostty
+    # (pkgs.symlinkJoin {
+    #  name = "ghostty";
+    #  nativeBuildInputs = [ pkgs.makeWrapper ];
+    #  paths = [ pkgs.ghostty ];
+    #  postBuild =
+    #     let
+    #       configFile = pkgs.writeText "config"
+    #       ''
+    #       # window
+    #       window-width = 95
+    #       window-height = 95
+    #       '';
+    #     in
+    #   ''
+    #     wrapProgram $out/bin/ghostty \
+    #       --append-flags "--window-width=120 --window-height=35"
+    #   '';
+    # })
     usbutils
     btop
     nvtopPackages.amd
     fastfetch
     inotify-tools
+    notify-desktop
     tldr
     pandoc
     openai-whisper
@@ -57,8 +57,6 @@
   programs.bat = {
     enable = true;
     extraPackages = with pkgs.bat-extras; [
-      batdiff
-      # batman
       prettybat
     ];
   };
@@ -66,7 +64,7 @@
   programs.yazi = {
     enable = true;
     settings.yazi = {
-      manager = {
+      mgr = {
         show_hidden = true;
         sort_by = "natural";
         sort_sensitive = true;
@@ -493,19 +491,21 @@
     '';
     shellAliases = {
       ssh = "TERM=xterm-256color ssh";
-      l = "ls -lisah";
-      s = "ls -lorths";
+      #l = "ls -lisah";
+      l = "eza -a -1 -l -s time -r --git -h";
+      sl = "ls -lorths";
+      pq = "pueue";
       emacs = "emacs -nw";
       nvimperf = "nvim --startuptime /tmp/nvperf.log";
       find = "fd";
-      c = "bat";
+      cat = "bat";
       ps = "procs";
       watch = "viddy";
       egrep = "egrep --colour=auto";
       fgrep = "fgrep --colour=auto";
       free = "free -m";
       btrfsfree = "sudo btrfs fi us /";
-      notify-me = "notify-send -u normal -t 2000 done";
+      notify-me = ''notify-desktop -t 1000 -u critical'';
       #gdrivesync = "google-drive-ocamlfuse ~/GDrive";
     };
   };

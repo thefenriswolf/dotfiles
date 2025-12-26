@@ -18,7 +18,7 @@
     curl
 
     ghostscript
-    ffmpeg
+    ffmpeg-full
     imagemagick
     languagetool
 

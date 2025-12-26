@@ -252,6 +252,9 @@
           lua_ls = {
             enable = true;
           };
+          clojure_lsp = {
+            enable = true;
+          };
           omnisharp = {
             enable = true;
             cmd = [
@@ -260,7 +263,7 @@
             ];
           };
           beancount = {
-            enable = true;
+            enable = false;
           };
         };
       };
@@ -291,6 +294,7 @@
               stop_after_first = true;
             };
             cs = [ "csharpier" ];
+            clojure = [ "cljfmt" ];
             go = {
               __unkeyed-1 = "goimports";
               __unkeyed-2 = "gofmt";

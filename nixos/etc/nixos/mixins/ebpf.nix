@@ -1,10 +1,10 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    bpftrace
-    bpftop
-    bcc
+    #bpftrace
+    #bpftop
+    #bcc
   ];
-  programs.bcc.enable = true;
+  programs.bcc.enable = false;
 
 }

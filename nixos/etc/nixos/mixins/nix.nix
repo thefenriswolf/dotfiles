@@ -1,6 +1,10 @@
-{ pkgs, ... }:
 {
-
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
+{
   programs.nix-ld = {
     enable = true;
   };
@@ -42,11 +46,20 @@
     };
   };
   nixpkgs.config = {
-    #permittedInsecurePackages = [ "mbedtls-2.28.10" ]; # TODO: remove once fixed
     allowUnfree = true;
   };
   environment.systemPackages = [
     pkgs.nixfmt-rfc-style
     pkgs.nixd
+    inputs.nixos-needsreboot.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
+  system.activationScripts = {
+    nixos-needsreboot = {
+      supportsDryActivation = true;
+      text = "${
+        lib.getExe inputs.nixos-needsreboot.packages.${pkgs.stdenv.hostPlatform.system}.default
+      } \"$systemConfig\" || true";
+    };
+  };
+
 }

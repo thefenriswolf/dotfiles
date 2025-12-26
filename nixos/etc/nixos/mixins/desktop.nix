@@ -113,6 +113,11 @@
       mpv
       ollama-vulkan
       yt-dlp
+      hledger
+      hledger-web
+      hledger-ui
+      hledger-fmt
+      puffin
       beancount
       beancount-language-server
 

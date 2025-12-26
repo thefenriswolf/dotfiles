@@ -11,7 +11,7 @@
         defaultBranch = "main";
       };
       core = {
-        editor = "nano";
+        editor = "vi";
       };
       alias = {
         clown = "clone --recurse-submodules --recursive";

@@ -12,6 +12,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nur.url = "github:nix-community/nur";
     wrappers.url = "github:lassulus/wrappers";
+    nixos-needsreboot.url = "https://codeberg.org/Mynacol/nixos-needsreboot/archive/main.tar.gz";
 
     nixvim = {
       url = "github:nix-community/nixvim/nixos-25.11";
@@ -45,8 +46,8 @@
       nixos-hardware,
       nur,
       nixpkgs-unstable,
-      # neovim-nightly-overlay,
       wrappers,
+      nixos-needsreboot,
       ...
     }@inputs:
     let
