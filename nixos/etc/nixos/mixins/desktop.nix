@@ -111,6 +111,7 @@
       gnomeExtensions.dash-to-panel
 
       mpv
+      losslesscut-bin
       ollama-vulkan
       yt-dlp
       hledger

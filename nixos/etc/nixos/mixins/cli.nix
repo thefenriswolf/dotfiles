@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
+  imports = [ ./overlays.nix ];
   environment.systemPackages = with pkgs; [
+    #helloOpt
+
     zoxide
     ripgrep
     fzf
@@ -491,10 +494,11 @@
     '';
     shellAliases = {
       ssh = "TERM=xterm-256color ssh";
-      #l = "ls -lisah";
+      # l = "ls -lisah";
       l = "eza -a -1 -l -s time -r --git -h";
       sl = "ls -lorths";
       pq = "pueue";
+      run0 = "run0 --background=41";
       emacs = "emacs -nw";
       nvimperf = "nvim --startuptime /tmp/nvperf.log";
       find = "fd";

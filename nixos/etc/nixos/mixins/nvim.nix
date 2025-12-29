@@ -1,4 +1,9 @@
-{ inputs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [
     inputs.nixvim.nixosModules.nixvim
@@ -39,14 +44,115 @@
       mapleader = " ";
     };
     keymaps = [
+      ## LazyGit
       {
         mode = "n";
-        key = "<leader>gg";
-        action = ":LazyGit<CR>";
+        key = "<leader>g";
+        action = "";
         options = {
-          desc = "LazyGit status";
+          desc = "[G]it";
         };
       }
+      {
+        mode = "n";
+        key = "<leader>gs";
+        action = ":LazyGit<CR>";
+        options = {
+          desc = "LazyGit [S]tatus";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>gl";
+        action = ":LazyGitLog<CR>";
+        options = {
+          desc = "LazyGit [L]og";
+        };
+      }
+      ## Debugger
+      {
+        mode = "n";
+        key = "<leader>l";
+        action = "";
+        options = {
+          desc = "Debugger";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>lb";
+        action = ":DapToggleBreakpoint<CR>";
+        options = {
+          desc = "Toggle [B]reakpoint";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>le";
+        action.__raw = ''
+          				function()
+                      require("dap").set_exception_breakpoints({"all"})
+          				end
+          				'';
+        options = {
+          desc = "Set [E]xception Breakpoints";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>lc";
+        action = ":DapContinue<CR>";
+        options = {
+          desc = "[C]ontinue";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>ll";
+        action.__raw = ''
+          				function()
+                      require("dap").list_breakpoints()
+          				end
+          				'';
+        options = {
+          desc = "[L]ist Breakpoints";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>lr";
+        action.__raw = ''
+          function()
+              require("dap").repl.toggle()
+          end
+        '';
+        options = {
+          desc = "Open/Close [R]EPL";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>lv";
+        action = ":DapViewToggle<CR>";
+        options = {
+          desc = "Open/Close Dap[V]iew";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>lq";
+        action.__raw = ''
+          function()
+            require("dap").terminate()
+            require("dap-view").close()
+            require("dapui").close()
+          end
+        '';
+        options = {
+          desc = "[Q]uit";
+        };
+      }
+
     ];
     opts = {
       cursorline = true;
@@ -231,6 +337,47 @@
       todo-comments = {
         enable = true;
       };
+      # https://nix-community.github.io/nixvim/plugins/dap/index.html
+      # https://github.com/igorlfs/nvim-dap-view/
+      # https://tamerlan.dev/a-guide-to-debugging-applications-in-neovim/
+      # https://github.com/search?q=repo%3Akhaneliman%2Fkhanelivim+dap&type=code&p=2
+      # https://codeberg.org/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#c-c-rust-via-lldb-vscode
+      dap = {
+        enable = true;
+        adapters = {
+          executables = {
+            lldb = {
+              command = lib.getExe' pkgs.lldb "lldb-dap";
+              #args = ["-g"];
+            };
+          };
+        };
+        configurations = {
+          odin = [
+            {
+              name = "Launch (LLDB)";
+              type = "lldb";
+              request = "launch";
+              cwd = ''''${workspaceFolder}'';
+              stopOnEntry = false;
+              runInTerminal = false;
+              program.__raw = ''
+                		function()
+                        return vim.fn.input("Path to exe: ", vim.fn.getcwd() .. '/', "file")
+                 		end
+              '';
+              args = { };
+            }
+          ];
+        };
+      };
+      dap-ui = {
+        enable = true;
+      };
+      dap-view = {
+        enable = true;
+      };
+
       lint = {
         enable = true;
         lintersByFt = {
@@ -253,6 +400,9 @@
             enable = true;
           };
           clojure_lsp = {
+            enable = false;
+          };
+          ols = {
             enable = true;
           };
           omnisharp = {
@@ -287,6 +437,7 @@
             nix = [ "nixfmt" ];
             bash = [ "shfmt" ];
             sh = [ "shfmt" ];
+            odin = [ "odinfmt" ];
             fsharp = [ "fantomas" ];
             lua = {
               __unkeyed-1 = "stylua";
@@ -314,7 +465,7 @@
             };
           };
           format_on_save = {
-            timeout_ms = 1000;
+            timeout_ms = 5000;
             lsp_format = "prefer";
           };
         };
