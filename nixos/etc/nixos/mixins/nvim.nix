@@ -24,6 +24,17 @@
         plugins = true;
       };
     };
+
+    #  extraPlugins = [(pkgs.vimUtils.buildVimPlugin {
+    #    name = "my-plugin";
+    #    src = pkgs.fetchFromGitHub {
+    #        owner = "<owner>";
+    #        repo = "<repo>";
+    #        rev = "<commit hash>";
+    #        hash = "<nix NAR hash>";
+    #    };
+    #  })];
+
     colorschemes = {
       bamboo = {
         enable = true;
@@ -246,6 +257,7 @@
       which-key = {
         enable = true;
       };
+      hardtime.enable = true;
       telescope = {
         enable = true;
         extensions = {
