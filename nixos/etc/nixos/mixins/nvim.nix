@@ -268,24 +268,87 @@
         enable = true;
         settings = {
           options = {
-            mapping_keys = true;
+            mapping_keys = false;
             disable_statuslines = false;
             empty_lines_between_mappings = true;
+            paddings = [
+              2
+              2
+              2
+            ];
           };
-          theme = "dashboard"; # no theme if custom sections are desired
-          header = {
+          # theme = "dashboard"; # no theme if custom sections are desired
+          footer = {
+            type = "text";
+            oldfiles_directory = false;
+            align = "center";
+            fold_section = false;
+            title = "Footer";
+            margin = 5;
+            content = [
+              "thefenriswolf"
+            ];
+            highlight = "Number";
+            default_color = "";
+            oldfiles_amount = 4;
+          };
+          body = {
             type = "text";
             oldfiles_directory = false;
             oldfiles_amout = 0;
             align = "center";
             fold_section = false;
             margin = 5;
-            title = "ZFS STATUS";
+            title = "Body";
             default_color = "";
-            #content.__raw = '''';
+            content.__raw = ''
+              function()
+                local cli_return = vim.system({ 'zpool', 'status', '-j' }, { text = true }):wait()
+                local ok, zpool_status = pcall(vim.json.decode, cli_return.stdout)
+                if not ok then
+                  error("Failed to parse zpool status: " .. tostring(zpool_status))
+                end
+                local pool_names = {}
+                for k in pairs(zpool_status.pools) do
+                  table.insert(pool_names, k)
+                end
+                local pool1_last_scrub = zpool_status.pools[pool_names[1]].scan_stats.end_time
+                local pool1_last_errors = "Errors: ".. zpool_status.pools[pool_names[1]].scan_stats.errors
+                local pool2_last_scrub = zpool_status.pools[pool_names[2]].scan_stats.end_time
+                local pool2_last_errors = "Errors: ".. zpool_status.pools[pool_names[2]].scan_stats.errors
+
+                local line1 = "" .. pool1_last_scrub .. " " .. pool1_last_errors
+                local line2 = "" .. pool2_last_scrub .. " " .. pool2_last_errors
+
+                return{pool_names[1],line1,pool_names[2],line2}
+              end
+            '';
             highlight = "String";
           };
-          parts = [ "header" ];
+          header = {
+            type = "text";
+            oldfiles_directory = false;
+            align = "center";
+            fold_section = false;
+            title = "Header";
+            margin = 5;
+            content = [
+              " ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗"
+              " ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║"
+              " ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║"
+              " ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║"
+              " ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║"
+              " ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝"
+            ];
+            highlight = "Statement";
+            default_color = "";
+            oldfiles_amount = 0;
+          };
+          parts = [
+            "header"
+            "body"
+            "footer"
+          ];
         };
       };
 
