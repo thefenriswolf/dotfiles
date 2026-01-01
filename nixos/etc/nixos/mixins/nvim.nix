@@ -25,15 +25,17 @@
       };
     };
 
-    #  extraPlugins = [(pkgs.vimUtils.buildVimPlugin {
-    #    name = "my-plugin";
-    #    src = pkgs.fetchFromGitHub {
+    # extraPlugins = [
+    # (pkgs.vimUtils.buildVimPlugin {
+    # name = "pta-nvim";
+    # src = "~/playground/pta-nvim/"; # pkgs.fetchFromGitHub {
     #        owner = "<owner>";
     #        repo = "<repo>";
     #        rev = "<commit hash>";
     #        hash = "<nix NAR hash>";
-    #    };
-    #  })];
+    # };
+    # })
+    # ];
 
     colorschemes = {
       bamboo = {
@@ -55,6 +57,8 @@
       mapleader = " ";
     };
     keymaps = [
+      ## ZFS
+
       ## LazyGit
       {
         mode = "n";
@@ -257,7 +261,34 @@
       which-key = {
         enable = true;
       };
-      hardtime.enable = true;
+      hardtime.enable = false;
+
+      startup = {
+        # https://github.com/max397574/startup.nvim/blob/master/lua/startup/themes/dashboard.lua
+        enable = true;
+        settings = {
+          options = {
+            mapping_keys = true;
+            disable_statuslines = false;
+            empty_lines_between_mappings = true;
+          };
+          theme = "dashboard"; # no theme if custom sections are desired
+          header = {
+            type = "text";
+            oldfiles_directory = false;
+            oldfiles_amout = 0;
+            align = "center";
+            fold_section = false;
+            margin = 5;
+            title = "ZFS STATUS";
+            default_color = "";
+            #content.__raw = '''';
+            highlight = "String";
+          };
+          parts = [ "header" ];
+        };
+      };
+
       telescope = {
         enable = true;
         extensions = {

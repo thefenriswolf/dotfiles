@@ -87,7 +87,7 @@
   # Only install the docs I use
   documentation = {
     enable = true;
-    nixos.enable = true;
+    nixos.enable = false;
     man.enable = true;
     info.enable = false;
     doc.enable = false;
@@ -119,8 +119,6 @@
       hledger-ui
       hledger-fmt
       puffin
-      beancount
-      beancount-language-server
 
       calibre
       mtpfs
