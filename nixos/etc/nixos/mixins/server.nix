@@ -8,19 +8,11 @@
 
   services.immich = {
     enable = true;
-    machine-learning.enable = false;
+    machine-learning.enable = true;
+    accelerationDevices = [ "/dev/dri/renderD128" ];
     openFirewall = true;
-    port = 2283;
-    #host = "localhost";
-    group = "immich";
-    settings.newVersionCheck.enabled = false;
-    database = {
-      enable = true;
-      createDB = true;
-      user = "immich";
-      name = "immich";
-      #port = 5432;
-    };
+    host = "0.0.0.0";
+    mediaLocation = "/var/lib/immich";
   };
   users.users.immich.extraGroups = [
     "video"

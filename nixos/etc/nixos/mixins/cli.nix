@@ -41,6 +41,7 @@
     notify-desktop
     tldr
     pandoc
+    emacs-nox
     openai-whisper
     viddy
     file

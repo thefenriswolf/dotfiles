@@ -25,10 +25,17 @@
       };
     };
 
-    # extraPlugins = [
-    # (pkgs.vimUtils.buildVimPlugin {
-    # name = "pta-nvim";
-    # src = "~/playground/pta-nvim/"; # pkgs.fetchFromGitHub {
+    extraPlugins = [
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "pta-nvim";
+        src = lib.cleanSourceWith {
+          src = "/home/ro/playground/pta-nvim/";
+        };
+      })
+    ];
+    extraConfigLua = "require('pta-nvim').setup({})";
+
+    # pkgs.fetchFromGitHub {
     #        owner = "<owner>";
     #        repo = "<repo>";
     #        rev = "<commit hash>";
@@ -352,6 +359,9 @@
         };
       };
 
+      orgmode = {
+        enable = true;
+      };
       telescope = {
         enable = true;
         extensions = {
