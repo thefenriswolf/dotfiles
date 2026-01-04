@@ -359,8 +359,29 @@
         };
       };
 
-      orgmode = {
+      neorg = {
         enable = true;
+        settings = {
+          load = {
+            "core.export" = { };
+            "core.concealer" = {
+              config = {
+                icon_preset = "varied";
+              };
+            };
+            "core.defaults" = {
+              __empty = null;
+            };
+            "core.dirman" = {
+              config = {
+                workspaces = {
+                  # home = "~/notes/home"; # work = "~/notes/work";
+                };
+              };
+            };
+          };
+        };
+        telescopeIntegration.enable = true;
       };
       telescope = {
         enable = true;
