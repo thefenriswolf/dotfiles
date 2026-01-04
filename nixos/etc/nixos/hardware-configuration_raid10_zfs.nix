@@ -27,7 +27,7 @@
       };
     };
     zfs = {
-      package = pkgs.zfs;
+      package = pkgs.zfs_2_4;
       allowHibernation = false;
       removeLinuxDRM = true;
       passwordTimeout = 0; # 0 = no timeout
@@ -48,7 +48,7 @@
       "zenpower"
     ];
     extraModulePackages = [ config.boot.kernelPackages.zenpower ];
-    kernelPackages = pkgs.linuxPackages_6_12; # EOL: 12/2026 -> https://www.kernel.org/releases.html
+    kernelPackages = pkgs.linuxPackages_6_18; # EOL: 12/2026 -> https://www.kernel.org/releases.html
     kernelParams = [
       "quiet"
       "loglevel=3"
@@ -68,6 +68,7 @@
       "ntfs"
       "ext4"
       "btrfs"
+      "bcachefs"
     ];
 
   };

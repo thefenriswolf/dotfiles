@@ -5,9 +5,9 @@
   powerManagement.powertop.enable = false; # auto tune powertop
 
   services = {
-    bpftune.enable = true;
+    bpftune.enable = false;
     auto-cpufreq = {
-      enable = true; # enable either auto-cpufreq or TLP
+      enable = false; # enable either auto-cpufreq or TLP
       settings = {
         battery = {
           # cpu
@@ -40,7 +40,7 @@
     };
     power-profiles-daemon.enable = false; # enable either tlp or auto-cpufreq
     tlp = {
-      enable = false; # enable either tlp or auto-cpufreq
+      enable = true; # enable either tlp or auto-cpufreq
       settings = {
         TLP_DEFAULT_MODE = "BAT"; # default power profile after boot
         TLP_PERSISTENT_DEFAULT = 0; # 0: autoselect power profile, 1: always choose default profile
@@ -103,7 +103,7 @@
     systemPackages = with pkgs; [
       # power-calibrate
       # lact
-      # powertop
+      powertop
     ];
   };
 }

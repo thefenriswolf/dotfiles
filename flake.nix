@@ -13,7 +13,6 @@
     nur.url = "github:nix-community/nur";
     wrappers.url = "github:lassulus/wrappers";
     nixos-needsreboot.url = "https://codeberg.org/Mynacol/nixos-needsreboot/archive/main.tar.gz";
-
     nixvim = {
       url = "github:nix-community/nixvim/nixos-25.11";
     };
@@ -73,7 +72,6 @@
             ./nixos/etc/nixos/mixins/desktop.nix
             ./nixos/etc/nixos/mixins/dev.nix
             ./nixos/etc/nixos/mixins/editors.nix
-            #./nixos/etc/nixos/mixins/nixvim.nix
             ./nixos/etc/nixos/mixins/nvim.nix
             ./nixos/etc/nixos/mixins/filesystem_zfs.nix
             ./nixos/etc/nixos/mixins/gaming.nix
@@ -88,6 +86,7 @@
             ./nixos/etc/nixos/mixins/powersave.nix
             ./nixos/etc/nixos/mixins/printing.nix
             ./nixos/etc/nixos/mixins/security.nix
+            ./nixos/etc/nixos/mixins/server.nix
             ./nixos/etc/nixos/mixins/sound.nix
             ./nixos/etc/nixos/mixins/ssh.nix
             ./nixos/etc/nixos/mixins/sync.nix
@@ -126,6 +125,7 @@
             ./nixos/etc/nixos/mixins/powersave.nix
             ./nixos/etc/nixos/mixins/printing.nix
             ./nixos/etc/nixos/mixins/security.nix
+            ./nixos/etc/nixos/mixins/server.nix
             ./nixos/etc/nixos/mixins/sound.nix
             ./nixos/etc/nixos/mixins/ssh.nix
             ./nixos/etc/nixos/mixins/sync.nix

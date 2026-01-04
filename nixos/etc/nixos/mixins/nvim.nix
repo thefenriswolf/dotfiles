@@ -33,7 +33,7 @@
         };
       })
     ];
-    extraConfigLua = "require('pta-nvim').setup({})";
+    extraConfigLua = "require('pta-nvim')"; #.setup({})";
 
     # pkgs.fetchFromGitHub {
     #        owner = "<owner>";
