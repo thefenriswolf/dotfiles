@@ -33,7 +33,7 @@
         };
       })
     ];
-    extraConfigLua = "require('pta-nvim')"; #.setup({})";
+    # extraConfigLua = "require('pta-nvim').setup({})";
 
     # pkgs.fetchFromGitHub {
     #        owner = "<owner>";
@@ -462,6 +462,9 @@
         enable = true;
         adapters = {
           executables = {
+            delve = {
+              command = lib.getExe' pkgs.delve "dlv-dap";
+            };
             lldb = {
               command = lib.getExe' pkgs.lldb "lldb-dap";
               #args = ["-g"];
@@ -469,6 +472,28 @@
           };
         };
         configurations = {
+          go = [
+            {
+              type = "delve";
+              name = "Debug";
+              request = "launch";
+              program = ''''${file}'';
+            }
+            {
+              type = "delve";
+              name = "Debug test";
+              request = "launch";
+              mode = "test";
+              program = ''''${file}'';
+            }
+            {
+              type = "delve";
+              name = "Debug test (go.mod)";
+              request = "launch";
+              mode = "test";
+              program = ''''${relativeFileDirname}'';
+            }
+          ];
           odin = [
             {
               name = "Launch (LLDB)";
@@ -515,6 +540,9 @@
           lua_ls = {
             enable = true;
           };
+          crystalline = {
+            enable = true;
+          };
           clojure_lsp = {
             enable = false;
           };
@@ -522,7 +550,7 @@
             enable = true;
           };
           omnisharp = {
-            enable = true;
+            enable = false;
             cmd = [
               "OmniSharp"
               "-lsp"
