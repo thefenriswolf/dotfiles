@@ -242,12 +242,22 @@
       };
       mini-notify = {
         enable = true;
+        settings = {
+          content = { };
+          lsp_progress = {
+            enable = true;
+            level = "INFO";
+            duration_last = 1000;
+          };
+          winblend = 100;
+          max_width_share = 0.4;
+        };
       };
       mini-comment = {
         enable = true;
       };
       mini-ai = {
-        enable = true;
+        enable = false;
       };
       treesitter = {
         enable = true;
@@ -364,19 +374,16 @@
         settings = {
           load = {
             "core.export" = { };
-            "core.concealer" = {
+            "core.concealer" = { };
+            "core.defaults" = { };
+            "core.tangle" = { };
+            "core.completion" = { };
+            "core.presenter" = { };
+            "core.summary" = { };
+            "core.keybinds" = {
               config = {
-                icon_preset = "varied";
-              };
-            };
-            "core.defaults" = {
-              __empty = null;
-            };
-            "core.dirman" = {
-              config = {
-                workspaces = {
-                  # home = "~/notes/home"; # work = "~/notes/work";
-                };
+                default_keybinds = true;
+                #neorg_leader = ",";
               };
             };
           };
