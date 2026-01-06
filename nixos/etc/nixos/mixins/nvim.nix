@@ -25,24 +25,18 @@
       };
     };
 
-    extraPlugins = [
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "pta-nvim";
-        src = lib.cleanSourceWith {
-          src = "/home/ro/playground/pta-nvim/";
-        };
-      })
-    ];
-    # extraConfigLua = "require('pta-nvim').setup({})";
-
-    # pkgs.fetchFromGitHub {
-    #        owner = "<owner>";
-    #        repo = "<repo>";
-    #        rev = "<commit hash>";
-    #        hash = "<nix NAR hash>";
-    # };
-    # })
+    # extraPlugins = [
+    #   (pkgs.vimUtils.buildVimPlugin {
+    #     name = "neowiki.nvim";
+    #     src = pkgs.fetchFromGitHub {
+    #       owner = "echaya";
+    #       repo = "neowiki.nvim";
+    #       rev = "86f705604f9f2e6c1a0f238ebe8df9fb843e71c7";
+    #       hash = "sha256-PXJhaX9pqIgDWZZbzK8z9SstW0kQ9SuB5IMPq7EjYic=";
+    #     };
+    #   })
     # ];
+    # extraConfigLua = ''require('neowiki.nvim').setup()'';
 
     colorschemes = {
       bamboo = {
@@ -280,6 +274,74 @@
       };
       hardtime.enable = false;
 
+      vimwiki = {
+        enable = true;
+        settings = {
+          number = true;
+          nocompatible = true;
+          "filetype plugin" = "on";
+          autowriteall = 0;
+          global_ext = 1; # disabled because we are only using markdown
+          hl_cb_checked = 1;
+          hl_headers = 1;
+          auto_header = 1;
+          key_mappings = {
+            all_maps = 1;
+            global = 1;
+            headers = 1;
+            # table_mappings=0; # only activate if there are issues
+          };
+          list = [
+            {
+              path = "~/org/notes/";
+              syntax = "markdown";
+              ext = ".md";
+            }
+          ];
+          listsym_rejected = "✗";
+          listsyms = "○◐●✓";
+          use_calendar = 1;
+        };
+      };
+
+      neorg = {
+        enable = false;
+        settings = {
+          load = {
+            "core.defaults" = {
+              __empty = null;
+            };
+            "core.concealer" = {
+              __empty = null;
+            };
+            # "core.export" = {
+            #   __empty = null;
+            # };
+            # "core.tangle" = {
+            #   __empty = null;
+            # };
+            # "core.completion" = {
+            #   __empty = null;
+            # };
+            # "core.presenter" = {
+            #   __empty = null;
+            # };
+            # "core.summary" = {
+            #   __empty = null;
+            # };
+            "core.keybinds" = {
+              config = {
+                default_keybinds = true;
+                neorg_leader = ",";
+              };
+            };
+          };
+        };
+        telescopeIntegration.enable = true;
+      };
+
+      vim-dadbod.enable = true;
+
       startup = {
         # https://github.com/max397574/startup.nvim/blob/master/lua/startup/themes/dashboard.lua
         enable = true;
@@ -369,27 +431,6 @@
         };
       };
 
-      neorg = {
-        enable = true;
-        settings = {
-          load = {
-            "core.export" = { };
-            "core.concealer" = { };
-            "core.defaults" = { };
-            "core.tangle" = { };
-            "core.completion" = { };
-            "core.presenter" = { };
-            "core.summary" = { };
-            "core.keybinds" = {
-              config = {
-                default_keybinds = true;
-                #neorg_leader = ",";
-              };
-            };
-          };
-        };
-        telescopeIntegration.enable = true;
-      };
       telescope = {
         enable = true;
         extensions = {
