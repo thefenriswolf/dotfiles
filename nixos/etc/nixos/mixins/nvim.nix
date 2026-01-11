@@ -53,12 +53,99 @@
         };
       };
     };
+
+    opts = {
+      cursorline = true;
+      showmode = false;
+      number = true;
+      confirm = true;
+      clipboard = "unnamedplus";
+      breakindent = true;
+      autoindent = true;
+      smartindent = true;
+      smarttab = true;
+      softtabstop = 2;
+      tabstop = 2;
+      shiftwidth = 2;
+      wrap = true;
+      linebreak = true;
+      hidden = true;
+      gdefault = true;
+      lazyredraw = true;
+      swapfile = false;
+      backup = false;
+      writebackup = false;
+      undofile = true;
+      relativenumber = true;
+      hlsearch = true;
+      incsearch = true;
+      ignorecase = true;
+      smartcase = true;
+      list = true;
+      signcolumn = "yes";
+      updatetime = 150;
+      timeoutlen = 250;
+      scrolloff = 8;
+      mouse = "a";
+      splitbelow = true;
+      splitright = true;
+      autoread = true;
+    };
+    diagnostic = {
+      settings = {
+        virtual_lines = {
+          current_line = true;
+        };
+        virtual_text = false;
+      };
+    };
+
+    # KEYMAPS
     globals = {
       localleader = " ";
       mapleader = " ";
     };
+
     keymaps = [
       ## ZFS
+      {
+        mode = "n";
+        key = "<leader>z";
+        action = "";
+        options = {
+          desc = "[Z]fs";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>zs";
+        action.__raw = ''
+          function()
+                  local cli_return = vim.system({ 'zpool', 'status', '-j' }, { text = true }):wait()
+                  local ok, zpool_status = pcall(vim.json.decode, cli_return.stdout)
+                  if not ok then
+                    error("Failed to parse zpool status: " .. tostring(zpool_status))
+                  end
+                  local pool_names = {}
+                  for k in pairs(zpool_status.pools) do
+                    table.insert(pool_names, k)
+                  end
+                  local pool1_last_scrub = zpool_status.pools[pool_names[1]].scan_stats.end_time
+                  local pool1_last_errors = "Errors: ".. zpool_status.pools[pool_names[1]].scan_stats.errors
+                  local pool2_last_scrub = zpool_status.pools[pool_names[2]].scan_stats.end_time
+                  local pool2_last_errors = "Errors: ".. zpool_status.pools[pool_names[2]].scan_stats.errors
+
+                  local line1 = "" .. pool1_last_scrub .. " " .. pool1_last_errors
+                  local line2 = "" .. pool2_last_scrub .. " " .. pool2_last_errors
+
+                  local id = MiniNotify.add("\n" .. pool_names[1] .. ": " .. line1 .. "\n" ..pool_names[2] .. ": " .. line2)
+                  vim.defer_fn(function() MiniNotify.remove(id) end, 1000)
+                end
+        '';
+        options = {
+          desc = "[Z]fs last [S]crub";
+        };
+      }
 
       ## LazyGit
       {
@@ -106,10 +193,8 @@
         mode = "n";
         key = "<leader>le";
         action.__raw = ''
-          				function()
-                      require("dap").set_exception_breakpoints({"all"})
-          				end
-          				'';
+          function() require("dap").set_exception_breakpoints({"all"}) end
+        '';
         options = {
           desc = "Set [E]xception Breakpoints";
         };
@@ -168,53 +253,8 @@
           desc = "[Q]uit";
         };
       }
-
     ];
-    opts = {
-      cursorline = true;
-      showmode = false;
-      number = true;
-      confirm = true;
-      clipboard = "unnamedplus";
-      breakindent = true;
-      autoindent = true;
-      smartindent = true;
-      smarttab = true;
-      softtabstop = 2;
-      tabstop = 2;
-      shiftwidth = 2;
-      wrap = true;
-      linebreak = true;
-      hidden = true;
-      gdefault = true;
-      lazyredraw = true;
-      swapfile = false;
-      backup = false;
-      writebackup = false;
-      undofile = true;
-      relativenumber = true;
-      hlsearch = true;
-      incsearch = true;
-      ignorecase = true;
-      smartcase = true;
-      list = true;
-      signcolumn = "yes";
-      updatetime = 150;
-      timeoutlen = 250;
-      scrolloff = 8;
-      mouse = "a";
-      splitbelow = true;
-      splitright = true;
-      autoread = true;
-    };
-    diagnostic = {
-      settings = {
-        virtual_lines = {
-          current_line = true;
-        };
-        virtual_text = false;
-      };
-    };
+
     plugins = {
       mini = {
         enable = true;
@@ -237,7 +277,7 @@
       mini-notify = {
         enable = true;
         settings = {
-          content = { };
+          # content = { };
           lsp_progress = {
             enable = true;
             level = "INFO";
@@ -250,14 +290,10 @@
       mini-comment = {
         enable = true;
       };
-      mini-ai = {
-        enable = false;
-      };
       treesitter = {
         enable = true;
       };
       lazygit = {
-        # alternative: neogit
         enable = true;
       };
       trouble = {
@@ -274,162 +310,43 @@
       };
       hardtime.enable = false;
 
+      yazi.enable = true;
+
+      ledger = {
+        enable = true;
+        settings = {
+          bin = "hledger";
+        };
+      };
+
       vimwiki = {
         enable = true;
         settings = {
           number = true;
           nocompatible = true;
-          "filetype plugin" = "on";
+          # "filetype plugin" = "on"; # global_ext = 0; # disabled because we are only using markdown
           autowriteall = 0;
-          global_ext = 1; # disabled because we are only using markdown
           hl_cb_checked = 1;
           hl_headers = 1;
           auto_header = 1;
           key_mappings = {
             all_maps = 1;
             global = 1;
-            headers = 1;
-            # table_mappings=0; # only activate if there are issues
+            headers = 1; # table_mappings = 0; # only activate if there are issues
           };
           list = [
             {
-              path = "~/org/notes/";
+              path = "~/notes/";
               syntax = "markdown";
-              ext = ".md";
+              ext = "md";
             }
           ];
           listsym_rejected = "✗";
-          listsyms = "○◐●✓";
-          use_calendar = 1;
+          listsyms = "○◐●✓"; # use_calendar = 1;
         };
-      };
-
-      neorg = {
-        enable = false;
-        settings = {
-          load = {
-            "core.defaults" = {
-              __empty = null;
-            };
-            "core.concealer" = {
-              __empty = null;
-            };
-            # "core.export" = {
-            #   __empty = null;
-            # };
-            # "core.tangle" = {
-            #   __empty = null;
-            # };
-            # "core.completion" = {
-            #   __empty = null;
-            # };
-            # "core.presenter" = {
-            #   __empty = null;
-            # };
-            # "core.summary" = {
-            #   __empty = null;
-            # };
-            "core.keybinds" = {
-              config = {
-                default_keybinds = true;
-                neorg_leader = ",";
-              };
-            };
-          };
-        };
-        telescopeIntegration.enable = true;
       };
 
       vim-dadbod.enable = true;
-
-      startup = {
-        # https://github.com/max397574/startup.nvim/blob/master/lua/startup/themes/dashboard.lua
-        enable = true;
-        settings = {
-          options = {
-            mapping_keys = false;
-            disable_statuslines = false;
-            empty_lines_between_mappings = true;
-            paddings = [
-              2
-              2
-              2
-            ];
-          };
-          # theme = "dashboard"; # no theme if custom sections are desired
-          footer = {
-            type = "text";
-            oldfiles_directory = false;
-            align = "center";
-            fold_section = false;
-            title = "Footer";
-            margin = 5;
-            content = [
-              "thefenriswolf"
-            ];
-            highlight = "Number";
-            default_color = "";
-            oldfiles_amount = 4;
-          };
-          body = {
-            type = "text";
-            oldfiles_directory = false;
-            oldfiles_amout = 0;
-            align = "center";
-            fold_section = false;
-            margin = 5;
-            title = "Body";
-            default_color = "";
-            content.__raw = ''
-              function()
-                local cli_return = vim.system({ 'zpool', 'status', '-j' }, { text = true }):wait()
-                local ok, zpool_status = pcall(vim.json.decode, cli_return.stdout)
-                if not ok then
-                  error("Failed to parse zpool status: " .. tostring(zpool_status))
-                end
-                local pool_names = {}
-                for k in pairs(zpool_status.pools) do
-                  table.insert(pool_names, k)
-                end
-                local pool1_last_scrub = zpool_status.pools[pool_names[1]].scan_stats.end_time
-                local pool1_last_errors = "Errors: ".. zpool_status.pools[pool_names[1]].scan_stats.errors
-                local pool2_last_scrub = zpool_status.pools[pool_names[2]].scan_stats.end_time
-                local pool2_last_errors = "Errors: ".. zpool_status.pools[pool_names[2]].scan_stats.errors
-
-                local line1 = "" .. pool1_last_scrub .. " " .. pool1_last_errors
-                local line2 = "" .. pool2_last_scrub .. " " .. pool2_last_errors
-
-                return{pool_names[1],line1,pool_names[2],line2}
-              end
-            '';
-            highlight = "String";
-          };
-          header = {
-            type = "text";
-            oldfiles_directory = false;
-            align = "center";
-            fold_section = false;
-            title = "Header";
-            margin = 5;
-            content = [
-              " ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗"
-              " ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║"
-              " ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║"
-              " ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║"
-              " ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║"
-              " ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝"
-            ];
-            highlight = "Statement";
-            default_color = "";
-            oldfiles_amount = 0;
-          };
-          parts = [
-            "header"
-            "body"
-            "footer"
-          ];
-        };
-      };
 
       telescope = {
         enable = true;
@@ -569,7 +486,7 @@
               type = "lldb";
               request = "launch";
               cwd = ''''${workspaceFolder}'';
-              stopOnEntry = false;
+              stopOnEntry = true;
               runInTerminal = false;
               program.__raw = ''
                 		function()
@@ -610,7 +527,7 @@
             enable = true;
           };
           crystalline = {
-            enable = true;
+            enable = false;
           };
           clojure_lsp = {
             enable = false;
@@ -624,9 +541,6 @@
               "OmniSharp"
               "-lsp"
             ];
-          };
-          beancount = {
-            enable = false;
           };
         };
       };
