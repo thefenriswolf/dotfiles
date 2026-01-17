@@ -523,6 +523,9 @@
           gopls = {
             enable = true;
           };
+          gleam = {
+            enable = true;
+          };
           lua_ls = {
             enable = true;
           };
@@ -533,7 +536,7 @@
             enable = false;
           };
           ols = {
-            enable = true;
+            enable = false;
           };
           omnisharp = {
             enable = false;
@@ -564,6 +567,7 @@
             nix = [ "nixfmt" ];
             bash = [ "shfmt" ];
             sh = [ "shfmt" ];
+            gleam = [ "gleam format" ];
             odin = [ "odinfmt" ];
             fsharp = [ "fantomas" ];
             lua = {

@@ -10,18 +10,17 @@
     runc
     crun
     #ventoy-full
-    # quickemu
+    quickemu
     swtpm
     qemu_full
-    # gnome-boxes
-    # quickgui
+    gnome-boxes
   ];
   programs.virt-manager.enable = true;
   users.groups.libvirtd.members = [ "ro" ];
   users.users.ro.extraGroups = [ "libvirtd" ];
   virtualisation = {
     libvirtd = {
-      enable = false;
+      enable = true;
       qemu.swtpm.enable = true;
     };
     spiceUSBRedirection.enable = true;

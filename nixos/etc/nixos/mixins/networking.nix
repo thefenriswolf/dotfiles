@@ -11,8 +11,14 @@
   networking = {
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 8501 ];
-      allowedUDPPorts = [ 8501 ];
+      allowedTCPPorts = [
+        8501
+        2222
+      ];
+      allowedUDPPorts = [
+        8501
+        2222
+      ];
       #allowedUDPPortRanges = [{
       #  from = 1714;
       #  to = 1764;
