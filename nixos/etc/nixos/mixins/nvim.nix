@@ -139,14 +139,22 @@
                   local line2 = "" .. pool2_last_scrub .. " " .. pool2_last_errors
 
                   local id = MiniNotify.add("\n" .. pool_names[1] .. ": " .. line1 .. "\n" ..pool_names[2] .. ": " .. line2)
-                  vim.defer_fn(function() MiniNotify.remove(id) end, 1000)
+                  vim.defer_fn(function() MiniNotify.remove(id) end, 5000)
                 end
         '';
         options = {
           desc = "[Z]fs last [S]crub";
         };
       }
-
+      ## Filemanager
+      {
+        mode = "n";
+        key = "<leader>f";
+        action = ":Yazi<CR>";
+        options = {
+          desc = "Open [F]ilemanager";
+        };
+      }
       ## LazyGit
       {
         mode = "n";
@@ -172,6 +180,16 @@
           desc = "LazyGit [L]og";
         };
       }
+      ## LSP
+      {
+        mode = "n";
+        key = "grh";
+        action = ":lua vim.lsp.buf.hover()<CR>";
+        options = {
+          desc = "LSP [H]over";
+        };
+      }
+
       ## Debugger
       {
         mode = "n";
@@ -292,6 +310,10 @@
       };
       treesitter = {
         enable = true;
+        autoLoad = true;
+        # highlight.enable = true;
+        # indent.enable = true;
+        # folding.enable = true;
       };
       lazygit = {
         enable = true;
@@ -350,10 +372,11 @@
 
       telescope = {
         enable = true;
+        autoLoad = true;
         extensions = {
-          fzf-native = {
-            enable = true;
-          };
+          fzf-native.enable = true;
+          undo.enable = true;
+          media-files.enable = true;
         };
         settings = {
           defaults = {
@@ -380,18 +403,24 @@
               desc = "[S]earch [H]elp";
             };
           };
+          "<leader>u" = {
+            action = "undo";
+            options = {
+              desc = "[U]ndo history";
+            };
+          };
           "<leader><leader>" = {
             action = "buffers";
             options = {
               desc = "[ ] Find existing buffers";
             };
           };
-          "<leader>sk" = {
-            action = "keymaps";
-            options = {
-              desc = "[S]earch [K]eymaps";
-            };
-          };
+          #"<leader>sk" = {
+          #  action = "keymaps";
+          #  options = {
+          #    desc = "[S]earch [K]eymaps";
+          #  };
+          #};
           "<leader>sf" = {
             action = "find_files";
             options = {
@@ -422,6 +451,13 @@
               desc = "[S]earch [D]iagnostics";
             };
           };
+          "<leader>sm" = {
+            action = "media_files";
+            options = {
+              desc = "[S]earch [M]edia";
+            };
+          };
+
           "<leader>s." = {
             action = "oldfiles";
             options = {
@@ -463,21 +499,21 @@
               type = "delve";
               name = "Debug";
               request = "launch";
-              program = ''''${file}'';
+              program = "\${file}";
             }
             {
               type = "delve";
               name = "Debug test";
               request = "launch";
               mode = "test";
-              program = ''''${file}'';
+              program = "\${file}";
             }
             {
               type = "delve";
               name = "Debug test (go.mod)";
               request = "launch";
               mode = "test";
-              program = ''''${relativeFileDirname}'';
+              program = "\${relativeFileDirname}";
             }
           ];
           odin = [
@@ -485,7 +521,7 @@
               name = "Launch (LLDB)";
               type = "lldb";
               request = "launch";
-              cwd = ''''${workspaceFolder}'';
+              cwd = "\${workspaceFolder}";
               stopOnEntry = true;
               runInTerminal = false;
               program.__raw = ''
@@ -523,9 +559,9 @@
           gopls = {
             enable = true;
           };
-          gleam = {
-            enable = true;
-          };
+          erlangls.enable = false;
+          elixirls.enable = true;
+          gleam.enable = false;
           lua_ls = {
             enable = true;
           };
@@ -568,6 +604,8 @@
             bash = [ "shfmt" ];
             sh = [ "shfmt" ];
             gleam = [ "gleam format" ];
+            elixir = [ "mix format" ];
+            erlang = [ "efmt" ];
             odin = [ "odinfmt" ];
             fsharp = [ "fantomas" ];
             lua = {

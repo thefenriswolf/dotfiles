@@ -36,6 +36,7 @@
     usbutils
     btop
     nvtopPackages.amd
+    amdgpu_top
     fastfetch
     inotify-tools
     notify-desktop
@@ -510,7 +511,7 @@
       fgrep = "fgrep --colour=auto";
       free = "free -m";
       btrfsfree = "sudo btrfs fi us /";
-      notify-me = ''notify-desktop -t 1000 -u critical'';
+      notify-me = "notify-desktop -t 1000 -u critical";
       #gdrivesync = "google-drive-ocamlfuse ~/GDrive";
     };
   };
