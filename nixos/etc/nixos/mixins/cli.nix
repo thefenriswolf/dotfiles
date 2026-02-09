@@ -11,7 +11,6 @@
     bat
     glow
     fd
-    pueue
     # isd
     neofetch
     ghostty

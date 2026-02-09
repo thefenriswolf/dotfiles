@@ -546,6 +546,9 @@
         lintersByFt = {
           bash = [ "shellcheck" ];
           sh = [ "shellcheck" ];
+          elixir = [ "credo" ];
+          go = [ "golangcilint" ];
+          languagetool = [ "languagetool" ];
         };
       };
       lsp = {
@@ -560,7 +563,9 @@
             enable = true;
           };
           erlangls.enable = false;
-          elixirls.enable = true;
+          elixirls = {
+            enable = true;
+          };
           gleam.enable = false;
           lua_ls = {
             enable = true;

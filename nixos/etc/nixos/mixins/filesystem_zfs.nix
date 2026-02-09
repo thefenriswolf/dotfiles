@@ -106,9 +106,9 @@
       };
     };
     extraArgs = [
-      #"--verbose"
-      #"--debug"
-      #" >> /tmp/sanoid.log"
+      "--verbose"
+      "--debug"
+      " >> ~/.cache/sanoid/sanoid.log"
     ];
   };
 
