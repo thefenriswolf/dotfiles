@@ -27,6 +27,8 @@
       geary
       epiphany
       gnome-music
+      totem
+      gnome-boxes
       gnome-tour
       totem
       gnome-text-editor

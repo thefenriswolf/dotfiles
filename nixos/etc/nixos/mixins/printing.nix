@@ -49,7 +49,6 @@ in
 
     uvtools
     lychee
-    mslicer
-    #paperwork
+    # paperwork
   ];
 }

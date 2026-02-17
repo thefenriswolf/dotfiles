@@ -3,13 +3,11 @@
   imports = [ ./overlays.nix ];
   environment.systemPackages = with pkgs; [
     #helloOpt
-
     zoxide
     ripgrep
     fzf
     eza
     bat
-    glow
     fd
     # isd
     neofetch
@@ -41,8 +39,8 @@
     notify-desktop
     tldr
     pandoc
-    emacs-nox
-    openai-whisper
+    #emacs-nox
+    #openai-whisper
     viddy
     file
     btrfs-progs

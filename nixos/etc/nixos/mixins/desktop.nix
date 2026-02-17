@@ -10,7 +10,7 @@
     enable = true;
   };
   programs.firefox = {
-    enable = true;
+    enable = false;
     preferencesStatus = "user";
     languagePacks = [
       "de"
@@ -86,9 +86,9 @@
 
   # Only install the docs I use
   documentation = {
-    enable = true;
+    enable = false;
     nixos.enable = false;
-    man.enable = true;
+    man.enable = false;
     info.enable = false;
     doc.enable = false;
   };
@@ -103,22 +103,17 @@
       inkscape-with-extensions
 
       gnome-firmware
-      btrfs-assistant
       gnome-tweaks
       adwaita-icon-theme
-      numix-cursor-theme
-      numix-icon-theme
       gnomeExtensions.dash-to-panel
 
       mpv
       losslesscut-bin
-      ollama-vulkan
       yt-dlp
       hledger
       hledger-web
       hledger-ui
       hledger-fmt
-      puffin
 
       calibre
       mtpfs

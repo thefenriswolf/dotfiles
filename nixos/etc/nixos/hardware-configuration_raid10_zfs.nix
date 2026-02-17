@@ -110,6 +110,7 @@
   services.syncoid = {
     enable = true;
     interval = "hourly";
+    group = "users";
     localTargetAllow = [
       "change-key"
       "compression"
@@ -120,16 +121,17 @@
       "rollback"
     ];
     localSourceAllow = [
-      #  "bookmark"
-      #  "hold"
+      # "bookmark"
+      # "hold"
       "send"
       "snapshot"
-      #  "destroy"
-      #  "mount"
+      # "destroy"
+      # "mount"
     ];
     commands = {
       "rpool/home".target = "tank/home";
     };
+    commonArgs = [ " > /dev/null" ];
   };
   # sudo syncoid rpool/home tank/home
 

@@ -105,30 +105,30 @@ in
     #govulncheck
 
     # c/cpp
-    clang
-    #gcc
-    #clang-tools
+    # clang
+    # gcc
+    # clang-tools
     gnumake
 
     # python
     python3Minimal
-    #pkgs.python311Packages.numpy
-    #pkgs.python311Packages.scikit-image
-    #pkgs.python311Packages.pydicom
-    #pkgs.python311Packages.opencv4
-    #pkgs.python311Packages.matplotlib
-    black
-    isort
-    #python311Packages.python-lsp-server
-    #python311Packages.pyflakes
-    #python311Packages.pygments
-    #python311Packages.virtualenv
-    #python311Packages.pip
-    #pkgs.python311Packages.pyyaml
-    #pkgs.python311Packages.pip-requirements-parser
+    # pkgs.python311Packages.numpy
+    # pkgs.python311Packages.scikit-image
+    # pkgs.python311Packages.pydicom
+    # pkgs.python311Packages.opencv4
+    # pkgs.python311Packages.matplotlib
+    # black
+    # isort
+    # python311Packages.python-lsp-server
+    # python311Packages.pyflakes
+    # python311Packages.pygments
+    # python311Packages.virtualenv
+    # python311Packages.pip
+    # pkgs.python311Packages.pyyaml
+    # pkgs.python311Packages.pip-requirements-parser
 
     # R
-    #pkgs.rPackages.ISwR
+    # pkgs.rPackages.ISwR
 
     # Julia
     # pkgs.julia

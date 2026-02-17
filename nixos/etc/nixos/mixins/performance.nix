@@ -6,7 +6,7 @@
 }:
 
 {
-  environment.systemPackages = with pkgs; [ systeroid ];
+  environment.systemPackages = with pkgs; [ ]; # systeroid ];
   services.sysprof.enable = true;
 
   zramSwap = {

@@ -4,6 +4,10 @@
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
+      paper-icon-theme
+      numix-cursor-theme
+      quintom-cursor-theme
+
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
