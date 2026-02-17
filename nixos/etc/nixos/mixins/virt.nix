@@ -4,14 +4,11 @@
   #https://nixos.wiki/wiki/Podman
   environment.systemPackages = with pkgs; [
     distrobox
-    flyctl
     fuse-overlayfs
     podman-compose
     runc
     crun
     #ventoy-full
-    swtpm
-    qemu_full
   ];
   programs.virt-manager.enable = true;
   users.groups.libvirtd.members = [ "ro" ];
