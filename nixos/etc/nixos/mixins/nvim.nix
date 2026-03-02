@@ -311,9 +311,11 @@
       treesitter = {
         enable = true;
         autoLoad = true;
-        # highlight.enable = true;
-        # indent.enable = true;
-        # folding.enable = true;
+        settings = {
+          highlight.enable = true;
+          # indent.enable = true;
+          folding.enable = true;
+        };
       };
       lazygit = {
         enable = true;
@@ -562,6 +564,7 @@
           gopls = {
             enable = true;
           };
+          nimls.enable = true;
           erlangls.enable = false;
           elixirls = {
             enable = true;
@@ -608,6 +611,7 @@
             nix = [ "nixfmt" ];
             bash = [ "shfmt" ];
             sh = [ "shfmt" ];
+            nim = [ "nph" ];
             gleam = [ "gleam format" ];
             elixir = [ "mix format" ];
             erlang = [ "efmt" ];

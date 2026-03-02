@@ -18,4 +18,6 @@
     "video"
     "render"
   ];
+
+  systemd.services.immich-server.serviceConfig.ExecStartPre = "/usr/bin/env sleep 30";
 }

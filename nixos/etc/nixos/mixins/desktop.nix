@@ -106,6 +106,8 @@
       gnome-tweaks
       adwaita-icon-theme
       gnomeExtensions.dash-to-panel
+      wlr-which-key
+      gnome-randr
 
       mpv
       losslesscut-bin

@@ -4,5 +4,9 @@
   environment.systemPackages = with pkgs; [
     git
     tokei
+
+    ollama
+    ollama-cpu
+    ollama-vulkan
   ];
 }
