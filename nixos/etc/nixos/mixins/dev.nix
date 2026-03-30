@@ -5,6 +5,9 @@
     git
     tokei
 
+    jetbrains.idea-oss
+    jetbrains.jdk
+
     ollama
     ollama-cpu
     ollama-vulkan

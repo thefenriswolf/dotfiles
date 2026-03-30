@@ -40,16 +40,16 @@
 
     colorschemes = {
       bamboo = {
-        enable = true;
+        enable = false;
         settings = {
           style = "multiplex"; # vulgaris, light, multiplex
           transparent = true;
         };
       };
       catppuccin = {
-        enable = false;
+        enable = true;
         settings = {
-          flavour = "frappe";
+          flavour = "frappe"; # latte, macchiato, mocha
         };
       };
     };
@@ -558,30 +558,18 @@
         autoLoad = true;
         inlayHints = true;
         servers = {
-          nixd = {
-            enable = true;
-          };
-          gopls = {
-            enable = true;
-          };
+          nixd.enable = true;
+          lua_ls.enable = true;
+          gopls.enable = true;
           nimls.enable = true;
+          jdtls.enable = true;
+          java_language_server.enable = false; # keeps crashing
           erlangls.enable = false;
-          elixirls = {
-            enable = true;
-          };
+          elixirls.enable = false;
           gleam.enable = false;
-          lua_ls = {
-            enable = true;
-          };
-          crystalline = {
-            enable = false;
-          };
-          clojure_lsp = {
-            enable = false;
-          };
-          ols = {
-            enable = false;
-          };
+          crystalline.enable = false;
+          clojure_lsp.enable = false;
+          ols.enable = false;
           omnisharp = {
             enable = false;
             cmd = [
@@ -612,6 +600,7 @@
             bash = [ "shfmt" ];
             sh = [ "shfmt" ];
             nim = [ "nph" ];
+            java = [ "google-java-format" ];
             gleam = [ "gleam format" ];
             elixir = [ "mix format" ];
             erlang = [ "efmt" ];
@@ -643,8 +632,8 @@
             };
           };
           format_on_save = {
-            timeout_ms = 5000;
-            lsp_format = "prefer";
+            timeout_ms = 2000;
+            lsp_format = "fallback";
           };
         };
       };

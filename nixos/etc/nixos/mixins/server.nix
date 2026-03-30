@@ -6,7 +6,7 @@
 }:
 {
   services.immich = {
-    enable = true;
+    enable = false;
     machine-learning.enable = true;
     accelerationDevices = [ "/dev/dri/renderD128" ];
     openFirewall = true;
@@ -14,10 +14,7 @@
     port = 2222;
     mediaLocation = "/var/lib/immich";
   };
-  users.users.immich.extraGroups = [
-    "video"
-    "render"
-  ];
+  # users.users.immich.extraGroups = ["video" "render"];
 
-  systemd.services.immich-server.serviceConfig.ExecStartPre = "/usr/bin/env sleep 30";
+  # systemd.services.immich-server.serviceConfig.ExecStartPre = "/usr/bin/env sleep 30";
 }

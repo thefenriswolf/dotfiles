@@ -9,6 +9,7 @@
     eza
     bat
     fd
+    shellcheck
     # isd
     neofetch
     ghostty

@@ -13,35 +13,19 @@
     nur.url = "github:nix-community/nur";
     wrappers.url = "github:lassulus/wrappers";
     nixos-needsreboot.url = "https://codeberg.org/Mynacol/nixos-needsreboot/archive/main.tar.gz";
-    nixvim = {
-      url = "github:nix-community/nixvim/nixos-25.11";
-    };
-
-    #   sops-nix = {
-    #     url = "github:Mic92/sops-nix";
-    #     inputs.nixpkgs.follows = "nixpkgs";
-    #   };
-
-    nix-flatpak = {
-      url = "github:gmodena/nix-flatpak"; # unstable branch. Use github:gmodena/nix-flatpak/?ref=<tag> to pin releases.
-    };
-
-    #   neovim-nightly-overlay = {
-    #     url = "github:nix-community/neovim-nightly-overlay";
-    #     inputs.nixpkgs.follows = "nixpkgs-unstable";
-    #   };
-
-    tiddlydesktop = {
-      url = "github:TiddlyWiki/TiddlyDesktop";
-    };
+    nixvim.url = "github:nix-community/nixvim/nixos-25.11";
+    stylix.url = "github:nix-community/stylix/release-25.11";
+    # nix-flatpak.url = "github:gmodena/nix-flatpak";
+    # tiddlydesktop.url = "github:TiddlyWiki/TiddlyDesktop";
 
   };
   outputs =
     {
       self,
       nixpkgs,
+      stylix,
       nixvim,
-      nix-flatpak,
+      # nix-flatpak,
       nixos-hardware,
       nur,
       nixpkgs-unstable,
@@ -64,6 +48,7 @@
             ./nixos/etc/nixos/configuration.nix
             ./nixos/etc/nixos/hardware-configuration_raid10_zfs.nix
             ./nixos/etc/nixos/mixins/host-desktop.nix
+            #stylix.nixosModules.stylix
 
             ./nixos/etc/nixos/mixins/blacklist.nix
             ./nixos/etc/nixos/mixins/bluetooth.nix
@@ -103,6 +88,7 @@
             ./nixos/etc/nixos/configuration.nix
             ./nixos/etc/nixos/hardware-configuration_sd_zfs.nix
             ./nixos/etc/nixos/mixins/host-laptop.nix
+            #stylix.nixosModules.stylix
 
             ./nixos/etc/nixos/mixins/blacklist.nix
             ./nixos/etc/nixos/mixins/bluetooth.nix

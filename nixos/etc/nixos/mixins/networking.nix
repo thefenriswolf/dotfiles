@@ -4,7 +4,7 @@
   environment.systemPackages = with pkgs; [
     rsync
     openvpn
-    sniffnet
+    #   sniffnet
     nethogs
   ];
 
