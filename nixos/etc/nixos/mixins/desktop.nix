@@ -102,10 +102,14 @@
       hunspellDicts.en_GB-large
       inkscape-with-extensions
 
+      onlyoffice-desktopeditors
+      libreoffice
+
       gnome-firmware
       gnome-tweaks
       adwaita-icon-theme
       gnomeExtensions.dash-to-panel
+      gnomeExtensions.paperwm
       wlr-which-key
       gnome-randr
 
@@ -113,8 +117,6 @@
       losslesscut-bin
       yt-dlp
       hledger
-      hledger-web
-      hledger-ui
       hledger-fmt
 
       calibre

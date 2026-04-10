@@ -63,34 +63,34 @@
       name = "phinger-cursors";
       size = 24;
     };
-    fonts = {
-      serif = {
-        package = pkgs.aleo-fonts;
-        name = "Aleo";
-      };
-
-      sansSerif = {
-        package = pkgs.noto-fonts-cjk-sans;
-        name = "Noto Sans CJK JP";
-      };
-
-      monospace = {
-        package = pkgs.maple-mono.variable;
-        name = "Maple Mono";
-      };
-
-      emoji = {
-        package = pkgs.noto-fonts-color-emoji;
-        name = "Noto Color Emoji";
-      };
-
-      sizes = {
-        applications = 11;
-        desktop = 11;
-        popups = 11;
-        terminal = 11;
-      };
-    };
+    # fonts = {
+    #   serif = {
+    #     package = pkgs.aleo-fonts;
+    #     name = "Aleo";
+    #   };
+    #
+    #   sansSerif = {
+    #     package = pkgs.noto-fonts-cjk-sans;
+    #     name = "Noto Sans CJK JP";
+    #   };
+    #
+    #   monospace = {
+    #     package = pkgs.maple-mono.variable;
+    #     name = "Maple Mono";
+    #   };
+    #
+    #   emoji = {
+    #     package = pkgs.noto-fonts-color-emoji;
+    #     name = "Noto Color Emoji";
+    #   };
+    #
+    #   sizes = {
+    #     applications = 11;
+    #     desktop = 11;
+    #     popups = 11;
+    #     terminal = 11;
+    #   };
+    # };
   };
 
   fonts = {
@@ -100,6 +100,7 @@
       numix-cursor-theme
       quintom-cursor-theme
 
+      adwaita-fonts
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji

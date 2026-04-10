@@ -7,7 +7,6 @@
   environment.systemPackages = with pkgs; [
     localsend
     syncthing
-    syncthingtray
   ];
 
   programs.localsend = {
@@ -34,9 +33,6 @@
           "Stefan_Galaxy" = {
             id = "PEN7RYR-VWYPT3H-MCG6NT4-G5SKH7Y-VSTYFBR-Z66U2JK-G7RLS56-OD6XKAC";
           };
-          "Stefan_iPhone" = {
-            id = "VIDKEEI-YHKNLMV-VN4KOGZ-B3YMEIE-D6JQGMZ-43E3VUJ-5GZDCX4-KOKGIA7";
-          };
           "desktop-stefan" = {
             id = "2CBN5AW-EEMZYVR-TJ6NUI6-BTFO2YH-EPDIMON-Y3KPT4E-3P4QUBA-XBUVDQQ";
           };
@@ -51,7 +47,6 @@
             devices = [
               "desktop-stefan"
               "laptop-stefan"
-              "Stefan_iPhone"
               "Stefan_Galaxy"
             ]; # Which devices to share the folder with
           };
@@ -60,7 +55,6 @@
             devices = [
               "desktop-stefan"
               "laptop-stefan"
-              "Stefan_iPhone"
               "Stefan_Galaxy"
             ];
           };

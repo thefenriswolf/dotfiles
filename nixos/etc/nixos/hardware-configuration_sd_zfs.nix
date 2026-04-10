@@ -61,7 +61,6 @@
     "ntfs"
     "ext4"
     "btrfs"
-    "bcachefs"
   ];
 
   fileSystems."/" = {

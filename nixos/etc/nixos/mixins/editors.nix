@@ -14,6 +14,13 @@ in
     ueberzugpp
 
     micro
+    ((emacsPackagesFor emacs-nox).emacsWithPackages (
+      epkgs: with epkgs; [
+        org
+        nix-mode
+        evil
+      ]
+    ))
 
     # shell
     shfmt
