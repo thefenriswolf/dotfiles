@@ -48,7 +48,7 @@
       "zenpower"
     ];
     extraModulePackages = [ config.boot.kernelPackages.zenpower ];
-    kernelPackages = pkgs.linuxPackages_6_18; # EOL: 12/2026 -> https://www.kernel.org/releases.html
+    kernelPackages = pkgs.linuxPackages_6_18;
     kernelParams = [
       "quiet"
       "loglevel=3"
@@ -114,23 +114,34 @@
       "change-key"
       "compression"
       "create"
-      "mount"
       "mountpoint"
       "receive"
       "rollback"
-    ];
-    localSourceAllow = [
-      # "bookmark"
-      # "hold"
+      "bookmark"
+      "hold"
       "send"
       "snapshot"
-      # "destroy"
-      # "mount"
+      "destroy"
+      "mount"
+    ];
+    localSourceAllow = [
+      "change-key"
+      "compression"
+      "create"
+      "mountpoint"
+      "receive"
+      "rollback"
+      "bookmark"
+      "hold"
+      "send"
+      "snapshot"
+      "destroy"
+      "mount"
     ];
     commands = {
       "rpool/home".target = "tank/home";
     };
-    commonArgs = [ " > /dev/null" ];
+    # commonArgs = [ " > /dev/null" ];
   };
   # sudo syncoid rpool/home tank/home
 
