@@ -53,13 +53,4 @@
     pkgs.nixd
     inputs.nixos-needsreboot.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
-  system.activationScripts = {
-    nixos-needsreboot = {
-      supportsDryActivation = true;
-      text = "${
-        lib.getExe inputs.nixos-needsreboot.packages.${pkgs.stdenv.hostPlatform.system}.default
-      } \"$systemConfig\" || true";
-    };
-  };
-
 }

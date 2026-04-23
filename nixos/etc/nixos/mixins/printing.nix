@@ -47,6 +47,7 @@ in
     libinsane
     ink
 
+    prusa-slicer
     uvtools
     #  lychee
     # paperwork

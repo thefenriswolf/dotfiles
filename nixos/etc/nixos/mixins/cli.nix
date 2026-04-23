@@ -7,6 +7,7 @@
     ripgrep
     fzf
     eza
+    procs
     bat
     fd
     shellcheck
@@ -40,6 +41,7 @@
     notify-desktop
     tldr
     pandoc
+    sqlite
     #emacs-nox
     #openai-whisper
     viddy

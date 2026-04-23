@@ -10,6 +10,11 @@
     crun
     #ventoy-full
   ];
+
+  # nixos containers
+  boot.enableContainers = true;
+  virtualisation.containers.enable = true;
+
   programs.virt-manager.enable = true;
   users.groups.libvirtd.members = [ "ro" ];
   users.users.ro.extraGroups = [ "libvirtd" ];

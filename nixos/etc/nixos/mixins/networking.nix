@@ -5,7 +5,8 @@
     rsync
     openvpn
     nmap
-    #   sniffnet
+    medusa
+    metasploit
     nethogs
   ];
 
