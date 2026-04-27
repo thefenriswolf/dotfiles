@@ -109,7 +109,7 @@
       gnome-tweaks
       adwaita-icon-theme
       gnomeExtensions.dash-to-panel
-      gnomeExtensions.paperwm
+      #gnomeExtensions.paperwm
       wlr-which-key
       gnome-randr
 

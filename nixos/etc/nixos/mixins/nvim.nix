@@ -191,86 +191,86 @@
       }
 
       ## Debugger
-      {
-        mode = "n";
-        key = "<leader>l";
-        action = "";
-        options = {
-          desc = "Debugger";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>lb";
-        action = ":DapToggleBreakpoint<CR>";
-        options = {
-          desc = "Toggle [B]reakpoint";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>le";
-        action.__raw = ''
-          function() require("dap").set_exception_breakpoints({"all"}) end
-        '';
-        options = {
-          desc = "Set [E]xception Breakpoints";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>lc";
-        action = ":DapContinue<CR>";
-        options = {
-          desc = "[C]ontinue";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>ll";
-        action.__raw = ''
-          				function()
-                      require("dap").list_breakpoints()
-          				end
-          				'';
-        options = {
-          desc = "[L]ist Breakpoints";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>lr";
-        action.__raw = ''
-          function()
-              require("dap").repl.toggle()
-          end
-        '';
-        options = {
-          desc = "Open/Close [R]EPL";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>lv";
-        action = ":DapViewToggle<CR>";
-        options = {
-          desc = "Open/Close Dap[V]iew";
-        };
-      }
-      {
-        mode = "n";
-        key = "<leader>lq";
-        action.__raw = ''
-          function()
-            require("dap").terminate()
-            require("dap-view").close()
-            require("dapui").close()
-          end
-        '';
-        options = {
-          desc = "[Q]uit";
-        };
-      }
+      # {
+      #   mode = "n";
+      #   key = "<leader>l";
+      #   action = "";
+      #   options = {
+      #     desc = "Debugger";
+      #   };
+      # }
+      # {
+      #   mode = "n";
+      #   key = "<leader>lb";
+      #   action = ":DapToggleBreakpoint<CR>";
+      #   options = {
+      #     desc = "Toggle [B]reakpoint";
+      #   };
+      # }
+      # {
+      #   mode = "n";
+      #   key = "<leader>le";
+      #   action.__raw = ''
+      #     function() require("dap").set_exception_breakpoints({"all"}) end
+      #   '';
+      #   options = {
+      #     desc = "Set [E]xception Breakpoints";
+      #   };
+      # }
+      # {
+      #   mode = "n";
+      #   key = "<leader>lc";
+      #   action = ":DapContinue<CR>";
+      #   options = {
+      #     desc = "[C]ontinue";
+      #   };
+      # }
+      # {
+      #   mode = "n";
+      #   key = "<leader>ll";
+      #   action.__raw = ''
+      #     				function()
+      #                 require("dap").list_breakpoints()
+      #     				end
+      #     				'';
+      #   options = {
+      #     desc = "[L]ist Breakpoints";
+      #   };
+      # }
+      # {
+      #   mode = "n";
+      #   key = "<leader>lr";
+      #   action.__raw = ''
+      #     function()
+      #         require("dap").repl.toggle()
+      #     end
+      #   '';
+      #   options = {
+      #     desc = "Open/Close [R]EPL";
+      #   };
+      # }
+      # {
+      #   mode = "n";
+      #   key = "<leader>lv";
+      #   action = ":DapViewToggle<CR>";
+      #   options = {
+      #     desc = "Open/Close Dap[V]iew";
+      #   };
+      # }
+      # {
+      #   mode = "n";
+      #   key = "<leader>lq";
+      #   action.__raw = ''
+      #     function()
+      #       require("dap").terminate()
+      #       require("dap-view").close()
+      #       require("dapui").close()
+      #     end
+      #   '';
+      #   options = {
+      #     desc = "[Q]uit";
+      #   };
+      # }
     ];
 
     plugins = {
@@ -483,7 +483,7 @@
       # https://github.com/search?q=repo%3Akhaneliman%2Fkhanelivim+dap&type=code&p=2
       # https://codeberg.org/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#c-c-rust-via-lldb-vscode
       dap = {
-        enable = true;
+        enable = false;
         adapters = {
           executables = {
             delve = {
@@ -537,15 +537,16 @@
         };
       };
       dap-ui = {
-        enable = true;
+        enable = false;
       };
       dap-view = {
-        enable = true;
+        enable = false;
       };
 
       lint = {
         enable = true;
         lintersByFt = {
+          # kotlin = [ "ktlint -F" ];
           bash = [ "shellcheck" ];
           sh = [ "shellcheck" ];
           elixir = [ "credo" ];
@@ -561,9 +562,9 @@
           nixd.enable = true;
           lua_ls.enable = true;
           gopls.enable = true;
-          nimls.enable = true;
-          jdtls.enable = true;
-          java_language_server.enable = false; # keeps crashing
+          nimls.enable = false;
+          kotlin_language_server.enable = true;
+          jdtls.enable = false;
           erlangls.enable = false;
           elixirls.enable = false;
           gleam.enable = false;
@@ -601,6 +602,7 @@
             sh = [ "shfmt" ];
             nim = [ "nph" ];
             java = [ "google-java-format" ];
+            kotlin = [ "ktfmt" ];
             gleam = [ "gleam format" ];
             elixir = [ "mix format" ];
             erlang = [ "efmt" ];
@@ -632,7 +634,7 @@
             };
           };
           format_on_save = {
-            timeout_ms = 2000;
+            timeout_ms = 10000;
             lsp_format = "fallback";
           };
         };
