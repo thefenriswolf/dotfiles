@@ -6,6 +6,7 @@
 {
   hardware.amdgpu = {
     initrd.enable = true;
+    opencl.enable = true;
   };
 
   programs.gamemode = {

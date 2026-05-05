@@ -9,9 +9,13 @@
     inputs.nixvim.nixosModules.nixvim
   ];
 
+  environment.systemPackages = [
+    pkgs.nerd-fonts.jetbrains-mono
+  ];
+
   programs.nixvim = {
     enable = true;
-    enableMan = false;
+    enableMan = true;
     viAlias = true;
     vimAlias = true;
     defaultEditor = true;
@@ -55,6 +59,7 @@
     };
 
     opts = {
+      guifont = "JetBrains Mono:h12";
       cursorline = true;
       showmode = false;
       number = true;
@@ -563,7 +568,7 @@
           lua_ls.enable = true;
           gopls.enable = true;
           nimls.enable = false;
-          kotlin_language_server.enable = true;
+          kotlin_language_server.enable = false;
           jdtls.enable = false;
           erlangls.enable = false;
           elixirls.enable = false;

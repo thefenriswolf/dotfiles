@@ -47,6 +47,7 @@
       rygel.enable = false;
     };
     libinput.enable = true;
+
     desktopManager = {
       plasma6.enable = false;
       plasma6.enableQt5Integration = false;
@@ -103,13 +104,15 @@
       inkscape-with-extensions
 
       onlyoffice-desktopeditors
-      libreoffice
+      #libreoffice
 
       gnome-firmware
       gnome-tweaks
       adwaita-icon-theme
+      dracula-icon-theme
+      phinger-cursors
       gnomeExtensions.dash-to-panel
-      #gnomeExtensions.paperwm
+      gnomeExtensions.night-theme-switcher
       wlr-which-key
       gnome-randr
 

@@ -47,6 +47,7 @@
   };
   nixpkgs.config = {
     allowUnfree = true;
+    rocmSupport = true;
   };
   environment.systemPackages = [
     pkgs.nixfmt-rfc-style

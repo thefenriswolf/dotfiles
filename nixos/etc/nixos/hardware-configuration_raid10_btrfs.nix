@@ -32,7 +32,6 @@
         "usb_storage"
         "sd_mod"
         "sdhci_pci"
-        "amdgpu"
       ];
       kernelModules = [ ];
     };

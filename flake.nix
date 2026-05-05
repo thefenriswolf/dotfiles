@@ -75,7 +75,6 @@
             ./nixos/etc/nixos/mixins/sound.nix
             ./nixos/etc/nixos/mixins/ssh.nix
             ./nixos/etc/nixos/mixins/sync.nix
-            ./nixos/etc/nixos/mixins/theming.nix
             ./nixos/etc/nixos/mixins/virt.nix
 
             { nixpkgs.overlays = overlays; }
@@ -115,7 +114,6 @@
             ./nixos/etc/nixos/mixins/sound.nix
             ./nixos/etc/nixos/mixins/ssh.nix
             ./nixos/etc/nixos/mixins/sync.nix
-            ./nixos/etc/nixos/mixins/theming.nix
             ./nixos/etc/nixos/mixins/virt.nix
 
             { nixpkgs.overlays = overlays; }
