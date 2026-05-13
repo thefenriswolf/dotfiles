@@ -194,88 +194,6 @@
           desc = "LSP [H]over";
         };
       }
-
-      ## Debugger
-      # {
-      #   mode = "n";
-      #   key = "<leader>l";
-      #   action = "";
-      #   options = {
-      #     desc = "Debugger";
-      #   };
-      # }
-      # {
-      #   mode = "n";
-      #   key = "<leader>lb";
-      #   action = ":DapToggleBreakpoint<CR>";
-      #   options = {
-      #     desc = "Toggle [B]reakpoint";
-      #   };
-      # }
-      # {
-      #   mode = "n";
-      #   key = "<leader>le";
-      #   action.__raw = ''
-      #     function() require("dap").set_exception_breakpoints({"all"}) end
-      #   '';
-      #   options = {
-      #     desc = "Set [E]xception Breakpoints";
-      #   };
-      # }
-      # {
-      #   mode = "n";
-      #   key = "<leader>lc";
-      #   action = ":DapContinue<CR>";
-      #   options = {
-      #     desc = "[C]ontinue";
-      #   };
-      # }
-      # {
-      #   mode = "n";
-      #   key = "<leader>ll";
-      #   action.__raw = ''
-      #     				function()
-      #                 require("dap").list_breakpoints()
-      #     				end
-      #     				'';
-      #   options = {
-      #     desc = "[L]ist Breakpoints";
-      #   };
-      # }
-      # {
-      #   mode = "n";
-      #   key = "<leader>lr";
-      #   action.__raw = ''
-      #     function()
-      #         require("dap").repl.toggle()
-      #     end
-      #   '';
-      #   options = {
-      #     desc = "Open/Close [R]EPL";
-      #   };
-      # }
-      # {
-      #   mode = "n";
-      #   key = "<leader>lv";
-      #   action = ":DapViewToggle<CR>";
-      #   options = {
-      #     desc = "Open/Close Dap[V]iew";
-      #   };
-      # }
-      # {
-      #   mode = "n";
-      #   key = "<leader>lq";
-      #   action.__raw = ''
-      #     function()
-      #       require("dap").terminate()
-      #       require("dap-view").close()
-      #       require("dapui").close()
-      #     end
-      #   '';
-      #   options = {
-      #     desc = "[Q]uit";
-      #   };
-      # }
     ];
 
     plugins = {
@@ -374,8 +292,6 @@
           listsyms = "○◐●✓"; # use_calendar = 1;
         };
       };
-
-      vim-dadbod.enable = true;
 
       telescope = {
         enable = true;
@@ -481,71 +397,6 @@
       };
       todo-comments = {
         enable = true;
-      };
-      # https://nix-community.github.io/nixvim/plugins/dap/index.html
-      # https://github.com/igorlfs/nvim-dap-view/
-      # https://tamerlan.dev/a-guide-to-debugging-applications-in-neovim/
-      # https://github.com/search?q=repo%3Akhaneliman%2Fkhanelivim+dap&type=code&p=2
-      # https://codeberg.org/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#c-c-rust-via-lldb-vscode
-      dap = {
-        enable = false;
-        adapters = {
-          executables = {
-            delve = {
-              command = lib.getExe' pkgs.delve "dlv-dap";
-            };
-            lldb = {
-              command = lib.getExe' pkgs.lldb "lldb-dap";
-              #args = ["-g"];
-            };
-          };
-        };
-        configurations = {
-          go = [
-            {
-              type = "delve";
-              name = "Debug";
-              request = "launch";
-              program = "\${file}";
-            }
-            {
-              type = "delve";
-              name = "Debug test";
-              request = "launch";
-              mode = "test";
-              program = "\${file}";
-            }
-            {
-              type = "delve";
-              name = "Debug test (go.mod)";
-              request = "launch";
-              mode = "test";
-              program = "\${relativeFileDirname}";
-            }
-          ];
-          odin = [
-            {
-              name = "Launch (LLDB)";
-              type = "lldb";
-              request = "launch";
-              cwd = "\${workspaceFolder}";
-              stopOnEntry = true;
-              runInTerminal = false;
-              program.__raw = ''
-                		function()
-                        return vim.fn.input("Path to exe: ", vim.fn.getcwd() .. '/', "file")
-                 		end
-              '';
-              args = { };
-            }
-          ];
-        };
-      };
-      dap-ui = {
-        enable = false;
-      };
-      dap-view = {
-        enable = false;
       };
 
       lint = {
