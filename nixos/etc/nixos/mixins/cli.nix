@@ -13,25 +13,20 @@
     shellcheck
     # isd
     neofetch
-    ghostty
-    # (pkgs.symlinkJoin {
-    #  name = "ghostty";
-    #  nativeBuildInputs = [ pkgs.makeWrapper ];
-    #  paths = [ pkgs.ghostty ];
-    #  postBuild =
-    #     let
-    #       configFile = pkgs.writeText "config"
-    #       ''
-    #       # window
-    #       window-width = 95
-    #       window-height = 95
-    #       '';
-    #     in
-    #   ''
-    #     wrapProgram $out/bin/ghostty \
-    #       --append-flags "--window-width=120 --window-height=35"
-    #   '';
-    # })
+    # ghostty
+    (pkgs.symlinkJoin {
+      name = "ghostty";
+      nativeBuildInputs = [ pkgs.makeWrapper ];
+      paths = [ pkgs.ghostty ];
+      postBuild = ''
+        wrapProgram $out/bin/ghostty \
+            --append-flags "--font-size=13" \
+            --append-flags "--font-family=\"JetBrains Mono\"" \
+            --append-flags "--window-width=100" \
+            --append-flags "--window-height=40" \
+            --append-flags "--background-opacity=\"0.92\""
+      '';
+    })
     usbutils
     btop
     nvtopPackages.amd
