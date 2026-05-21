@@ -25,7 +25,6 @@
       };
     };
     zfs = {
-      package = pkgs.zfs_2_4;
       allowHibernation = false;
       removeLinuxDRM = true;
       passwordTimeout = 0; # 0 = no timeout
@@ -54,7 +53,8 @@
     "rd.udev.log_level=3"
     "vmscape=ibpb"
   ];
-  boot.kernelPackages = pkgs.linuxPackages_6_18;
+  boot.kernelPackages = pkgs.linuxPackages_7_0;
+  # boot.kernelPackages = pkgs.linuxPackages_6_18;
   boot.supportedFilesystems = [
     "zfs"
     "vfat"

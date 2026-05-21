@@ -7,10 +7,10 @@
 {
 
   programs.thunderbird = {
-    enable = true;
+    enable = false;
   };
   programs.firefox = {
-    enable = false;
+    enable = true;
     preferencesStatus = "user";
     languagePacks = [
       "de"

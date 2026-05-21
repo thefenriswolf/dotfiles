@@ -41,6 +41,7 @@
     #openai-whisper
     viddy
     file
+    difftastic
     btrfs-progs
   ];
 
@@ -497,6 +498,7 @@
       pq = "pueue";
       sd = "run0 --background=41";
       emacs = "emacs -nw";
+      diff = "difft";
       nvimperf = "nvim --startuptime /tmp/nvperf.log";
       find = "fd";
       cat = "bat";

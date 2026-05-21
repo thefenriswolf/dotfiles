@@ -13,6 +13,19 @@
     pkgs.nerd-fonts.jetbrains-mono
   ];
 
+  # extraPlugins = [
+  #   (pkgs.vimUtils.buildVimPlugin {
+  #     name = "neowiki.nvim";
+  #     src = pkgs.fetchFromGitHub {
+  #       owner = "echaya";
+  #       repo = "neowiki.nvim";
+  #       rev = "86f705604f9f2e6c1a0f238ebe8df9fb843e71c7";
+  #       hash = "sha256-PXJhaX9pqIgDWZZbzK8z9SstW0kQ9SuB5IMPq7EjYic=";
+  #     };
+  #   })
+  # ];
+  # extraConfigLua = ''require('neowiki.nvim').setup()'';
+
   programs.nixvim = {
     enable = true;
     enableMan = true;
@@ -28,19 +41,6 @@
         plugins = true;
       };
     };
-
-    # extraPlugins = [
-    #   (pkgs.vimUtils.buildVimPlugin {
-    #     name = "neowiki.nvim";
-    #     src = pkgs.fetchFromGitHub {
-    #       owner = "echaya";
-    #       repo = "neowiki.nvim";
-    #       rev = "86f705604f9f2e6c1a0f238ebe8df9fb843e71c7";
-    #       hash = "sha256-PXJhaX9pqIgDWZZbzK8z9SstW0kQ9SuB5IMPq7EjYic=";
-    #     };
-    #   })
-    # ];
-    # extraConfigLua = ''require('neowiki.nvim').setup()'';
 
     colorschemes = {
       bamboo = {
@@ -109,6 +109,7 @@
     globals = {
       localleader = " ";
       mapleader = " ";
+      netrw_list_style = 3;
     };
 
     keymaps = [
@@ -228,9 +229,6 @@
           max_width_share = 0.4;
         };
       };
-      mini-comment = {
-        enable = true;
-      };
       treesitter = {
         enable = true;
         autoLoad = true;
@@ -247,7 +245,7 @@
         enable = true;
       };
       luasnip = {
-        enable = true;
+        enable = false;
       };
       gitsigns = {
         enable = true;
@@ -255,7 +253,6 @@
       which-key = {
         enable = true;
       };
-      hardtime.enable = false;
 
       yazi.enable = true;
 
@@ -417,7 +414,7 @@
         servers = {
           nixd.enable = true;
           lua_ls.enable = true;
-          gopls.enable = true;
+          gopls.enable = false;
           nimls.enable = false;
           kotlin_language_server.enable = false;
           jdtls.enable = false;
