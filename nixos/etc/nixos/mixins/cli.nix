@@ -12,7 +12,6 @@
     fd
     shellcheck
     # isd
-    neofetch
     # ghostty
     (pkgs.symlinkJoin {
       name = "ghostty";
@@ -31,6 +30,7 @@
     btop
     nvtopPackages.amd
     amdgpu_top
+    inxi
     fastfetch
     inotify-tools
     notify-desktop
@@ -498,6 +498,7 @@
       pq = "pueue";
       sd = "run0 --background=41";
       emacs = "emacs -nw";
+      tree = "exa --tree";
       diff = "difft";
       nvimperf = "nvim --startuptime /tmp/nvperf.log";
       find = "fd";

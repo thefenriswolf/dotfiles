@@ -5,6 +5,8 @@
   # ZFS #
   #######
 
+  boot.zfs.forceImportRoot = false;
+
   services.zfs.autoScrub = {
     enable = false;
     interval = "monthly";

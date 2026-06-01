@@ -50,7 +50,7 @@
     rocmSupport = true;
   };
   environment.systemPackages = [
-    pkgs.nixfmt-rfc-style
+    pkgs.nixfmt
     pkgs.nixd
     inputs.nixos-needsreboot.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];

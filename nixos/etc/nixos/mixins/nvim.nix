@@ -158,7 +158,7 @@
         key = "<leader>f";
         action = ":Yazi<CR>";
         options = {
-          desc = "Open [F]ilemanager";
+          desc = "Open [F]ilemanager (Yazi)";
         };
       }
       ## LazyGit
@@ -399,7 +399,7 @@
       lint = {
         enable = true;
         lintersByFt = {
-          # kotlin = [ "ktlint -F" ];
+          kotlin = [ "ktlint" ];
           bash = [ "shellcheck" ];
           sh = [ "shellcheck" ];
           elixir = [ "credo" ];
@@ -415,10 +415,10 @@
           nixd.enable = true;
           lua_ls.enable = true;
           gopls.enable = false;
+          harper_ls.enable = true;
           nimls.enable = false;
           kotlin_language_server.enable = false;
           jdtls.enable = false;
-          erlangls.enable = false;
           elixirls.enable = false;
           gleam.enable = false;
           crystalline.enable = false;

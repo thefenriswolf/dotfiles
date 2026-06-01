@@ -7,7 +7,7 @@
   services = {
     bpftune.enable = false;
     auto-cpufreq = {
-      enable = false; # enable either auto-cpufreq or TLP
+      enable = true; # enable either auto-cpufreq or TLP
       settings = {
         battery = {
           # cpu
@@ -16,12 +16,12 @@
           platform_profile = "powersave";
           #energy_perf_bias="balance_performance"; # for intel
           turbo = "never";
-          #scaling_min_freq=;
-          #scaling_max_freq=;
+          # scaling_min_freq=;
+          # scaling_max_freq=;
           # battery
-          enable_thresholds = true;
-          #start_threshold = 30;
-          #stop_threshold = 80;
+          # enable_thresholds = true;
+          # start_threshold = 30;
+          # stop_threshold = 80;
         };
         charger = {
           governor = "performance";
@@ -29,18 +29,18 @@
           platform_profile = "powersave";
           #energy_perf_bias="balance_performance"; # for intel
           turbo = "auto";
-          #scaling_min_freq=;
-          #scaling_max_freq=;
+          # scaling_min_freq=;
+          # scaling_max_freq=;
           # battery
-          enable_thresholds = true;
-          #start_threshold = 30;
-          #stop_threshold = 80;
+          # enable_thresholds = true;
+          # start_threshold = 30;
+          # stop_threshold = 80;
         };
       };
     };
     power-profiles-daemon.enable = false; # enable either tlp or auto-cpufreq
     tlp = {
-      enable = true; # enable either tlp or auto-cpufreq
+      enable = false; # enable either tlp or auto-cpufreq
       settings = {
         TLP_DEFAULT_MODE = "BAT"; # default power profile after boot
         TLP_PERSISTENT_DEFAULT = 0; # 0: autoselect power profile, 1: always choose default profile

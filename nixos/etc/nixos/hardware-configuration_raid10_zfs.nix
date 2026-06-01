@@ -28,7 +28,7 @@
     };
     zfs = {
       package = pkgs.zfs_2_4;
-      allowHibernation = false;
+      unsafeAllowHibernation = false;
       removeLinuxDRM = true;
       passwordTimeout = 0; # 0 = no timeout
     };

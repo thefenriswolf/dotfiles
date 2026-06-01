@@ -11,7 +11,7 @@ in
 pkgs.appimageTools.wrapType2 {
   inherit pname version src;
   extraPkgs = pkgs: [
-    pkgs.xorg.libxshmfence
+    pkgs.libxshmfence
     pkgs.icu
     pkgs.at-spi2-core
     pkgs.libgdiplus

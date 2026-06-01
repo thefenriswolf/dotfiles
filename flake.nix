@@ -7,13 +7,13 @@
   description = "thefenriswolf's NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nur.url = "github:nix-community/nur";
     wrappers.url = "github:lassulus/wrappers";
     nixos-needsreboot.url = "https://codeberg.org/Mynacol/nixos-needsreboot/archive/main.tar.gz";
-    nixvim.url = "github:nix-community/nixvim/nixos-25.11";
+    nixvim.url = "github:nix-community/nixvim/nixos-26.05";
     stylix.url = "github:nix-community/stylix/release-25.11";
     # nix-flatpak.url = "github:gmodena/nix-flatpak";
     # tiddlydesktop.url = "github:TiddlyWiki/TiddlyDesktop";

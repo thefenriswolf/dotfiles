@@ -49,12 +49,16 @@
 
   services.resolved = {
     enable = true;
-    domains = [ "~." ];
-    dnsovertls = "false";
-    dnssec = "false";
-    fallbackDns = [
-      "116.202.176.26#noads.libredns.gr"
-    ];
+    settings = {
+      Resolve = {
+        DNSOverTLS = "false";
+        DNSSEC = "false";
+        Domains = [ "~." ];
+        FallbackDNS = [
+          "116.202.176.26#noads.libredns.gr"
+        ];
+      };
+    };
   };
   # Workaround https://github.com/NixOS/nixpkgs/issues/180175
   systemd.services.NetworkManager-wait-online.enable = false;

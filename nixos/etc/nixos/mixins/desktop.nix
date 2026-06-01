@@ -70,7 +70,7 @@
     };
     displayManager.gdm = {
       enable = true;
-      wayland = true;
+      # wayland = true;
       autoSuspend = false;
     };
 
@@ -117,7 +117,6 @@
       gnome-randr
 
       mpv
-      losslesscut-bin
       yt-dlp
       hledger
       hledger-fmt
