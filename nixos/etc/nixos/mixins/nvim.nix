@@ -198,6 +198,7 @@
     ];
 
     plugins = {
+      orgmode.enable = true;
       mini = {
         enable = true;
         mockDevIcons = true;
@@ -259,12 +260,16 @@
       ledger = {
         enable = true;
         settings = {
+          # All settings are automatically prefixed with "ledger_"
           bin = "hledger";
+          is_hledger = true;
+          decimal_sep = ".";
+          # date_format = "%Y/%m/%d";
         };
       };
 
       vimwiki = {
-        enable = true;
+        enable = false;
         settings = {
           number = true;
           nocompatible = true;
@@ -400,6 +405,7 @@
         enable = true;
         lintersByFt = {
           kotlin = [ "ktlint" ];
+          ledger = [ "hledger" ];
           bash = [ "shellcheck" ];
           sh = [ "shellcheck" ];
           elixir = [ "credo" ];
@@ -422,8 +428,9 @@
           elixirls.enable = false;
           gleam.enable = false;
           crystalline.enable = false;
+          marksman.enable = true;
           clojure_lsp.enable = false;
-          ols.enable = false;
+          ols.enable = true;
           omnisharp = {
             enable = false;
             cmd = [
@@ -456,6 +463,7 @@
             nim = [ "nph" ];
             java = [ "google-java-format" ];
             kotlin = [ "ktfmt" ];
+            ledger = [ "hledger-fmt" ];
             gleam = [ "gleam format" ];
             elixir = [ "mix format" ];
             erlang = [ "efmt" ];

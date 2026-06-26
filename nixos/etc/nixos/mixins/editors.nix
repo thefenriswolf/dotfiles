@@ -10,7 +10,7 @@ in
     fd
     viu
     chafa
-    stow
+    # stow
     ueberzugpp
 
     micro

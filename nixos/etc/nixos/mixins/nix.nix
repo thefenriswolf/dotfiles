@@ -52,6 +52,7 @@
   environment.systemPackages = [
     pkgs.nixfmt
     pkgs.nixd
+    pkgs.nix-tree
     inputs.nixos-needsreboot.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

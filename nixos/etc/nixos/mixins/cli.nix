@@ -11,21 +11,23 @@
     bat
     fd
     shellcheck
+    nushell
+    nushellPlugins.highlight
     # isd
     # ghostty
-    (pkgs.symlinkJoin {
-      name = "ghostty";
-      nativeBuildInputs = [ pkgs.makeWrapper ];
-      paths = [ pkgs.ghostty ];
-      postBuild = ''
-        wrapProgram $out/bin/ghostty \
-            --append-flags "--font-size=13" \
-            --append-flags "--font-family=\"JetBrains Mono\"" \
-            --append-flags "--window-width=100" \
-            --append-flags "--window-height=40" \
-            --append-flags "--background-opacity=\"0.92\""
-      '';
-    })
+    # (pkgs.symlinkJoin {
+    #   name = "ghostty";
+    #   nativeBuildInputs = [ pkgs.makeWrapper ];
+    #   paths = [ pkgs.ghostty ];
+    #   postBuild = ''
+    #     wrapProgram $out/bin/ghostty \
+    #         --append-flags "--font-size=13" \
+    #         --append-flags "--font-family=\"JetBrains Mono\"" \
+    #         --append-flags "--window-width=100" \
+    #         --append-flags "--window-height=40" \
+    #         --append-flags "--background-opacity=\"0.92\""
+    #   '';
+    # })
     usbutils
     btop
     nvtopPackages.amd
@@ -76,7 +78,7 @@
   };
 
   programs.starship = {
-    enable = true;
+    enable = false;
     settings = {
       # source: https://gist.github.com/flexiondotorg/d823f23a2c0b2f1f4fd181e521b1618f
       add_newline = false;
@@ -468,10 +470,10 @@
     };
   };
 
-  system.userActivationScripts.zshrc = "touch .zshrc";
-  users.defaultUserShell = pkgs.zsh;
+  # system.userActivationScripts.zshrc = "touch .zshrc";
+  users.defaultUserShell = pkgs.nushell;
   programs.zsh = {
-    enable = true;
+    enable = false;
     enableCompletion = true;
     enableBashCompletion = true;
     syntaxHighlighting.enable = true;

@@ -120,6 +120,8 @@
       yt-dlp
       hledger
       hledger-fmt
+      hledger-utils
+      pricehist
 
       calibre
       mtpfs

@@ -1,10 +1,10 @@
 { pkgs, ... }:
 let
   pname = "Lychee";
-  version = "7.6.1";
+  version = "7.6.5";
   src = pkgs.fetchurl {
     url = "https://mango-lychee.nyc3.cdn.digitaloceanspaces.com/LycheeSlicer-${version}.AppImage";
-    hash = "sha256-649Lf6bh1Saee0NrHZ+wqoOUgpy4lxMD2DV7lh6ZNik=";
+    hash = "";
   };
 in
 pkgs.appimageTools.wrapType2 {
