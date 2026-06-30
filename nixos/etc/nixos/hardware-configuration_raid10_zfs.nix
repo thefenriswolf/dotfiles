@@ -27,7 +27,6 @@
       };
     };
     zfs = {
-      package = pkgs.zfs_2_4;
       unsafeAllowHibernation = false;
       removeLinuxDRM = true;
       passwordTimeout = 0; # 0 = no timeout
@@ -48,6 +47,7 @@
       "zenpower"
     ];
     extraModulePackages = [ config.boot.kernelPackages.zenpower ];
+    # kernelPackages = pkgs.linuxPackages_7_1;
     kernelPackages = pkgs.linuxPackages_6_18;
     kernelParams = [
       "quiet"

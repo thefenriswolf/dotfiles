@@ -48,6 +48,7 @@ in
     ink
 
     prusa-slicer
+    super-slicer
     uvtools
     #  lychee
     # paperwork

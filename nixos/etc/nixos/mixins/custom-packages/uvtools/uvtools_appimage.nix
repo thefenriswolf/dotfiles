@@ -2,10 +2,10 @@
 
 let
   pname = "UVtools";
-  version = "6.0.3";
+  version = "6.1.0";
   src = pkgs.fetchurl {
     url = "https://github.com/sn4k3/${pname}/releases/download/v${version}/${pname}_linux-x64_v${version}.AppImage";
-    hash = "sha256-aKhI1zV2mQIf2ZVJ5MSlsLotn8g7VHdmIPV3dSBRtKo=";
+    hash = "sha256-QcC9toLj0um45f5WuogvxPVgKODWuoPOOpTWjuAPHXo=";
   };
 in
 pkgs.appimageTools.wrapType2 {
