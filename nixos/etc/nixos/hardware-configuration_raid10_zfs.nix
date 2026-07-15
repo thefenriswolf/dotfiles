@@ -48,7 +48,7 @@
     ];
     extraModulePackages = [ config.boot.kernelPackages.zenpower ];
     # kernelPackages = pkgs.linuxPackages_7_1;
-    kernelPackages = pkgs.linuxPackages_6_18;
+    # kernelPackages = pkgs.linuxPackages_6_18;
     kernelParams = [
       "quiet"
       "loglevel=3"
