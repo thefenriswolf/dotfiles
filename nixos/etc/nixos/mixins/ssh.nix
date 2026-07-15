@@ -10,7 +10,7 @@
     };
     allowSFTP = false; # Don't set this if you need sftp
     extraConfig = ''
-      AllowTcpForwarding yes
+      AllowTcpForwarding no
       X11Forwarding no
       AllowAgentForwarding no
       AllowStreamLocalForwarding no

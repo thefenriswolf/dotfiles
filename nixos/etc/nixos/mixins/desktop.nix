@@ -120,6 +120,7 @@
       yt-dlp
       hledger
       hledger-fmt
+      hledger-web
       hledger-utils
       pricehist
 

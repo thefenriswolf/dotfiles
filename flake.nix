@@ -12,9 +12,7 @@
     #nixos-hardware.url = "github:NixOS/nixos-hardware";
     nur.url = "github:nix-community/nur";
     wrappers.url = "github:lassulus/wrappers";
-    nixos-needsreboot.url = "https://codeberg.org/Mynacol/nixos-needsreboot/archive/main.tar.gz";
     nixvim.url = "github:nix-community/nixvim/nixos-26.05";
-    stylix.url = "github:nix-community/stylix/release-25.11";
     # nix-flatpak.url = "github:gmodena/nix-flatpak";
     # tiddlydesktop.url = "github:TiddlyWiki/TiddlyDesktop";
 
@@ -23,14 +21,12 @@
     {
       self,
       nixpkgs,
-      stylix,
       nixvim,
       # nix-flatpak,
       # nixos-hardware,
       nur,
       nixpkgs-unstable,
       wrappers,
-      nixos-needsreboot,
       ...
     }@inputs:
     let

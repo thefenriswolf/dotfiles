@@ -10,6 +10,8 @@
     procs
     bat
     fd
+    jjui
+    jj
     shellcheck
     nushell
     nushellPlugins.highlight
@@ -39,7 +41,6 @@
     tldr
     pandoc
     sqlite
-    #emacs-nox
     #openai-whisper
     viddy
     file

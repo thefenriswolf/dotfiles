@@ -54,7 +54,7 @@
     "vmscape=ibpb"
   ];
   # boot.kernelPackages = pkgs.linuxPackages_7_1;
-  boot.kernelPackages = pkgs.linuxPackages_6_18;
+  # boot.kernelPackages = pkgs.linuxPackages_6_18;
   boot.supportedFilesystems = [
     "zfs"
     "vfat"

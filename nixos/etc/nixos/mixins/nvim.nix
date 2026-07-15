@@ -420,7 +420,7 @@
         servers = {
           nixd.enable = true;
           lua_ls.enable = true;
-          gopls.enable = false;
+          gopls.enable = true;
           harper_ls.enable = true;
           nimls.enable = false;
           kotlin_language_server.enable = false;

@@ -5,6 +5,13 @@
   ...
 }:
 {
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "pnpm-9.15.9"
+  ];
+
+  nix.sshServe.enable = true;
+
   programs.nix-ld = {
     enable = true;
   };
@@ -16,19 +23,7 @@
     flake = "/home/ro/playground/dotfiles";
   };
 
-  services.nix-serve = {
-    enable = false;
-    openFirewall = true;
-    port = 6969;
-  };
-
   nix = {
-    sshServe = {
-      enable = false;
-      trusted = true;
-      keys = [ ];
-    };
-
     optimise.automatic = true;
     gc = {
       automatic = false;
@@ -42,9 +37,9 @@
         "flakes"
       ];
       auto-optimise-store = true;
-      trusted-substituters = [ ];
     };
   };
+
   nixpkgs.config = {
     allowUnfree = true;
     rocmSupport = true;
@@ -53,6 +48,5 @@
     pkgs.nixfmt
     pkgs.nixd
     pkgs.nix-tree
-    inputs.nixos-needsreboot.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
