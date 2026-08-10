@@ -7,7 +7,7 @@
 {
 
   nixpkgs.config.permittedInsecurePackages = [
-    "pnpm-9.15.9"
+    #   "pnpm-9.15.9"
   ];
 
   nix.sshServe.enable = true;
@@ -42,7 +42,7 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-    rocmSupport = true;
+    # rocmSupport = true;
   };
   environment.systemPackages = [
     pkgs.nixfmt
