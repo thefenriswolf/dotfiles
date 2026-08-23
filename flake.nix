@@ -13,7 +13,7 @@
     nur.url = "github:nix-community/nur";
     wrappers.url = "github:lassulus/wrappers";
     nixvim.url = "github:nix-community/nixvim/nixos-26.05";
-    # nix-flatpak.url = "github:gmodena/nix-flatpak";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
     # tiddlydesktop.url = "github:TiddlyWiki/TiddlyDesktop";
 
   };
@@ -22,7 +22,7 @@
       self,
       nixpkgs,
       nixvim,
-      # nix-flatpak,
+      nix-flatpak,
       # nixos-hardware,
       nur,
       nixpkgs-unstable,

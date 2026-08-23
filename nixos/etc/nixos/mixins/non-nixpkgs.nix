@@ -1,5 +1,14 @@
-{ config, pkgs, ... }:
 {
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+{
+  imports = [
+    inputs.nix-flatpak.nixosModules.nix-flatpak
+  ];
 
   # auto-enable appimage-run
   programs.appimage = {
@@ -7,7 +16,17 @@
     binfmt = true;
   };
 
-  services.flatpak.enable = true;
+  services.flatpak = {
+    enable = true;
+    update.auto = {
+      enable = true;
+      onCalendar = "weekly";
+    };
+    packages = [
+      "org.gnome.Boxes"
+      "org.ferdium.Ferdium"
+    ];
+  };
   systemd.services.flatpak-repo = {
     wantedBy = [ "multi-user.target" ];
     path = [ pkgs.flatpak ];

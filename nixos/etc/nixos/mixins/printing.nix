@@ -4,7 +4,7 @@
 }:
 let
   uvtools = import ./custom-packages/uvtools/uvtools_appimage.nix { inherit pkgs; };
-  # lychee = import ./custom-packages/lychee.nix { inherit pkgs; };
+  lychee-slicer = import ./custom-packages/lychee.nix { inherit pkgs; };
   unstable = import <nixos-unstable> {
     config = {
       allowUnfree = true;
@@ -48,9 +48,8 @@ in
     ink
 
     prusa-slicer
-    super-slicer
     uvtools
-    #  lychee
+    lycheeslicer
     # paperwork
   ];
 }
