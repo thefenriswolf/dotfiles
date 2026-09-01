@@ -13,8 +13,6 @@
     jjui
     jj
     shellcheck
-    nushell
-    nushellPlugins.highlight
     # isd
     # ghostty
     # (pkgs.symlinkJoin {
@@ -79,7 +77,7 @@
   };
 
   programs.starship = {
-    enable = false;
+    enable = true;
     settings = {
       # source: https://gist.github.com/flexiondotorg/d823f23a2c0b2f1f4fd181e521b1618f
       add_newline = false;
@@ -471,10 +469,10 @@
     };
   };
 
-  # system.userActivationScripts.zshrc = "touch .zshrc";
-  users.defaultUserShell = pkgs.nushell;
+  system.userActivationScripts.zshrc = "touch .zshrc";
+  users.defaultUserShell = pkgs.zsh;
   programs.zsh = {
-    enable = false;
+    enable = true;
     enableCompletion = true;
     enableBashCompletion = true;
     syntaxHighlighting.enable = true;

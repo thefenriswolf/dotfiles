@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
 {
+  # hardware.rtl-sdr.enable = true;
+
   # https://nixos.wiki/wiki/Bluetooth
   hardware.bluetooth = {
     enable = true;
