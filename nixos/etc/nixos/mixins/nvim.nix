@@ -198,7 +198,13 @@
     ];
 
     plugins = {
-      orgmode.enable = true;
+      orgmode = {
+        enable = true;
+        settings = {
+          org_default_notes_file = "~/notes/todo.org";
+        };
+      };
+
       mini = {
         enable = true;
         mockDevIcons = true;
