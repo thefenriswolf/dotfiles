@@ -25,6 +25,8 @@
     packages = [
       "org.gnome.Boxes"
       "org.ferdium.Ferdium"
+      "com.github.tchx84.Flatseal"
+      "io.github.giantpinkrobots.flatsweep"
     ];
   };
   systemd.services.flatpak-repo = {

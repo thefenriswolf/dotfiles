@@ -6,9 +6,6 @@
 }:
 {
 
-  programs.thunderbird = {
-    enable = false;
-  };
   programs.firefox = {
     enable = true;
     preferencesStatus = "user";
@@ -39,13 +36,19 @@
     gnome = {
       core-apps.enable = true;
       sushi.enable = true; # nautilus preview
+      gnome-online-accounts.enable = true;
       games.enable = false;
       core-developer-tools.enable = false;
-      gnome-online-accounts.enable = false;
       gnome-remote-desktop.enable = false;
       gnome-browser-connector.enable = false;
       rygel.enable = false;
     };
+    desktopManager = {
+      gnome = {
+        enable = true;
+      };
+    };
+
     libinput.enable = true;
 
     desktopManager = {
@@ -54,24 +57,10 @@
     };
 
     displayManager = {
+      gdm.enable = true;
+      plasma-login-manager.enable = false;
       autoLogin.enable = false;
-      #defaultSession = "plasma";
-      sddm = {
-        enable = false;
-        wayland.enable = true;
-        autoNumlock = true;
-        enableHidpi = true;
-      };
-    };
-    desktopManager = {
-      gnome = {
-        enable = true;
-      };
-    };
-    displayManager.gdm = {
-      enable = true;
-      # wayland = true;
-      autoSuspend = false;
+      # defaultSession = "plasma";
     };
 
     xserver = {
@@ -87,9 +76,9 @@
 
   # Only install the docs I use
   documentation = {
-    enable = false;
-    nixos.enable = false;
-    man.enable = false;
+    enable = true;
+    nixos.enable = true;
+    man.enable = true;
     info.enable = false;
     doc.enable = false;
   };
@@ -104,25 +93,39 @@
       inkscape-with-extensions
 
       onlyoffice-desktopeditors
-      #libreoffice
+      libreoffice
 
       gnome-firmware
       gnome-tweaks
+      gnomeExtensions.dash-to-panel
+      gnomeExtensions.night-theme-switcher
+      gnome-randr
+
+      # KDE Utilities
+      # xdg-desktop-portal
+      # kdePackages.xdg-desktop-portal-kde
+      # kdePackages.discover # Optional: Software center for Flatpak/firmware updates
+      # kdePackages.kcalc # Calculator
+      # kdePackages.kclock # Clock app
+      # kdePackages.ksystemlog # System log viewer
+
+      # Hardware/System Utilities (Optional)
+      # kdePackages.isoimagewriter # Write hybrid ISOs to USB
+      # kdePackages.partitionmanager # Disk and partition management
+      # hardinfo2 # System benchmarks and hardware info
+      # wayland-utils # Wayland diagnostic tools
+      # wl-clipboard # Wayland copy/paste support
+
       adwaita-icon-theme
       dracula-icon-theme
       phinger-cursors
-      gnomeExtensions.dash-to-panel
-      gnomeExtensions.night-theme-switcher
       wlr-which-key
-      gnome-randr
 
       mpv
       yt-dlp
       hledger
       hledger-fmt
-      hledger-web
       hledger-utils
-      pricehist
 
       calibre
       mtpfs

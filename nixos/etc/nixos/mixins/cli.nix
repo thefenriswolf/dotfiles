@@ -7,11 +7,13 @@
     ripgrep
     fzf
     eza
+    lsd
+    dust
+    eva
+    xcp
     procs
     bat
     fd
-    jjui
-    jj
     shellcheck
     # isd
     # ghostty
@@ -495,6 +497,7 @@
       ssh = "TERM=xterm-256color ssh";
       # l = "ls -lisah";
       l = "eza -a -1 -l -s time -r --git -h";
+      ls = "lsd";
       sl = "ls -lorths";
       pq = "pueue";
       sd = "run0 --background=41";
@@ -505,6 +508,8 @@
       find = "fd";
       cat = "bat";
       ps = "procs";
+      bc = "eva";
+      cp = "xcp";
       watch = "viddy";
       egrep = "egrep --colour=auto";
       fgrep = "fgrep --colour=auto";
