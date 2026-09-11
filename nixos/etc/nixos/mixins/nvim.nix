@@ -95,6 +95,7 @@
       splitbelow = true;
       splitright = true;
       autoread = true;
+      # errorformat.append = "%f(%l:%c)\ Error:\ %m,%-Z%p^"; # odin error messages
     };
     diagnostic = {
       settings = {
@@ -104,7 +105,7 @@
         virtual_text = false;
       };
     };
-
+    extraConfigVim = "set errorformat+=%f(%l:%c)\\ Error:\\ %m,%-Z%p^";
     # KEYMAPS
     globals = {
       localleader = " ";
@@ -346,12 +347,12 @@
               desc = "[ ] Find existing buffers";
             };
           };
-          #"<leader>sk" = {
-          #  action = "keymaps";
-          #  options = {
-          #    desc = "[S]earch [K]eymaps";
-          #  };
-          #};
+          "<leader>q" = {
+            action = "quickfix";
+            options = {
+              desc = "[Q]uickfix";
+            };
+          };
           "<leader>sf" = {
             action = "find_files";
             options = {
