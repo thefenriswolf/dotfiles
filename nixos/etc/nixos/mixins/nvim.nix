@@ -200,10 +200,19 @@
 
     plugins = {
       orgmode = {
+        # https://nvim-orgmode.github.io/tutorial#basic-customization
         enable = true;
         settings = {
           org_agenda_files = "~/notes/*";
           org_default_notes_file = "~/notes/todo.org";
+        };
+      };
+      headlines = {
+        enable = true;
+        settings = {
+          # org = {
+          #   headline_highlights = true;
+          # };
         };
       };
       mini = {
