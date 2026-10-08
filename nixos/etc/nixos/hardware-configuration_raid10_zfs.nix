@@ -44,11 +44,10 @@
     };
     kernelModules = [
       "kvm-amd"
-      "zenpower"
+      #  "zenpower"
     ];
-    extraModulePackages = [ config.boot.kernelPackages.zenpower ];
-    # kernelPackages = pkgs.linuxPackages_7_1;
-    # kernelPackages = pkgs.linuxPackages_6_18;
+    # extraModulePackages = [ config.boot.kernelPackages.zenpower ];
+    # kernelPackages = pkgs.linuxPackages_7_2;
     kernelParams = [
       "quiet"
       "loglevel=3"
@@ -56,6 +55,7 @@
       "rd.udev.log_level=3"
       "nohibernate"
       "acpi_backlight=native"
+      "mitigations=off"
     ];
     extraModprobeConfig = ''
       options iwlwifi 11n_disable=1
@@ -68,6 +68,7 @@
       "ntfs"
       "ext4"
       "btrfs"
+      "bcachefs"
     ];
 
   };
