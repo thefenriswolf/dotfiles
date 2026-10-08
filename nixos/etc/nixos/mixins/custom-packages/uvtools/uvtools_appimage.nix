@@ -1,10 +1,10 @@
 { pkgs, ... }:
 let
   pname = "UVtools";
-  version = "7.0.0";
+  version = "7.0.2";
   src = pkgs.fetchurl {
     url = "https://github.com/sn4k3/${pname}/releases/download/v${version}/${pname}_linux-x64_v${version}.AppImage";
-    hash = "sha256-wHpHPWwggpVnF0iW6RsFBtS8/YAHmMiKsbY8kQtGncY=";
+    hash = "sha256-MJ11CRgT41pEvw9M96T6EI9VRNSpZBM0X7onI4C6SE4=";
   };
   appimageContents = pkgs.appimageTools.extractType1 { inherit pname version src; };
 in

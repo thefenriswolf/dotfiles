@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ lib, pkgs, ... }:
 {
 
   #https://nixos.wiki/wiki/Podman

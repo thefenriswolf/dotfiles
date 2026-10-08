@@ -11,7 +11,7 @@
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
   services.fwupd.enable = true;
-  services.ncps.cache.hostName = "laptop-stefan";
+  # services.ncps.cache.hostName = "laptop-stefan";
 
   networking.hostId = "8c884ab5";
   boot = {
@@ -42,9 +42,9 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [
     "kvm-amd"
-    "zenpower"
+    # "zenpower"
   ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.zenpower ];
+  # boot.extraModulePackages = [ config.boot.kernelPackages.zenpower ];
   boot.kernelParams = [
     "quiet"
     "loglevel=3"
@@ -52,9 +52,10 @@
     "nmi_watchdog=0"
     "rd.udev.log_level=3"
     "vmscape=ibpb"
+    "mitigations=off"
   ];
 
-  # boot.kernelPackages = pkgs.linuxPackages_7_2;
+  boot.kernelPackages = pkgs.linuxPackages_7_2;
 
   boot.supportedFilesystems = [
     "zfs"
@@ -62,6 +63,7 @@
     "ntfs"
     "ext4"
     "btrfs"
+    "bcachefs"
   ];
 
   fileSystems."/" = {

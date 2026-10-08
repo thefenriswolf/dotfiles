@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}:
+{ pkgs, lib, ... }:
 {
 
   environment.systemPackages = with pkgs; [
@@ -18,6 +15,9 @@
     enable = false;
     #package = pkgs.kdePackages.kdeconnect-kde;
   };
+
+  systemd.services.syncthing-init.wantedBy = lib.mkForce [ ];
+  systemd.services.syncthing.wantedBy = lib.mkForce [ ];
 
   services = {
     syncthing = {
