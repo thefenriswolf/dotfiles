@@ -5,14 +5,17 @@
   config,
   lib,
   pkgs,
+  inputs,
   modulesPath,
   ...
 }:
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
-  services.fwupd.enable = true;
-  # services.ncps.cache.hostName = "laptop-stefan";
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+    inputs.disko.nixosModules.disko
+  ];
 
+  services.fwupd.enable = true;
   networking.hostId = "8c884ab5";
   boot = {
     loader = {
@@ -63,7 +66,6 @@
     "ntfs"
     "ext4"
     "btrfs"
-    "bcachefs"
   ];
 
   fileSystems."/" = {
@@ -104,7 +106,6 @@
       "dmask=0022"
     ];
   };
-
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

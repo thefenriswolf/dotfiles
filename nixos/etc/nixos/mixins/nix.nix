@@ -5,6 +5,10 @@
   ...
 }:
 {
+  services.tftpd = {
+    enable = false;
+    path = "/home/ro/Downloads/openwrt-tp-link";
+  };
 
   nixpkgs.config.permittedInsecurePackages = [
     #   "pnpm-9.15.9"

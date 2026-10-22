@@ -23,10 +23,10 @@
       onCalendar = "weekly";
     };
     packages = [
-      "org.gnome.Boxes"
-      "org.ferdium.Ferdium"
+      "org.gnome.Epiphany"
       "com.github.tchx84.Flatseal"
       "io.github.giantpinkrobots.flatsweep"
+      "org.zotero.Zotero"
     ];
   };
   systemd.services.flatpak-repo = {
