@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   pname = "lycheeslicer";
-  version = "8.0.0";
+  version = "8.0.3";
   src = pkgs.fetchurl {
     url = "https://mango-lychee.nyc3.cdn.digitaloceanspaces.com/LycheeSlicer-${version}.AppImage";
     hash = "";
